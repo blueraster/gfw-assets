@@ -1,21 +1,43 @@
 {
-  "name": "example-project",
-  "version": "0.1.0",
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "glob": "~4.3.1",
-    "grunt-contrib-uglify": "~0.7.0",
-    "grunt-contrib-concat": "~0.5.0",
-    "grunt-contrib-sass": "~0.8.1",
-    "grunt-contrib-imagemin": "~0.9.2",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-connect": "~0.9.0",
-    "grunt-autoprefixer": "~2.0.0",
-    "grunt-contrib-cssmin": "~0.11.0",
-    "grunt-contrib-jshint": "~0.10.0"
+  "name": "gfw-assets",
+  "version": "1.0.0",
+  "description": "Providing a navigation bar and footer shared by all Global Forest Watch websites, such as GFW, GFW Fires, Commodities, etc.",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
   },
   "dependencies": {
+    "jquery": "^2.2.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "glob": "~4.3.1",
+    "grunt": "~0.4.1",
+    "grunt-autoprefixer": "~2.0.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-connect": "~0.9.0",
+    "grunt-contrib-cssmin": "~0.11.0",
+    "grunt-contrib-imagemin": "~0.9.2",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-sass": "~0.8.1",
+    "grunt-contrib-uglify": "~0.7.0",
+    "grunt-contrib-watch": "~0.6.1",
     "grunt-spritesmith": "^6.1.0",
-    "load-grunt-tasks": "~2.0.0"
-  }
+    "load-grunt-tasks": "~2.0.0",
+    "mocha": "^2.4.5",
+    "mocha-phantomjs": "^4.0.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha-phantomjs -R nyan ./test/clean-runner.html && ./node_modules/.bin/mocha-phantomjs -R nyan ./test/runner.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vizzuality/gfw-assets.git"
+  },
+  "author": "Vizzuality <hello@vizzuality>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vizzuality/gfw-assets/issues"
+  },
+  "homepage": "https://github.com/Vizzuality/gfw-assets#readme"
 }

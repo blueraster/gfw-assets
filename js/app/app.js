@@ -1,7 +1,9 @@
 window.GFW = window.GFW || {};
 window.GFW.NavBar = window.GFW.NavBar || {};
 
-(function(gfw) {
+(function(gfw, root) {
+
+  root.GFW.$ = jQuery.noConflict(true);
 
 gfw.Application = {
   initialize: function(params) {
@@ -159,4 +161,4 @@ gfw.Application = {
   },
 };
 
-})(window.GFW.NavBar);
+})(window.GFW.NavBar, window);
