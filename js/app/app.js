@@ -3,6 +3,8 @@ window.GFW.NavBar = window.GFW.NavBar || {};
 
 (function(gfw, root) {
 
+  // Don't use global variables
+  root.GFW.lory = lory.noConflict();
   root.GFW.$ = jQuery.noConflict(true);
 
 gfw.Application = {

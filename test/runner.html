@@ -6,9 +6,9 @@
   </head>
   <body>
     <div id="mocha"></div>
-
     <!-- Add global libraries to check isolation here: -->
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="./libs/lory.js"></script>
 
     <!-- Test -->
     <script src="../node_modules/mocha/mocha.js"></script>
@@ -24,9 +24,12 @@
     <!-- Source -->
     <script src="../js/libs/jquery.js"></script>
     <script src="../js/libs/lory.min.js"></script>
+    <script src="../js/init.js"></script>
     <script src="../js/app/app.js"></script>
     <!-- Specs -->
     <script src="./specs/isolated_libs_spec.js"></script>
+    <script src="./specs/app_spec.js"></script>
+    <!-- Init test -->
     <script>
       window.mocha.run();
     </script>

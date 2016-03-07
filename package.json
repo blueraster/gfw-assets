@@ -28,7 +28,7 @@
     "mocha-phantomjs": "^4.0.2"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha-phantomjs -R nyan ./test/clean-runner.html && ./node_modules/.bin/mocha-phantomjs -R nyan ./test/runner.html"
+    "test": "./node_modules/.bin/mocha-phantomjs -R nyan ./test/runner.html"
   },
   "repository": {
     "type": "git",
