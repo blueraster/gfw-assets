@@ -1,9 +1,11 @@
 window.GFW = window.GFW || {};
 window.GFW.NavBar = window.GFW.NavBar || {};
 
-(function(gfw) {
+(function(gfw, root) {
 
 gfw.myGFW = gfw.myGFW || {};
+
+var $ = root.GFW.$;
 
 var LoginButton = gfw.myGFW.LoginButton = function(options) {
   this.el = options.el || document.createElement('div');
@@ -64,4 +66,4 @@ LoginButton.prototype.setupLinks = function() {
   }
 };
 
-})(window.GFW.NavBar);
+})(window.GFW.NavBar, window);

@@ -1,22 +1,22 @@
 module.exports = {
   dist: {
     src: [
-      'js/libs/*.js',
-      'js/init.js',
+      'src/js/libs/*.js',
+      'src/js/init.js',
 
-      'js/app/urls.js',
+      'src/js/app/urls.js',
 
-      'js/app/my_gfw/User.js',
-      'js/app/my_gfw/LoginModal.js',
-      'js/app/my_gfw/LoginButton.js',
+      'src/js/app/my_gfw/User.js',
+      'src/js/app/my_gfw/LoginModal.js',
+      'src/js/app/my_gfw/LoginButton.js',
 
-      'js/app/feedback.js',
-      'js/app/menu.js',
-      'js/app/menujson.js',
+      'src/js/app/feedback.js',
+      'src/js/app/menu.js',
+      'src/js/app/menujson.js',
 
-      'js/app/app.js',
-      'js/app/loader.js',
+      'src/js/app/app.js',
+      'src/js/app/loader.js',
     ],
-    dest: 'js/build/production.js'
+    dest: 'dist/js/production.js'
   }
 };

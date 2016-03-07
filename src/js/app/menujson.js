@@ -2,7 +2,8 @@
 window.GFW = window.GFW || {};
 window.GFW.NavBar = window.GFW.NavBar || {};
 
-(function(gfw) {
+(function(gfw, root) {
+  var $ = root.GFW.$;
 
   gfw.menujsonGFW = {
     'default' : [{
@@ -17,22 +18,22 @@ window.GFW.NavBar = window.GFW.NavBar || {};
         },{
           name: 'Commodities',
           link: 'http://commodities.globalforestwatch.org/',
-          classname: 'mobile-friendly', 
+          classname: 'mobile-friendly',
         },{
           name: 'Fires',
           link: 'http://fires.globalforestwatch.org/',
-          classname: 'mobile-friendly', 
+          classname: 'mobile-friendly',
         },{
           name: 'Climate',
           link: 'http://climate.globalforestwatch.org/',
-          classname: 'mobile-friendly', 
+          classname: 'mobile-friendly',
         },{
           name: 'All applications',
           link: '/explore',
         },{
           name: 'Open Data Portal',
           link: 'http://data.globalforestwatch.org/',
-          classname: 'mobile-friendly', 
+          classname: 'mobile-friendly',
         }]
       },{
         name: 'Stay informed',
@@ -222,4 +223,4 @@ window.GFW.NavBar = window.GFW.NavBar || {};
 
   };
 
-})(window.GFW.NavBar);
+})(window.GFW.NavBar, window);

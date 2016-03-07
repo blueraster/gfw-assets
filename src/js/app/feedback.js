@@ -2,7 +2,9 @@
 window.GFW = window.GFW || {};
 window.GFW.NavBar = window.GFW.NavBar || {};
 
-(function(gfw) {
+(function(gfw, root) {
+
+  var $ = root.GFW.$;
 
 gfw.feedbackModal = {
 
@@ -240,4 +242,4 @@ gfw.feedbackModal = {
   },
 };
 
-})(window.GFW.NavBar);
+})(window.GFW.NavBar, window);

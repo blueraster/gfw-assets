@@ -1,7 +1,8 @@
 window.GFW = window.GFW || {};
 window.GFW.NavBar = window.GFW.NavBar || {};
 
-(function(gfw) {
+(function(gfw, root) {
+  var $ = root.GFW.$;
 
   gfw.Utils = gfw.Utils || {};
 
@@ -47,4 +48,4 @@ window.GFW.NavBar = window.GFW.NavBar || {};
     return 'http://' + API_URLS[currentLocation];
   };
 
-})(window.GFW.NavBar);
+})(window.GFW.NavBar, window);

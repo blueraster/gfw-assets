@@ -1,7 +1,9 @@
 window.GFW = window.GFW || {};
 window.GFW.NavBar = window.GFW.NavBar || {};
 
-(function(gfw) {
+(function(gfw, root) {
+
+  var $ = root.GFW.$;
 
 gfw.menuGFW = {
   init: function(params) {
@@ -30,7 +32,7 @@ gfw.menuGFW = {
         this.menu = gfw.menujsonGFW['howto'];
       break;
 
-      default: 
+      default:
         this.menu = gfw.menujsonGFW['default'];
     }
   },
@@ -40,4 +42,4 @@ gfw.menuGFW = {
   }
 }
 
-})(window.GFW.NavBar);
+})(window.GFW.NavBar, window);

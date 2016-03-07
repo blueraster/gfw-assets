@@ -1,7 +1,7 @@
 module.exports = {
   combine: {
     files: {
-      'css/build/minified/global.css': ['css/build/prefixed/global.css']
+      'dist/css/minified/global.css': ['dist/css/prefixed/global.css']
     }
   }
 }

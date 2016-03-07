@@ -1,9 +1,11 @@
 window.GFW = window.GFW || {};
 window.GFW.NavBar = window.GFW.NavBar || {};
 
-(function(gfw) {
+(function(gfw, root) {
 
 gfw.myGFW = gfw.myGFW || {};
+
+var $ = root.GFW.$;
 
 var LoginModal = gfw.myGFW.LoginModal = function(options) {
   this.el = options.el;
@@ -54,4 +56,4 @@ LoginModal.prototype.close = function(event) {
   this.el.innerHTML = '';
 };
 
-})(window.GFW.NavBar);
+})(window.GFW.NavBar, window);

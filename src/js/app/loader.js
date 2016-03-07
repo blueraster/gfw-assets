@@ -1,4 +1,6 @@
-(function() {
+(function(root) {
+
+  var $ = root.GFW.$;
 
 var loaderGFW = {
   urls: {
@@ -10,7 +12,7 @@ var loaderGFW = {
   urls_dev: {
     header: 'http://localhost:9000/src/header.html',
     footer: 'http://localhost:9000/src/footer.html',
-    css: 'http://localhost:9000/css/build/global.css',
+    css: 'http://localhost:9000/dist/css/build/global.css',
   },
 
   initialize: function() {
@@ -79,4 +81,4 @@ $(document).ready(function(){
   loaderGFW.initialize();
 });
 
-})();
+})(window);

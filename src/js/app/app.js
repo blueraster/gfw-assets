@@ -7,6 +7,8 @@ window.GFW.NavBar = window.GFW.NavBar || {};
   root.GFW.lory = lory.noConflict();
   root.GFW.$ = jQuery.noConflict(true);
 
+  var $ = root.GFW.$;
+
 gfw.Application = {
   initialize: function(params) {
     this.params = params;
