@@ -1,6 +1,7 @@
 'use strict';
 
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 var path = require('path');
 
 var prodPlugins = [
@@ -26,7 +27,7 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.html$/, loader: 'file?name=[name].[ext]'},
-      {test: /\.scss$/, loaders: ['style', 'css', 'sass']}
+      {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'}
     ]
   },
 
@@ -34,6 +35,10 @@ module.exports = {
 
   sassLoader: {
     includePaths: [path.join(__dirname, 'src', 'styles')]
+  },
+
+  postcss: function() {
+    return [autoprefixer];
   }
 
 };

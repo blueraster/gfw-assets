@@ -11,6 +11,7 @@ module.exports = function() {
 
   this.init = function() {
     this.el = document.getElementById('footerGfw');
+    this.el = document.createElement('div');
     this.render();
   };
 
