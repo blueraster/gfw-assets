@@ -6,28 +6,23 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "jquery": "^2.2.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
-    "glob": "~4.3.1",
-    "grunt": "~0.4.1",
-    "grunt-autoprefixer": "~2.0.0",
-    "grunt-contrib-concat": "~0.5.0",
-    "grunt-contrib-connect": "~0.9.0",
-    "grunt-contrib-cssmin": "~0.11.0",
-    "grunt-contrib-imagemin": "~0.9.2",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-sass": "~0.8.1",
-    "grunt-contrib-uglify": "~0.7.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-spritesmith": "^6.1.0",
-    "load-grunt-tasks": "~2.0.0",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
     "mocha": "^2.4.5",
-    "mocha-phantomjs": "^4.0.2"
+    "mocha-phantomjs": "^4.0.2",
+    "node-sass": "^3.4.2",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server --hot --progress --color",
+    "build": "./node_modules/.bin/webpack --progress --color",
     "test": "./node_modules/.bin/mocha-phantomjs -R nyan ./test/runner.html"
   },
   "repository": {
