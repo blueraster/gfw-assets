@@ -1,25 +1,23 @@
 'use strict';
 
-var footerTpl = require('raw!./footer.tpl');
+var headerTpl = require('raw!./header.tpl');
 
 /**
- * Footer
+ * Header
  * @param  {window} root
  * @return {Class}
  */
 module.exports = function() {
 
   this.init = function() {
-    this.el = document.getElementById('footerGfw');
+    this.el = document.getElementById('headerGfw');
     this.render();
   };
 
   this.render = function() {
-    this.el.innerHTML = footerTpl;
+    this.el.innerHTML = headerTpl;
     return this;
   };
-
-  this.initSlider = function() {};
 
   this.init();
 
