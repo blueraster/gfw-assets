@@ -17,11 +17,16 @@
   require('./styles/global.scss');
 
   // TODO: init header
+  var Header = require('./scripts/modules/header');
+  new Header();
 
   // TODO: init footer
   var Footer = require('./scripts/modules/footer');
   new Footer();
 
   // TODO: init feedback
+  var Feedback = require('./scripts/modules/feedback');
+  new Feedback();
+
 
 }).call(this);
