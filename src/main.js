@@ -19,6 +19,8 @@
   // TODO: init header
 
   // TODO: init footer
+  var Footer = require('./scripts/modules/footer');
+  new Footer();
 
   // TODO: init feedback
 
