@@ -18,7 +18,9 @@ module.exports = function() {
   };
 
   this.render = function() {
-    this.el.innerHTML = footerTpl;
+    if (this.el) {
+      this.el.innerHTML = footerTpl;
+    }
     return this;
   };
 
