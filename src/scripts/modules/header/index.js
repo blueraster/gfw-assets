@@ -15,7 +15,9 @@ module.exports = function() {
   };
 
   this.render = function() {
-    this.el.innerHTML = headerTpl;
+    if (this.el) {
+      this.el.innerHTML = headerTpl;
+    }
     return this;
   };
 
