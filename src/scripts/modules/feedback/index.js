@@ -207,19 +207,19 @@ module.exports = function() {
 
   this.actionSend = function(){
     this.$spinner.addClass('-active');
-    // If you want to test it you can point to the local url of the feedback json
+    // If you want to test it without bothering the client you can point the url to the local gfw (remember to run the app) feedback json
     // $gfwdom.jsonp('http://localhost:5000/feedback_jsonp', {
     $gfwdom.jsonp('http://www.globalforestwatch.org/feedback_jsonp', {
       data: $gfwdom.serialize(this.$form[0]),
 
       success: function(data) {
-        this.changeStep(3);
+        (data === true) ? this.changeStep(3) : this.changeStep(4);
         this.$spinner.removeClass('-active');
       }.bind(this),
 
       error: function(error) {
-        console.log('error:' + error);
-        this.changeStep(4);
+        console.log('error:' + error);   
+        this.changeStep(4);     
         this.$spinner.removeClass('-active');
       }.bind(this)
 
@@ -234,7 +234,8 @@ module.exports = function() {
   };
 
   this.changeStep = function(step) {
-    this.$contentWrapper.scrollTop(0);
+    // TO-DO: This is not working because we need to scroll the container, not the document
+    // this.$contentWrapper.scrollTop(0);
     this.$modalStep.removeClass('-active');
     this.$modalStepBtn.removeClass('-active');
 
@@ -245,22 +246,6 @@ module.exports = function() {
 
 
   // Helpers
-  this.serializeObject = function(_arr) {
-    var o = {};
-    var a = _arr;
-    $.each(a, function() {
-      if (o[this.name] !== undefined) {
-        if (!o[this.name].push) {
-          o[this.name] = [o[this.name]];
-        }
-        o[this.name].push(this.value || '');
-      } else {
-        o[this.name] = this.value || '';
-      }
-    });
-    return o;
-  };
-
   this.validateEmail = function(email){
     var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);

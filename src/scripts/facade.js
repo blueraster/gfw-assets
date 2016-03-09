@@ -4,7 +4,7 @@ var jBone = require('./libs/jBone.min');
 var $gfwDom = jBone.noConflict();
 // https://github.com/kupriyanenko/jbone#extend-it
 
-jBone.fn.scrollTop = function() {
+$gfwDom.fn.scrollTop = function() {
   // We do not want this script to be applied in browsers that do not support those
   // That means no smoothscroll on IE9 and below.
   if (document.querySelectorAll === void 0 || window.pageYOffset === void 0 || history.pushState === void 0) {
@@ -113,14 +113,13 @@ jBone.fn.scrollTop = function() {
   return this;
 };
 
-jBone.jsonp = function(url, options) {
+$gfwDom.jsonp = function(url, options) {
 	var options = options;
 	var script = document.createElement('script');
-			script.src = url + '?callback=_jsonpCallback&'+options.data;
+			script.src = url + '?callback=_jsonpGFWCallback&'+options.data;
 			document.head.appendChild(script);
 
-	window['_jsonpCallback'] = function(data) {
-		// Will this check if there is an error? I don't think so...
+	window['_jsonpGFWCallback'] = function(data) {
 		if (!!data) {
 			options.success(data);
 		} else {
@@ -132,7 +131,7 @@ jBone.jsonp = function(url, options) {
 
 // GIST: https://gist.github.com/bullgare/5336154
 // Function for get all the params of a form
-jBone.serialize = function (form) {
+$gfwDom.serialize = function (form) {
 	if (!form || form.nodeName !== "FORM") {
 		return;
 	}
