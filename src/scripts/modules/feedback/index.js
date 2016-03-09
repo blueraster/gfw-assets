@@ -206,22 +206,24 @@ module.exports = function() {
   };
 
   this.actionSend = function(){
-    this.$spinner.show(0);
-    $.ajax({
-      url: 'http://www.globalforestwatch.org/feedback_jsonp',
-      jsonp: "callback",
-      dataType: "jsonp",
-      data: this.serializeObject(this.$form.serializeArray()),
+    this.$spinner.addClass('-active');
+    // If you want to test it you can point to the local url of the feedback json
+    // $gfwdom.jsonp('http://localhost:5000/feedback_jsonp', {
+    $gfwdom.jsonp('http://www.globalforestwatch.org/feedback_jsonp', {
+      data: $gfwdom.serialize(this.$form[0]),
+
       success: function(data) {
         this.changeStep(3);
-        this.$spinner.hide(0);
+        this.$spinner.removeClass('-active');
       }.bind(this),
 
-      error: function(data) {
+      error: function(error) {
+        console.log('error:' + error);
         this.changeStep(4);
-        this.$spinner.hide(0);
+        this.$spinner.removeClass('-active');
       }.bind(this)
-    });
+
+    })
   };
 
 

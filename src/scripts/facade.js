@@ -111,23 +111,98 @@ jBone.fn.scrollTop = function() {
 
   // return smoothscroll API
   return this;
-
 };
 
-  // // XHR native
-  // var ajaxPost = function(url, data, callback) {
-  //   var http = new XMLHttpRequest();
-  //   http.onreadystatechange = function() {
-  //     if (http.readyState === 4 && http.status === 200) {
-  //       callback(undefined, http.responseText);
-  //     } else if (http.readyState === 4 && http.status === 400) {
-  //       callback(http.responseText);
-  //     }
-  //   };
-  //   http.open('POST', url, true);
-  //   http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  //   http.send(data);
-  // };
+jBone.jsonp = function(url, options) {
+	var options = options;
+	var script = document.createElement('script');
+			script.src = url + '?callback=_jsonpCallback&'+options.data;
+			document.head.appendChild(script);
 
+	window['_jsonpCallback'] = function(data) {
+		// Will this check if there is an error? I don't think so...
+		if (!!data) {
+			options.success(data);
+		} else {
+			options.error(data);
+		}
+	};
+	
+}
+
+// GIST: https://gist.github.com/bullgare/5336154
+// Function for get all the params of a form
+jBone.serialize = function (form) {
+	if (!form || form.nodeName !== "FORM") {
+		return;
+	}
+	var i, j,
+		obj = {};
+	for (i = form.elements.length - 1; i >= 0; i = i - 1) {
+		if (form.elements[i].name === "") {
+			continue;
+		}
+		switch (form.elements[i].nodeName) {
+		case 'INPUT':
+			switch (form.elements[i].type) {
+			case 'text':
+			case 'hidden':
+			case 'password':
+			case 'button':
+			case 'reset':
+			case 'submit':
+				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				break;
+			case 'checkbox':
+			case 'radio':
+				if (form.elements[i].checked) {
+					obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				}
+				break;
+			case 'file':
+				break;
+			}
+			break;
+		case 'TEXTAREA':
+			obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+			break;
+		case 'SELECT':
+			switch (form.elements[i].type) {
+			case 'select-one':
+				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				break;
+			case 'select-multiple':
+				for (j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
+					if (form.elements[i].options[j].selected) {
+						obj[form.elements[i].name] = encodeURIComponent(form.elements[i].options[j].value);
+					}
+				}
+				break;
+			}
+			break;
+		case 'BUTTON':
+			switch (form.elements[i].type) {
+			case 'reset':
+			case 'submit':
+			case 'button':
+				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				break;
+			}
+			break;
+		}
+	}
+
+	// http://stackoverflow.com/a/6566471/3603884
+	// Transform the object to a string. Maybe we should do it in two steps
+	var str = "";
+	for (var key in obj) {
+		if (str != "") {
+		  str += "&";
+		}
+		str += key + "=" + encodeURIComponent(obj[key]);
+	}	
+
+	return str;
+}
 
 module.exports = $gfwDom;
