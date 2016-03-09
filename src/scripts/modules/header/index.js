@@ -11,13 +11,14 @@ module.exports = function() {
 
   this.init = function() {
     this.el = document.getElementById('headerGfw');
+    if (!this.el) {
+      this.el = document.createElement('div');
+    }
     this.render();
   };
 
   this.render = function() {
-    if (this.el) {
-      this.el.innerHTML = headerTpl;
-    }
+    this.el.innerHTML = headerTpl;
     return this;
   };
 

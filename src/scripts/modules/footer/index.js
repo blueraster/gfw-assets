@@ -11,14 +11,14 @@ module.exports = function() {
 
   this.init = function() {
     this.el = document.getElementById('footerGfw');
-    this.el = document.createElement('div');
+    if (!this.el) {
+      this.el = document.createElement('div');
+    }
     this.render();
   };
 
   this.render = function() {
-    if (this.el) {
-      this.el.innerHTML = footerTpl;
-    }
+    this.el.innerHTML = footerTpl;
     return this;
   };
 
