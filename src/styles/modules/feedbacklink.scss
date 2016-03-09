@@ -15,7 +15,12 @@
     padding: 8px;
     cursor: pointer;
     transform: rotate(90deg) translate(50%, 0);
-    transform-origin: 100% 0;  
+    transform-origin: 100% 0; 
+    
+    > span {
+      pointer-events: none;
+    } 
+    
     @media (min-width: $br-mobile){
       display: block;
     }

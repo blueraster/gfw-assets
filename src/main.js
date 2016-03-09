@@ -16,15 +16,15 @@
   // Add styles
   require('./styles/global.scss');
 
-  // TODO: init header
+  // Adding header
   var Header = require('./scripts/modules/header');
   new Header();
 
-  // TODO: init footer
+  // Adding footer
   var Footer = require('./scripts/modules/footer');
   new Footer();
 
-  // TODO: init feedback
+  // Adding feedback
   var Feedback = require('./scripts/modules/feedback');
   new Feedback();
 
