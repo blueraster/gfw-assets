@@ -3,6 +3,7 @@
 var headerTpl = require('raw!./header.tpl');
 var headerIconsTpl = require('raw!./header-icons.tpl');
 var $gfwdom = require('../../facade');
+var utils = require('../../utils')
 
 /**
  * Header
@@ -29,6 +30,7 @@ module.exports = function() {
     this.initHighlightCurrent();
     this.initListeners();
     this.initTranslate();
+    this.initLinksUrls();
 
     return this;
   };
@@ -52,10 +54,11 @@ module.exports = function() {
     this.$header = $gfwdom('#headerGfw');
     this.$headerSubmenu = this.$header.find('.m-header-submenu');
     this.$headerSubmenuBtns = this.$header.find('.m-header-submenu-btn');
+    this.$headerSubmenuApp = this.$header.find('#submenuApps');
 
     // Links
-    // this.$links = $('#headerGfw a, #footerGfw a');
-    // this.$linksSubmenu = $('#submenuApps a');
+    this.$links = this.$header.find('a');
+    this.$linksSubmenu = this.$header.find('a');
 
   };
 
@@ -141,6 +144,28 @@ module.exports = function() {
       translateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
       document.head.appendChild(translateScript);
     },0);
+  };
+
+  // We need to make a difference between local, staging and PRO environment urls. 
+  // Also we need to have a default value for the external applications
+  this.initLinksUrls = function() {
+    this.params.targets = !utils.isDefaultHost();
+    this.params.hostname = utils.getHost();
+
+    this.$links.forEach(function(v){
+      var href = $gfwdom(v).attr('href');
+      if (href.charAt(0) == '/') {
+        $gfwdom(v).attr('href', this.params.hostname + href);
+      }
+    }.bind(this));
+
+    this.$linksSubmenu.forEach(function(v){
+      var external = $gfwdom(v).hasClass('external-link');
+      if (this.params.targets) {
+        (!!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target','_blank');
+      }
+    }.bind(this));
+
   };
 
   this.init();
