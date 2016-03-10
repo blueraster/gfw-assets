@@ -1,6 +1,6 @@
 'use strict';
 
-var loginModalTpl = require('raw!./login-modal.tpl');
+var loginModalTpl = require('./login-modal.tpl');
 var $gfwdom = require('../../facade');
 var utils = require('../../utils');
 

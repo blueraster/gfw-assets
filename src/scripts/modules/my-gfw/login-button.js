@@ -1,7 +1,7 @@
 'use strict';
 
-var loginButtonTpl = require('raw!./login-button.tpl');
-var logoutButtonTpl = require('raw!./logout-button.tpl');
+var loginButtonTpl = require('./login-button.tpl');
+var logoutButtonTpl = require('./logout-button.tpl');
 var LoginModal = require('./login-modal');
 var $gfwdom = require('../../facade');
 var utils = require('../../utils');
