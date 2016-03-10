@@ -2,6 +2,7 @@
 
 var headerTpl = require('raw!./header.tpl');
 var headerIconsTpl = require('raw!./header-icons.tpl');
+var $gfwdom = require('../../facade');
 
 /**
  * Header
@@ -21,10 +22,33 @@ module.exports = function() {
   this.render = function() {
     this.el.innerHTML = headerTpl + headerIconsTpl;
 
+    this.cache();
+
+    this.initHighlightCurrent();
     this.initTranslate();
 
     return this;
   };
+
+  this.cache = function() {
+    this.$script = $gfwdom('#loader-gfw');
+
+    // Header
+    this.$header = $gfwdom('#headerGfw');
+    this.$headerSubmenu = this.$header.find('.m-header-submenu');
+    this.$headerSubmenuBtns = this.$header.find('.m-header-submenu-btn');
+
+    // Links
+    // this.$links = $('#headerGfw a, #footerGfw a');
+    // this.$linksSubmenu = $('#submenuApps a');
+
+  };
+
+  // Set current depending on the script data current
+  this.initHighlightCurrent = function() {
+    var current = this.$script[0].dataset.current;
+    this.$header.find(current).addClass('-current');
+  },
 
   // Init google translate module
   this.initTranslate = function() {
