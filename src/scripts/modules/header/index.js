@@ -24,15 +24,30 @@ module.exports = function() {
 
     this.cache();
 
+    this.setParams();
+
     this.initHighlightCurrent();
+    this.initListeners();
     this.initTranslate();
 
     return this;
   };
 
   this.cache = function() {
+    // Window width and height bulletproof
+    this.$w = window;
+    this.$d = document;
+    this.$e = this.$d.documentElement;
+    this.$g = this.$d.getElementsByTagName('body')[0];
+    this.windowX = this.$w.innerWidth || this.$e.clientWidth || this.$g.clientWidth;
+    this.windowY = this.$w.innerHeight|| this.$e.clientHeight|| this.$g.clientHeight;
+
+    // Script
     this.$script = $gfwdom('#loader-gfw');
 
+    // Html-body
+    this.$htmlbody = $gfwdom('html,body');
+    
     // Header
     this.$header = $gfwdom('#headerGfw');
     this.$headerSubmenu = this.$header.find('.m-header-submenu');
@@ -44,11 +59,70 @@ module.exports = function() {
 
   };
 
+  this.setParams = function() {
+    this.params = {
+      current: this.$script.data('current'),
+      mobile: (this.windowX < 850)
+    }
+  },
+
   // Set current depending on the script data current
   this.initHighlightCurrent = function() {
-    var current = this.$script[0].dataset.current;
-    this.$header.find(current).addClass('-current');
-  },
+    this.$header.find(this.params.current).addClass('-current');
+  };
+
+  // Menu Toggles mobile
+  this.initListeners = function() {
+    // Resize
+    window.addEventListener('resize', function() {
+      this.windowX = this.$w.innerWidth || this.$e.clientWidth || this.$g.clientWidth;
+      this.windowY = this.$w.innerHeight|| this.$e.clientHeight|| this.$g.clientHeight;
+
+      this.setParams();
+    }.bind(this), true);    
+
+    // Mobile menus
+    this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
+    this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));    
+  };
+
+  this.showMenu = function(e) {
+    if (this.params.mobile) {
+      e && e.preventDefault();
+
+      if (!$gfwdom(e.currentTarget).hasClass('-active')) {
+        // Hide all the opened menus
+        this.hideMenus();
+        // Prevent mobile scroll
+        this.$htmlbody.toggleClass('-no-scroll');
+        // Active menu icon
+        $gfwdom(e.currentTarget).toggleClass('-active')
+        $gfwdom(e.currentTarget).find('svg').toggleClass('-inactive');
+        // Active menu
+        $gfwdom($gfwdom(e.currentTarget).data('submenu')).toggleClass('-active');
+      } else {
+        this.hideMenus();
+      }
+    } else {
+      if ($gfwdom(e.currentTarget).data('stopnavigation')) {
+        e && e.preventDefault();
+      }
+    }
+  };
+
+  this.hideMenus = function(e) {
+    // Allow mobile scroll
+    this.$htmlbody.removeClass('-no-scroll');
+    this.$headerSubmenu.removeClass('-active');
+    this.$headerSubmenuBtns.forEach(function(v){
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom(v).removeClass('-active')
+        $gfwdom(v).find('svg').toggleClass('-inactive');
+      }
+    });
+
+    console.log()
+  };
 
   // Init google translate module
   this.initTranslate = function() {
