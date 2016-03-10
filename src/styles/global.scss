@@ -1,5 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500);
-
 // Settings
 // common colors
 $white: #FFF;
@@ -33,24 +31,24 @@ $easeOutSine:  cubic-bezier(0.390, 0.575, 0.565, 1.000);
 $easeInOutSine:  cubic-bezier(0.445, 0.050, 0.550, 0.950);
 
 // Imports
-@import 'modules/reset';
-@import 'modules/mixins';
-@import 'modules/buttons';
-@import 'modules/form';
+@import 'modules/reset.scss';
+@import 'modules/mixins.scss';
+@import 'modules/buttons.scss';
+@import 'modules/form.scss';
 
 // header
-@import 'modules/header';
-@import 'modules/submenu';
-@import 'modules/translate';
+@import 'modules/header.scss';
+@import 'modules/submenu.scss';
+@import 'modules/translate.scss';
 
 // section
-@import 'modules/section';
+@import 'modules/section.scss';
 
 // feedback
-@import 'modules/feedbacklink';
-@import 'modules/feedbackmodal';
+@import 'modules/feedbacklink.scss';
+@import 'modules/feedbackmodal.scss';
 
 // footer
-@import 'modules/logos';
-@import 'modules/footer';
-@import 'modules/slick';
+@import 'modules/logos.scss';
+@import 'modules/footer.scss';
+@import 'modules/slick.scss';
