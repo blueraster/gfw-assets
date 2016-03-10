@@ -7,8 +7,8 @@
 
   'use strict';
 
-  // At begining add google fonts
-  setTimeout(function() {  
+  // At begining add google fonts asynchronously
+  setTimeout(function() {
     var linkTag = document.createElement('link');
     linkTag.rel = 'stylesheet';
     linkTag.href = 'https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500';
