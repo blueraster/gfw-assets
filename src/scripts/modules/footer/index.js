@@ -1,6 +1,6 @@
 'use strict';
 
-var lorySlider = require('../../libs/lory.min').lory.lory;
+var lorySlider = require('lory.js').lory;
 var footerTpl = require('raw!./footer.tpl');
 var footerIconsTpl = require('raw!./footer-icons.tpl');
 

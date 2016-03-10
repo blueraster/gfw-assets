@@ -1,8 +1,11 @@
 'use strict';
 
-var jBone = require('./libs/jBone.min');
+/**
+ * jBone
+ * How to extend: https://github.com/kupriyanenko/jbone#extend-it
+ */
+var jBone = require('jbone');
 var $gfwDom = jBone.noConflict();
-// https://github.com/kupriyanenko/jbone#extend-it
 
 jBone.fn.scrollTop = function() {
   // We do not want this script to be applied in browsers that do not support those
@@ -113,21 +116,5 @@ jBone.fn.scrollTop = function() {
   return this;
 
 };
-
-  // // XHR native
-  // var ajaxPost = function(url, data, callback) {
-  //   var http = new XMLHttpRequest();
-  //   http.onreadystatechange = function() {
-  //     if (http.readyState === 4 && http.status === 200) {
-  //       callback(undefined, http.responseText);
-  //     } else if (http.readyState === 4 && http.status === 400) {
-  //       callback(http.responseText);
-  //     }
-  //   };
-  //   http.open('POST', url, true);
-  //   http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  //   http.send(data);
-  // };
-
 
 module.exports = $gfwDom;
