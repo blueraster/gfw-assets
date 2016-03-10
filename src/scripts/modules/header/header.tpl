@@ -4,7 +4,7 @@
       <li class="m-header-item -default shape-home">
         <a id="btnSubmenuHome" data-submenu="#submenuHome" class="m-header-submenu-btn" href="/">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-home"></use></svg>
-          <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <svg class="-inactive -desktop-hide"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>Home</span>
         </a>
         <!-- HOME SUBMENU -->
@@ -76,7 +76,7 @@
       <li class="m-header-item -default shape-apps">
         <a id="btnSubmenuApps" data-submenu="#submenuApps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
-          <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <svg class="-inactive -desktop-hide"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>Apps</span>
         </a>
         <!-- APPS SUBMENU -->
@@ -113,7 +113,7 @@
       <li class="m-header-item -default shape-menu">
         <a id="btnSubmenuMenuMobile" data-submenu="#submenuMenuMobile" class="m-header-submenu-btn" href="/">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-menu"></use></svg>
-          <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <svg class="-inactive -desktop-hide"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>Menu</span>
         </a>
         <!-- HOME SUBMENU -->
