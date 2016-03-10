@@ -22,6 +22,7 @@ module.exports = function() {
   this.render = function() {
     var template = loginModalTpl;
     this.$el.html(template);
+    // If you don't add this clas you won't see anything
     this.$el.addClass('is-active');
     
     this.initEvents();
@@ -30,6 +31,7 @@ module.exports = function() {
     return this;
   };
 
+  // Events for closing the modal
   this.initEvents = function() {
     var $modalClose = this.$el.find('.my-gfw-modal-close');
     var $modalBackdrop = this.$el.find('.my-gfw-modal-backdrop');
@@ -38,6 +40,7 @@ module.exports = function() {
     $modalBackdrop.on('click', this.hideModal.bind(this))
   };
 
+  // Set the APIURL to the signin links
   this.initLinks = function() {
     var $signin = this.$el.find('.my-gfw-sign-in');
 
