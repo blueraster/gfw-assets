@@ -6,12 +6,16 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jbone": "^1.1.2",
+    "lory.js": "^2.0.1"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
+    "html-minify-loader": "^1.1.0",
     "karma": "^0.13.21",
     "karma-chai": "^0.1.0",
     "karma-mocha": "^0.2.2",

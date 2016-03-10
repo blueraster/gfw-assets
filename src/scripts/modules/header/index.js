@@ -1,7 +1,7 @@
 'use strict';
 
-var headerTpl = require('raw!./header.tpl');
-var headerIconsTpl = require('raw!./header-icons.tpl');
+var headerTpl = require('./header.tpl');
+var headerIconsTpl = require('./header-icons.tpl');
 var $gfwdom = require('../../facade');
 var utils = require('../../utils');
 var LoginButton = require('../my-gfw/login-button');
@@ -51,7 +51,7 @@ module.exports = function() {
 
     // Html-body
     this.$htmlbody = $gfwdom('html,body');
-    
+
     // Header
     this.$header = $gfwdom('#headerGfw');
     this.$headerSubmenu = this.$header.find('.m-header-submenu');
@@ -84,11 +84,11 @@ module.exports = function() {
       this.windowY = this.$w.innerHeight|| this.$e.clientHeight|| this.$g.clientHeight;
 
       this.setParams();
-    }.bind(this), true);    
+    }.bind(this), true);
 
     // Mobile menus
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
-    this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));    
+    this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
   };
 
   this.showMenu = function(e) {
@@ -131,7 +131,7 @@ module.exports = function() {
 
   // Init google translate module
   this.initTranslate = function() {
-    setTimeout(function() {  
+    setTimeout(function() {
       window['googleTranslateElementInitGFW'] = function (){
         new google.translate.TranslateElement({
           pageLanguage: '',
@@ -148,7 +148,7 @@ module.exports = function() {
     },0);
   };
 
-  // We need to make a difference between local, staging and PRO environment urls. 
+  // We need to make a difference between local, staging and PRO environment urls.
   // Also we need to have a default value for the external applications
   this.initLinksUrls = function() {
     this.params.targets = !utils.isDefaultHost();
