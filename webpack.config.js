@@ -27,6 +27,7 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.html$/, loader: 'file?name=[name].[ext]'},
+      {test: /\.tpl$/, loader: 'raw!html-minify'},
       {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'}
     ]
   },
