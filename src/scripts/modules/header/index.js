@@ -3,7 +3,8 @@
 var headerTpl = require('raw!./header.tpl');
 var headerIconsTpl = require('raw!./header-icons.tpl');
 var $gfwdom = require('../../facade');
-var utils = require('../../utils')
+var utils = require('../../utils');
+var LoginButton = require('../my-gfw/login-button');
 
 /**
  * Header
@@ -31,6 +32,7 @@ module.exports = function() {
     this.initListeners();
     this.initTranslate();
     this.initLinksUrls();
+    this.initMyGFW();
 
     return this;
   };
@@ -167,6 +169,16 @@ module.exports = function() {
     }.bind(this));
 
   };
+
+  this.initMyGFW = function() {
+    if (!!utils.isDefaultHost()) {
+      var loginButton = new LoginButton();
+      loginButton.init();
+    } else {
+      $gfwdom('#my-gfw-container').css({ display: 'none'});
+    }
+  }
+
 
   this.init();
 
