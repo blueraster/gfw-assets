@@ -65,7 +65,7 @@ module.exports = function() {
   this.setParams = function() {
     this.params = {
       current: this.$script.data('current'),
-      mobile: (this.windowX < 850)
+      mobile: (this.windowX < utils.MOBILE)
     }
   },
 

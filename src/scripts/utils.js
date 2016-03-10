@@ -6,8 +6,10 @@
  * @return {Object}
  */
 module.exports = {
+  MOBILE: 850,
+
   DEFAULT_URL: 'www.globalforestwatch.org',
-  
+
   URLS: {
     'www.globalforestwatch.org': 'www.globalforestwatch.org',
     'localhost': 'localhost:5000',
