@@ -1,8 +1,11 @@
 'use strict';
 
-var jBone = require('./libs/jBone.min');
+/**
+ * jBone
+ * How to extend: https://github.com/kupriyanenko/jbone#extend-it
+ */
+var jBone = require('jbone');
 var $gfwDom = jBone.noConflict();
-// https://github.com/kupriyanenko/jbone#extend-it
 
 $gfwDom.fn.scrollTop = function() {
   // We do not want this script to be applied in browsers that do not support those

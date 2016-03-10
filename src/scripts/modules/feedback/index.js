@@ -1,6 +1,6 @@
 'use strict';
 
-var feedbackTpl = require('raw!./feedback.tpl');
+var feedbackTpl = require('./feedback.tpl');
 
 /**
  * Feedback
@@ -17,7 +17,7 @@ module.exports = function() {
     this.el.id = 'feedbackGfw';
 
     document.body.appendChild(this.el);
-    
+
     this.render();
   };
 

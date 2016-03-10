@@ -124,6 +124,18 @@
           display: block;
           height: 18px;
           margin: 0 auto;
+          
+          @media (min-width: $br-mobile){
+            &.-desktop-hide {
+              display: none;
+            }
+          }
+
+          @media (max-width: $br-mobile - 1){
+            &.-inactive {
+              display: none;
+            }
+          }          
         }
       }
 

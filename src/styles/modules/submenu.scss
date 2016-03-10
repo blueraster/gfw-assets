@@ -28,17 +28,18 @@
       top: -5px;
     }
 
-    &.-active {
-      transition: all 0s linear 0s;
-      opacity: 1;
-      visibility: visible;
+    @media (max-width: $br-mobile - 1){
+      &.-active {
+        transition: all 0s linear 0s;
+        opacity: 1;
+        visibility: visible;
+      }
     }
 
     > ul {
       background: $white;
       z-index: 2;
     }
-
 
     ///////////////
     // HOME MENU //
@@ -58,23 +59,22 @@
         background: $white;
       }
 
-      &.-active {
-        position: fixed;
-        top: auto;
-        bottom: 50px;
-        left: 0;
-        height: 100%;
-        max-height: calc(100% - 50px);
+      @media (max-width: $br-mobile - 1){
+        &.-active {
+          position: fixed;
+          top: auto;
+          bottom: 50px;
+          left: 0;
+          height: 100%;
+          max-height: calc(100% - 50px);
 
-        &:after {
-          display: none;
-        }
-
-        @media (min-width: $br-mobile){
-          position: absolute;
-          max-height: none;
+          &:after {
+            display: none;
+          }
         }
       }
+
+
 
       &:after {
         left: 13px;
@@ -200,21 +200,19 @@
         max-width: 400px;
       }
 
-      &.-active {
-        position: fixed;
-        top: auto;
-        bottom: 50px;
-        left: 0;
-        height: 100%;
-        max-height: calc(100% - 50px);
-        &:after {
-          display: none;
+      @media (max-width: $br-mobile - 1){
+        &.-active {
+          position: fixed;
+          top: auto;
+          bottom: 50px;
+          left: 0;
+          height: 100%;
+          max-height: calc(100% - 50px);
+          &:after {
+            display: none;
+          }
         }
 
-        @media (min-width: $br-mobile){
-          position: absolute;
-          max-height: none;
-        }
       }
 
       &:after {
