@@ -1,6 +1,6 @@
 'use strict';
 
-var lory = require('../../libs/lory.min').lory.lory;
+var lorySlider = require('../../libs/lory.min').lory.lory;
 var footerTpl = require('raw!./footer.tpl');
 var footerIconsTpl = require('raw!./footer-icons.tpl');
 
@@ -21,23 +21,23 @@ module.exports = function() {
 
   this.render = function() {
     this.el.innerHTML = footerTpl + footerIconsTpl;
-    
     this.initSlider();
-
     return this;
   };
 
-  // SLIDER
+  /**
+   * Method to start Lory slider
+   */
   this.initSlider = function() {
-    this.sliderEl = document.querySelector('#my-gfw-slider');
+    var sliderElement = document.getElementById('my-gfw-slider');
 
     // Events
-    this.sliderEl.addEventListener('before.lory.slide', this.cancelTimer.bind(this));
-    this.sliderEl.addEventListener('after.lory.slide', this.initTimer.bind(this));
-    this.sliderEl.addEventListener('mouseover', this.cancelTimer.bind(this));
-    this.sliderEl.addEventListener('mouseout', this.initTimer.bind(this));
+    sliderElement.addEventListener('before.lory.slide', this.cancelTimer.bind(this));
+    sliderElement.addEventListener('after.lory.slide', this.initTimer.bind(this));
+    sliderElement.addEventListener('mouseover', this.cancelTimer.bind(this));
+    sliderElement.addEventListener('mouseout', this.initTimer.bind(this));
 
-    this.slider = lory(this.sliderEl, {
+    this.slider = lorySlider(sliderElement, {
       infinite: 5,
       slidesToScroll: 1,
       slideSpeed: 500
@@ -46,16 +46,24 @@ module.exports = function() {
     this.initTimer();
   };
 
+  /**
+   * This method is used to move lory slider
+   */
   this.initTimer = function() {
+    this.cancelTimer(); // Ensure remove timer at begining
     if (!this.sliderTimer) {
-      this.sliderTimer = setInterval(this.slider.next.bind(this.slider), 3000);    
+      this.sliderTimer = setInterval(this.slider.next.bind(this.slider), 5000);
     }
   };
 
-  // clear timer
+  /**
+   * This method is used to remove movement of lory slider
+   */
   this.cancelTimer = function() {
-    clearInterval(this.sliderTimer);
-    this.sliderTimer = null;
+    if (this.sliderTimer) {
+      clearInterval(this.sliderTimer);
+      this.sliderTimer = null;
+    }
   };
 
   this.init();
