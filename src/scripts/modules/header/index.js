@@ -64,8 +64,7 @@ module.exports = function() {
 
   this.setParams = function() {
     this.params = {
-      current: this.$script.data('current'),
-      mobile: (this.windowX < utils.MOBILE)
+      current: this.$script.data('current')
     }
   },
 
@@ -76,21 +75,13 @@ module.exports = function() {
 
   // Menu Toggles mobile
   this.initListeners = function() {
-    // Resize
-    window.addEventListener('resize', function() {
-      this.windowX = this.$w.innerWidth || this.$e.clientWidth || this.$g.clientWidth;
-      this.windowY = this.$w.innerHeight|| this.$e.clientHeight|| this.$g.clientHeight;
-
-      this.setParams();
-    }.bind(this), true);
-
     // Mobile menus
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
     this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
   };
 
   this.showMenu = function(e) {
-    if (this.params.mobile) {
+    if (utils.isSmallScreen()) {
       e && e.preventDefault();
 
       if (!$gfwdom(e.currentTarget).hasClass('-active')) {
