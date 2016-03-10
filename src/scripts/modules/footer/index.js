@@ -14,7 +14,7 @@ module.exports = function() {
   this.init = function() {
     this.el = document.getElementById('footerGfw');
     if (!this.el) {
-      this.el = document.createElement('div');
+      throw new Error('element #footerGfw doesn\'t exist');
     }
     this.render();
   };
