@@ -1,25 +1,24 @@
 'use strict';
 
-var ejs = require('ejs');
-var $gfwdom = require('../../facade');
-var utils = require('../../utils');
+import $gfwdom from '../../facade';
+import utils from '../../utils';
 
 /**
  * Header
  * @param  {window} root
  * @return {Class}
  */
-module.exports = function() {
+class Navigation {
 
-  this.init = function() {
+  constructor() {
     this.$el = $gfwdom('#submenuMenuMobile');
     if (!this.$el) {
       throw new Error('element #submenuMenuMobile doesn\'t exist');
     }
     this.render();
-  };
+  }
 
-  this.render = function() {
+  render() {
     console.log('render navigation');
     // this.el.innerHTML = headerTpl + headerIconsTpl;
 
@@ -34,10 +33,8 @@ module.exports = function() {
     // this.initMyGFW();
 
     // return this;
-  };
+  }
 
-  this.init();
+}
 
-  return this;
-
-};
+export default Navigation;
