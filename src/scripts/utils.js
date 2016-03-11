@@ -57,6 +57,21 @@ module.exports = {
     return 'http://' + this.API_URLS[currentLocation];
   },
 
+  isLoggedIn: function(options) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', this.getAPIHost() + '/user', true);
+    xhr.withCredentials = true;
+    xhr.onreadystatechange = function() {
+      var responseStatus = xhr.status;
+      if (responseStatus !== 200) {
+        options.failure();
+      } else {
+        options.success();
+      }
+    };
+    xhr.send();
+  },
+  
   // STATES
   isSmallScreen: function() {
     return (this.getWindowWidth() < this.SMALL_BREACKPOINT);
