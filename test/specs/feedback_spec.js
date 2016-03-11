@@ -1,19 +1,15 @@
 'use strict';
 
-var Feeedback = require('../../src/scripts/modules/feedback');
+import Feeedback from '../../src/scripts/modules/feedback';
 
-describe('Feeedback', function() {
-
-  before(function() {
+describe('Feeedback', () => {
+  before(function () {
     this.feedback = new Feeedback();
   });
 
-  describe('creation', function() {
-
-    it('should be a valid instance', function() {
+  describe('creation', function () {
+    it('should be a valid instance', function () {
       expect(this.feedback).to.be.an.instanceof(Feeedback);
     });
-
   });
-
 });
