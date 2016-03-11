@@ -27,7 +27,7 @@ class Navigation {
   switchMenu() {
     switch(location.hostname) {
       case 'localhost':
-        this.menu = howtojson;
+        this.menu = globaljson;
       break;
 
       case 'climate.globalforestwatch.org':
@@ -35,7 +35,7 @@ class Navigation {
       break;
 
       case 'howto.globalforestwatch.org':
-        this.menu = globaljson;
+        this.menu = howtojson;
       break;
 
       default:
