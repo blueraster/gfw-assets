@@ -5,7 +5,7 @@ var headerIconsTpl = require('./header-icons.tpl');
 var $gfwdom = require('../../facade');
 var utils = require('../../utils');
 var LoginButton = require('../my-gfw/login-button');
-var Navigation = require('../navigation/');
+import Navigation from '../navigation';
 
 /**
  * Header

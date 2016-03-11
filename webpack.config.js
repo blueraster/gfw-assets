@@ -27,6 +27,7 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+      {test: /\.json$/, loader: 'json'},
       {test: /\.html$/, loader: 'file?name=[name].[ext]'},
       {test: /\.tpl$/, loader: 'raw!html-minify'},
       {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'}
