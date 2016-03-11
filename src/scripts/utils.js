@@ -6,7 +6,9 @@
  * @return {Object}
  */
 module.exports = {
-  MOBILE: 850,
+  
+  // CONSTANTS
+  SMALL_BREACKPOINT: 850,
 
   DEFAULT_URL: 'www.globalforestwatch.org',
 
@@ -24,6 +26,15 @@ module.exports = {
     'staging.globalforestwatch.org': 'http://staging.api-staging.globalforestwatch.org'
   },
 
+  // GETTERS
+  getWindowWidth: function() {
+    return window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+  },
+
+  getWindowHeigth: function() {
+    return window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+  },
+
   getHost: function() {
     var currentLocation = window.location.hostname;
     if (this.URLS[currentLocation] === undefined) {
@@ -31,11 +42,6 @@ module.exports = {
     }
 
     return 'http://' + this.URLS[currentLocation];
-  },
-
-  isDefaultHost: function() {
-    var currentLocation = window.location.hostname;
-    return (this.URLS[currentLocation] !== undefined);
   },
 
   getAPIHost: function() {
@@ -49,5 +55,31 @@ module.exports = {
     }
 
     return 'http://' + this.API_URLS[currentLocation];
-  }
+  },
+
+  isLoggedIn: function(options) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', this.getAPIHost() + '/user', true);
+    xhr.withCredentials = true;
+    xhr.onreadystatechange = function() {
+      var responseStatus = xhr.status;
+      if (responseStatus !== 200) {
+        options.failure();
+      } else {
+        options.success();
+      }
+    };
+    xhr.send();
+  },
+  
+  // STATES
+  isSmallScreen: function() {
+    return (this.getWindowWidth() < this.SMALL_BREACKPOINT);
+  },
+
+  isDefaultHost: function() {
+    var currentLocation = window.location.hostname;
+    return (this.URLS[currentLocation] !== undefined);
+  },
+
 };

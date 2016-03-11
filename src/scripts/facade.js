@@ -7,7 +7,7 @@
 var jBone = require('jbone');
 var $gfwDom = jBone.noConflict();
 
-jBone.fn.scrollTop = function() {
+$gfwDom.fn.scrollTop = function() {
   // We do not want this script to be applied in browsers that do not support those
   // That means no smoothscroll on IE9 and below.
   if (document.querySelectorAll === void 0 || window.pageYOffset === void 0 || history.pushState === void 0) {
@@ -114,7 +114,97 @@ jBone.fn.scrollTop = function() {
 
   // return smoothscroll API
   return this;
-
 };
+
+$gfwDom.jsonp = function(url, options) {
+	var options = options;
+	var script = document.createElement('script');
+			script.src = url + '?callback=_jsonpGFWCallback&'+options.data;
+			document.head.appendChild(script);
+
+	window['_jsonpGFWCallback'] = function(data) {
+		if (!!data) {
+			options.success(data);
+		} else {
+			options.error(data);
+		}
+	};
+	
+}
+
+// GIST: https://gist.github.com/bullgare/5336154
+// Function for get all the params of a form
+$gfwDom.serialize = function (form) {
+	if (!form || form.nodeName !== "FORM") {
+		return;
+	}
+	var i, j,
+		obj = {};
+	for (i = form.elements.length - 1; i >= 0; i = i - 1) {
+		if (form.elements[i].name === "") {
+			continue;
+		}
+		switch (form.elements[i].nodeName) {
+		case 'INPUT':
+			switch (form.elements[i].type) {
+			case 'text':
+			case 'hidden':
+			case 'password':
+			case 'button':
+			case 'reset':
+			case 'submit':
+				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				break;
+			case 'checkbox':
+			case 'radio':
+				if (form.elements[i].checked) {
+					obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				}
+				break;
+			case 'file':
+				break;
+			}
+			break;
+		case 'TEXTAREA':
+			obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+			break;
+		case 'SELECT':
+			switch (form.elements[i].type) {
+			case 'select-one':
+				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				break;
+			case 'select-multiple':
+				for (j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
+					if (form.elements[i].options[j].selected) {
+						obj[form.elements[i].name] = encodeURIComponent(form.elements[i].options[j].value);
+					}
+				}
+				break;
+			}
+			break;
+		case 'BUTTON':
+			switch (form.elements[i].type) {
+			case 'reset':
+			case 'submit':
+			case 'button':
+				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				break;
+			}
+			break;
+		}
+	}
+
+	// http://stackoverflow.com/a/6566471/3603884
+	// Transform the object to a string. Maybe we should do it in two steps
+	var str = "";
+	for (var key in obj) {
+		if (str != "") {
+		  str += "&";
+		}
+		str += key + "=" + encodeURIComponent(obj[key]);
+	}	
+
+	return str;
+}
 
 module.exports = $gfwDom;

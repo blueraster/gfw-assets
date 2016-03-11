@@ -3,7 +3,8 @@
 var headerTpl = require('./header.tpl');
 var headerIconsTpl = require('./header-icons.tpl');
 var $gfwdom = require('../../facade');
-var utils = require('../../utils')
+var utils = require('../../utils');
+var LoginButton = require('../my-gfw/login-button');
 
 /**
  * Header
@@ -31,6 +32,7 @@ module.exports = function() {
     this.initListeners();
     this.initTranslate();
     this.initLinksUrls();
+    this.initMyGFW();
 
     return this;
   };
@@ -64,8 +66,7 @@ module.exports = function() {
 
   this.setParams = function() {
     this.params = {
-      current: this.$script.data('current'),
-      mobile: (this.windowX < utils.MOBILE)
+      current: this.$script.data('current')
     }
   },
 
@@ -76,21 +77,13 @@ module.exports = function() {
 
   // Menu Toggles mobile
   this.initListeners = function() {
-    // Resize
-    window.addEventListener('resize', function() {
-      this.windowX = this.$w.innerWidth || this.$e.clientWidth || this.$g.clientWidth;
-      this.windowY = this.$w.innerHeight|| this.$e.clientHeight|| this.$g.clientHeight;
-
-      this.setParams();
-    }.bind(this), true);
-
     // Mobile menus
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
     this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
   };
 
   this.showMenu = function(e) {
-    if (this.params.mobile) {
+    if (utils.isSmallScreen()) {
       e && e.preventDefault();
 
       if (!$gfwdom(e.currentTarget).hasClass('-active')) {
@@ -167,6 +160,16 @@ module.exports = function() {
     }.bind(this));
 
   };
+
+  this.initMyGFW = function() {
+    if (!!utils.isDefaultHost()) {
+      var loginButton = new LoginButton();
+      loginButton.init();
+    } else {
+      $gfwdom('#my-gfw-container').css({ display: 'none'});
+    }
+  }
+
 
   this.init();
 

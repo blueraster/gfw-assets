@@ -741,6 +741,10 @@
       font-weight: 200;
       line-height: 1.5em;
       margin-top: 15px;
+
+      a {
+        color: $primary-color;
+      }
     }
   }
 
@@ -795,14 +799,23 @@
 
     .my-gfw-sign-in-twitter {
       background-color: #598dca;
+      &:hover {
+        background-color: lighten(#598dca,5%);
+      }
     }
 
     .my-gfw-sign-in-facebook {
       background-color: #39579b;
+      &:hover {
+        background-color: lighten(#39579b,5%);
+      }
     }
 
     .my-gfw-sign-in-google {
       background-color: #da4735;
+      &:hover {
+        background-color: lighten(#da4735,5%);
+      }
     }
   }
 }
