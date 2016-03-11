@@ -1,10 +1,12 @@
 'use strict';
 
-var headerTpl = require('./header.tpl');
-var headerIconsTpl = require('./header-icons.tpl');
-var $gfwdom = require('../../facade');
-var utils = require('../../utils');
-var LoginButton = require('../my-gfw/login-button');
+import $gfwdom from '../../facade';
+import utils from '../../utils';
+
+import headerTpl from './header.tpl';
+import headerIconsTpl from './header-icons.tpl';
+
+import LoginButton from '../my-gfw/login-button';
 import Navigation from '../navigation';
 
 /**
@@ -12,17 +14,17 @@ import Navigation from '../navigation';
  * @param  {window} root
  * @return {Class}
  */
-module.exports = function() {
+class Header {
 
-  this.init = function() {
+  constructor() {
     this.el = document.getElementById('headerGfw');
     if (!this.el) {
-      this.el = document.createElement('div');
+      throw new Error('element #headerGfw doesn\'t exist');
     }
     this.render();
-  };
+  }
 
-  this.render = function() {
+  render() {
     this.el.innerHTML = headerTpl + headerIconsTpl;
 
     this.cache();
@@ -37,17 +39,12 @@ module.exports = function() {
     this.initNavigation();
 
     return this;
-  };
+  }
 
-  this.cache = function() {
-    // Window width and height bulletproof
-    this.$w = window;
-    this.$d = document;
-    this.$e = this.$d.documentElement;
-    this.$g = this.$d.getElementsByTagName('body')[0];
-    this.windowX = this.$w.innerWidth || this.$e.clientWidth || this.$g.clientWidth;
-    this.windowY = this.$w.innerHeight|| this.$e.clientHeight|| this.$g.clientHeight;
-
+  /**
+   * Cache all the elements that we will use after
+   */  
+  cache() {
     // Script
     this.$script = $gfwdom('#loader-gfw');
 
@@ -66,25 +63,34 @@ module.exports = function() {
 
   };
 
-  this.setParams = function() {
+  /**
+   * Set Params
+   */  
+  setParams() {
     this.params = {
       current: this.$script.data('current')
     }
-  },
+  }
 
-  // Set current depending on the script data current
-  this.initHighlightCurrent = function() {
+  /**
+   * Set current depending on the script data current
+   */  
+  initHighlightCurrent() {
     this.$header.find(this.params.current).addClass('-current');
-  };
+  }
 
-  // Menu Toggles mobile
-  this.initListeners = function() {
+  /**
+   * Events
+   * - showMenu(), 
+   * - hideMenus()
+   */  
+  initListeners() {
     // Mobile menus
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
     this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
-  };
+  }
 
-  this.showMenu = function(e) {
+  showMenu(e) {
     if (utils.isSmallScreen()) {
       e && e.preventDefault();
 
@@ -106,9 +112,9 @@ module.exports = function() {
         e && e.preventDefault();
       }
     }
-  };
+  }
 
-  this.hideMenus = function(e) {
+  hideMenus(e) {
     // Allow mobile scroll
     this.$htmlbody.removeClass('-no-scroll');
     this.$headerSubmenu.removeClass('-active');
@@ -118,12 +124,12 @@ module.exports = function() {
         $gfwdom(v).find('svg').toggleClass('-inactive');
       }
     });
+  }
 
-    console.log()
-  };
-
-  // Init google translate module
-  this.initTranslate = function() {
+  /**
+   * Google translate
+   */  
+  initTranslate() {
     setTimeout(function() {
       window['googleTranslateElementInitGFW'] = function (){
         new google.translate.TranslateElement({
@@ -141,9 +147,11 @@ module.exports = function() {
     },0);
   };
 
-  // We need to make a difference between local, staging and PRO environment urls.
-  // Also we need to have a default value for the external applications
-  this.initLinksUrls = function() {
+  /**
+   * We need to make a difference between local, staging and PRO environment urls.
+   * Also we need to have a default value for the external applications
+   */  
+  initLinksUrls() {
     this.params.targets = !utils.isDefaultHost();
     this.params.hostname = utils.getHost();
 
@@ -163,7 +171,10 @@ module.exports = function() {
 
   };
 
-  this.initMyGFW = function() {
+  /**
+   * Init My GFW
+   */  
+  initMyGFW() {
     if (!!utils.isDefaultHost()) {
       var loginButton = new LoginButton();
       loginButton.init();
@@ -172,13 +183,11 @@ module.exports = function() {
     }
   }
 
-  this.initNavigation = function() {
+  initNavigation() {
     new Navigation();
   }
 
 
-  this.init();
+}
 
-  return this;
-
-};
+export default Header;
