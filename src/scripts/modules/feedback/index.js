@@ -1,49 +1,47 @@
 'use strict';
 
-var feedbackTpl = require('./feedback.tpl');
+import $gfwdom from '../../facade';
+import utils from '../../utils';
+import feedbackTpl from './feedback.tpl';
+
+const colors = {
+  'default': 'green',
+  'fires.globalforestwatch.org': 'red',
+  'commodities.globalforestwatch.org': 'orange',
+  'climate.globalforestwatch.org': 'blue'
+};
+
 
 /**
  * Feedback
  * @param  {window} root
  * @return {Class}
  */
-var $gfwdom = require('../../facade');
 
-module.exports = function() {
+class Feedback {
 
-  this.init = function() {
-    // TODO: Get template and render it
+  constructor() {
     this.el = document.createElement('div');
     this.el.id = 'feedbackGfw';
 
     document.body.appendChild(this.el);
 
     this.render();
-  };
+  }
 
-  this.render = function() {
+  render() {
     this.el.innerHTML = feedbackTpl;
 
-    this._initVars();
-    this._setListeners();
-    this._setHiddenInputs();
-    this._setColors();
-    this._checkForParams();
+    this.initVars();
+    this.setListeners();
+    this.setHiddenInputs();
+    this.setColors();
+    this.checkForParams();
 
     return this;
-  };
+  }
 
-  this._setListeners = function() {
-    this.$body.on('click', '.feedback-link', this.show.bind(this));
-
-    this.$el.on('click', '.js-modal-close', this.hide.bind(this));
-    this.$el.on('click', '.js-btn-continue', this.actionContinue.bind(this));
-    this.$el.on('click', '.js-btn-submit', this.actionSubmit.bind(this));
-    this.$el.on('click', '.js-btn-close', this.actionClose.bind(this));
-    this.$el.on('change','.js-radio-box input', this.changeRequire.bind(this));
-  };
-
-  this._initVars = function() {
+  initVars() {
     var w = window,
         d = document,
         e = d.documentElement,
@@ -74,19 +72,58 @@ module.exports = function() {
     this.$dinamicColor =   this.$el.find('.js-dinamic-color');
 
     this.hidden = true;
-    this.mobile = (x > 850);
-  };
+  }
+
+  setListeners() {
+    this.$body.on('click', '.feedback-link', this.show.bind(this));
+
+    this.$el.on('click', '.js-modal-close', this.hide.bind(this));
+    this.$el.on('click', '.js-btn-continue', this.actionContinue.bind(this));
+    this.$el.on('click', '.js-btn-submit', this.actionSubmit.bind(this));
+    this.$el.on('click', '.js-btn-close', this.actionClose.bind(this));
+    this.$el.on('change','.js-radio-box input', this.changeRequire.bind(this));    
+  }
 
 
-  this._initBindings = function() {
-    // this.mobile = (this.$window.width() > 850) ? false : true;
-    // this.scrollTop = this.$document.scrollTop();
-    // if(this.mobile) {
-    //   this.$htmlbody.addClass('active');
-    //   this.$htmlbody.animate({ scrollTop: this.scrollTop },0);
-    // }
+  /**
+   * Show & hide & toggle
+   * @param  {e} event
+   * @return {}
+   */
+  show(e) {
+    e && e.preventDefault() && e.stopPropagation();
+    this.hidden = false;
+    this.toggle();
+  }
+
+  hide(e) {
+    e && e.preventDefault();
+    this.hidden = true;
+    this.toggle();
+
+    //Give back scroll beyond modal window.
+    this.$htmlbody.removeClass('-no-scroll');
+    this.changeStep(1);
+
+    return this;
+  }
+
+  toggle() {
+    (!!this.hidden) ? this.stopBindings() : this.initBindings();
+    this.$el.toggleClass('-active', !this.hidden);
+    //Prevent scroll beyond modal window.
+    this.$htmlbody.toggleClass('-no-scroll', !this.hidden);
+  }
+
+
+  /**
+   * Init bindings & stopBindings
+   * @param  {}
+   * @return {}
+   */
+  initBindings() {
     // document keyup
-    this.$document.on('keyup', function(e) {
+    this.$document.on('keyup.feedback', function(e) {
       if (e.keyCode === 27) {
         this.hide();
       }
@@ -97,95 +134,68 @@ module.exports = function() {
     }.bind(this));
   };
 
-  this._stopBindings = function() {
-    // if(this.mobile) {
-    //   this.$htmlbody.removeClass('active');
-    //   this.$htmlbody.animate({ scrollTop: this.scrollTop },0);
-    // }
-    this.$document.off('keyup');
+  stopBindings() {
+    // Test this namespace
+    this.$document.off('keyup.feedback');
     this.$backdrop.off('click');
-  };
+  }
 
-  this._toggle = function() {
-    (!!this.hidden) ? this._stopBindings() : this._initBindings();
-    this.$el.toggleClass('-active', !this.hidden);
-    //Prevent scroll beyond modal window.
-    this.$htmlbody.toggleClass('-no-scroll', !this.hidden);
-  };
 
-  this._setColors = function() {
-    switch(location.hostname) {
-      case 'fires.globalforestwatch.org':
-        this.color = 'red';
-      break;
-
-      case 'commodities.globalforestwatch.org':
-        this.color = 'orange';
-      break;
-
-      case 'climate.globalforestwatch.org':
-        this.color = 'blue';
-      break;
-
-      default:
-        this.color = 'green';
-    }
-
+  /**
+   * Set global color of the feedback modal
+   * @param  {}
+   * @return {}
+   */
+  setColors() {
+    var color = colors[location.hostname] || colors['default'];
     this.$dinamicColor.forEach(function(v){
-      $gfwdom(v).removeClass('green').addClass(this.color);
+      $gfwdom(v).removeClass('green').addClass(color);
     }.bind(this));
-  };
+  }
 
-  this._setHiddenInputs = function() {
+
+  /**
+   * Set hostname. WRI will use it to know where the feedback was sended
+   * @param  {}
+   * @return {}
+   */
+  setHiddenInputs() {
     this.$hostname.val(location.hostname);
-  };
+  }
 
-  this._checkForParams = function() {
+
+  /**
+   * Check params. If show_feedback is present we automatically show the feedback modal
+   * @param  {}
+   * @return {}
+   */
+  checkForParams() {
     var params = this.getQueryParams();
     if (!!params && !!params['show_feedback']) {
       this.show();
     }
-  };
+  }
 
-  this.getQueryParams = function() {
-    var qs = document.location.search;
-    qs = qs.split('+').join(' ');
 
-    var params = {},
-        tokens,
-        re = /[?&]?([^=]+)=([^&]*)/g;
+  /**
+   * UI Events inside the feedback modal
+   * - actionContinue: continue to next Step
+   * @param  {e} event
 
-    while (tokens = re.exec(qs)) {
-      params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
-    }
-    return params;
-  };
+   * - actionSubmit: validate form before send it
+   * @param  {step} number
 
-  this.hide = function(e) {
-    e && e.preventDefault();
-    this.hidden = true;
-    this._toggle();
+   * - actionSend: send feedback form
 
-    //Give back scroll beyond modal window.
-    this.$htmlbody.removeClass('-no-scroll');
-    this.changeStep(1);
+   * - actionClose: trigger hide feedback
+   * @param  {e} event
 
-    return this;
-  };
-
-  this.show = function(e) {
-    e && e.preventDefault() && e.stopPropagation();
-    this.hidden = false;
-    this._toggle();
-  };
-
-  // Events inside modal
-  this.actionContinue = function(e) {
+   */
+  actionContinue(e) {
     this.changeStep(2);
-  };
+  }
 
-  this.actionSubmit = function(e) {
-    //Check if any input are filled. Should we use a plugin?
+  actionSubmit(e) {
     if (this.$email.hasClass('required')) {
       if (this.validateEmail(this.$email.val())) {
         this.actionSend();
@@ -199,13 +209,13 @@ module.exports = function() {
         alert('Please enter feedback, or sign up to be a GFW tester and enter an email address to continue');
       }
     }
-  };
+  }
 
-  this.actionClose = function(e) {
+  actionClose(e) {
     this.hide();
-  };
+  }
 
-  this.actionSend = function(){
+  actionSend(){
     this.$spinner.addClass('-active');
     // If you want to test it without bothering the client you can point the url to the local gfw (remember to run the app) feedback json
     // $gfwdom.jsonp('http://localhost:5000/feedback_jsonp', {
@@ -224,16 +234,24 @@ module.exports = function() {
       }.bind(this)
 
     })
-  };
+  }
 
 
-  // Changes
-  this.changeRequire = function(e) {
+  /**
+   * Change Events
+   * - changeRequire: change event triggerred by the radio buttons    
+   * @param  {e} event
+
+   * - changeStep: change step of the modal  
+   * @param  {step} number
+   */
+
+  changeRequire(e) {
     e && e.preventDefault();
     ($gfwdom(e.currentTarget).val() === 'true') ? this.$email.addClass('required') : this.$email.removeClass('required');
-  };
+  }
 
-  this.changeStep = function(step) {
+  changeStep(step) {
     // TO-DO: This is not working because we need to scroll the container, not the document
     // this.$contentWrapper.scrollTop(0);
     this.$modalStep.removeClass('-active');
@@ -242,18 +260,36 @@ module.exports = function() {
     // Set actives
     this.$el.find('.modal-step[data-step="'+step+'"]').addClass('-active');
     this.$el.find('.modal-step-btn[data-step="'+step+'"]').addClass('-active');
-  };
+  }
 
 
-  // Helpers
-  this.validateEmail = function(email){
+  /**
+   * Helpers
+   * - validateEmail
+   * @param  {email}
+   * @return {Boolean}
+
+   * - getQueryParams
+   * @return {Object}   
+   */
+  validateEmail(email){
     var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-  };
+  }
 
+  getQueryParams() {
+    var qs = document.location.search;
+    qs = qs.split('+').join(' ');
 
-  this.init();
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
 
-  return this;
+    while (tokens = re.exec(qs)) {
+      params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+    return params;
+  }
+}
 
-};
+export default Feedback;
