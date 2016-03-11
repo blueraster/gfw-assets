@@ -27,6 +27,14 @@ module.exports = function(config) {
       resolve: {
         extensions: ['', '.js']
       },
+      module: {
+        loaders: [
+          {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+          {test: /\.html$/, loader: 'file?name=[name].[ext]'},
+          {test: /\.tpl$/, loader: 'raw!html-minify'},
+          {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'}
+        ]
+      }
     },
 
     webpackMiddleware: {

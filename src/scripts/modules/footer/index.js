@@ -1,35 +1,42 @@
 'use strict';
 
-var lorySlider = require('lory.js').lory;
-var footerTpl = require('./footer.tpl');
-var footerIconsTpl = require('./footer-icons.tpl');
+import {lory} from 'lory.js';
+import footerTpl from './footer.tpl';
+import footerIconsTpl from './footer-icons.tpl';
+
+const sliderPause = 5000;
+const sliderOptions = {
+  infinite: 5,
+  slidesToScroll: 1,
+  slideSpeed: 500
+};
 
 /**
  * Footer
  * @param  {window} root
  * @return {Class}
  */
-module.exports = function() {
+class Footer {
 
-  this.init = function() {
+  constructor() {
     this.el = document.getElementById('footerGfw');
     if (!this.el) {
       throw new Error('element #footerGfw doesn\'t exist');
     }
     this.render();
-  };
+  }
 
-  this.render = function() {
+  render() {
     this.el.innerHTML = footerTpl + footerIconsTpl;
     this.initSlider();
     return this;
-  };
+  }
 
   /**
    * Method to start Lory slider
    */
-  this.initSlider = function() {
-    var sliderElement = document.getElementById('my-gfw-slider');
+  initSlider() {
+    const sliderElement = document.getElementById('my-gfw-slider');
 
     // Events
     sliderElement.addEventListener('before.lory.slide', this.cancelTimer.bind(this));
@@ -37,37 +44,31 @@ module.exports = function() {
     sliderElement.addEventListener('mouseover', this.cancelTimer.bind(this));
     sliderElement.addEventListener('mouseout', this.initTimer.bind(this));
 
-    this.slider = lorySlider(sliderElement, {
-      infinite: 5,
-      slidesToScroll: 1,
-      slideSpeed: 500
-    });
+    this.slider = lory(sliderElement, sliderOptions);
 
     this.initTimer();
-  };
+  }
 
   /**
    * This method is used to move lory slider
    */
-  this.initTimer = function() {
+  initTimer() {
     this.cancelTimer(); // Ensure remove timer at begining
     if (!this.sliderTimer) {
-      this.sliderTimer = setInterval(this.slider.next.bind(this.slider), 5000);
+      this.sliderTimer = setInterval(this.slider.next.bind(this.slider), sliderPause);
     }
-  };
+  }
 
   /**
    * This method is used to remove movement of lory slider
    */
-  this.cancelTimer = function() {
+  cancelTimer() {
     if (this.sliderTimer) {
       clearInterval(this.sliderTimer);
       this.sliderTimer = null;
     }
-  };
+  }
 
-  this.init();
+}
 
-  return this;
-
-};
+export default Footer;
