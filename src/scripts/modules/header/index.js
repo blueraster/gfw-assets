@@ -7,6 +7,7 @@ import headerTpl from './header.tpl';
 import headerIconsTpl from './header-icons.tpl';
 
 import LoginButton from '../my-gfw/login-button';
+import Navigation from '../navigation';
 
 /**
  * Header
@@ -35,6 +36,7 @@ class Header {
     this.initTranslate();
     this.initLinksUrls();
     this.initMyGFW();
+    this.initNavigation();
 
     return this;
   }
@@ -180,6 +182,12 @@ class Header {
       $gfwdom('#my-gfw-container').css({ display: 'none'});
     }
   }
+
+  initNavigation() {
+    new Navigation();
+  }
+
+
 }
 
 export default Header;
