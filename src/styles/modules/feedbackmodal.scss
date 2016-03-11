@@ -64,6 +64,9 @@ $heightModal: auto;
         display: none;
         @include spinner (40px, 5px, $primary-color);
         pointer-events: none;
+        &.-active {
+          display: block;
+        }
         &.red {
           @include spinner (40px, 5px, $red);
         }
