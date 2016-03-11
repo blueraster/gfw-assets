@@ -5,6 +5,7 @@ var headerIconsTpl = require('./header-icons.tpl');
 var $gfwdom = require('../../facade');
 var utils = require('../../utils');
 var LoginButton = require('../my-gfw/login-button');
+var Navigation = require('../navigation/');
 
 /**
  * Header
@@ -33,6 +34,7 @@ module.exports = function() {
     this.initTranslate();
     this.initLinksUrls();
     this.initMyGFW();
+    this.initNavigation();
 
     return this;
   };
@@ -168,6 +170,10 @@ module.exports = function() {
     } else {
       $gfwdom('#my-gfw-container').css({ display: 'none'});
     }
+  }
+
+  this.initNavigation = function() {
+    new Navigation();
   }
 
 
