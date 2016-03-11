@@ -57,13 +57,17 @@
     "ignores": [
       "public/**"
     ],
-    "envs": ["browser", "node"],
+    "envs": [
+      "browser",
+      "node"
+    ],
     "globals": [
       "after",
       "beforeEach",
       "before",
       "describe",
-      "it"
+      "it",
+      "expect"
     ]
   }
 }
