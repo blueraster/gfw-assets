@@ -39,6 +39,22 @@ describe('Header', function () {
     });
   });
 
+  describe('utils', function () {
+    it('should be an object', function () {
+      expect(utils).to.be.an('object');
+    });
+
+    it('should have the next default values', function () {
+    	this.params = this.header.params;
+    	
+      expect(utils.isSmallScreen()).to.be.a('boolean');
+      expect(utils.isDefaultHost()).to.be.a('boolean');
+      expect(utils.getHost()).to.be.a('string');
+    });
+  });
+
+  
+
   /**
    * Methods
    * - cache(), 
@@ -109,7 +125,6 @@ describe('Header', function () {
   describe('showMenu()', function () {
     it('should be a function', function () {
       expect(this.header.showMenu).to.be.a('function');
-      expect(utils.isSmallScreen()).to.be.a('boolean');
     });
   });
 
