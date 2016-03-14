@@ -94,4 +94,8 @@ describe('Header', function () {
 
   });
 
+  describe('initNavigation()', function () {
+  	
+  });
+
 });
