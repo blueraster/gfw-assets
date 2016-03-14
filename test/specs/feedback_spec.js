@@ -17,11 +17,7 @@ describe('Feeedback', () => {
     it('hidden should be true', function () {
       expect(this.feedback.hidden).to.be.true;
     });
-    it('hidden should be true', function () {
-      expect(this.feedback.hidden).to.be.true;
-    });
   });
-
 
   describe('show', function () {
 	  before(function () {
@@ -32,6 +28,14 @@ describe('Feeedback', () => {
     });
   });
 
+  describe('hide', function () {
+	  before(function () {
+	    this.feedback.hide();
+	  });
+    it('hidden should be true', function () {
+      expect(this.feedback.hidden).to.be.true;
+    });
+  });
 
 });
 
