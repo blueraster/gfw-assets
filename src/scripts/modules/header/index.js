@@ -25,7 +25,7 @@ class Header {
   }
 
   render() {
-    this.el.innerHTML = headerTpl + headerIconsTpl;
+    this.el.innerHTML = headerTpl() + headerIconsTpl();
 
     this.cache();
 
@@ -43,7 +43,7 @@ class Header {
 
   /**
    * Cache all the elements that we will use after
-   */  
+   */
   cache() {
     // Script
     this.$script = $gfwdom('#loader-gfw');
@@ -65,7 +65,7 @@ class Header {
 
   /**
    * Set Params
-   */  
+   */
   setParams() {
     this.params = {
       current: this.$script.data('current')
@@ -74,16 +74,16 @@ class Header {
 
   /**
    * Set current depending on the script data current
-   */  
+   */
   initHighlightCurrent() {
     this.$header.find(this.params.current).addClass('-current');
   }
 
   /**
    * Events
-   * - showMenu(), 
+   * - showMenu(),
    * - hideMenus()
-   */  
+   */
   initListeners() {
     // Mobile menus
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
@@ -128,7 +128,7 @@ class Header {
 
   /**
    * Google translate
-   */  
+   */
   initTranslate() {
     setTimeout(function() {
       window['googleTranslateElementInitGFW'] = function (){
@@ -150,7 +150,7 @@ class Header {
   /**
    * We need to make a difference between local, staging and PRO environment urls.
    * Also we need to have a default value for the external applications
-   */  
+   */
   initLinksUrls() {
     this.params.targets = !utils.isDefaultHost();
     this.params.hostname = utils.getHost();
@@ -173,7 +173,7 @@ class Header {
 
   /**
    * Init My GFW
-   */  
+   */
   initMyGFW() {
     if (!!utils.isDefaultHost()) {
       var loginButton = new LoginButton();
