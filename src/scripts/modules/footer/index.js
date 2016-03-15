@@ -27,7 +27,7 @@ class Footer {
   }
 
   render() {
-    this.el.innerHTML = footerTpl + footerIconsTpl;
+    this.el.innerHTML = footerTpl() + footerIconsTpl();
     this.initSlider();
     return this;
   }

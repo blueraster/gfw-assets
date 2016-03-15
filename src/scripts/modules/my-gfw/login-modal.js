@@ -20,11 +20,10 @@ module.exports = function() {
   };
 
   this.render = function() {
-    var template = loginModalTpl;
-    this.$el.html(template);
+    this.$el.html(loginModalTpl());
     // If you don't add this clas you won't see anything
     this.$el.addClass('is-active');
-    
+
     this.initEvents();
     this.initLinks();
 
@@ -35,7 +34,7 @@ module.exports = function() {
   this.initEvents = function() {
     var $modalClose = this.$el.find('.my-gfw-modal-close');
     var $modalBackdrop = this.$el.find('.my-gfw-modal-backdrop');
-    
+
     $modalClose.on('click', this.hideModal.bind(this))
     $modalBackdrop.on('click', this.hideModal.bind(this))
   };

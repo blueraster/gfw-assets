@@ -30,7 +30,7 @@ class Feedback {
   }
 
   render() {
-    this.el.innerHTML = feedbackTpl;
+    this.el.innerHTML = feedbackTpl();
 
     this.initVars();
     this.setListeners();
@@ -81,7 +81,7 @@ class Feedback {
     this.$el.on('click', '.js-btn-continue', this.actionContinue.bind(this));
     this.$el.on('click', '.js-btn-submit', this.actionSubmit.bind(this));
     this.$el.on('click', '.js-btn-close', this.actionClose.bind(this));
-    this.$el.on('change','.js-radio-box input', this.changeRequire.bind(this));    
+    this.$el.on('change','.js-radio-box input', this.changeRequire.bind(this));
   }
 
 
@@ -228,8 +228,8 @@ class Feedback {
       }.bind(this),
 
       error: function(error) {
-        console.log('error:' + error);   
-        this.changeStep(4);     
+        console.log('error:' + error);
+        this.changeStep(4);
         this.$spinner.removeClass('-active');
       }.bind(this)
 
@@ -239,10 +239,10 @@ class Feedback {
 
   /**
    * Change Events
-   * - changeRequire: change event triggerred by the radio buttons    
+   * - changeRequire: change event triggerred by the radio buttons
    * @param  {e} event
 
-   * - changeStep: change step of the modal  
+   * - changeStep: change step of the modal
    * @param  {step} number
    */
 
@@ -270,7 +270,7 @@ class Feedback {
    * @return {Boolean}
 
    * - getQueryParams
-   * @return {Object}   
+   * @return {Object}
    */
   validateEmail(email){
     var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
