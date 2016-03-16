@@ -7,7 +7,7 @@ import footerIconsTpl from './footer-icons.tpl';
 const sliderPause = 5000;
 const sliderOptions = {
   infinite: 5,
-  slidesToScroll: 1,
+  slidesToScroll: 5,
   slideSpeed: 500
 };
 
@@ -39,14 +39,14 @@ class Footer {
     const sliderElement = document.getElementById('my-gfw-slider');
 
     // Events
-    sliderElement.addEventListener('before.lory.slide', this.cancelTimer.bind(this));
-    sliderElement.addEventListener('after.lory.slide', this.initTimer.bind(this));
-    sliderElement.addEventListener('mouseover', this.cancelTimer.bind(this));
-    sliderElement.addEventListener('mouseout', this.initTimer.bind(this));
+    // sliderElement.addEventListener('before.lory.slide', this.cancelTimer.bind(this));
+    // sliderElement.addEventListener('after.lory.slide', this.initTimer.bind(this));
+    // sliderElement.addEventListener('mouseover', this.cancelTimer.bind(this));
+    // sliderElement.addEventListener('mouseout', this.initTimer.bind(this));
 
     this.slider = lory(sliderElement, sliderOptions);
 
-    this.initTimer();
+    // this.initTimer();
   }
 
   /**
