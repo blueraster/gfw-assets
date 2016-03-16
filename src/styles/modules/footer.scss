@@ -149,7 +149,7 @@
   .js_slide {
     display: inline-block;
     height: 170px;
-    width: 20%;
+    width: 20%; /* By default, 5 slides at a time */
     padding-right: 10px;
 
     a {
