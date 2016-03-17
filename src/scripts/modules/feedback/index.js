@@ -94,12 +94,14 @@ class Feedback {
     e && e.preventDefault() && e.stopPropagation();
     this.hidden = false;
     this.toggle();
+    window.history.pushState("Show feedback", document.title, this.toggleParam('show_feedback',true));
   }
 
   hide(e) {
     e && e.preventDefault();
     this.hidden = true;
     this.toggle();
+    window.history.pushState("Hide feedback", document.title, this.toggleParam('show_feedback',null));
 
     //Give back scroll beyond modal window.
     this.$htmlbody.removeClass('-no-scroll');
@@ -271,6 +273,10 @@ class Feedback {
 
    * - getQueryParams
    * @return {Object}
+
+   * - toggleParam
+   * @param  {key, value, url}
+   * @return {String}
    */
   validateEmail(email){
     var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -290,6 +296,39 @@ class Feedback {
     }
     return params;
   }
+
+  toggleParam(key, value, url) {
+    
+    if (!url) url = window.location.href;
+    var re = new RegExp("([?&])" + key + "=.*?(&|#|$)(.*)", "gi"),
+        hash;
+
+    if (re.test(url)) {
+      if (typeof value !== 'undefined' && value !== null)
+        return url.replace(re, '$1' + key + "=" + value + '$2$3');
+      else {
+        hash = url.split('#');
+        url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
+        if (typeof hash[1] !== 'undefined' && hash[1] !== null) 
+          url += '#' + hash[1];
+        return url;
+      }
+    }
+    else {
+      if (typeof value !== 'undefined' && value !== null) {
+        var separator = url.indexOf('?') !== -1 ? '&' : '?';
+        hash = url.split('#');
+        url = hash[0] + separator + key + '=' + value;
+        if (typeof hash[1] !== 'undefined' && hash[1] !== null) 
+          url += '#' + hash[1];
+        return url;
+      }
+      else
+        return url;
+    }
+  }
+
+
 }
 
 export default Feedback;
