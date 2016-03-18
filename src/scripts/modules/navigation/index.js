@@ -32,7 +32,7 @@ class Navigation {
   }
 
   render() {
-    var menu = navigationMenus[location.hostname] || navigationMenus['default'];
+    const menu = navigationMenus[location.hostname] || navigationMenus['default'];
     this.$el.html(navigationTpl({ menu: menu}));
   }
 
