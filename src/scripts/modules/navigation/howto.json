@@ -1,4 +1,7 @@
 [{
+  "name": "Home",
+  "link": "/"
+  },{
   "name": "Search by theme",
   "link": "",
   "submenu": [

@@ -38,7 +38,7 @@
     "xo": "^0.13.0"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --hot --progress --color",
+    "start": "./node_modules/.bin/webpack-dev-server --hot --progress --color --host 0.0.0.0",
     "build": "./node_modules/.bin/webpack --progress --color",
     "test": "./node_modules/.bin/karma start",
     "test-watch": "./node_modules/.bin/karma start --auto-watch"
