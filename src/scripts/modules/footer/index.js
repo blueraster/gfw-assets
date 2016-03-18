@@ -13,6 +13,7 @@ const sliderOptions = {
   slideSpeed: 500
 };
 const slideMinWidth = 130;
+const maxSlidesAtOnce = 5;
 
 /**
  * Footer
@@ -28,7 +29,7 @@ class Footer {
     }
 
     /* Number of slides currently shown at once */
-    this.fittedSlides = 5;
+    this.currentSlidesAtOnce = 5;
 
     /* We save the handlers binded to the current context to be able to use them
      * later. We can't bind them when assigning them to events because calling
@@ -87,23 +88,31 @@ class Footer {
     this.initTimer();
   }
 
+  /* Return true if the number of slides that can be displayed at once can be
+   * updated from its previous value */
+  isSlidesAtOnceUpdated(fittingSlidesAtOnce) {
+    return fittingSlidesAtOnce !== this.currentSlidesAtOnce &&
+      !utils.isSmallScreen() &&
+      (fittingSlidesAtOnce <= maxSlidesAtOnce ||
+      fittingSlidesAtOnce > maxSlidesAtOnce &&
+      this.currentSlidesAtOnce < maxSlidesAtOnce);
+  }
+
   /**
    * Update the number of slides shown at once and their sizes so we can't see
    * some logos cut
    */
   updateSlider() {
-    const fittingSlides = ~~(this.slidesContainer.getBoundingClientRect().width / slideMinWidth);
+    const fittingSlidesAtOnce = ~~(this.slidesContainer.getBoundingClientRect().width / slideMinWidth);
 
-    if(fittingSlides !== this.fittedSlides && !utils.isSmallScreen() &&
-      (fittingSlides <= 5 || fittingSlides > 5 && this.fittedSlides < 5)) {
+    if(this.isSlidesAtOnceUpdated(fittingSlidesAtOnce)) {
+      this.currentSlidesAtOnce = Math.min(fittingSlidesAtOnce, maxSlidesAtOnce);
 
-      this.fittedSlides = Math.min(fittingSlides, 5);
-
-      sliderOptions.infinite       = this.fittedSlides;
-      sliderOptions.slidesToScroll = this.fittedSlides;
+      sliderOptions.infinite       = this.currentSlidesAtOnce;
+      sliderOptions.slidesToScroll = this.currentSlidesAtOnce;
 
       for(let i = 0, j = this.slides.length; i < j; i++) {
-        this.slides[i].style.width = (100 / this.fittedSlides) + '%';
+        this.slides[i].style.width = (100 / this.currentSlidesAtOnce) + '%';
       }
     }
 
