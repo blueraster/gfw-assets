@@ -38,7 +38,7 @@ module.exports = {
   getHost: function() {
     var currentLocation = window.location.hostname;
     if (this.URLS[currentLocation] === undefined) {
-      currentLocation = DEFAULT_URL;
+      currentLocation = this.DEFAULT_URL;
     }
 
     return 'http://' + this.URLS[currentLocation];
@@ -51,7 +51,7 @@ module.exports = {
 
     var currentLocation = window.location.hostname;
     if (this.API_URLS[currentLocation] === undefined) {
-      currentLocation = DEFAULT_URL;
+      currentLocation = this.DEFAULT_URL;
     }
 
     return 'http://' + this.API_URLS[currentLocation];
