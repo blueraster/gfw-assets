@@ -4,10 +4,10 @@
  * jBone
  * How to extend: https://github.com/kupriyanenko/jbone#extend-it
  */
-var jBone = require('jbone');
-var $gfwDom = jBone.noConflict();
+import jBone from 'jbone';
+const $gfwDom = jBone.noConflict();
 
-$gfwDom.fn.scrollTop = function() {
+$gfwDom.fn.scrollTop = () => {
   // We do not want this script to be applied in browsers that do not support those
   // That means no smoothscroll on IE9 and below.
   if (document.querySelectorAll === void 0 || window.pageYOffset === void 0 || history.pushState === void 0) {
@@ -15,7 +15,7 @@ $gfwDom.fn.scrollTop = function() {
   }
 
   // Get the top position of an element in the document
-  var getTop = function(element) {
+  const getTop = element => {
     // return value of html.getBoundingClientRect().top ... IE : 0, other browsers : -pageYOffset
     if (element.nodeName === 'HTML') {
       return -window.pageYOffset;
@@ -25,53 +25,27 @@ $gfwDom.fn.scrollTop = function() {
 
   // ease functions thanks to:
   // http://blog.greweb.fr/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation/
-  var easings = {
-    linear: function(t) {
-      return t;
-    },
-    easeInQuad: function(t) {
-      return t * t;
-    },
-    easeOutQuad: function(t) {
-      return t * (2 - t);
-    },
-    easeInOutQuad: function(t) {
-      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    },
-    easeInCubic: function(t) {
-      return t * t * t;
-    },
-    easeOutCubic: function(t) {
-      return (--t) * t * t + 1;
-    },
-    easeInOutCubic: function(t) {
-      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-    },
-    easeInQuart: function(t) {
-      return t * t * t * t;
-    },
-    easeOutQuart: function(t) {
-      return 1 - (--t) * t * t * t;
-    },
-    easeInOutQuart: function(t) {
-      return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
-    },
-    easeInQuint: function(t) {
-      return t * t * t * t * t;
-    },
-    easeOutQuint: function(t) {
-      return 1 + (--t) * t * t * t * t;
-    },
-    easeInOutQuint: function(t) {
-      return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t;
-    }
+  const easings = {
+    linear: t => t,
+    easeInQuad: t => t * t,
+    easeOutQuad: t => t * (2 - t),
+    easeInOutQuad: t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
+    easeInCubic: t => t * t * t,
+    easeOutCubic: t => (--t) * t * t + 1,
+    easeInOutCubic: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1,
+    easeInQuart: t => t * t * t * t,
+    easeOutQuart: t => 1 - (--t) * t * t * t,
+    easeInOutQuart: t => t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t,
+    easeInQuint: t => t * t * t * t * t,
+    easeOutQuint: t => 1 + (--t) * t * t * t * t,
+    easeInOutQuint: t => t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t
   };
 
   // calculate the scroll position we should be in
   // given the start and end point of the scroll
   // the time elapsed from the beginning of the scroll
   // and the total duration of the scroll (default 500ms)
-  var position = function(start, end, elapsed, duration) {
+  const position = (start, end, elapsed, duration) => {
     if (elapsed > duration) { return end; }
     return start + (end - start) * easings.easeInOutQuint(elapsed / duration);
   };
@@ -80,23 +54,18 @@ $gfwDom.fn.scrollTop = function() {
   // if the first argument is an element then scroll to the top of this element
   // if the first argument is numeric then scroll to this location
   // if the callback exist, it is called when the scrolling is finished
-  var smoothScroll = function(el, duration, callback) {
+  const smoothScroll = (el, duration, callback) => {
     duration = duration || 500;
-    var start = window.pageYOffset, end;
+    const start = window.pageYOffset
+          end   = typeof el === 'number' ? parseInt(el) : getTop(el);
 
-    if (typeof el === 'number') {
-      end = parseInt(el);
-    } else {
-      end = getTop(el);
-    }
-
-    var clock = Date.now();
-    var requestAnimationFrame = window.requestAnimationFrame ||
+    const clock = Date.now();
+    const requestAnimationFrame = window.requestAnimationFrame ||
       window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
-      function(fn) { window.setTimeout(fn, 15); };
+      (fn => window.setTimeout(fn, 15));
 
-    var step = function() {
-      var elapsed = Date.now() - clock;
+    const step = () => {
+      const elapsed = Date.now() - clock;
       window.scroll(0, position(start, end, elapsed, duration));
       if (elapsed > duration) {
         if (typeof callback === 'function') {
@@ -116,11 +85,15 @@ $gfwDom.fn.scrollTop = function() {
   return this;
 };
 
-$gfwDom.jsonp = function(url, options) {
-	var options = options;
-	var script = document.createElement('script');
-			script.src = url + '?callback=_jsonpGFWCallback&'+options.data;
-			document.head.appendChild(script);
+$gfwDom.json = (url, options) => {
+  options.success({});
+};
+
+$gfwDom.jsonp = (url, options) => {
+	options = options;
+	const script = document.createElement('script');
+	script.src = `${url}?callback=_jsonpGFWCallback&${options.data}`;
+	document.head.appendChild(script);
 
 	window['_jsonpGFWCallback'] = function(data) {
 		if (!!data) {
@@ -129,18 +102,17 @@ $gfwDom.jsonp = function(url, options) {
 			options.error(data);
 		}
 	};
-	
+
 }
 
 // GIST: https://gist.github.com/bullgare/5336154
 // Function for get all the params of a form
-$gfwDom.serialize = function (form) {
+$gfwDom.serialize = form => {
 	if (!form || form.nodeName !== "FORM") {
 		return;
 	}
-	var i, j,
-		obj = {};
-	for (i = form.elements.length - 1; i >= 0; i = i - 1) {
+	let obj = {};
+	for (let i = form.elements.length - 1; i >= 0; i = i - 1) {
 		if (form.elements[i].name === "") {
 			continue;
 		}
@@ -174,7 +146,7 @@ $gfwDom.serialize = function (form) {
 				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
 				break;
 			case 'select-multiple':
-				for (j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
+				for (let j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
 					if (form.elements[i].options[j].selected) {
 						obj[form.elements[i].name] = encodeURIComponent(form.elements[i].options[j].value);
 					}
@@ -196,13 +168,13 @@ $gfwDom.serialize = function (form) {
 
 	// http://stackoverflow.com/a/6566471/3603884
 	// Transform the object to a string. Maybe we should do it in two steps
-	var str = "";
-	for (var key in obj) {
-		if (str != "") {
-		  str += "&";
+	let str = '';
+	for (let key in obj) {
+		if (str != '') {
+		  str += '&';
 		}
-		str += key + "=" + encodeURIComponent(obj[key]);
-	}	
+		str += key + '=' + encodeURIComponent(obj[key]);
+	}
 
 	return str;
 }

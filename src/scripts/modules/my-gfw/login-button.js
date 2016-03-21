@@ -1,28 +1,24 @@
 'use strict';
 
-var loginButtonTpl = require('./login-button.tpl');
-var logoutButtonTpl = require('./logout-button.tpl');
-var LoginModal = require('./login-modal');
-var $gfwdom = require('../../facade');
-var utils = require('../../utils');
+import loginButtonTpl from './login-button.tpl';
+import logoutButtonTpl from './logout-button.tpl';
+import LoginModal from './login-modal';
+import $gfwdom from '../../facade';
+import utils from '../../utils';
 
-/**
- * User
- * @param  {window} root
- * @return {Class}
- */
-module.exports = function() {
 
-  this.init = function() {
+class MyGfw {
+
+  init() {
     this.$el = $gfwdom('#my-gfw-container');
     if (!this.$el) {
       throw new Error('element #footerGfw doesn\'t exist');
     }
     this.checkStatus();
-  };
+  }
 
   // Check if the user is logged
-  this.checkStatus = function() {
+  checkStatus() {
     utils.isLoggedIn({
       success: function() {
         this.loggedIn = true;
@@ -32,35 +28,36 @@ module.exports = function() {
         this.loggedIn = false;
         this.render();
       }.bind(this)
-    });    
-  };
+    });
+  }
 
   // Render different templates depending on the loggin state
-  this.render = function() {
-    var template = (!!this.loggedIn) ? loginButtonTpl : logoutButtonTpl;
+  render() {
+    const template = (!!this.loggedIn) ? loginButtonTpl : logoutButtonTpl;
     this.$el.html(template);
-    
+
     this.initEvents();
     this.initLinks();
 
     return this;
-  };
+  }
 
-  this.initEvents = function() {
-    var $openModal = this.$el.find('#my-gfw-open-modal');
+  initEvents() {
+    const $openModal = this.$el.find('#my-gfw-open-modal');
     $openModal.on('click', this.showModal.bind(this))
-  };
+  }
 
-  this.initLinks = function() {
-    var $signout = this.$el.find('#my-gfw-sign-out');
+  initLinks() {
+    const $signout = this.$el.find('#my-gfw-sign-out');
     $signout.attr('href', utils.getAPIHost() + $signout.attr('href'));
-  };
+  }
 
-  this.showModal = function(e) {
+  showModal(e) {
     e && event.stopPropagation() && event.preventDefault();
-    var modalView = new LoginModal();
+    const modalView = new LoginModal();
     modalView.init();
   }
 
-  return this;
-};
+}
+
+export default MyGfw;

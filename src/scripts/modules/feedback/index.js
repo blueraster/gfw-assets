@@ -42,34 +42,27 @@ class Feedback {
   }
 
   initVars() {
-    var w = window,
-        d = document,
-        e = d.documentElement,
-        g = d.getElementsByTagName('body')[0],
-        x = w.innerWidth || e.clientWidth || g.clientWidth,
-        y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-
-    this.$window =    window;
+    this.$window   =  window;
     this.$document =  $gfwdom(document);
-    this.$body =      $gfwdom('body');
+    this.$body     =  $gfwdom('body');
     this.$htmlbody =  $gfwdom('html, body');
-    this.$el =        $gfwdom('#feedbackModal');
+    this.$el       =  $gfwdom('#feedbackModal');
 
-    this.$content =        this.$el.find('.modal-content');
+    this.$content        = this.$el.find('.modal-content');
     this.$contentWrapper = this.$el.find('.modal-wrapper');
-    this.$backdrop =       this.$el.find('.modal-backdrop');
-    this.$close =          this.$el.find('.modal-close');
-    this.$spinner =        this.$el.find('.modal-spinner');
+    this.$backdrop       = this.$el.find('.modal-backdrop');
+    this.$close          = this.$el.find('.modal-close');
+    this.$spinner        = this.$el.find('.modal-spinner');
 
-    this.$modalStep =      this.$el.find('.modal-step');
+    this.$modalStep    =   this.$el.find('.modal-step');
     this.$modalStepBtn =   this.$el.find('.modal-step-btn');
 
-    this.$form =           this.$el.find('#feedback-form');
-    this.$textarea =       this.$el.find('#feedback-textarea');
-    this.$email =          this.$el.find('#feedback-email');
-    this.$hostname =       this.$el.find('#feedback-hostname');
+    this.$form     = this.$el.find('#feedback-form');
+    this.$textarea = this.$el.find('#feedback-textarea');
+    this.$email    = this.$el.find('#feedback-email');
+    this.$hostname = this.$el.find('#feedback-hostname');
 
-    this.$dinamicColor =   this.$el.find('.js-dinamic-color');
+    this.$dinamicColor = this.$el.find('.js-dinamic-color');
 
     this.hidden = true;
   }
@@ -94,14 +87,14 @@ class Feedback {
     e && e.preventDefault() && e.stopPropagation();
     this.hidden = false;
     this.toggle();
-    window.history.pushState("Show feedback", document.title, this.toggleParam('show_feedback',true));
+    window.history.pushState('Show feedback', document.title, this.toggleParam('show_feedback',true));
   }
 
   hide(e) {
     e && e.preventDefault();
     this.hidden = true;
     this.toggle();
-    window.history.pushState("Hide feedback", document.title, this.toggleParam('show_feedback',null));
+    window.history.pushState('Hide feedback', document.title, this.toggleParam('show_feedback',null));
 
     //Give back scroll beyond modal window.
     this.$htmlbody.removeClass('-no-scroll');
@@ -125,15 +118,15 @@ class Feedback {
    */
   initBindings() {
     // document keyup
-    this.$document.on('keyup.feedback', function(e) {
+    this.$document.on('keyup.feedback', e => {
       if (e.keyCode === 27) {
         this.hide();
       }
-    }.bind(this));
+    });
     // backdrop
-    this.$backdrop.on('click', function() {
+    this.$backdrop.on('click', () => {
       this.hide();
-    }.bind(this));
+    });
   };
 
   stopBindings() {
@@ -149,10 +142,10 @@ class Feedback {
    * @return {}
    */
   setColors() {
-    var color = colors[location.hostname] || colors['default'];
-    this.$dinamicColor.forEach(function(v){
+    const color = colors[location.hostname] || colors['default'];
+    this.$dinamicColor.forEach(v => {
       $gfwdom(v).removeClass('green').addClass(color);
-    }.bind(this));
+    });
   }
 
 
@@ -172,7 +165,7 @@ class Feedback {
    * @return {}
    */
   checkForParams() {
-    var params = this.getQueryParams();
+    const params = this.getQueryParams();
     if (!!params && !!params['show_feedback']) {
       this.show();
     }
@@ -217,23 +210,23 @@ class Feedback {
     this.hide();
   }
 
-  actionSend(){
+  actionSend() {
     this.$spinner.addClass('-active');
     // If you want to test it without bothering the client you can point the url to the local gfw (remember to run the app) feedback json
     // $gfwdom.jsonp('http://localhost:5000/feedback_jsonp', {
     $gfwdom.jsonp('http://www.globalforestwatch.org/feedback_jsonp', {
       data: $gfwdom.serialize(this.$form[0]),
 
-      success: function(data) {
+      success: data => {
         (data === true) ? this.changeStep(3) : this.changeStep(4);
         this.$spinner.removeClass('-active');
-      }.bind(this),
+      },
 
-      error: function(error) {
+      error: error => {
         console.log('error:' + error);
         this.changeStep(4);
         this.$spinner.removeClass('-active');
-      }.bind(this)
+      }
 
     })
   }
@@ -278,18 +271,18 @@ class Feedback {
    * @param  {key, value, url}
    * @return {String}
    */
-  validateEmail(email){
-    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
 
   getQueryParams() {
-    var qs = document.location.search;
+    let qs = document.location.search;
     qs = qs.split('+').join(' ');
 
-    var params = {},
-        tokens,
-        re = /[?&]?([^=]+)=([^&]*)/g;
+    const params = {},
+          re = /[?&]?([^=]+)=([^&]*)/g;
+    let tokens;
 
     while (tokens = re.exec(qs)) {
       params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
@@ -298,28 +291,28 @@ class Feedback {
   }
 
   toggleParam(key, value, url) {
-    
+
     if (!url) url = window.location.href;
-    var re = new RegExp("([?&])" + key + "=.*?(&|#|$)(.*)", "gi"),
-        hash;
+    const re = new RegExp(`([?&])${key}=.*?(&|#|$)(.*)`, 'gi');
+    let hash;
 
     if (re.test(url)) {
       if (typeof value !== 'undefined' && value !== null)
-        return url.replace(re, '$1' + key + "=" + value + '$2$3');
+        return url.replace(re, `$1${key}=${value}$2$3`);
       else {
         hash = url.split('#');
         url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
-        if (typeof hash[1] !== 'undefined' && hash[1] !== null) 
+        if (typeof hash[1] !== 'undefined' && hash[1] !== null)
           url += '#' + hash[1];
         return url;
       }
     }
     else {
       if (typeof value !== 'undefined' && value !== null) {
-        var separator = url.indexOf('?') !== -1 ? '&' : '?';
+        const separator = url.indexOf('?') !== -1 ? '&' : '?';
         hash = url.split('#');
-        url = hash[0] + separator + key + '=' + value;
-        if (typeof hash[1] !== 'undefined' && hash[1] !== null) 
+        url = `${hash[0]}${separator}${key}=${value}`;
+        if (typeof hash[1] !== 'undefined' && hash[1] !== null)
           url += '#' + hash[1];
         return url;
       }
