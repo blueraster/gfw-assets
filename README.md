@@ -5,17 +5,19 @@
 This repo provides the navigation bar shared by all Global Forest Watch 
 websites, such as GFW, GFW Fires, Commodities, etc.
 
-![Navbar in action](https://raw.githubusercontent.com/simbiotica/gfw_assets/master/images/demo.png)
+![Navbar in action](src/images/preview.png?raw=true)
 
 ## Installation
 
 Requirements:
 
 * NodeJs 5.2+ [How to install](https://nodejs.org/download/)
+* Ruby 2+ [How to install](https://gorails.com/setup/osx/10.10-yosemite)
 
 Install project dependencies:
 
 	npm install
+	bundle install // This install SASS in your computer, check Gemfile
 
 ## Usage (development)
 
