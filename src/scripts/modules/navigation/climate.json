@@ -1,0 +1,19 @@
+[{
+    "name": "Home",
+    "link": "/"
+  },{
+    "name": "Map",
+    "link": "/map"
+  },{
+    "name": "Country profiles",
+    "link": "/countries"
+  },{
+    "name": "Country comparisons",
+    "link": "/compare-countries"
+  },{
+    "name": "Pantropical overview",
+    "link": "/pantropical"
+  },{
+    "name": "About",
+    "link": "/about"
+}]
