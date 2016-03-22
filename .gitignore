@@ -2,6 +2,5 @@
 .gems
 .sass-cache
 *.log
-/dist/bundle.js
 /dist/*.html
 /node_modules
