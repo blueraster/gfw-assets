@@ -3,6 +3,7 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var path = require('path');
+var version = process.env.VERSION || 'latest';
 
 var prodPlugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -31,7 +32,7 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'gfw-assets.' + version + '.js'
   },
 
   module: {
