@@ -2,7 +2,6 @@
 
 import $gfwdom from '../../facade';
 import utils from '../../utils';
-import jstpl from 'micro-template';
 import navigationTpl from './navigation.tpl';
 
 import globaljson from './global.json';
@@ -33,11 +32,8 @@ class Navigation {
   }
 
   render() {
-    var menu = navigationMenus[location.hostname] || navigationMenus['default'];
-    // TO-DO: this is a little weird. I need to render the script template and then re-render it with the json
-    // That happens because the microtemplate plugin looks for an id, it would be great if we can pass directly the template...
-    this.$el.html(navigationTpl);
-    this.$el.html(jstpl.template('mobileMenuTPL', { menu: menu}));
+    const menu = navigationMenus[location.hostname] || navigationMenus['default'];
+    this.$el.html(navigationTpl({ menu: menu}));
   }
 
 }

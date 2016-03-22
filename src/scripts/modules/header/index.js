@@ -25,7 +25,7 @@ class Header {
   }
 
   render() {
-    this.el.innerHTML = headerTpl + headerIconsTpl;
+    this.el.innerHTML = headerTpl() + headerIconsTpl();
 
     this.cache();
 
@@ -43,7 +43,7 @@ class Header {
 
   /**
    * Cache all the elements that we will use after
-   */  
+   */
   cache() {
     // Script
     this.$script = $gfwdom('#loader-gfw');
@@ -65,7 +65,7 @@ class Header {
 
   /**
    * Set Params
-   */  
+   */
   setParams() {
     this.params = {
       current: this.$script.data('current')
@@ -74,16 +74,16 @@ class Header {
 
   /**
    * Set current depending on the script data current
-   */  
+   */
   initHighlightCurrent() {
     this.$header.find(this.params.current).addClass('-current');
   }
 
   /**
    * Events
-   * - showMenu(), 
+   * - showMenu(),
    * - hideMenus()
-   */  
+   */
   initListeners() {
     // Mobile menus
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
@@ -128,10 +128,10 @@ class Header {
 
   /**
    * Google translate
-   */  
+   */
   initTranslate() {
-    setTimeout(function() {
-      window['googleTranslateElementInitGFW'] = function (){
+    setTimeout(() => {
+      window['googleTranslateElementInitGFW'] = () => {
         new google.translate.TranslateElement({
           pageLanguage: '',
           includedLanguages: 'ar,es,en,fr,id,pt,ru,zh-CN,de,uk,ro,tr,it,hi,km',
@@ -140,7 +140,7 @@ class Header {
         },'googleTranslate');
       }
 
-      var translateScript = document.createElement('script');
+      const translateScript = document.createElement('script');
       translateScript.type= 'text/javascript';
       translateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
       document.head.appendChild(translateScript);
@@ -150,33 +150,33 @@ class Header {
   /**
    * We need to make a difference between local, staging and PRO environment urls.
    * Also we need to have a default value for the external applications
-   */  
+   */
   initLinksUrls() {
     this.params.targets = !utils.isDefaultHost();
     this.params.hostname = utils.getHost();
 
     this.$links.forEach(function(v){
-      var href = $gfwdom(v).attr('href');
+      const href = $gfwdom(v).attr('href');
       if (href.charAt(0) == '/') {
         $gfwdom(v).attr('href', this.params.hostname + href);
       }
     }.bind(this));
 
-    this.$linksSubmenu.forEach(function(v){
-      var external = $gfwdom(v).hasClass('external-link');
+    this.$linksSubmenu.forEach(v => {
+      const external = $gfwdom(v).hasClass('external-link');
       if (this.params.targets) {
         (!!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target','_blank');
       }
-    }.bind(this));
+    });
 
   };
 
   /**
    * Init My GFW
-   */  
+   */
   initMyGFW() {
     if (!!utils.isDefaultHost()) {
-      var loginButton = new LoginButton();
+      const loginButton = new LoginButton();
       loginButton.init();
     } else {
       $gfwdom('#my-gfw-container').css({ display: 'none'});
