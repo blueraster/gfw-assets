@@ -7,8 +7,6 @@ module.exports = function(config) {
 
     browsers: ['PhantomJS'],
 
-    // singleRun: true,
-
     reporters: ['nyan'],
 
     basePath: './',
@@ -32,7 +30,7 @@ module.exports = function(config) {
           {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
           {test: /\.json$/, loader: 'json'},
           {test: /\.html$/, loader: 'file?name=[name].[ext]'},
-          {test: /\.tpl$/, loader: 'raw!html-minify'},
+          {test: /\.tpl$/, loader: 'ejs-loader'},
           {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'}
         ]
       }
