@@ -5,7 +5,7 @@
 This repo provides the navigation bar shared by all Global Forest Watch 
 websites, such as GFW, GFW Fires, Commodities, etc.
 
-![Navbar in action](images/demo.png?raw=true)
+![Navbar in action](https://raw.githubusercontent.com/simbiotica/gfw_assets/master/images/demo.png)
 
 ## Installation
 
@@ -43,7 +43,11 @@ And this to add GFW's footer:
 
 To finish, add this script in your site:
 
-	<script src="https://[cdn-url]/latest"></script>
+	<script src="https://[cdn-url]/gfw-assets.latest.js"></script>
+
+You can specify a version:
+
+	<script src="https://[cdn-url]/gfw-assets.v0.1.0.js"></script>
 
 ## Contributing
 
