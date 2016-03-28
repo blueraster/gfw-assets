@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var path = require('path');
 var version = process.env.VERSION || 'latest';
+var S3Plugin = require('webpack-s3-plugin');
 
 var prodPlugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -17,7 +18,18 @@ var prodPlugins = [
     comments: false
   }),
   new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin()
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new S3Plugin({
+    exclude: /.*\.html$/,
+    s3Options: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      region: 'us-east-1'
+    },
+    s3UploadOptions: {
+      Bucket: 'gfw-assets/static'
+    }
+  })
 ];
 
 module.exports = {
