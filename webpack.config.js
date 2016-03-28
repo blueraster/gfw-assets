@@ -27,7 +27,7 @@ var prodPlugins = [
       region: 'us-east-1'
     },
     s3UploadOptions: {
-      Bucket: 'gfw-assets'
+      Bucket: 'gfw-assets/static'
     }
   })
 ];
