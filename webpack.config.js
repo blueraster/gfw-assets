@@ -20,6 +20,7 @@ var prodPlugins = [
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurrenceOrderPlugin(),
   new S3Plugin({
+    directory: 'dist',
     exclude: /.*\.html$/,
     s3Options: {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -53,7 +54,8 @@ module.exports = {
       {test: /\.json$/, loader: 'json'},
       {test: /\.html$/, loader: 'file?name=[name].[ext]'},
       {test: /\.tpl$/, loader: 'ejs-loader'},
-      {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'}
+      {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'},
+      {test: /\.css$/, loader: 'style!raw'}
     ]
   },
 
