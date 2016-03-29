@@ -1,60 +1,65 @@
 'use strict';
 
+const smallBreakPoint = 850;
+const gfwDomains = [
+  'www.globalforestwatch.org',
+  'localhost',
+  'gfw-nav.herokuapp.com',
+  'staging.globalforestwatch.org'
+];
+const apiUrls = {
+  'www.globalforestwatch.org': 'api.globalforestwatch.org',
+  'gfw-nav.herokuapp.com': 'http://staging.api-staging.globalforestwatch.org',
+  'staging.globalforestwatch.org': 'http://staging.api-staging.globalforestwatch.org'
+};
+const defaultGfwDomain = gfwDomains[0];
+
 /**
  * Utils
  * @param  {window} root
  * @return {Object}
  */
-const Utils = {
-
-  // CONSTANTS
-  SMALL_BREAKPOINT: 850,
-
-  DEFAULT_URL: 'www.globalforestwatch.org',
-
-  URLS: {
-    'www.globalforestwatch.org': 'www.globalforestwatch.org',
-    'localhost': 'localhost:5000',
-    'gfw-nav.herokuapp.com': 'gfw-nav.herokuapp.com',
-    'staging.globalforestwatch.org': 'staging.globalforestwatch.org'
-  },
-
-  API_URLS: {
-    'localhost': 'localhost:8080',
-    'www.globalforestwatch.org': 'api.globalforestwatch.org',
-    'gfw-nav.herokuapp.com': 'http://staging.api-staging.globalforestwatch.org',
-    'staging.globalforestwatch.org': 'http://staging.api-staging.globalforestwatch.org'
-  },
+const utils = {
 
   // GETTERS
   getWindowWidth() {
-    return window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+    return window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.getElementsByTagName('body')[0].clientWidth;
   },
 
   getWindowHeigth() {
-    return window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+    return window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.getElementsByTagName('body')[0].clientHeight;
   },
 
   getHost() {
     let currentLocation = window.location.hostname;
-    if (this.URLS[currentLocation] === undefined) {
-      currentLocation = this.DEFAULT_URL;
+    const isValidLocation = gfwDomains.indexOf(currentLocation) !== -1;
+    // Checking if current location is contained in gfw domains array
+    if (!isValidLocation) {
+      currentLocation = defaultGfwDomain;
     }
-
-    return `http://${this.URLS[currentLocation]}`;
+    if (window.location.port !== '') {
+      currentLocation = `${currentLocation}:${window.location.port}`;
+    }
+    return `http://${currentLocation}`;
   },
 
   getAPIHost() {
     if (window.gfw && window.gfw.config) {
       return window.gfw.config.GFW_API_HOST;
     }
-
-    let currentLocation = window.location.hostname;
-    if (this.API_URLS[currentLocation] === undefined) {
-      currentLocation = this.DEFAULT_URL;
+    let apiLocation = window.location.hostname;
+    const isApiLocation = apiUrls[apiLocation];
+    if (!isApiLocation) {
+      apiLocation = apiUrls[defaultGfwDomain];
     }
-
-    return `http://${this.API_URLS[currentLocation]}`;
+    // if (isApiLocation && window.location.port !== '') {
+    //   apiLocation = `${apiLocation}:${window.location.port}`;
+    // }
+    return `http://${apiLocation}`;
   },
 
   isLoggedIn(options) {
@@ -74,11 +79,11 @@ const Utils = {
 
   // STATES
   isSmallScreen() {
-    return this.getWindowWidth() < this.SMALL_BREAKPOINT;
+    return this.getWindowWidth() < smallBreakPoint;
   },
 
   isDefaultHost() {
-    return this.URLS[window.location.hostname] !== undefined;
+    return gfwDomains.indexOf(window.location.hostname) !== -1;
   },
 
   // Returns a function, that, as long as it continues to be invoked, will not
@@ -103,4 +108,4 @@ const Utils = {
 
 };
 
-export default Utils;
+export default utils;

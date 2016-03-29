@@ -7,30 +7,30 @@ describe('Utils', function () {
   });
 
   describe('utils', function () {
-    it('getWindowWidth is false', function () {  	
+    it('getWindowWidth is false', function () {
       expect(utils.getWindowWidth()).to.be.a('number');
     });
 
-    it('getWindowHeigth is false', function () {  	
+    it('getWindowHeigth is false', function () {
       expect(utils.getWindowHeigth()).to.be.a('number');
     });
 
-    it('getHost is a string', function () {  	
-      expect(utils.getHost()).to.be.a('string').to.equal('http://localhost:5000');
+    it('getHost is a string', function () {
+      expect(utils.getHost()).to.be.a('string').to.equal('http://localhost:' + window.location.port);
     });
 
-    it('getAPIHost is a string', function () {  	
-      expect(utils.getAPIHost()).to.be.a('string').to.equal('http://localhost:8080');
+    it('getAPIHost is a string', function () {
+      expect(utils.getAPIHost()).to.be.a('string').to.equal('http://api.globalforestwatch.org');
     });
 
-    it('isSmallScreen is false', function () {  	
+    it('isSmallScreen is false', function () {
       expect(utils.isSmallScreen()).to.be.a('boolean').to.not.be.true;
     });
 
-    it('isDefaultHost is true', function () {  	
+    it('isDefaultHost is true', function () {
       expect(utils.isDefaultHost()).to.be.a('boolean').to.be.true;
     });
-    
+
   });
 
 });

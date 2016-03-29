@@ -1,25 +1,25 @@
 'use strict';
 
-var loginModalTpl = require('./login-modal.tpl');
-var $gfwdom = require('../../facade');
-var utils = require('../../utils');
+import loginModalTpl from './login-modal.tpl';
+import $gfwdom from '../../facade';
+import utils from '../../utils';
 
 /**
  * User
  * @param  {window} root
  * @return {Class}
  */
-module.exports = function() {
+class LoginModal {
 
-  this.init = function() {
+  init() {
     this.$el = $gfwdom('#my-gfw-modal');
     if (!this.$el) {
       throw new Error('element #footerGfw doesn\'t exist');
     }
     this.render();
-  };
+  }
 
-  this.render = function() {
+  render() {
     this.$el.html(loginModalTpl());
     // If you don't add this clas you won't see anything
     this.$el.addClass('is-active');
@@ -28,31 +28,31 @@ module.exports = function() {
     this.initLinks();
 
     return this;
-  };
+  }
 
   // Events for closing the modal
-  this.initEvents = function() {
+  initEvents() {
     var $modalClose = this.$el.find('.my-gfw-modal-close');
     var $modalBackdrop = this.$el.find('.my-gfw-modal-backdrop');
 
     $modalClose.on('click', this.hideModal.bind(this))
     $modalBackdrop.on('click', this.hideModal.bind(this))
-  };
+  }
 
   // Set the APIURL to the signin links
-  this.initLinks = function() {
+  initLinks() {
     var $signin = this.$el.find('.my-gfw-sign-in');
-
     $signin.forEach(function(v) {
       $gfwdom(v).attr('href', utils.getAPIHost() + $gfwdom(v).attr('href'))
     });
-  };
+  }
 
-  this.hideModal = function(e) {
+  hideModal(e) {
     e && event.stopPropagation() && event.preventDefault();
     this.$el.removeClass('is-active');
     this.$el.html('');
   }
 
-  return this;
-};
+}
+
+export default LoginModal;

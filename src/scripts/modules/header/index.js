@@ -26,7 +26,6 @@ class Header {
 
   render() {
     this.el.innerHTML = headerTpl() + headerIconsTpl();
-
     this.cache();
 
     this.setParams();
@@ -144,7 +143,7 @@ class Header {
       translateScript.type= 'text/javascript';
       translateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
       document.head.appendChild(translateScript);
-    },0);
+    }, 0);
   };
 
   /**
@@ -155,7 +154,7 @@ class Header {
     this.params.targets = !utils.isDefaultHost();
     this.params.hostname = utils.getHost();
 
-    this.$links.forEach(function(v){
+    this.$links.forEach(function(v) {
       const href = $gfwdom(v).attr('href');
       if (href.charAt(0) == '/') {
         $gfwdom(v).attr('href', this.params.hostname + href);
@@ -168,14 +167,13 @@ class Header {
         (!!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target','_blank');
       }
     });
-
-  };
+  }
 
   /**
    * Init My GFW
    */
   initMyGFW() {
-    if (!!utils.isDefaultHost()) {
+    if (utils.isDefaultHost()) {
       const loginButton = new LoginButton();
       loginButton.init();
     } else {
