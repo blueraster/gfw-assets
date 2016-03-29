@@ -1,8 +1,8 @@
 $widthModal: 500px;
 $heightModal: auto;
 
-#feedbackGfw {  
-  font-family: "Fira Sans", Helvetica, serif;
+#feedbackGfw {
+  font-family: "Fira GFW Sans", Helvetica, serif;
   // Layout
   .feedback-modal {
     position: fixed;
@@ -75,7 +75,7 @@ $heightModal: auto;
         }
         &.blue {
           @include spinner (40px, 5px, $blue);
-        }  
+        }
       }
 
       .modal-close {
@@ -312,7 +312,7 @@ $heightModal: auto;
           &:hover {
             color: darken($blue, 25%);
           }
-        }        
+        }
       }
 
     }
@@ -381,5 +381,5 @@ $heightModal: auto;
     }
 
 
-  }  
+  }
 }
