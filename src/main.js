@@ -14,21 +14,13 @@ import Feedback from './scripts/modules/feedback';
 import './styles/fonts.css';
 import './styles/global.scss';
 
-// At begining add google fonts asynchronously
-setTimeout(() => {
-  // let linkTag = document.createElement('link');
-  // linkTag.rel = 'stylesheet';
-  // linkTag.media = 'all';
-  // linkTag.href = 'fonts.css';
-  // linkTag.href = 'https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500';
-  // document.head.appendChild(linkTag);
-}, 0);
+document.addEventListener('DOMContentLoaded', function() {
+  // Adding header
+  new Header();
 
-// Adding header
-new Header();
+  // Adding footer
+  new Footer();
 
-// Adding footer
-new Footer();
-
-// Adding feedback
-new Feedback();
+  // Adding feedback
+  new Feedback();
+});
