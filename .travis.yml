@@ -1,6 +1,23 @@
 language: node_js
 node_js:
-  - "5.1"
+- '5.1'
+install:
+  - bundle install
+  - npm install
+  - npm install --only=dev
+# before_script:
+#   - npm link
+#   - npm link webpack
+#   - npm link karma
+script:
+  - npm test
+  - npm run build
 branches:
   only:
-    - master
+  - master
+env:
+  global:
+    - secure: jLXRERImdoxv0yr/Pro4cUtZ+1RrWfIBnydX/xsXDTJWHak0r4t11SxRquygWLVZujnFfV0RDKZDh1Wd8PIZ3FyrLQrkWAEZaMjcbDnYiWKzT5OR0JV/II7A+0SPgL3ni9XKDpFW6XGqaFvuefBOoEad8zNc3OOu4rk1PguFibZ6rRi8xaf2IYOpQbursZQYhs4hQZOmHQfOHpmQt+H0UQ8l3z3HSqErT1eyKxLJ9ew04CseJhlNcvdmRCFBMhuWPfGF+MELXD/TTRC+aX4sJO6kzQDE5Vpn70Ev9U1tnB4pYjkBvXy1Bf1r+YfaJVkCbCAG54tFg0iZBbEDTHln+RaZHFMJdBl0aC5vOcPaFVEtbmmByZFEZZhpWmvuRbOTQ8JQKZIJ9j53QRVhnyKYnkcoh9kJRqV8GZseqI2Dl4B6fwNKpfcVFUigLvCMYkFU76JYm9EyT5gi9pmU1EpiTYCuahFwESy62+krtZjiQ++n2D+ncPwQ1wG/RiBmsJTQ2mQJCRM+KUPveqfznJv3dXR+McrDbFEVSbS+LjHp5wD71ItAspz3QZCONGnL+st6WEKkCCC0xYkCT0Bhf/EGChiSOI9fVVkdKSYXyn5+AIEREYKfomEjUS5V7RTgwCUQTfUnEe9zCQkXx//sdv1zReC74IAmj+TzKn4uqi6dHZo=
+    - NODE_ENV=production
+  matrix:
+    secure: VVh2XJJwV+hdOro9ZZwWpLeLZOAmYH04UGStaIMIdhlEjDObJvkzENBvhJd0NRRbZ3DdPxVLtP0kkwXq+eZ9M3UcFgeZGGTvlwij5kaFjTm3zRV3/Q0nELo6rQ4jyzJT6tFlbMbuacNNavqcYVxOW5EWRn+qe8I/T7pV3PAg9px0vpTV7VJAQaLDaiBsaxpHQw93sn6Svb/lPySgI3JhreyRzZp6a/5y48AJDUCCsVv8t7x3EOIlzd6kKj0DxaMnq0g2k74jm52hdqCxQJB6TQ1J+AwDgP4F8Tx/y1v8NHTmCQ+GyzU4bl1wjhoFQ9g0Dam9pt4o48MWfC9jpyOJN2EDuruhCAJyhKTb3McbiG6SZW/1WExDlVaUiQxYR3JZDmCF+JsseRXGSex/QEc9tfo1at2LfF6fKM2RhJzk6x0S7ZhKoOQoNI/6wNbOHpzXoENtFc7Her6TLJTPiX8wgVYxZHxfVrrGuEAUNWqS6j2sMWkDyJ9ZOJqxhaYYDeI08m8YIDJrX9AFmqkcNgO68EYBGFhMK1sCLLlPqBFzTRZQNhKadAcQFu7m/OwBupDkSAfePDwdA5YiNbk84reEy4SKwUIJ9hI9T2ccxku2SGmvsYZ+d8gSgoG4InkU6mKXnJsIa9djfwcVJRonXxh85us2dTTk20NyxHFa4/TJ5O8=
