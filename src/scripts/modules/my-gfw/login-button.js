@@ -6,8 +6,7 @@ import LoginModal from './login-modal';
 import $gfwdom from '../../facade';
 import utils from '../../utils';
 
-
-class MyGfw {
+class LoginButton {
 
   init() {
     this.$el = $gfwdom('#my-gfw-container');
@@ -34,7 +33,7 @@ class MyGfw {
   // Render different templates depending on the loggin state
   render() {
     const template = (!!this.loggedIn) ? loginButtonTpl : logoutButtonTpl;
-    this.$el.html(template);
+    this.$el.html(template());
 
     this.initEvents();
     this.initLinks();
@@ -60,4 +59,4 @@ class MyGfw {
 
 }
 
-export default MyGfw;
+export default LoginButton;
