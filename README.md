@@ -51,6 +51,9 @@ You can specify a version:
 
 	<script src="https://[cdn-url]/gfw-assets.v0.1.0.js"></script>
 
+The `cdn-url` in development will be the webpack dev server, which is
+mounted on http://localhost:9090
+
 ## Contributing
 
 1. Fork it!
