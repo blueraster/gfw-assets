@@ -71,7 +71,8 @@ const utils = {
       if (responseStatus !== 200) {
         options.failure();
       } else {
-        options.success();
+        var response = JSON.parse(xhr.responseText);
+        options.success(response);
       }
     };
     xhr.send();

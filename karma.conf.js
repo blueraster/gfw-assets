@@ -11,7 +11,7 @@ module.exports = function(config) {
 
     basePath: './',
 
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon'],
 
     files: [
       'test/specs/*_spec.js'
@@ -42,6 +42,7 @@ module.exports = function(config) {
 
     plugins: [
       require('karma-mocha'),
+      require('karma-sinon'),
       require('karma-chai'),
       require('karma-nyan-reporter'),
       require('karma-phantomjs-launcher'),

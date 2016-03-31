@@ -19,9 +19,10 @@ class LoginButton {
   // Check if the user is logged
   checkStatus() {
     utils.isLoggedIn({
-      success: function() {
+      success: function(response) {
         this.loggedIn = true;
         this.render();
+        this.setupGoogleAnalytics(response);
       }.bind(this),
       failure: function() {
         this.loggedIn = false;
@@ -55,6 +56,12 @@ class LoginButton {
     e && event.stopPropagation() && event.preventDefault();
     const modalView = new LoginModal();
     modalView.init();
+  }
+
+  setupGoogleAnalytics(response) {
+    if (window.ga !== undefined) {
+      window.ga('set', 'userId', response.id);
+    }
   }
 
 }
