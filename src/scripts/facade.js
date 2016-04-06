@@ -120,6 +120,7 @@ $gfwDom.serialize = form => {
 		case 'INPUT':
 			switch (form.elements[i].type) {
 			case 'text':
+			case 'email':
 			case 'hidden':
 			case 'password':
 			case 'button':
