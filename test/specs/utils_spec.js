@@ -32,6 +32,29 @@ describe('Utils', function () {
       expect(utils.isDefaultHost()).to.be.a('boolean').to.be.true;
     });
 
+    describe('isLocalhost', function() {
+
+      it('returns true if the current site is on localhost', function() {
+        this.stub = sinon.stub(utils, 'getCurrentLocation', function() {
+          return 'localhost';
+        });
+
+        expect(utils.isLocalhost()).to.be.true;
+      });
+
+      it('returns false if the current site is not on localhost', function() {
+        this.stub = sinon.stub(utils, 'getCurrentLocation', function() {
+          return 'notlocalhost.com';
+        });
+        expect(utils.isLocalhost()).to.be.false;
+      });
+
+      afterEach(function() {
+        this.stub.restore();
+      });
+
+    });
+
     describe('isLoggedIn', function() {
 
       beforeEach(function() {

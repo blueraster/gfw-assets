@@ -212,9 +212,13 @@ class Feedback {
 
   actionSend() {
     this.$spinner.addClass('-active');
-    // If you want to test it without bothering the client you can point the url to the local gfw (remember to run the app) feedback json
-    // $gfwdom.jsonp('http://localhost:5000/feedback_jsonp', {
-    $gfwdom.jsonp('http://www.globalforestwatch.org/feedback_jsonp', {
+
+    var url = '';
+    if (!utils.isLocalhost()) {
+      url = '//' + utils.getDefaultDomain();
+    }
+
+    $gfwdom.jsonp(url + '/feedback_jsonp', {
       data: $gfwdom.serialize(this.$form[0]),
 
       success: data => {
@@ -291,7 +295,6 @@ class Feedback {
   }
 
   toggleParam(key, value, url) {
-
     if (!url) url = window.location.href;
     const re = new RegExp(`([?&])${key}=.*?(&|#|$)(.*)`, 'gi');
     let hash;
