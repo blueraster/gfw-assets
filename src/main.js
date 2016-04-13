@@ -28,8 +28,6 @@ const init = () => {
 if(!!document.readyState && document.readyState === "complete") {
 	init();
 } else {
-	document.addEventListener('DOMContentLoaded', function() {
-		init();
-	});
+	document.addEventListener('DOMContentLoaded', init);
 }	
 
