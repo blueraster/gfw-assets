@@ -78,7 +78,7 @@ const utils = {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', `${this.getAPIHost()}/user`, true);
     xhr.withCredentials = true;
-    xhr.onreadystatechange = () => {
+    xhr.onload = () => {
       const responseStatus = xhr.status;
       if (responseStatus !== 200) {
         options.failure();
