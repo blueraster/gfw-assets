@@ -83,9 +83,9 @@ const utils = {
       if (responseStatus !== 200) {
         options.failure();
       } else {
-        if (!!xhr.responseText && xhr.responseText != '') {
-          var response = JSON.parse(xhr.responseText);
-          options.success(response);
+        var response = xhr.responseText;
+        if (!!response && response != '') {
+          options.success(JSON.parse(response));
         }
       }
     };
