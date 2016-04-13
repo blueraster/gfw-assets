@@ -85,6 +85,7 @@ const utils = {
       } else {
         var response = xhr.responseText;
         if (!!response && response != '') {
+          debugger;
           options.success(JSON.parse(response));
         }
       }
