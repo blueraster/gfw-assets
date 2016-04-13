@@ -83,8 +83,10 @@ const utils = {
       if (responseStatus !== 200) {
         options.failure();
       } else {
-        var response = JSON.parse(xhr.responseText);
-        options.success(response);
+        if (!!xhr.responseText) {
+          var response = JSON.parse(xhr.responseText);
+          options.success(response);
+        }
       }
     };
     xhr.send();
