@@ -14,7 +14,7 @@ import Feedback from './scripts/modules/feedback';
 import './styles/fonts.css';
 import './styles/global.scss';
 
-document.addEventListener('DOMContentLoaded', function() {
+const init = () => {
   // Adding header
   new Header();
 
@@ -22,5 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
   new Footer();
 
   // Adding feedback
-  new Feedback();
-});
+  new Feedback();	
+}
+
+if(!!document.readyState && document.readyState === "complete") {
+	init();
+} else {
+	document.addEventListener('DOMContentLoaded', function() {
+		init();
+	});
+}	
+
