@@ -34,6 +34,18 @@ const utils = {
       document.getElementsByTagName('body')[0].clientHeight;
   },
 
+  getCurrentLocation() {
+    return window.location.hostname;
+  },
+
+  getDefaultDomain() {
+    return defaultGfwDomain;
+  },
+
+  isLocalhost() {
+    return this.getCurrentLocation() === 'localhost';
+  },
+
   getHost() {
     let currentLocation = window.location.hostname;
     const isValidLocation = gfwDomains.indexOf(currentLocation) !== -1;
@@ -71,7 +83,8 @@ const utils = {
       if (responseStatus !== 200) {
         options.failure();
       } else {
-        options.success();
+        var response = JSON.parse(xhr.responseText);
+        options.success(response);
       }
     };
     xhr.send();

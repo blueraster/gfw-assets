@@ -19,9 +19,10 @@ class LoginButton {
   // Check if the user is logged
   checkStatus() {
     utils.isLoggedIn({
-      success: function() {
+      success: function(response) {
         this.loggedIn = true;
         this.render();
+        this.setupGoogleAnalytics(response);
       }.bind(this),
       failure: function() {
         this.loggedIn = false;
@@ -49,12 +50,26 @@ class LoginButton {
   initLinks() {
     const $signout = this.$el.find('#my-gfw-sign-out');
     $signout.attr('href', utils.getAPIHost() + $signout.attr('href'));
+
+    const $links = this.$el.find('a');
+    $links.on('click', function() {
+      if (window.ga !== undefined) {
+        const $el = $(this);
+        window.ga('send', 'event', 'User Profile', 'menu', $el.text());
+      }
+    });
   }
 
   showModal(e) {
     e && event.stopPropagation() && event.preventDefault();
     const modalView = new LoginModal();
     modalView.init();
+  }
+
+  setupGoogleAnalytics(response) {
+    if (window.ga !== undefined) {
+      window.ga('set', 'userId', response.id);
+    }
   }
 
 }

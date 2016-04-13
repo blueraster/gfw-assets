@@ -25,6 +25,7 @@
     "karma-mocha": "^0.2.2",
     "karma-nyan-reporter": "^0.2.3",
     "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sinon": "^1.0.4",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
@@ -32,6 +33,7 @@
     "postcss-loader": "^0.8.1",
     "raw-loader": "^0.5.1",
     "sass-loader": "^3.1.2",
+    "sinon": "^1.17.3",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
@@ -39,7 +41,7 @@
     "xo": "^0.13.0"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --hot --progress --color --host 0.0.0.0",
+    "start": "./node_modules/.bin/webpack-dev-server --hot --progress --color --host 0.0.0.0 --port 9090",
     "build": "./node_modules/.bin/webpack --progress --color",
     "test": "./node_modules/.bin/karma start --single-run",
     "test-watch": "./node_modules/.bin/karma start --auto-watch"
