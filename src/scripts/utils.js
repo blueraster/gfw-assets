@@ -83,8 +83,6 @@ const utils = {
       if (responseStatus !== 200) {
         options.failure();
       } else {
-        console.log(xhr.responseText);
-        console.log(!!xhr.responseText);
         if (!!xhr.responseText) {
           var response = JSON.parse(xhr.responseText);
           options.success(response);
