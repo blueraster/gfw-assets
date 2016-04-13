@@ -61,7 +61,7 @@ class LoginButton {
   }
 
   showModal(e) {
-    e && event.stopPropagation() && event.preventDefault();
+    e && e.stopPropagation() && e.preventDefault();
     const modalView = new LoginModal();
     modalView.init();
   }
