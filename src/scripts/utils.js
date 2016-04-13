@@ -84,8 +84,7 @@ const utils = {
         options.failure();
       } else {
         var response = xhr.responseText;
-        if (!!response && response != '') {
-          debugger;
+        if (!!response && response != undefined && response != '') {
           options.success(JSON.parse(response));
         }
       }
