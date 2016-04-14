@@ -11,7 +11,7 @@ class LoginButton {
   init() {
     this.$el = $gfwdom('#my-gfw-container');
     if (!this.$el) {
-      throw new Error('element #footerGfw doesn\'t exist');
+      throw new Error('element #my-gfw-container doesn\'t exist');
     }
     this.checkStatus();
   }

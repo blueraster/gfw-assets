@@ -89,6 +89,10 @@ const utils = {
         }
       }
     };
+
+    xhr.onerror = () => {
+      options.failure();
+    }
     xhr.send();
   },
 
