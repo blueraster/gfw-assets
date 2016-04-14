@@ -78,15 +78,21 @@ const utils = {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', `${this.getAPIHost()}/user`, true);
     xhr.withCredentials = true;
-    xhr.onreadystatechange = () => {
+    xhr.onload = () => {
       const responseStatus = xhr.status;
       if (responseStatus !== 200) {
         options.failure();
       } else {
-        var response = JSON.parse(xhr.responseText);
-        options.success(response);
+        var response = xhr.responseText;
+        if (!!response && response != undefined && response != '') {
+          options.success(JSON.parse(response));
+        }
       }
     };
+
+    xhr.onerror = () => {
+      options.failure();
+    }
     xhr.send();
   },
 
