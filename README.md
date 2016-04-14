@@ -45,11 +45,31 @@ And this to add GFW's footer:
 
 To finish, add this script in your site:
 
-	<script src="https://[cdn-url]/gfw-assets.latest.js"></script>
+	<script id="loader-gfw" data-current=".shape-fires" src="https://[cdn-url]/gfw-assets.latest.js"></script>
 
-You can specify a version:
+Remember to add the `id="loader-gfw"` to the script tag and, if you want to highlight any of the links of the header you will have to add a `data-current` param.
+These are the `data-current` params that work:
 
-	<script src="https://[cdn-url]/gfw-assets.v0.1.0.js"></script>
+- .shape-home
+- .shape-apps
+- .shape-map
+- .shape-countries
+- .shape-fires
+- .shape-commodities
+- .shape-climate
+- .shape-odp
+- .shape-develop
+- .shape-all-apps
+- .shape-blog
+- .shape-howto
+- .shape-mygfw
+
+If you use the latest.js, any change we make on the script will be inmediately populated on your page. Don't worry, we have tests and we will check it in your page before deploy. We would recommend to use the latest script always, but just in case the script is breaking your page you can specify a version:
+
+	<script id="loader-gfw" data-current=".shape-fires" src="https://[cdn-url]/gfw-assets.v0.1.0.js"></script>
+
+Here you can find the allowed versions: [Releases](https://github.com/Vizzuality/gfw-assets/releases)
+
 
 The `cdn-url` in development will be the webpack dev server, which is
 mounted on http://localhost:9090
