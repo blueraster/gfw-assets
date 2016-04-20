@@ -61,7 +61,7 @@
   #transifexTranslateElement {
     position: relative;
     height: 100%;
-    font-size: 12px;
+    font-size: 11px;
     display: flex;
     height: 35px;
     align-items: center;
@@ -74,10 +74,11 @@
 
     .txlive-langselector-toggle {
       color: $light;
-      padding: 0 15px;
+      padding: 1px 25px 0 15px;
       border: 1px solid transparent;
       text-transform: uppercase;
       cursor: pointer;
+      font-weight: 500;
 
       .txlive-langselector-current {
         line-height: 1;
@@ -85,13 +86,13 @@
       }
 
       .txlive-langselector-marker {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
         position: absolute;
         top: 50%;
         right: 10px;
         transform: translate(0,-50%);
-        background: image-url('svg-icons/arrow-down-white.svg') center no-repeat;
+        background: url(http://www.globalforestwatch.org/assets/svg-icons/arrow-down-white.svg) center no-repeat;
         background-size: contain;
       }
     }

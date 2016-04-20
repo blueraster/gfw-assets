@@ -2,15 +2,18 @@
   <div class="m-header">
     <div class="m-header-scroll">
       <ul class="m-header-nav -primary">
+        <!-- // We need to choose between these two option for translation // -->
         <li class="m-header-item -translate -only-desktop"><div id="googleTranslate"></div></li>
         <li class="m-header-item -translate -only-desktop"><div id="transifexTranslateElement" class="m-transifex"></div></li>
+        <!-- // translation // -->
         <li class="m-header-item -default shape-search">
-          <a href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></a>
+          <a class="btn-header-search" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></a>
         </li>
         <li class="m-header-item -default shape-howto">
           <a href="/howto"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg></a>
         </li>
-        <li class="m-header-item -default shape-mygfw" id="my-gfw-container"></li>
+        <li class="m-header-item -default shape-mygfw" id="my-gfw-container">
+        </li>
         <li class="m-header-item -default shape-apps">
           <a id="btnSubmenuApps" data-submenu="#submenuApps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
@@ -19,6 +22,14 @@
           </a>
         </li>
       </ul>
+      <div class="m-header-search">
+        <form action="http://www.globalforestwatch.org/search">
+          <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
+          <input type="text" name="query" id="search-input" placeholder="Search GFW website">
+          <button class="btn-header-search -close" type="button"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg></button>
+        </form>
+      </div>
+
     </div>
     <ul class="m-header-nav -mobile">
       <li class="m-header-item -default shape-menu">

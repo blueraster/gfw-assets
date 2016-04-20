@@ -45,6 +45,8 @@ class Header {
    * Cache all the elements that we will use after
    */
   cache() {
+    this.$document =  $gfwdom(document);
+
     // Script
     this.$script = $gfwdom('#loader-gfw');
 
@@ -61,6 +63,9 @@ class Header {
     this.$links = this.$header.find('a');
     this.$linksSubmenu = this.$header.find('a');
 
+    // Search
+    this.$headerSearch = this.$header.find('.m-header-search');
+    this.$headerSearchInput = this.$header.find('#search-input');
   };
 
   /**
@@ -83,11 +88,13 @@ class Header {
    * Events
    * - showMenu(),
    * - hideMenus()
+   * - toggleSearch()
    */
   initListeners() {
     // Mobile menus
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
     this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
+    this.$header.on('click', '.btn-header-search', this.toggleSearch.bind(this));
   }
 
   showMenu(e) {
@@ -124,6 +131,29 @@ class Header {
         $gfwdom(v).find('svg').toggleClass('-inactive');
       }
     });
+  }
+
+  toggleSearch(e) {
+    e && e.preventDefault();
+
+    // Toggle search div
+    this.$headerSearch.toggleClass('-active');
+
+    if(this.$headerSearch.hasClass('-active')) {
+      // Key bindings
+      this.$document.on('keyup.search', e => {
+        if (e.keyCode === 27) {
+          this.toggleSearch();
+        }
+      });
+      // Focus input. As it has an animation we need to set a timeout
+      setTimeout(function(){
+        document.getElementById(this.$headerSearchInput[0].id).focus();
+      }.bind(this),250)
+    } else {
+      // Key unbindings
+      this.$document.off('keyup.search');
+    }
   }
 
   /**

@@ -4,8 +4,13 @@ $white: #FFF;
 $black: #000;
 $dark: #555;
 $dark1: #262424;
-$light: #b6b6ba;
+$light: #b8bab8;
 $footer-background: #eceee8;
+
+// animations
+$easeInSine:  cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$easeOutSine:  cubic-bezier(0.390, 0.575, 0.565, 1.000);
+$easeInOutSine:  cubic-bezier(0.445, 0.050, 0.550, 0.950);
 
 // breackpoints
 $br-mobile-portrait: 420px;
@@ -21,14 +26,11 @@ $red: #ed1846;
 $orange: #e98300;
 $blue: #5b80a0;
 $bluewater: #4099ce;
-$transition1: all 0.15s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$transition1: all 0.15s $easeInOutSine;
+$transition2: all 0.25s $easeInOutSine;
 $shadow1: 0 0 4px rgba(142, 142, 142, 0.5);
 $border1: #E5E5DF;
 
-// animations
-$easeInSine:  cubic-bezier(0.470, 0.000, 0.745, 0.715);
-$easeOutSine:  cubic-bezier(0.390, 0.575, 0.565, 1.000);
-$easeInOutSine:  cubic-bezier(0.445, 0.050, 0.550, 0.950);
 
 // Imports
 @import 'modules/reset.scss';
