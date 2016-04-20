@@ -699,6 +699,8 @@
 
     svg{
       fill: $dark;
+      width: 20px;
+      height: 20px;
     }
 
     &:hover {
@@ -717,12 +719,14 @@
     h2 {
       font-size: 24px;
       width: 300px;
+      color: $dark;
     }
 
     h3 {
       font-weight: 200;
       line-height: 1.5em;
       margin-top: 15px;
+      color: $dark;
 
       a {
         color: $primary-color;
@@ -741,7 +745,7 @@
   }
 
   .my-gfw-authentication {
-    margin-top: 40px;
+    margin-top: 50px;
     height: 100%;
     width: 100%;
 
