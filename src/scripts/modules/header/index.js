@@ -32,7 +32,8 @@ class Header {
 
     this.initHighlightCurrent();
     this.initListeners();
-    this.initTranslate();
+    // this.initTranslate();
+    this.initTransifex();
     this.initLinksUrls();
     this.initMyGFW();
     this.initNavigation();
@@ -145,6 +146,44 @@ class Header {
       document.head.appendChild(translateScript);
     }, 0);
   };
+
+  /**
+   * Transifex
+   */  
+  initTransifex() {
+    // LIVE SETTINGS OPTIONS
+    window.liveSettings = {
+      picker: '#transifexTranslateElement',
+      api_key: "9eda410a7db74687ba40771c56abd357",
+      detectlang: false
+
+      // api_key: "<key>",
+      // picker: "top-left|top-right|bottom-left|bottom-right|#id",
+      // detectlang: true|false|function() { return lang-code; },
+      // version: 'latest|<version>',
+      // autocollect: true|false,
+      // dynamic: true|false,
+      // staging: true|false,
+      // parse_attr: ["attr1", "attr2", ...],
+      // ignore_tags: ["tag1", "tag2", ...],
+      // ignore_class: ["classname1", "classname2"]
+
+    };
+
+    // if (location.hostname.indexOf('www.globalforestwatch.org') == -1){
+    //   var $transifexEl = document.getElementById('transifexTranslateBox');
+    //   $transifexEl.className += " -visible";
+    // }
+
+    setTimeout(() => {
+      const translateScript = document.createElement('script');
+      translateScript.type= 'text/javascript';
+      translateScript.src = '//cdn.transifex.com/live.js';
+      document.head.appendChild(translateScript);
+    }, 0);
+  };
+
+
 
   /**
    * We need to make a difference between local, staging and PRO environment urls.

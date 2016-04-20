@@ -2,13 +2,51 @@
   <div class="m-header">
     <div class="m-header-scroll">
       <ul class="m-header-nav -primary">
+        <li class="m-header-item -translate -only-desktop"><div id="googleTranslate"></div></li>
+        <li class="m-header-item -translate -only-desktop"><div id="transifexTranslateElement" class="m-transifex"></div></li>
+        <li class="m-header-item -default shape-search">
+          <a href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></a>
+        </li>
+        <li class="m-header-item -default shape-howto">
+          <a href="/howto"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg></a>
+        </li>
+        <li class="m-header-item -default shape-mygfw" id="my-gfw-container"></li>
+        <li class="m-header-item -default shape-apps">
+          <a id="btnSubmenuApps" data-submenu="#submenuApps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
+            <!-- <svg class="-inactive -desktop-hide"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg> -->
+            <span>Apps</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ul class="m-header-nav -mobile">
+      <li class="m-header-item -default shape-menu">
+        <a id="btnSubmenuMenuMobile" data-submenu="#submenuMenuMobile" class="m-header-submenu-btn" href="/">
+          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-menu"></use></svg>
+          <!-- <svg class="-inactive -desktop-hide"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg> -->
+          <span>Menu</span>
+        </a>
+        <!-- HOME SUBMENU -->
+        <div id="submenuMenuMobile" class="m-header-submenu -scroll-bar -home -menu"></div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- 
+
+
+
+<div class="wrapper">
+  <div class="m-header">
+    <div class="m-header-scroll">
+      <ul class="m-header-nav -primary">
         <li class="m-header-item -default shape-home">
           <a id="btnSubmenuHome" data-submenu="#submenuHome" class="m-header-submenu-btn" href="/">
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-home"></use></svg>
             <svg class="-inactive -desktop-hide"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
             <span>Home</span>
           </a>
-          <!-- HOME SUBMENU -->
           <div id="submenuHome" class="m-header-submenu -scroll-bar -home">
             <div class="m-header-backdrop"></div>
             <h3 class="-title"><a href="/">Global Forest Watch Home</a></h3>
@@ -83,7 +121,6 @@
             <svg class="-inactive -desktop-hide"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
             <span>Apps</span>
           </a>
-          <!-- APPS SUBMENU -->
           <div id="submenuApps" class="m-header-submenu -scroll-bar -apps">
             <div class="m-header-backdrop"></div>
             <ul class="-scroll-bar">
@@ -121,9 +158,9 @@
           <svg class="-inactive -desktop-hide"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>Menu</span>
         </a>
-        <!-- HOME SUBMENU -->
         <div id="submenuMenuMobile" class="m-header-submenu -scroll-bar -home -menu"></div>
       </li>
     </ul>
   </div>
 </div>
+ -->

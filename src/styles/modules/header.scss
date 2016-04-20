@@ -1,6 +1,6 @@
 #headerGfw {
   font-family: "Fira GFW Sans", Helvetica, serif;
-  background: #EEE;
+  background: $dark;
   border-bottom: 1px solid $border1;
   -webkit-font-smoothing: antialiased;
   z-index: 1000;
@@ -22,23 +22,10 @@
 
   .m-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
     position: relative;
     background-color: transparent;
-
-    .m-header-scroll {
-      overflow: auto;
-      display: flex;
-      width: 100%;
-      border-right: 60px solid transparent;
-
-      @media (min-width: $br-mobile){
-        border-right: none;
-        overflow: visible;
-        justify-content: space-between;
-      }
-    }
   }
 
   .m-header-nav {
@@ -47,12 +34,6 @@
 
     &.-primary {
 
-    }
-
-    &.-secondary {
-      @media (min-width: $br-mobile){
-        display: flex;
-      }
     }
 
     &.-mobile {
@@ -135,8 +116,26 @@
     // Default items
     &.-default {
       @media (min-width: $br-mobile){
-        width: 35px;
+        position: relative;
+        width: 45px;
         height: 35px;
+
+        &:after {
+          content: "";
+          width: 1px;
+          height: 50%;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(-1px,-50%);
+          background: #676867;
+        }
+
+        &:first-child {
+          &:after {
+            display: none;
+          }
+        }
       }
 
       > a {
@@ -320,10 +319,6 @@
 
         }
       }
-    }
-
-    &.-translate {
-      margin: 0 20px;
     }
 
     // HOVERS
