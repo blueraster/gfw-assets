@@ -125,7 +125,7 @@
               </li>
               <li>
                 <a href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank">
-                  <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-fires"></use></svg>
+                  <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-forum"></use></svg>
                   <span>Join the discussion</span>
                 </a>
               </li>

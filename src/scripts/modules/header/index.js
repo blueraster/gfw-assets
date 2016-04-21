@@ -111,6 +111,14 @@ class Header {
       $gfwdom(e.currentTarget).find('svg').toggleClass('-inactive');
       // Active menu
       $gfwdom($gfwdom(e.currentTarget).data('submenu')).toggleClass('-active');
+
+      // Key bindings
+      this.$document.on('keyup.apps', e => {
+        if (e.keyCode === 27) {
+          this.hideMenus();
+        }
+      });
+
     } else {
       this.hideMenus();
     }
@@ -126,6 +134,8 @@ class Header {
         $gfwdom(v).find('svg').toggleClass('-inactive');
       }
     });
+    // Key bindings
+    this.$document.off('keyup.apps');    
   }
 
   toggleSearch(e) {
