@@ -95,6 +95,7 @@ class Header {
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
     this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
     this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
+    
     this.$header.on('click', '.btn-search', this.toggleSearch.bind(this));
   }
 

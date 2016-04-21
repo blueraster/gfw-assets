@@ -13,11 +13,13 @@
         <li class="m-header-item -default shape-search">
           <a class="btn-search" href="#">
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg>
+            <span>Search</span>            
           </a>
         </li>
         <li class="m-header-item -default shape-howto">
           <a href="/howto">
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg>
+            <span>How to</span>            
           </a>
         </li>
         <li class="m-header-item -default shape-mygfw" id="my-gfw-container">
@@ -26,6 +28,7 @@
           <a id="btnSubmenuApps" data-submenu="#submenuApps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
             <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+            <span>Apps</span>
           </a>
         </li>
       </ul>
