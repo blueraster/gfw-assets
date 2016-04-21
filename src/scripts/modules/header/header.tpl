@@ -3,17 +3,57 @@
     <ul class="m-header-nav -primary">
       <li class="m-header-item -text shape-apps">
         <a id="btnSubmenuApps" data-submenu="#submenuApps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
-          <!-- <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg> -->
-          <!-- <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg> -->
           <span>Apps</span>
         </a>
       </li>
       <li class="m-header-item -text shape-apps">
-        <a id="btnSubmenuApps" data-submenu="#submenuApps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
-          <!-- <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg> -->
-          <!-- <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg> -->
+        <a id="btnSubmenuMore" data-submenu="#submenuMore" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
           <span>More in GFW</span>
         </a>
+        <div id="submenuMore" class="m-header-submenu -more">
+          <ul class="more-list">
+            <li class="shape-develop">
+              <a href="/map">
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-develop"></use></svg>
+                <span>Developer's corner</span>
+              </a>
+            </li> 
+            <li class="shape-howto">
+              <a href="/howto">
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg>
+                <span>How to</span>
+              </a>
+            </li>
+            <li class="shape-mygfw" id="my-gfw-container">
+
+            </li>
+            <li class="shape-odp">
+              <a class="external-link" target="_blank" href="http://data.globalforestwatch.org/">
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-odp"></use></svg>
+                <span>Open Data Portal</span>
+              </a>
+            </li>
+            <li class="shape-blog">
+              <a class="external-link" target="_blank" href="http://blog.globalforestwatch.org/">
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-blog"></use></svg>
+                <span>Blog</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank">
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-forum"></use></svg>
+                <span>Join the discussion</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="more-more-list">
+            <li><a href="#"><span>Receive gfw updates</span></a></li>
+            <li><a href="#"><span>Small grants fund</span></a></li>
+            <li><a href="#"><span>Share data</span></a></li>
+            <li><a href="#"><span>Help improve data</span></a></li>
+            <li><a href="#"><span>User stories</span></a></li>
+          </ul>
+        </div>        
       </li>
     </ul>
 
@@ -49,7 +89,6 @@
       <li class="m-header-item -default shape-mygfw" id="my-gfw-container">
       </li>
     </ul>
-
 
     <!-- APPS -->
     <div id="submenuApps" class="m-apps">
@@ -113,50 +152,6 @@
                 </div>
               </a>
             </li>
-          </ul>
-        </div>
-        <div class="more-apps">
-          <ul class="more-list">
-            <li class="shape-develop">
-              <a href="/map">
-                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-develop"></use></svg>
-                <span>Developer's corner</span>
-              </a>
-            </li> 
-            <li class="shape-howto">
-              <a href="/howto">
-                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg>
-                <span>How to</span>
-              </a>
-            </li>
-            <li class="shape-mygfw" id="my-gfw-container">
-
-            </li>
-            <li class="shape-odp">
-              <a class="external-link" target="_blank" href="http://data.globalforestwatch.org/">
-                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-odp"></use></svg>
-                <span>Open Data Portal</span>
-              </a>
-            </li>
-            <li class="shape-blog">
-              <a class="external-link" target="_blank" href="http://blog.globalforestwatch.org/">
-                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-blog"></use></svg>
-                <span>Blog</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank">
-                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-forum"></use></svg>
-                <span>Join the discussion</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="more-more-list">
-            <li><a href="#">Receive gfw updates</a></li>
-            <li><a href="#">Small grants fund</a></li>
-            <li><a href="#">Share data</a></li>
-            <li><a href="#">Help improve data</a></li>
-            <li><a href="#">User stories</a></li>
           </ul>
         </div>
       </div>

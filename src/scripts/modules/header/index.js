@@ -58,6 +58,7 @@ class Header {
     this.$headerSubmenu = this.$header.find('.m-header-submenu');
     this.$headerSubmenuBtns = this.$header.find('.m-header-submenu-btn');
     this.$headerSubmenuApp = this.$header.find('#submenuApps');
+    this.$headerSubmenuMore = this.$header.find('#submenuMore');
 
     // Links
     this.$links = this.$header.find('a');
@@ -130,6 +131,7 @@ class Header {
     // Allow mobile scroll
     this.$htmlbody.removeClass('-no-scroll');
     this.$headerSubmenuApp.removeClass('-active');
+    this.$headerSubmenuMore.removeClass('-active');
     this.$headerSubmenuBtns.forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
