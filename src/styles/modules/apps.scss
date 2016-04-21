@@ -1,0 +1,190 @@
+#headerGfw {
+	.m-apps {
+		position: absolute;
+		top: 35px;
+		left: 0;
+		width: 100%;
+		z-index: 5;
+		opacity: 0;
+		visibility: hidden;
+
+		&.-active {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	.m-apps-content {
+
+	  h1 {
+	  	width: 90px;
+	  	height: 90px;
+	  	margin: 0 auto;
+	  	background: url(http://www.globalforestwatch.org/assets/logo-new-c84df4ee1f85536a7c0b574378f21ab0.png);
+	  	background-size: contain;
+
+	  	a {
+	  		display: block;
+	  		width: 100%;
+	  		height: 100%;
+	  		text-indent: -9999px;
+	  	}
+	  }
+
+	  // App list
+	  .apps {
+	  	background-color: $dark1;
+	  	padding: 40px;
+
+	  	ul {
+	  		max-width: 630px;
+	  		margin: 0px auto;
+	  		padding: 40px 0;
+	  		display: flex;
+	  		flex-wrap: wrap;
+	  		justify-content: flex-start;
+
+	  		> li {
+	  			width: 25%;
+
+	  			&:nth-child(n+5) {
+	  				margin-top: 30px;
+	  			}
+
+				  // App item
+				  .app {
+				  	border: 1px solid $primary-color;
+				  	width: 112px;
+				  	height: 112px;
+						margin: 0 auto;
+
+						svg {
+							display: block;
+							width: 38px;
+							height: 38px;
+							margin: 15px auto 10px;
+							fill: $primary-color;
+						}
+
+						span {
+							display: block;
+							text-transform: uppercase;
+							font-size: 12px;
+							line-height: 1.25;
+							color: $white;
+							text-align: center;
+							padding: 0 10px;
+						}	
+				  }
+
+	        &.shape-fires { 
+	        	.app { 
+	        		border: 1px solid $red;
+	        	}
+	        	svg { fill: $red; } 
+	        }
+	        &.shape-commodities { 
+	        	.app { 
+	        		border: 1px solid $orange;
+	        	}
+	        	svg { fill: $orange; } 
+	        }
+	        &.shape-climate { 
+	        	.app { 
+	        		border: 1px solid $blue;
+	        	}
+	        	svg { fill: $blue; } 
+	        }
+	        &.shape-water { 
+	        	.app { 
+	        		border: 1px solid $bluewater;
+	        	}
+	        	svg { fill: $bluewater; } 
+	        }
+	  		}
+	  	}
+	  }
+
+	  .more-apps {
+	  	background: $dark;
+	  	padding: 40px;	
+			
+			.more-list {
+	  		max-width: 630px;
+	  		margin: 0px auto;
+	  		display: flex;
+	  		flex-wrap: wrap;
+	  		justify-content: space-between;
+
+	  		> li {
+	  			width: 33.3333%;
+
+	  			&:nth-child(n+4) {
+	  				margin-top: 15px;
+	  			}
+
+	  			a {
+	  				display: flex;
+	  				justify-content: center;
+	  				align-items: center;
+
+						svg {
+							display: block;
+							width: 21px;
+							height: 21px;
+							fill: $primary-color;
+							margin: 0;
+						}
+
+						span {
+							display: block;
+							text-transform: uppercase;
+							font-size: 12px;
+							line-height: 1.25;
+							color: $white;
+							text-align: center;
+							padding: 0 10px;
+						}	
+
+	  			}
+	  		}				
+			}
+
+			.more-more-list {
+	  		max-width: 630px;
+	  		margin: 40px auto 0;
+	  		display: flex;
+	  		justify-content: space-between;
+
+	  		> li {
+	  			font-size: 12px;
+	  			position: relative;
+	  			
+	  			&:first-child {
+	  				&:after {
+	  					display: none;
+	  				}
+	  			}
+
+  				&:after {
+  					content: "";
+  					display: block;
+  					position: absolute;
+  					top: 50%;
+  					left: 0;
+  					transform: translate(-50%,-50%);
+  					width: 4px;
+  					height: 4px;
+  					background: $white;
+  				}
+
+	  			a {
+	  				text-transform: uppercase;
+	  				color: $white;
+	  			}
+	  		}				
+
+			}	  	  	
+	  }
+	}
+}

@@ -116,9 +116,9 @@
     // Default items
     &.-default {
       @media (min-width: $br-mobile){
-        position: relative;
         width: 45px;
         height: 35px;
+        position: relative;
 
         &:after {
           content: "";
@@ -181,10 +181,8 @@
             }
           }
 
-          @media (max-width: $br-mobile - 1){
-            &.-inactive {
-              display: none;
-            }
+          &.-inactive {
+            display: none;
           }
         }
       }

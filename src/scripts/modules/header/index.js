@@ -94,37 +94,32 @@ class Header {
     // Mobile menus
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
     this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
+    this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
     this.$header.on('click', '.btn-header-search', this.toggleSearch.bind(this));
   }
 
   showMenu(e) {
-    if (utils.isSmallScreen()) {
-      e && e.preventDefault();
+    e && e.preventDefault();
 
-      if (!$gfwdom(e.currentTarget).hasClass('-active')) {
-        // Hide all the opened menus
-        this.hideMenus();
-        // Prevent mobile scroll
-        this.$htmlbody.toggleClass('-no-scroll');
-        // Active menu icon
-        $gfwdom(e.currentTarget).toggleClass('-active')
-        $gfwdom(e.currentTarget).find('svg').toggleClass('-inactive');
-        // Active menu
-        $gfwdom($gfwdom(e.currentTarget).data('submenu')).toggleClass('-active');
-      } else {
-        this.hideMenus();
-      }
+    if (!$gfwdom(e.currentTarget).hasClass('-active')) {
+      // Hide all the opened menus
+      this.hideMenus();
+      // Prevent mobile scroll
+      this.$htmlbody.toggleClass('-no-scroll');
+      // Active menu icon
+      $gfwdom(e.currentTarget).toggleClass('-active')
+      $gfwdom(e.currentTarget).find('svg').toggleClass('-inactive');
+      // Active menu
+      $gfwdom($gfwdom(e.currentTarget).data('submenu')).toggleClass('-active');
     } else {
-      if ($gfwdom(e.currentTarget).data('stopnavigation')) {
-        e && e.preventDefault();
-      }
+      this.hideMenus();
     }
   }
 
   hideMenus(e) {
     // Allow mobile scroll
     this.$htmlbody.removeClass('-no-scroll');
-    this.$headerSubmenu.removeClass('-active');
+    this.$headerSubmenuApp.removeClass('-active');
     this.$headerSubmenuBtns.forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
