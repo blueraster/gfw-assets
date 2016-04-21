@@ -80,6 +80,10 @@
       cursor: pointer;
       font-weight: 500;
 
+      &:hover {
+        color: $white;
+      }
+
       .txlive-langselector-current {
         line-height: 1;
         display: block;

@@ -293,18 +293,8 @@
     // HOVERS
     @media (min-width: $br-mobile){
       &:hover, &.-current  {
-        > a:after {
-          content: "";
-          width: 100%;
-          height: 2px;
-          position: absolute;
-          top: 0;
-          left: 0;
-          background: $primary-color;
-        }
-
         > a > svg {
-          fill: $primary-color;
+          fill: $white;
         }
       }
     }
