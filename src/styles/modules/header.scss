@@ -27,7 +27,7 @@
     position: relative;
     background-color: transparent;
     @media (min-width: $br-mobile){
-      justify-content: flex-end;
+      justify-content: space-between;
     }
   }
 
@@ -195,9 +195,23 @@
     &.-text {
       @media (min-width: $br-mobile){
         min-width: 35px;
-        margin: 0 0 0 20px;
+        position: relative;
+
+        &:after {
+          content: "";
+          width: 1px;
+          height: 50%;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(-1px,-50%);
+          background: #676867;
+        }
+
         &:first-child {
-          margin: 0;
+          &:after {
+            display: none;
+          }
         }
       }
 
@@ -211,11 +225,8 @@
           border: none;
           display: flex;
 
-          &:hover {
-            > span {
-              opacity: 1;
-              visibility: visible;
-            }
+          &.-active {
+            background: $dark1;
           }
         }
 
@@ -225,56 +236,16 @@
         > span {
           display: block;
           line-height: 1;
-          margin: 2px 0 0;
           font-size: 10px;
           text-align: center;
           white-space: nowrap;
 
           @media (min-width: $br-mobile){
-            line-height: 28px;
-            font-size: 12px;
+            line-height: 35px;
+            font-size: 11px;
             display: inline-block;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translate(-50%,0);
-
-            padding: 5px 10px 3px;
-
-            background: $dark;
-            color: $white;
-            opacity: 0;
-            visibility: hidden;
-
-            &:after {
-              content: "";
-              position: absolute;
-              top: -5px;
-              left: 50%;
-              width: 10px;
-              height: 10px;
-              transform: translate(-50%,0) rotate(45deg);
-              background: $dark;
-            }
-          }
-
-
-          @media (min-width: $br-desktop){
-            opacity: 1;
-            visibility: visible;
-
-            margin: 5px 0 0 5px;
-            padding: 0;
-
-            background: none;
-            color: $dark;
-
-            position: static;
-            transform: translate(0,0);
-
-            &:after {
-              display: none;
-            }
+            padding: 0 10px;
+            color: $light;
           }
         }
       }
@@ -290,6 +261,9 @@
       &:hover, &.-current  {
         > a > svg {
           fill: $white;
+        }
+        > a > span {
+          color: $white;
         }
       }
     }
