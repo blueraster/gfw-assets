@@ -113,8 +113,8 @@
       &:after {
         content: "";
         display: block;
-        width: 10px;
-        height: 10px;
+        width: 6px;
+        height: 6px;
         background: $dark1;
         transform: translate(-50%,-50%) rotate(45deg);
         position: absolute;
@@ -126,10 +126,12 @@
         padding: 12px 15px;
         color: $light;
         position: relative;
-        z-index: 1;      
+        z-index: 1; 
+        text-transform: uppercase;     
 
         &:hover {
           background: lighten($dark1,5%);
+          color: $white;
         }
       }
     }
