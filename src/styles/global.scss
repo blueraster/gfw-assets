@@ -40,11 +40,12 @@ $border1: #E5E5DF;
 
 // header
 @import 'modules/header.scss';
-@import 'modules/submenu.scss';
-@import 'modules/translate.scss';
-
+@import 'modules/search.scss';
 // apps
 @import 'modules/apps.scss';
+@import 'modules/translate.scss';
+// @import 'modules/submenu.scss';
+
 
 // section
 @import 'modules/section.scss';

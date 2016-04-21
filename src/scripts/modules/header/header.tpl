@@ -11,7 +11,7 @@
         </li>
         <!-- // translation // -->
         <li class="m-header-item -default shape-search">
-          <a class="btn-header-search" href="#">
+          <a class="btn-search" href="#">
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg>
           </a>
         </li>
@@ -144,11 +144,11 @@
 
 
       <!-- SEARCH -->
-      <div class="m-header-search">
+      <div class="m-search">
         <form action="http://www.globalforestwatch.org/search">
           <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
           <input type="text" name="query" id="search-input" placeholder="Search GFW website">
-          <button class="btn-header-search -close" type="button"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg></button>
+          <button class="btn-search -close" type="button"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg></button>
         </form>
       </div>
 

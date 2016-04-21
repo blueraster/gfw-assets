@@ -1,0 +1,73 @@
+#headerGfw {
+  .m-search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width:  calc(100% - (45px * 6));
+    background: $dark;
+    transform: translate(20px,0);
+    transition: $transition2;
+    opacity: 0;
+    visibility: hidden;
+
+    &.-active {
+      transform: translate(0,0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    form {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: calc(45px * 3);
+      height: 35px;
+
+      .btn-search {
+        width: 45px;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        &:hover {
+          svg {
+            fill: $primary-color;
+          }
+        }
+      }
+
+      input {
+        border: none;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        color: $light;
+
+        padding: 0 5px;
+        margin: 0 45px 0 5px;
+        line-height: 24px;
+        outline: none;
+
+        font-size: 12px;
+        font-family: inherit;
+      }
+
+      svg {
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin: 0 auto;
+        transition: $transition1;
+        fill: $light;
+
+        @media (min-width: $br-mobile){
+          display: inline-block;
+          width: 18px;
+          height: 35px;
+        }
+      }
+    }
+  }	
+}

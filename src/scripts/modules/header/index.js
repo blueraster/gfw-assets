@@ -64,7 +64,7 @@ class Header {
     this.$linksSubmenu = this.$header.find('a');
 
     // Search
-    this.$headerSearch = this.$header.find('.m-header-search');
+    this.$headerSearch = this.$header.find('.m-search');
     this.$headerSearchInput = this.$header.find('#search-input');
   };
 
@@ -95,7 +95,7 @@ class Header {
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
     this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
     this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
-    this.$header.on('click', '.btn-header-search', this.toggleSearch.bind(this));
+    this.$header.on('click', '.btn-search', this.toggleSearch.bind(this));
   }
 
   showMenu(e) {
