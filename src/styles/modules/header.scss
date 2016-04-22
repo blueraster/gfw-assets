@@ -177,13 +177,13 @@
       }
 
       @media (min-width: $br-mobile){
-        &:hover {
-          .m-header-submenu {
-            opacity: 1;
-            visibility: visible;
-            transition: all 0s linear 0s;
-          }
-        }
+        // &:hover {
+        //   .m-header-submenu {
+        //     opacity: 1;
+        //     visibility: visible;
+        //     transition: all 0s linear 0s;
+        //   }
+        // }
       }
     }
 
@@ -227,10 +227,27 @@
           }
         }
 
+        > svg {
+          display: block;
+          height: 18px;
+          margin: 0 auto;
+
+          @media (min-width: $br-mobile){
+            &.-desktop-hide {
+              display: none;
+            }
+          }
+
+          &.-inactive {
+            display: none;
+          }
+        }
+
         // It should act as a name => mobile
         // It should act as a tooltip => tablet
         // It should act as a rig-name => desktop
         > span {
+          line-height: 1.3;
           display: block;
           font-size: 10px;
           text-align: center;

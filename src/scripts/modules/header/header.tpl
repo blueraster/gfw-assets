@@ -3,11 +3,15 @@
     <ul class="m-header-nav -primary">
       <li class="m-header-item -text shape-apps">
         <a id="btnSubmenuApps" data-submenu="#submenuApps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
+          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
+          <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>Apps</span>
         </a>
       </li>
       <li class="m-header-item -text shape-apps">
         <a id="btnSubmenuMore" data-submenu="#submenuMore" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
+          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-menu"></use></svg>
+          <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>More in GFW</span>
         </a>
         <div id="submenuMore" class="m-header-submenu -more">
