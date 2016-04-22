@@ -130,6 +130,7 @@ class Header {
   hideMenus(e) {
     // Allow mobile scroll
     this.$htmlbody.removeClass('-no-scroll');
+    this.$headerSubmenu.removeClass('-active');
     this.$headerSubmenuApp.removeClass('-active');
     this.$headerSubmenuMore.removeClass('-active');
     this.$headerSubmenuBtns.forEach(function(v){
