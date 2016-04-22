@@ -24,11 +24,16 @@
 	.m-apps-content {
 
 	  h1 {
-	  	width: 90px;
-	  	height: 90px;
+	  	width: 60px;
+	  	height: 60px;
 	  	margin: 0 auto;
 	  	background: url(http://www.globalforestwatch.org/assets/logo-new-c84df4ee1f85536a7c0b574378f21ab0.png);
 	  	background-size: contain;
+	    @media (min-width: $br-mobile){
+		  	width: 90px;
+		  	height: 90px;
+	    }
+
 
 	  	a {
 	  		display: block;
@@ -50,11 +55,12 @@
 	  		width: 270px;
 	  		max-width: 630px;
 	  		margin: 0px auto;
-	  		padding: 40px 0;
+	  		padding: 20px 0 0;
 	  		display: flex;
 	  		flex-wrap: wrap;
 	  		justify-content: space-between;
 		    @media (min-width: $br-mobile){
+		    	padding: 40px 0;
 		    	width: auto;
 		    	justify-content: flex-start;
 		    }

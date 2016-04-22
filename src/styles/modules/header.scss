@@ -39,6 +39,10 @@
       
     }
 
+    &.-secondary {
+      
+    }
+
     &.-mobile {
       position: absolute;
       bottom: 0;
@@ -217,15 +221,21 @@
         border-right: 1px solid transparent;
         display: block;
         @media (min-width: $br-mobile){
-          padding: 0;
+          padding: 0 0 0 10px;
           border: none;
           display: flex;
+        }
 
-          &.-active {
-            background: $dark1;
-            z-index: 1;
+        &.-active {
+          // background: $white;
+          z-index: 5;
+          background: $dark1;
+          @media (min-width: $br-mobile){
+            z-index: 3;
           }
         }
+
+
 
         > svg {
           display: block;

@@ -29,11 +29,15 @@
       background: $dark1;
 
       > ul {
-        padding: 40px;
-        padding-right: 80px;
+        padding: 20px;
+        padding-right: 40px;
         background: $dark1;   
         font-size: 12px;
         border-top: 1px solid $dark;
+        @media (min-width: $br-mobile){
+          padding: 40px;
+          padding-right: 80px;
+        }
 
         &:first-child {
           border-top: none;
