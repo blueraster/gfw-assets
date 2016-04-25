@@ -19,8 +19,6 @@ var prodPlugins = [
   new webpack.optimize.OccurrenceOrderPlugin()
 ];
 
-console.log(process.env.NODE_ENV);
-
 module.exports = {
 
   context: path.join(__dirname, 'src'),

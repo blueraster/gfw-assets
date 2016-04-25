@@ -2,5 +2,6 @@
 .gems
 .sass-cache
 .env
+.dist
 *.log
 /node_modules
