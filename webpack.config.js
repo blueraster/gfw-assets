@@ -3,8 +3,6 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var path = require('path');
-var version = process.env.VERSION || 'latest';
-var S3Plugin = require('webpack-s3-plugin');
 
 var prodPlugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -18,20 +16,10 @@ var prodPlugins = [
     comments: false
   }),
   new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin(),
-  new S3Plugin({
-    directory: 'dist',
-    exclude: /.*\.html$/,
-    s3Options: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      region: 'us-east-1'
-    },
-    s3UploadOptions: {
-      Bucket: 'gfw-assets/static'
-    }
-  })
+  new webpack.optimize.OccurrenceOrderPlugin()
 ];
+
+console.log(process.env.NODE_ENV);
 
 module.exports = {
 
@@ -45,7 +33,7 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'gfw-assets.' + version + '.js'
+    filename: 'gfw-assets.latest.js'
   },
 
   module: {
@@ -55,7 +43,8 @@ module.exports = {
       {test: /\.html$/, loader: 'file?name=[name].[ext]'},
       {test: /\.tpl$/, loader: 'ejs-loader'},
       {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'},
-      {test: /\.css$/, loader: 'style!raw'}
+      {test: /\.css$/, loader: 'style!raw'},
+      {test: /\.(eot|ttf|woff2|woff)$/, loader: 'url-loader?prefix=fonts/&context=./src/fonts'}
     ]
   },
 
