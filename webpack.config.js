@@ -1,10 +1,9 @@
 'use strict';
 
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var path = require('path');
-
-var prodPlugins = [
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const path = require('path');
+const prodPlugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.optimize.UglifyJsPlugin({
     compress: {
@@ -31,7 +30,7 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'gfw-assets.latest.js'
+    filename: 'gfw-assets.dev.js'
   },
 
   module: {
