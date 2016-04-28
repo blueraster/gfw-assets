@@ -187,13 +187,13 @@
       }
 
       @media (min-width: $br-mobile){
-        // &:hover {
-        //   .m-header-submenu {
-        //     opacity: 1;
-        //     visibility: visible;
-        //     transition: all 0s linear 0s;
-        //   }
-        // }
+        &:hover {
+          .m-header-submenu {
+            opacity: 1;
+            visibility: visible;
+            transition: all 0s linear 0s;
+          }
+        }
       }
     }
 
