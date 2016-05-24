@@ -1,14 +1,4 @@
 #headerGfw {
-	.m-apps {
-		// position: fixed;
-		// bottom: 50px;
-		// left: 0;
-		// z-index: 5;
-
-    @media (min-width: $br-mobile){
-    	width: 700px;
-    }
-	}
 
 	.m-apps-content {
 
@@ -55,7 +45,7 @@
 	  		width: 270px;
 	  		max-width: 630px;
 	  		margin: 0px auto;
-	  		padding: 20px 0 0;
+	  		padding: 40px 0 0;
 	  		display: flex;
 	  		flex-wrap: wrap;
 	  		justify-content: space-between;

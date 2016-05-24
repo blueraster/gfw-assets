@@ -38,7 +38,7 @@
           <span>Apps</span>
         </a>
         <!-- APPS -->
-        <div id="submenuApps" class="m-apps m-header-submenu -default -right">
+        <div id="submenuApps" class="m-header-submenu -apps -default -right">
           <div class="m-apps-content">
             <div class="apps">
               <h1><a href="/"><span>Global Forest Watch Home</span></a></h1>
