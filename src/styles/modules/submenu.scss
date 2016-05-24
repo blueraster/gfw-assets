@@ -3,7 +3,7 @@
     position: absolute;
     top: auto;
     bottom: 50px;
-    left: 0;
+    right: 0;
     z-index: 3;
     line-height: 1.25;
     opacity: 0;
@@ -22,59 +22,6 @@
     > ul {
       background: $white;
       z-index: 2;
-    }
-
-    &.-more {
-      background: $dark1;
-
-      > ul {
-        padding: 20px;
-        padding-right: 40px;
-        background: $dark1;   
-        font-size: 12px;
-        border-top: 1px solid $dark;
-        @media (min-width: $br-mobile){
-          padding: 40px;
-          padding-right: 80px;
-        }
-
-        &:first-child {
-          border-top: none;
-        }
-        
-        > li {
-          text-transform: uppercase;
-          margin-top: 10px;
-
-          &:first-child {
-            margin-top: 0;
-          }
-
-          a {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            color: $white;
-            white-space: nowrap;
-
-            &:hover {
-              span {
-                border-color: $primary-color;
-              }
-            }
-
-            svg {
-              fill: $primary-color;
-              margin: 0 8px 0 0;
-              height: 18px;
-            }
-
-            span {
-              border-bottom: 1px solid transparent;
-            }
-          }
-        }     
-      }
     }
 
     ///////////////
@@ -324,6 +271,59 @@
             }
           }
         }
+      }
+    }
+
+    &.-more {
+      background: $dark1;
+
+      > ul {
+        padding: 20px;
+        padding-right: 40px;
+        background: $dark1;   
+        font-size: 12px;
+        border-top: 1px solid $dark;
+        @media (min-width: $br-mobile){
+          padding: 40px;
+          padding-right: 80px;
+        }
+
+        &:first-child {
+          border-top: none;
+        }
+        
+        > li {
+          text-transform: uppercase;
+          margin-top: 10px;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: $white;
+            white-space: nowrap;
+
+            &:hover {
+              span {
+                border-color: $primary-color;
+              }
+            }
+
+            svg {
+              fill: $primary-color;
+              margin: 0 8px 0 0;
+              height: 18px;
+            }
+
+            span {
+              border-bottom: 1px solid transparent;
+            }
+          }
+        }     
       }
     }
   }
