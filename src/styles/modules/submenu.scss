@@ -97,7 +97,7 @@
         padding: 20px;
         background: $dark1;   
         font-size: 12px;
-        border-top: 1px solid $dark;
+
         @media (min-width: $br-mobile){
           padding: 40px;
         }
@@ -353,6 +353,76 @@
             }
           }
         }     
+      }
+    }
+
+    &.-login {
+      p {
+        padding: 40px 40px 0;
+        font-size: 14px;
+        background: $dark1;
+        color: $white;
+
+        a {
+          color: $primary-color;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      ul {     
+        padding: 20px 40px 40px; 
+        li {
+          width: 250px;
+          display: block;
+          height: 50px;
+          text-align: center;
+          margin-bottom: 10px;
+
+          position: relative;
+        }
+
+        li a {
+          color: white;
+          text-transform: uppercase;
+          font-size: 14px;
+
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        li a svg {
+          fill: white;
+
+          position: absolute;
+          top: 7px;
+          left: 15px;
+        }
+
+        .my-gfw-sign-in-twitter {
+          background-color: #598dca;
+          &:hover {
+            background-color: lighten(#598dca,5%);
+          }
+        }
+
+        .my-gfw-sign-in-facebook {
+          background-color: #39579b;
+          &:hover {
+            background-color: lighten(#39579b,5%);
+          }
+        }
+
+        .my-gfw-sign-in-google {
+          background-color: #da4735;
+          &:hover {
+            background-color: lighten(#da4735,5%);
+          }
+        }      
       }
     }
   }

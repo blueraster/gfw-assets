@@ -18,6 +18,7 @@ class LoginButton {
 
   // Check if the user is logged
   checkStatus() {
+    // Use this if you want to check the login dropdown
     // this.loggedIn = true;
     // this.render();
     
@@ -29,7 +30,7 @@ class LoginButton {
       }.bind(this),
       failure: function() {
         this.loggedIn = false;
-        this.render();
+        this.initLinks();
       }.bind(this)
     });
   }
@@ -39,15 +40,9 @@ class LoginButton {
     const template = (!!this.loggedIn) ? loginButtonTpl : logoutButtonTpl;
     this.$el.html(template());
 
-    this.initEvents();
     this.initLinks();
 
     return this;
-  }
-
-  initEvents() {
-    const $openModal = this.$el.find('#my-gfw-open-modal');
-    $openModal.on('click', this.showModal.bind(this))
   }
 
   initLinks() {

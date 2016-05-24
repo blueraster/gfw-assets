@@ -60,6 +60,8 @@ class Header {
     this.$headerSubmenuBtns = this.$header.find('.m-header-submenu-btn');
     this.$headerSubmenuApp = this.$header.find('#submenuApps');
     this.$headerSubmenuMore = this.$header.find('#submenuMore');
+    this.$headerSubmenuLogin = this.$header.find('#submenuLogin');
+    
 
     // Links
     this.$links = this.$header.find('a');
@@ -135,6 +137,7 @@ class Header {
     this.$headerSubmenu.removeClass('-active');
     this.$headerSubmenuApp.removeClass('-active');
     this.$headerSubmenuMore.removeClass('-active');
+    this.$headerSubmenuLogin.removeClass('-active');
     this.$headerSubmenuBtns.forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
