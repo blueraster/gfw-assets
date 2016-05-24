@@ -120,19 +120,8 @@
         height: 35px;
         position: relative;
 
-        &:after {
-          content: "";
-          width: 1px;
-          height: 50%;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translate(-1px,-50%);
-          background: #676867;
-        }
-
         &:first-child {
-          &:after {
+          a:after {
             display: none;
           }
         }
@@ -148,10 +137,27 @@
           // background: $white;
           z-index: 5;
           background: $dark1;
+
+          &:after {
+            background: $dark1;            
+          }
+
           @media (min-width: $br-mobile){
             z-index: 3;
           }
         }
+
+        &:after {
+          content: "";
+          width: 1px;
+          height: 50%;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(-1px,-50%);
+          background: #676867;
+        }
+
 
         @media (min-width: $br-mobile){
           padding: 0;
@@ -195,7 +201,9 @@
 
     // For 100% width submenu
     &.-static {
-      position: static;
+      @media (min-width: $br-mobile){
+        position: static;
+      }
     }
 
     // Text items

@@ -45,7 +45,7 @@
           </ul>
         </div>
       </li>
-      <li class="m-header-item -default shape-apps">
+      <li class="m-header-item -default -static shape-apps">
         <a id="btnSubmenuApps" data-submenu="#submenuApps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
           <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
