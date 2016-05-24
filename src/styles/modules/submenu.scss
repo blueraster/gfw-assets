@@ -305,7 +305,6 @@
         border-top: 1px solid $dark;
         @media (min-width: $br-mobile-portrait){
           padding: 40px;
-          padding-right: 80px;
         }
 
         &:first-child {
@@ -341,6 +340,16 @@
 
             span {
               border-bottom: 1px solid transparent;
+            }
+
+            &.-button {
+              text-align: center;
+              display: block;
+              width: 200px;
+              border: 1px solid $primary-color;
+              border-radius: 20px;
+              padding: 10px 0;
+              margin: 20px 0 0;            
             }
           }
         }     

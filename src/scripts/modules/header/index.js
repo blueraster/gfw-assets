@@ -104,27 +104,28 @@ class Header {
 
   showMenu(e) {
     e && e.preventDefault();
+    if (utils.getWindowWidth() < 850) {
+      if (!$gfwdom(e.currentTarget).hasClass('-active')) {
+        // Hide all the opened menus
+        this.hideMenus();
+        // Prevent mobile scroll
+        this.$htmlbody.toggleClass('-no-scroll');
+        // Active menu icon
+        $gfwdom(e.currentTarget).toggleClass('-active')
+        $gfwdom(e.currentTarget).find('svg').toggleClass('-inactive');
+        // Active menu
+        $gfwdom($gfwdom(e.currentTarget).data('submenu')).toggleClass('-active');
 
-    if (!$gfwdom(e.currentTarget).hasClass('-active')) {
-      // Hide all the opened menus
-      this.hideMenus();
-      // Prevent mobile scroll
-      this.$htmlbody.toggleClass('-no-scroll');
-      // Active menu icon
-      $gfwdom(e.currentTarget).toggleClass('-active')
-      $gfwdom(e.currentTarget).find('svg').toggleClass('-inactive');
-      // Active menu
-      $gfwdom($gfwdom(e.currentTarget).data('submenu')).toggleClass('-active');
+        // Key bindings
+        this.$document.on('keyup.apps', e => {
+          if (e.keyCode === 27) {
+            this.hideMenus();
+          }
+        });
 
-      // Key bindings
-      this.$document.on('keyup.apps', e => {
-        if (e.keyCode === 27) {
-          this.hideMenus();
-        }
-      });
-
-    } else {
-      this.hideMenus();
+      } else {
+        this.hideMenus();
+      }      
     }
   }
 

@@ -36,13 +36,13 @@
 	  // App list
 	  .apps {
 	  	background-color: $dark1;
-	  	padding: 20px;
+	  	padding: 40px 0px;
 	    @media (min-width: $br-mobile){
 	    	padding: 40px;
 	    }
 
 	  	ul {
-	  		width: 270px;
+	  		width: 300px;
 	  		max-width: 630px;
 	  		margin: 0px auto;
 	  		padding: 40px 0 0;
@@ -67,7 +67,7 @@
 
 				  // App item
 				  .app {
-				  	width: 82px;
+				  	width: 100px;
 						margin: 0 auto;
 				    @media (min-width: $br-mobile){
 					  	border: 1px solid $primary-color;

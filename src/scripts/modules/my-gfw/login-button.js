@@ -18,20 +18,20 @@ class LoginButton {
 
   // Check if the user is logged
   checkStatus() {
-    this.loggedIn = true;
-    this.render();
+    // this.loggedIn = true;
+    // this.render();
     
-    // utils.isLoggedIn({
-    //   success: function(response) {
-    //     this.loggedIn = true;
-    //     this.render();
-    //     this.setupGoogleAnalytics(response);
-    //   }.bind(this),
-    //   failure: function() {
-    //     this.loggedIn = false;
-    //     this.render();
-    //   }.bind(this)
-    // });
+    utils.isLoggedIn({
+      success: function(response) {
+        this.loggedIn = true;
+        this.render();
+        this.setupGoogleAnalytics(response);
+      }.bind(this),
+      failure: function() {
+        this.loggedIn = false;
+        this.render();
+      }.bind(this)
+    });
   }
 
   // Render different templates depending on the loggin state

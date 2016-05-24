@@ -122,6 +122,7 @@
             <li class="shape-blog"><a class="external-link" target="_blank" href="http://blog.globalforestwatch.org/"><span>Blog</span></a></li>
             <li><a href="/stayinformed/crowdsourced-stories"><span>Stories</span></a></li>
             <li><a href="/getinvolved/apply-to-the-small-grants-fund"><span>Small grants fund</span></a></li>
+            <li><a class="-button" href="/sitemap">Sitemap</a></li>
           </ul>
         </div>        
       </li>
