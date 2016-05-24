@@ -30,7 +30,7 @@ class LoginButton {
       }.bind(this),
       failure: function() {
         this.loggedIn = false;
-        this.initLinks();
+        this.initLoginLinks();
       }.bind(this)
     });
   }
@@ -40,12 +40,19 @@ class LoginButton {
     const template = (!!this.loggedIn) ? loginButtonTpl : logoutButtonTpl;
     this.$el.html(template());
 
-    this.initLinks();
+    this.initLogoutLinks();
 
     return this;
   }
 
-  initLinks() {
+  initLoginLinks() {
+    var $signin = this.$el.find('.my-gfw-sign-in');
+    $signin.forEach(function(v) {
+      $gfwdom(v).attr('href', utils.getAPIHost() + '/' + $gfwdom(v).attr('href'))
+    });    
+  }
+
+  initLogoutLinks() {
     const $signout = this.$el.find('#my-gfw-sign-out');
     $signout.attr('href', utils.getAPIHost() + $signout.attr('href'));
 
