@@ -55,14 +55,6 @@ class LoginButton {
   initLogoutLinks() {
     const $signout = this.$el.find('#my-gfw-sign-out');
     $signout.attr('href', utils.getAPIHost() + $signout.attr('href'));
-
-    const $links = this.$el.find('a');
-    $links.on('click', function() {
-      if (window.ga !== undefined) {
-        const $el = $(this);
-        window.ga('send', 'event', 'User Profile', 'menu', $el.text());
-      }
-    });
   }
 
   showModal(e) {

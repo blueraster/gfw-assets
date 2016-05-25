@@ -45,12 +45,6 @@ class LoginModal {
     $signin.forEach(function(v) {
       $gfwdom(v).attr('href', utils.getAPIHost() + $gfwdom(v).attr('href'))
     });
-
-    $signin.on('click', function() {
-      if (window.ga !== undefined) {
-        ga('send', 'event', 'User Profile', 'Signin', 'menu');
-      }
-    });
   }
 
   hideModal(e) {

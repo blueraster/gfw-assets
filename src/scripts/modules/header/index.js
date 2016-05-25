@@ -94,6 +94,7 @@ class Header {
    * - showMenu(),
    * - hideMenus()
    * - toggleSearch()
+   * - sendAnalyticsEvent()
    */
   initListeners() {
     // Mobile menus
@@ -102,6 +103,8 @@ class Header {
     this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
     
     this.$header.on('click', '.btn-search', this.toggleSearch.bind(this));
+
+    this.$header.on('click', 'a', this.sendAnalyticsEvent.bind(this));
   }
 
   showMenu(e) {
@@ -173,6 +176,16 @@ class Header {
     }
   }
 
+  sendAnalyticsEvent(e) {
+    const $el = $gfwdom(e.currentTarget);
+    // Test if it's an url
+    var regex = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+
+    if (window.ga !== undefined && regex.test($el.attr('href'))) {
+      window.ga('send', 'event', 'Menu', 'Click', $el.attr('href'));
+    }    
+  }
+
   /**
    * Google translate
    */
@@ -209,24 +222,6 @@ class Header {
     var blacklist = [
       'www.globalforestwatch.org'
     ];
-    // LIVE SETTINGS OPTIONS
-    window.liveSettings = {
-      picker: '#transifexTranslateElement',
-      api_key: "9eda410a7db74687ba40771c56abd357",
-      detectlang: false
-
-      // api_key: "<key>",
-      // picker: "top-left|top-right|bottom-left|bottom-right|#id",
-      // detectlang: true|false|function() { return lang-code; },
-      // version: 'latest|<version>',
-      // autocollect: true|false,
-      // dynamic: true|false,
-      // staging: true|false,
-      // parse_attr: ["attr1", "attr2", ...],
-      // ignore_tags: ["tag1", "tag2", ...],
-      // ignore_class: ["classname1", "classname2"]
-
-    };
 
     // Check if the location.hostname is in the blacklist
     // If true hide transifex element, but keep it working to store the string of the page
