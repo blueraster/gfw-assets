@@ -104,7 +104,8 @@ class Header {
     
     this.$header.on('click', '.btn-search', this.toggleSearch.bind(this));
 
-    this.$header.on('click', 'a', this.sendAnalyticsEvent.bind(this));
+    // Be careful, this will break down the mobile menus toggle
+    // this.$header.on('click', 'a', this.sendAnalyticsEvent.bind(this));
   }
 
   showMenu(e) {
@@ -177,6 +178,9 @@ class Header {
   }
 
   sendAnalyticsEvent(e) {
+    // Be careful with the links that are links on desktop
+    // but buttons on mobile devices
+    // What can we do?
     const $el = $gfwdom(e.currentTarget);
     const url = $el.attr('href');
     const target = $el.attr('target');
