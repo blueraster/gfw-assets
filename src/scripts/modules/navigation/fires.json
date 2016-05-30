@@ -1,0 +1,14 @@
+[{
+    "name": "Home",
+    "link": "/home"
+  },{
+    "name": "Map",
+    "link": "/map"
+  },{
+    "name": "Learn more",
+    "link": "/about"
+  },{
+    "name": "Share stories",
+    "link": "/story"
+  }
+]
