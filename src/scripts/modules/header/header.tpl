@@ -24,7 +24,7 @@
         </div>        
       </li>
       <li class="m-header-item -default shape-howto">
-        <a href="/howto">
+        <a class="link-analytics" href="/howto">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg>
           <span>How to</span>            
         </a>
@@ -55,10 +55,10 @@
         <div id="submenuApps" class="m-header-submenu -apps -default -right">
           <div class="m-apps-content">
             <div class="apps">
-              <h1><a href="/"><span>Global Forest Watch Home</span></a></h1>
+              <h1><a class="link-analytics" href="/"><span>Global Forest Watch Home</span></a></h1>
               <ul>
                 <li class="shape-map">
-                  <a href="/map">
+                  <a class="link-analytics" href="/map">
                     <div class="app shape-map">
                       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-map"></use></svg>
                       <span>Interactive Map</span>
@@ -66,7 +66,7 @@
                   </a>
                 </li>
                 <li class="shape-countries">
-                  <a href="/countries">
+                  <a class="link-analytics" href="/countries">
                     <div class="app shape-countries">
                       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-countries"></use></svg>
                       <span>Countries</span>
@@ -74,7 +74,7 @@
                   </a>
                 </li>
                 <li class="shape-fires">
-                  <a class="external-link" target="_blank" href="http://fires.globalforestwatch.org/">
+                  <a class="external-link link-analytics" target="_blank" href="http://fires.globalforestwatch.org/">
                     <div class="app shape-fires">
                       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-fires"></use></svg>
                       <span>Fires</span>
@@ -82,7 +82,7 @@
                   </a>
                 </li>
                 <li class="shape-commodities">
-                  <a class="external-link" target="_blank" href="http://commodities.globalforestwatch.org/">
+                  <a class="external-link link-analytics" target="_blank" href="http://commodities.globalforestwatch.org/">
                     <div class="app shape-commodities">
                       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-commodities"></use></svg>
                       <span>Commodities</span>
@@ -90,7 +90,7 @@
                   </a>
                 </li>
                 <li class="shape-climate">
-                  <a class="external-link" target="_blank" href="http://climate.globalforestwatch.org/">
+                  <a class="external-link link-analytics" target="_blank" href="http://climate.globalforestwatch.org/">
                     <div class="app shape-climate">
                       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-climate"></use></svg>
                       <span>Climate</span>
@@ -98,7 +98,7 @@
                   </a>
                 </li>
                 <li class="shape-water">
-                  <a class="external-link" target="_blank" href="http://water.globalforestwatch.org/">
+                  <a class="external-link link-analytics" target="_blank" href="http://water.globalforestwatch.org/">
                     <div class="app shape-water">
                       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-fires"></use></svg>
                       <span>Water</span>
@@ -106,7 +106,7 @@
                   </a>
                 </li>
                 <li class="shape-explore">
-                  <a href="/explore">
+                  <a class="link-analytics" href="/explore">
                     <div class="app shape-explore">
                       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
                       <span>Explore all apps</span>
@@ -127,16 +127,16 @@
         </a>
         <div id="submenuMore" class="m-header-submenu -more -default -right">
           <ul class="more-list">
-            <li class="shape-develop"><a href="/"><span>GFW Home</span></a></li> 
-            <li class="shape-develop"><a href="/getinvolved/develop-your-own-app"><span>Developer's corner</span></a></li> 
-            <li class="shape-howto"><a href="/howto"><span>How to</span></a></li>
+            <li class="shape-develop"><a class="link-analytics" href="/"><span>GFW Home</span></a></li> 
+            <li class="shape-develop"><a class="link-analytics" href="/getinvolved/develop-your-own-app"><span>Developer's corner</span></a></li> 
+            <li class="shape-howto"><a class="link-analytics" href="/howto"><span>How to</span></a></li>
             <!-- <li class="shape-mygfw" id="my-gfw-container2"></li> -->
-            <li class="shape-odp"><a class="external-link" target="_blank" href="http://data.globalforestwatch.org/"><span>Open Data Portal</span></a></li>
+            <li class="shape-odp"><a class="link-analytics external-link" target="_blank" href="http://data.globalforestwatch.org/"><span>Open Data Portal</span></a></li>
             <li><a href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank"><span>Discussion forum</span></a></li>
-            <li class="shape-blog"><a class="external-link" target="_blank" href="http://blog.globalforestwatch.org/"><span>Blog</span></a></li>
-            <li><a href="/stayinformed/crowdsourced-stories"><span>Stories</span></a></li>
-            <li><a href="/getinvolved/apply-to-the-small-grants-fund"><span>Small grants fund</span></a></li>
-            <li><a class="-button" href="/sitemap">Sitemap</a></li>
+            <li class="shape-blog"><a class="link-analytics external-link" target="_blank" href="http://blog.globalforestwatch.org/"><span>Blog</span></a></li>
+            <li><a class="link-analytics" href="/stayinformed/crowdsourced-stories"><span>Stories</span></a></li>
+            <li><a class="link-analytics" href="/getinvolved/apply-to-the-small-grants-fund"><span>Small grants fund</span></a></li>
+            <li><a class="link-analytics -button" href="/sitemap">Sitemap</a></li>
           </ul>
         </div>        
       </li>

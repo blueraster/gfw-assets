@@ -13,7 +13,7 @@
         <ul>
           <% for ( var j = 0; j < menu[i].submenu.length; j++ ) { %>
             <li>
-              <a class  ="<%= (!!menu[i].submenu[j].classname ? menu[i].submenu[j].classname : "")%>"
+              <a class  ="link-analytics <%= (!!menu[i].submenu[j].classname ? menu[i].submenu[j].classname : "")%>"
                  target ="<%= (!!menu[i].submenu[j].target ? menu[i].submenu[j].target : "")%>"
                  href="<%= menu[i].submenu[j].link %>">
                   <%= menu[i].submenu[j].name %>
