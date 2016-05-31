@@ -310,6 +310,49 @@
           }
         }
       }
+
+      form {
+        button {
+          position: absolute;
+          top: 13px;
+          right: 20px;
+          
+          svg {
+            fill: $dark;
+          }
+        }
+
+        input {
+          -webkit-appearance: none;
+          appearance: none;
+          box-shadow: none;
+          font-family: inherit;
+          font-size: 13px;
+          margin: 0;
+          border: none;
+          border-bottom: 1px solid #BBB;
+          background: #DDD;
+          border-radius: 0;
+          padding: 12px 20px;
+          padding-right: 40px;
+          outline: none;
+          &::-webkit-input-placeholder {
+             color: $dark1;
+          }
+
+          &:-moz-placeholder { /* Firefox 18- */
+             color: $dark1;  
+          }
+
+          &::-moz-placeholder {  /* Firefox 19+ */
+             color: $dark1;  
+          }
+
+          &:-ms-input-placeholder {  
+             color: $dark1;  
+          }          
+        }
+      }
     }
 
     &.-more {

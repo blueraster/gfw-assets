@@ -123,7 +123,7 @@
         <a id="btnSubmenuMore" data-submenu="#submenuMore" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
           <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
-          <span>More in GFW</span>
+          <span>More <em class="-only-desktop">in GFW</em></span>
         </a>
         <div id="submenuMore" class="m-header-submenu -more -default -right">
           <ul class="more-list">
