@@ -3,6 +3,8 @@
     position: absolute;
     top: auto;
     bottom: 50px;
+    height: calc(100vh - 50px);    
+    overflow: auto;
     left: 0;
     width: 100%;
     z-index: 3;
@@ -13,6 +15,7 @@
 
     @media (min-width: $br-mobile-portrait) {
       width: auto;
+      height: auto;
     }
 
     @media (min-width: $br-mobile) {
@@ -20,6 +23,7 @@
       right: 0;
       left: auto;
       bottom: auto;
+      overflow: visible;
     }
     
     &.-active {
@@ -373,11 +377,16 @@
         
         > li {
           text-transform: uppercase;
-          margin-top: 10px;
+          margin-top: 25px;
 
           &:first-child {
             margin-top: 0;
           }
+
+          @media (min-width: $br-mobile-portrait){
+            margin-top: 10px;
+          }
+
 
           a {
             display: flex;
