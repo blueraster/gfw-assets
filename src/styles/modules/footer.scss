@@ -1,58 +1,82 @@
 #footerGfw {
   font-family: "Fira GFW Sans", Helvetica, serif;
+  // This fixes the ligatures issue in Chrome and Safari > 9.0
+  -webkit-font-feature-settings: "liga" 0;
+  font-feature-settings: "liga" 0;
+  // This fixes the ligatures issue in Safari
+  -webkit-font-variant-ligatures: no-common-ligatures;
+  
   background: $footer-background;
   z-index: 11;
-  display: none;
   clear: both;
-  @media (min-width: $br-mobile){
-    display: block;
+
+  .m-footer-logos {
+    margin: 0 auto;
+    max-width: 700px;    
   }
 
-  ///////////////
-  // FOOTER APPS //
-  ///////////////
-  .m-footer-apps {
+  .m-footer-list {
     display: none;
-    justify-content: space-between;
-    border-bottom: 2px solid $border1;
-    padding: 30px 0;
+    padding: 60px 10px 45px;
+    border-bottom: 1px solid $border1;
     @media (min-width: $br-mobile){
-      display: flex;
+      display: block;
     }
 
-    > li {
-      > a {
-        display: block;
-        color: $dark;
-        padding: 10px;
-        > svg {
-          width: 24px;
-          height: 24px;
-          fill: $dark;
-          display: block;
-          margin: 0 auto 10px;
-        }
-        > h3 {
-          text-align: center;
-          font-size: 14px;
-          text-transform: uppercase;
-          border-bottom: 2px solid transparent;
-        }
 
-        &:hover {
-          > h3 {
-            border-bottom: 2px solid $dark;
+    .list {
+      font-size: 14px;
+      line-height: 1.5;
+      display: flex;
+      justify-content: space-between;
+
+      ul {
+        li {
+          margin-bottom: 8px;
+          
+          &:last-child {
+            margin: 0;
           }
+
+          a {
+            color: $dark;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .sitemap {
+      text-align: center;
+
+      a {        
+        text-align: center;
+        display: inline-block;
+        border: 1px solid $primary-color;
+        border-radius: 20px;
+        padding: 10px 75px;
+        margin: 45px auto 0;   
+        background: $primary-color;
+        color: $white;
+        font-size: 12px;
+        line-height: 1.5;
+        
+        &:hover {
+          background: lighten($primary-color,5%);
         }
       }
     }
   }
 
+
   ///////////////
   // FOOTER INFO //
   ///////////////
   .m-footer-info {
-    padding: 30px 10px;
+    padding: 45px 10px 0;
 
     @media (min-width: $br-mobile){
       display: flex;
@@ -89,6 +113,7 @@
       color: $dark;
       text-align: center;
       padding: 30px 0 0;
+      line-height: 2;
 
       @media (min-width: $br-mobile){
         text-align: right;
@@ -113,7 +138,7 @@
 
   .m-footer-terms {
     text-align: center;
-    padding: 0 0 60px;
+    padding: 0 0 90px;
 
     @media (min-width: $br-mobile){
       padding: 15px 0;
@@ -149,7 +174,7 @@
   .js_slide {
     display: inline-block;
     height: 170px;
-    width: 20%; /* By default, 5 slides at a time */
+    width: 33.33333%; /* By default, 3 slides at a time */
     padding-right: 10px;
 
     a {
@@ -549,13 +574,32 @@
   }
 
   .frame {
-    width: calc(100% - 225px);
+    width: calc(100% - 150px);
     margin: 0 auto !important;
     position: relative;
     font-size: 0;
     line-height: 0;
     overflow: hidden;
     white-space: nowrap;
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 20px;
+      z-index: 2;
+    }
+
+    &:before {
+      left: 0;
+      @include gradient(left,rgba($footer-background,1),rgba($footer-background,0));
+    }
+
+    &:after {
+      right: 0;
+      @include gradient(right,rgba($footer-background,1),rgba($footer-background,0));
+    }
   }
 
   .js_prev,
@@ -569,51 +613,43 @@
     line-height: 0;
     font-size: 0;
     cursor: pointer;
-    background: #E0E0D9;
     color: transparent;
     padding: 0;
     border: none;
     outline: none;
-    border-radius: 50%;
+
+    svg {
+      fill: $dark;
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -12px 0 0 -12px;
+
+    }
 
     &:hover, &:focus {
       outline: none;
-      background: $primary-color;
-      color: transparent;
-      &:before {
-        opacity: 1;
+      svg {
+        fill: $primary-color;
       }
-    }
-
-    &:before, &:before {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
     }
   }
 
   .js_prev {
     left: 10px;
-    &:before {
-      background: url(http://www.globalforestwatch.org/assets/svg-icons/arrow-left.svg) center no-repeat;
-    }
   }
 
   .js_next {
     right: 10px;
-    &:before {
-      background: url(http://www.globalforestwatch.org/assets/svg-icons/arrow-right.svg) center no-repeat;
-    }
   }
 }
 
 #my-gfw-container {
   .my-gfw-loggedin {
     svg {
-      fill: #97bd3d;
+      fill: $white;
     }
   }
 
@@ -699,6 +735,8 @@
 
     svg{
       fill: $dark;
+      width: 20px;
+      height: 20px;
     }
 
     &:hover {
@@ -717,12 +755,14 @@
     h2 {
       font-size: 24px;
       width: 300px;
+      color: $dark;
     }
 
     h3 {
       font-weight: 200;
       line-height: 1.5em;
       margin-top: 15px;
+      color: $dark;
 
       a {
         color: $primary-color;
@@ -741,7 +781,7 @@
   }
 
   .my-gfw-authentication {
-    margin-top: 40px;
+    margin-top: 50px;
     height: 100%;
     width: 100%;
 

@@ -108,6 +108,7 @@ class Feedback {
     this.$el.toggleClass('-active', !this.hidden);
     //Prevent scroll beyond modal window.
     this.$htmlbody.toggleClass('-no-scroll', !this.hidden);
+    this.$contentWrapper[0].scrollTop = 0;
   }
 
 
@@ -253,6 +254,8 @@ class Feedback {
   changeStep(step) {
     // TO-DO: This is not working because we need to scroll the container, not the document
     // this.$contentWrapper.scrollTop(0);
+    this.$contentWrapper[0].scrollTop = 0;
+
     this.$modalStep.removeClass('-active');
     this.$modalStepBtn.removeClass('-active');
 
@@ -274,6 +277,10 @@ class Feedback {
    * - toggleParam
    * @param  {key, value, url}
    * @return {String}
+
+   * - scrollTo
+   * @param  {element, to, duration}
+   * @return
    */
   validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -323,8 +330,6 @@ class Feedback {
         return url;
     }
   }
-
-
 }
 
 export default Feedback;

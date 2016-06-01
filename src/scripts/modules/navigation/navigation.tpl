@@ -1,5 +1,11 @@
 <div class="m-header-backdrop"></div>
 <ul>
+  <li>
+    <form action="http://www.globalforestwatch.org/search">
+      <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
+      <input type="text" name="query" id="search-input-mobile" placeholder="Search GFW website">
+    </form>    
+  </li>
   <% for ( var i = 0; i < menu.length; i++ ) { %>
     <li>
       <h3>
@@ -13,7 +19,7 @@
         <ul>
           <% for ( var j = 0; j < menu[i].submenu.length; j++ ) { %>
             <li>
-              <a class  ="<%= (!!menu[i].submenu[j].classname ? menu[i].submenu[j].classname : "")%>"
+              <a class  ="link-analytics <%= (!!menu[i].submenu[j].classname ? menu[i].submenu[j].classname : "")%>"
                  target ="<%= (!!menu[i].submenu[j].target ? menu[i].submenu[j].target : "")%>"
                  href="<%= menu[i].submenu[j].link %>">
                   <%= menu[i].submenu[j].name %>
