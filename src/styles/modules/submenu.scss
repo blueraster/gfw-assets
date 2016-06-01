@@ -1,9 +1,10 @@
 #headerGfw {
   .m-header-submenu {
-    position: absolute;
+    position: fixed;
     top: auto;
     bottom: 50px;
-    height: calc(100vh - 50px);    
+    height: calc(100% - 50px);
+    -webkit-overflow-scrolling: touch;    
     overflow: auto;
     left: 0;
     width: 100%;
@@ -14,6 +15,7 @@
     box-shadow: $shadow1;
 
     @media (min-width: $br-mobile-portrait) {
+      position: absolute;
       width: auto;
       height: auto;
     }
