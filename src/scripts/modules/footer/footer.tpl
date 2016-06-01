@@ -1,5 +1,35 @@
 <div class="wrapper">
   <footer class="m-footer">
+    <div class="m-footer-list">
+      <div class="list">      
+        <ul>
+          <li><a href="/">GFW FLAGSHIP</a></li>
+          <li><a href="/map">INTERACTIVE MAP</a></li>
+          <li><a href="/countries">COUNTRIES</a></li>
+        </ul>
+        <ul>
+          <li><a href="/fires" target="blank">FIRES</a></li>
+          <li><a href="/commodities" target="blank">COMMODITIES</a></li>
+          <li><a href="/climate" target="blank">CLIMATE</a></li>        
+          <li><a href="/explore" target="blank">EXPLORE ALL APPS</a></li>        
+        </ul>
+        <ul>
+          <li><a href="/develop">DEVELOPER’S CORNER</a></li>
+          <li><a href="/howto">HOW TO</a></li>
+          <li><a href="/data">OPEN DATA PORTAL</a></li>
+          <li><a href="/forum">DISCUSSION FORUM</a></li>
+        </ul>
+        <ul>
+          <li><a href="/blog">BLOG</a></li>
+          <li><a href="/stories">STORIES</a></li>
+          <li><a href="/small">SMALL GRANTS FUND</a></li>
+        </ul>
+      </div>
+      <div class="sitemap">
+        <a class="-button" href="/sitemap">SITEMAP</a>
+      </div>
+    </div>
+
     <div class="m-footer-info">
       <div class="m-footer-partner">
         <p>A partnership convened by</p>
@@ -65,79 +95,79 @@
       </div>
     </div>
 
-      <div class="m-footer-logos slider js_slider" id="my-gfw-slider">
-        <span class="js_prev prev"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-arrow-left"></use></svg></span>
-        <div class="frame js_frame">
-          <ul class="slides js_slides">
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="Agence française de développement international" href="http://www.afd.fr/home" class="afc"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="Airbus" href="http://airbusdefenceandspace.com/" class="airbus"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="Badan Nasional Penanggulangan Bencana" href="http://bnpb.go.id/" class="bnpb"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.cisl.cam.ac.uk/banking" class="bei"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://blueraster.com/" class="blueraster"></a></li>
+    <div class="m-footer-logos slider js_slider" id="my-gfw-slider">
+      <span class="js_prev prev"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-arrow-left"></use></svg></span>
+      <div class="frame js_frame">
+        <ul class="slides js_slides">
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Agence française de développement international" href="http://www.afd.fr/home" class="afc"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Airbus" href="http://airbusdefenceandspace.com/" class="airbus"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Badan Nasional Penanggulangan Bencana" href="http://bnpb.go.id/" class="bnpb"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.cisl.cam.ac.uk/banking" class="bei"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://blueraster.com/" class="blueraster"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.cisl.cam.ac.uk/" class="cambridge"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://cartodb.com/" class="cartodb"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.cgdev.org/" class="centerforglobaldevelopment"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://foreststreesagroforestry.org/" class="cgiar"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://ciat.cgiar.org/" class="ciat"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.cisl.cam.ac.uk/" class="cambridge"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://cartodb.com/" class="cartodb"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.cgdev.org/" class="centerforglobaldevelopment"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://foreststreesagroforestry.org/" class="cgiar"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://ciat.cgiar.org/" class="ciat"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="Climate and Land Use Alliance" href="http://www.climateandlandusealliance.org/" class="clua"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.digitalglobe.com/" class="digitalglobe"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.esri.com/gfw" class="esri"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://earthjournalism.net/" class="ejn"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://ewmi.org/" class="ewmi"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Climate and Land Use Alliance" href="http://www.climateandlandusealliance.org/" class="clua"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.digitalglobe.com/" class="digitalglobe"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.esri.com/gfw" class="esri"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://earthjournalism.net/" class="ejn"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://ewmi.org/" class="ewmi"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.thegef.org/gef/" class="gef"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.genfound.org/" class="generation"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://globalforestwatch.ca/" class="globalforestwatchcanada"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://earthengine.google.org/" class="google"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.icf.gob.hn/" class="icf"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.thegef.org/gef/" class="gef"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.genfound.org/" class="generation"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://globalforestwatch.ca/" class="globalforestwatchcanada"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://earthengine.google.org/" class="google"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.icf.gob.hn/" class="icf"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.imazon.org.br/pagina-inicial-en?set_language=en&amp;cl=en" class="imazon"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.inab.gob.gt/" class="inab"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://europe.croklaan.com/taking-responsibility" class="ioi"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.janegoodall.org/" class="thejanegoodallinstitute"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="Le Ministère des Forêts et de la Faune" href="http://www.minfof.cm/" class="ministiere"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.imazon.org.br/pagina-inicial-en?set_language=en&amp;cl=en" class="imazon"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.inab.gob.gt/" class="inab"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://europe.croklaan.com/taking-responsibility" class="ioi"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.janegoodall.org/" class="thejanegoodallinstitute"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Le Ministère des Forêts et de la Faune" href="http://www.minfof.cm/" class="ministiere"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="Moises Bertoni" href="http://www.mbertoni.org.py/v1/en" class="moises"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="Mongabay" href="http://www.mongabay.com/" class="mongabay"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.moore.org/" class="moore"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="ONG Muyissi" href="http://www.ongmuyissi.org/" class="muyissi"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.regjeringen.no/en/topics/climate-and-environment/climate/klima--og-skogprosjektet/id2000712/" class="norwegianministri"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Moises Bertoni" href="http://www.mbertoni.org.py/v1/en" class="moises"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Mongabay" href="http://www.mongabay.com/" class="mongabay"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.moore.org/" class="moore"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="ONG Muyissi" href="http://www.ongmuyissi.org/" class="muyissi"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.regjeringen.no/en/topics/climate-and-environment/climate/klima--og-skogprosjektet/id2000712/" class="norwegianministri"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.opendevelopmentcambodia.net/" class="opendevcam"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://orbitalinsight.com/" class="orbital"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://osfac.net/index.php?lang=en" class="osfac"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.osinfor.gob.pe/portal/index.php" class="osinfor"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.rainforestfoundationuk.org/" class="rfuk"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.opendevelopmentcambodia.net/" class="opendevcam"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://orbitalinsight.com/" class="orbital"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://osfac.net/index.php?lang=en" class="osfac"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.osinfor.gob.pe/portal/index.php" class="osinfor"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.rainforestfoundationuk.org/" class="rfuk"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://raisg.socioambiental.org/" class="raisg"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.redd-indonesia.org/" class="redd"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.reforestamosmexico.org/" class="rm"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.resolv.org/site-BiodiversityWildlifeSolutions/" class="resolve"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="RSPO" href="http://www.rspo.org/" class="rspo"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://raisg.socioambiental.org/" class="raisg"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.redd-indonesia.org/" class="redd"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.reforestamosmexico.org/" class="rm"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.resolv.org/site-BiodiversityWildlifeSolutions/" class="resolve"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="RSPO" href="http://www.rspo.org/" class="rspo"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="RTRS" href="http://www.responsiblesoy.org/?lang=en" class="rtrs"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.scanex.ru/en/" class="scannex"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.tiliafund.org/" class="thetiliafund"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.transparentworld.ru/ru/" class="tipos"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.gov.uk/government/organisations/department-for-international-development" class="ukaid"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="RTRS" href="http://www.responsiblesoy.org/?lang=en" class="rtrs"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.scanex.ru/en/" class="scannex"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.tiliafund.org/" class="thetiliafund"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.transparentworld.ru/ru/" class="tipos"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.gov.uk/government/organisations/department-for-international-development" class="ukaid"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.unep.org/" class="unep"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="UNEP-WCMC" href="http://www.unep-wcmc.org/" class="unepwcmc"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.unilever.com/" class="unilever"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.geog.umd.edu/" class="universityofmaryland"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.usaid.gov/" class="usaid"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.unep.org/" class="unep"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="UNEP-WCMC" href="http://www.unep-wcmc.org/" class="unepwcmc"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.unilever.com/" class="unilever"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.geog.umd.edu/" class="universityofmaryland"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.usaid.gov/" class="usaid"></a></li>
 
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.urthecast.com/" class="urthecast"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://vizzuality.com/" class="vizzuality"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="Woods Hole Research Center" href="http://www.whrc.org/" class="whrc"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" title="Alliance for Zero Extinction" href="http://www.zeroextinction.org/" class="zeroextinction"></a></li>
-            <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.zsl.org/" class="zsl"></a></li>
-          </ul>
-        </div>
-        <span class="js_next next"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-arrow-right"></use></svg></span>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.urthecast.com/" class="urthecast"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://vizzuality.com/" class="vizzuality"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Woods Hole Research Center" href="http://www.whrc.org/" class="whrc"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Alliance for Zero Extinction" href="http://www.zeroextinction.org/" class="zeroextinction"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.zsl.org/" class="zsl"></a></li>
+        </ul>
       </div>
+      <span class="js_next next"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-arrow-right"></use></svg></span>
+    </div>
 
     <div class="m-footer-terms">
       <a href="/terms">Terms of Service</a> ·
