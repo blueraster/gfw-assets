@@ -26,6 +26,7 @@
 
     .list {
       font-size: 14px;
+      line-height: 1.5;
       display: flex;
       justify-content: space-between;
 
@@ -61,6 +62,7 @@
         background: $primary-color;
         color: $white;
         font-size: 12px;
+        line-height: 1.5;
         
         &:hover {
           background: lighten($primary-color,5%);
