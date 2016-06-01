@@ -1,13 +1,5 @@
 <div class="wrapper">
   <footer class="m-footer">
-    <ul class="m-footer-apps">
-      <li><a href="http://www.globalforestwatch.org/getinvolved/provide-feedback" class="feedback-link"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-feedback"></use></svg><h3>Provide feedback</h3></a></li>
-      <li><a href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-joindiscussion"></use></svg><h3>Join the discussion</h3></a></li>
-      <li><a href="http://www.globalforestwatch.org/howto"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-howto"></use></svg><h3>How to</h3></a></li>
-      <li><a href="http://www.globalforestwatch.org/getinvolved/develop-your-own-app"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-develop"></use></svg><h3>Develop your own app</h3></a></li>
-      <li><a class="mobile-friendly" href="http://data.globalforestwatch.org/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-download"></use></svg><h3>Open data portal</h3></a></li>
-      <li><a href="http://blog.globalforestwatch.org/" target="_blank"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-blog"></use></svg><h3>Blog</h3></a></li>
-    </ul>
     <div class="m-footer-info">
       <div class="m-footer-partner">
         <p>A partnership convened by</p>
@@ -74,7 +66,7 @@
     </div>
 
       <div class="m-footer-logos slider js_slider" id="my-gfw-slider">
-        <span class="js_prev prev">Prev</span>
+        <span class="js_prev prev"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-arrow-left"></use></svg></span>
         <div class="frame js_frame">
           <ul class="slides js_slides">
             <li class="js_slide"><a target="_blank" rel="noreferrer" title="Agence française de développement international" href="http://www.afd.fr/home" class="afc"></a></li>
@@ -144,7 +136,7 @@
             <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.zsl.org/" class="zsl"></a></li>
           </ul>
         </div>
-        <span class="js_next next">Next</span>
+        <span class="js_next next"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-arrow-right"></use></svg></span>
       </div>
 
     <div class="m-footer-terms">
