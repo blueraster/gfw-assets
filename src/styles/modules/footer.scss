@@ -8,11 +8,7 @@
   
   background: $footer-background;
   z-index: 11;
-  display: none;
   clear: both;
-  @media (min-width: $br-mobile){
-    display: block;
-  }
 
   .m-footer-logos {
     margin: 0 auto;
@@ -20,8 +16,13 @@
   }
 
   .m-footer-list {
+    display: none;
     padding: 60px 10px 45px;
     border-bottom: 1px solid $border1;
+    @media (min-width: $br-mobile){
+      display: block;
+    }
+
 
     .list {
       font-size: 14px;
@@ -135,7 +136,7 @@
 
   .m-footer-terms {
     text-align: center;
-    padding: 0 0 60px;
+    padding: 0 0 90px;
 
     @media (min-width: $br-mobile){
       padding: 15px 0;
