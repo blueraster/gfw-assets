@@ -42,10 +42,15 @@ class Footer {
 
     this.render();
     this.initListeners();
+    this.initLinksUrls();
   }
 
   render() {
     this.el.innerHTML = footerTpl() + footerIconsTpl();
+    this.$footer = $gfwdom('#footerGfw');
+
+
+    this.$links = this.$footer.find('a');
 
     this.sliderContainer = document.getElementById('my-gfw-slider');
     this.slidesContainer = document.querySelector('.frame');
@@ -155,6 +160,22 @@ class Footer {
       clearInterval(this.sliderTimer);
       this.sliderTimer = null;
     }
+  }
+
+  /**
+   * We need to make a difference between local, staging and PRO environment urls.
+   * Also we need to have a default value for the external applications
+   */
+  initLinksUrls() {
+    this.targets = !utils.isDefaultHost();
+    this.hostname = utils.getHost();
+
+    this.$links.forEach(function(v) {
+      const href = $gfwdom(v).attr('href');
+      if (href.charAt(0) == '/') {
+        $gfwdom(v).attr('href', this.hostname + href);
+      }
+    }.bind(this));
   }
 
 }

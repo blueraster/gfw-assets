@@ -8,21 +8,21 @@
           <li><a href="/countries">COUNTRIES</a></li>
         </ul>
         <ul>
-          <li><a href="/fires" target="blank">FIRES</a></li>
-          <li><a href="/commodities" target="blank">COMMODITIES</a></li>
-          <li><a href="/climate" target="blank">CLIMATE</a></li>        
+          <li><a href="http://fires.globalforestwatch.org/" target="blank">FIRES</a></li>
+          <li><a href="http://commodities.globalforestwatch.org/" target="blank">COMMODITIES</a></li>
+          <li><a href="http://climate.globalforestwatch.org/" target="blank">CLIMATE</a></li>        
           <li><a href="/explore" target="blank">EXPLORE ALL APPS</a></li>        
         </ul>
         <ul>
-          <li><a href="/develop">DEVELOPER’S CORNER</a></li>
+          <li><a href="/getinvolved/develop-your-own-app">DEVELOPER’S CORNER</a></li>
           <li><a href="/howto">HOW TO</a></li>
-          <li><a href="/data">OPEN DATA PORTAL</a></li>
-          <li><a href="/forum">DISCUSSION FORUM</a></li>
+          <li><a href="http://data.globalforestwatch.org/" target="_blank">OPEN DATA PORTAL</a></li>
+          <li><a href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank">DISCUSSION FORUM</a></li>
         </ul>
         <ul>
-          <li><a href="/blog">BLOG</a></li>
-          <li><a href="/stories">STORIES</a></li>
-          <li><a href="/small">SMALL GRANTS FUND</a></li>
+          <li><a href="http://blog.globalforestwatch.org/" target="_blank">BLOG</a></li>
+          <li><a href="/stayinformed/crowdsourced-stories">STORIES</a></li>
+          <li><a href="/getinvolved/apply-to-the-small-grants-fund">SMALL GRANTS FUND</a></li>
         </ul>
       </div>
       <div class="sitemap">

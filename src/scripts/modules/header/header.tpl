@@ -127,7 +127,7 @@
         </a>
         <div id="submenuMore" class="m-header-submenu -more -default -right">
           <ul class="more-list">
-            <li class="shape-develop"><a class="link-analytics" href="/"><span>GFW Home</span></a></li> 
+            <li class="shape-home"><a class="link-analytics" href="/"><span>GFW Home</span></a></li> 
             <li class="shape-develop"><a class="link-analytics" href="/getinvolved/develop-your-own-app"><span>Developer's corner</span></a></li> 
             <li class="shape-howto"><a class="link-analytics" href="/howto"><span>How to</span></a></li>
             <!-- <li class="shape-mygfw" id="my-gfw-container2"></li> -->
