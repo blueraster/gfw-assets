@@ -3,7 +3,7 @@
     <div class="m-footer-list">
       <div class="list">      
         <ul>
-          <li><a href="/">GFW FLAGSHIP</a></li>
+          <li><a href="/">GFW HOME</a></li>
           <li><a href="/map">INTERACTIVE MAP</a></li>
           <li><a href="/countries">COUNTRIES</a></li>
         </ul>
