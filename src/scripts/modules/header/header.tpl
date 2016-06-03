@@ -10,7 +10,7 @@
       </li>
       <!-- // translation // -->
       <li id="headerSearchBox" class="m-header-item -default -search -only-desktop shape-search">
-        <a class="btn-search" href="#">
+        <a class="btn-search" title="Search GFW website" href="#">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg>
           <span>Search</span>            
         </a>
@@ -24,13 +24,13 @@
         </div>        
       </li>
       <li class="m-header-item -default -only-desktop shape-howto">
-        <a class="link-analytics" href="/howto">
+        <a class="link-analytics" title="How to" href="/howto">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg>
           <span>How to</span>            
         </a>
       </li>
       <li class="m-header-item -default shape-mygfw" id="my-gfw-container">
-        <a href="/login" id="submenuBtnLogin" data-submenu="#submenuLogin" class="m-header-submenu-btn">
+        <a href="/login" id="submenuBtnLogin" title="Sign in" data-submenu="#submenuLogin" class="m-header-submenu-btn">
           <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
           <span>Log in <em class="-only-desktop">to My GFW</em></span>
@@ -46,7 +46,7 @@
         </div>
       </li>
       <li class="m-header-item -default -static shape-apps">
-        <a id="btnSubmenuApps" data-submenu="#submenuApps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
+        <a id="btnSubmenuApps" data-submenu="#submenuApps" title="Apps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
           <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>Apps</span>
@@ -112,7 +112,7 @@
 
       </li>
       <li class="m-header-item -default shape-more">
-        <a id="btnSubmenuMore" data-submenu="#submenuMore" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
+        <a id="btnSubmenuMore" data-submenu="#submenuMore" title="More in GFW" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
           <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>More <em class="-only-desktop">in GFW</em></span>
