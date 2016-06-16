@@ -63,14 +63,9 @@ const utils = {
     if (window.gfw && window.gfw.config) {
       return window.gfw.config.GFW_API_HOST;
     }
-    let apiLocation = window.location.hostname;
-    const isApiLocation = apiUrls[apiLocation];
-    if (!isApiLocation) {
-      apiLocation = apiUrls[defaultGfwDomain];
-    }
-    // if (isApiLocation && window.location.port !== '') {
-    //   apiLocation = `${apiLocation}:${window.location.port}`;
-    // }
+    let currentLocation = window.location.hostname;
+    let apiLocation = apiUrls[currentLocation] || apiUrls[defaultGfwDomain];
+
     return `http://${apiLocation}`;
   },
 
