@@ -1,13 +1,14 @@
 'use strict';
 
+// Importing dot env configuration
+require('dotenv').config({silent: true});
+
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var path = require('path');
 var version = process.env.VERSION || 'latest';
 var S3Plugin = require('webpack-s3-plugin');
 
-// Importing dot env configuration
-require('dotenv').config({silent: true});
 
 module.exports = {
 

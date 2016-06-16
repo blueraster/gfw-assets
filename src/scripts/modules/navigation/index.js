@@ -7,12 +7,14 @@ import navigationTpl from './navigation.tpl';
 import globaljson from './global.json';
 import climatejson from './climate.json';
 import howtojson from './howto.json';
+import firesjson from './fires.json';
 
 const navigationMenus = {
   'default': globaljson,
   'localhost': globaljson,
   'climate.globalforestwatch.org': climatejson,
-  'howto.globalforestwatch.org': howtojson
+  'howto.globalforestwatch.org': howtojson,
+  'fires.globalforestwatch.org': firesjson
 };
 
 

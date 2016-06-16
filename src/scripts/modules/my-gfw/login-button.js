@@ -18,6 +18,10 @@ class LoginButton {
 
   // Check if the user is logged
   checkStatus() {
+    // Use this if you want to check the login dropdown
+    // this.loggedIn = true;
+    // this.render();
+    
     utils.isLoggedIn({
       success: function(response) {
         this.loggedIn = true;
@@ -26,7 +30,7 @@ class LoginButton {
       }.bind(this),
       failure: function() {
         this.loggedIn = false;
-        this.render();
+        this.initLoginLinks();
       }.bind(this)
     });
   }
@@ -36,28 +40,21 @@ class LoginButton {
     const template = (!!this.loggedIn) ? loginButtonTpl : logoutButtonTpl;
     this.$el.html(template());
 
-    this.initEvents();
-    this.initLinks();
+    this.initLogoutLinks();
 
     return this;
   }
 
-  initEvents() {
-    const $openModal = this.$el.find('#my-gfw-open-modal');
-    $openModal.on('click', this.showModal.bind(this))
+  initLoginLinks() {
+    var $signin = this.$el.find('.my-gfw-sign-in');
+    $signin.forEach(function(v) {
+      $gfwdom(v).attr('href', utils.getAPIHost() + '/' + $gfwdom(v).attr('href'))
+    });    
   }
 
-  initLinks() {
+  initLogoutLinks() {
     const $signout = this.$el.find('#my-gfw-sign-out');
     $signout.attr('href', utils.getAPIHost() + $signout.attr('href'));
-
-    const $links = this.$el.find('a');
-    $links.on('click', function() {
-      if (window.ga !== undefined) {
-        const $el = $(this);
-        window.ga('send', 'event', 'User Profile', 'menu', $el.text());
-      }
-    });
   }
 
   showModal(e) {

@@ -46,6 +46,10 @@
       padding: 0px 35px;
     }
 
+    &.full {
+      width: 100%;
+    }
+
     // Colors
     &.gray {
       color: $dark;
@@ -55,6 +59,18 @@
         background: darken($white,5%);
       }
     }
+
+    // Colors
+    &.dark {
+      color: $white;
+      background: $dark;
+      border-color: $primary-color;
+      &:hover {
+        text-decoration: none;
+        background: darken($dark,5%);
+      }
+    }
+
     &.green {
       color: $white;
       background: $primary-color;
@@ -67,6 +83,7 @@
         }
       }
     }
+
     &.red {
       color: $white;
       background: $red;
@@ -79,6 +96,7 @@
         }
       }
     }
+
     &.orange {
       color: $white;
       background: $orange;
@@ -91,6 +109,7 @@
         }
       }
     }
+
     &.blue {
       color: $white;
       background: $blue;
@@ -103,6 +122,7 @@
         }
       }
     }
+
     &.disabled{
       opacity: 0.25;
       cursor: default;
