@@ -14,7 +14,7 @@
           <li><a href="/explore">EXPLORE ALL APPS</a></li>        
         </ul>
         <ul>
-          <li><a href="/getinvolved/develop-your-own-app">DEVELOPER’S CORNER</a></li>
+          <li><a href="/developers-corner/">DEVELOPER’S CORNER</a></li>
           <li><a href="/howto">HOW TO</a></li>
           <li><a href="http://data.globalforestwatch.org/" target="_blank">OPEN DATA PORTAL</a></li>
           <li><a href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank">DISCUSSION FORUM</a></li>
@@ -22,7 +22,7 @@
         <ul>
           <li><a href="http://blog.globalforestwatch.org/" target="_blank">BLOG</a></li>
           <li><a href="/stayinformed/crowdsourced-stories">STORIES</a></li>
-          <li><a href="/getinvolved/apply-to-the-small-grants-fund">SMALL GRANTS FUND</a></li>
+          <li><a href="/small-grants-fund">SMALL GRANTS FUND</a></li>
         </ul>
       </div>
       <div class="sitemap">

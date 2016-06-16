@@ -120,14 +120,14 @@
         <div id="submenuMore" class="m-header-submenu -more -default -right">
           <ul class="more-list">
             <li class="shape-home"><a class="link-analytics" href="/"><span>GFW Home</span></a></li> 
-            <li class="shape-develop"><a class="link-analytics" href="/getinvolved/develop-your-own-app"><span>Developer's corner</span></a></li> 
+            <li class="shape-develop"><a class="link-analytics" href="/developers-corner/"><span>Developer's corner</span></a></li> 
             <li class="shape-howto"><a class="link-analytics" href="/howto"><span>How to</span></a></li>
             <!-- <li class="shape-mygfw" id="my-gfw-container2"></li> -->
             <li class="shape-odp"><a class="link-analytics external-link" target="_blank" href="http://data.globalforestwatch.org/"><span>Open Data Portal</span></a></li>
             <li><a href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank"><span>Discussion forum</span></a></li>
             <li class="shape-blog"><a class="link-analytics external-link" target="_blank" href="http://blog.globalforestwatch.org/"><span>Blog</span></a></li>
             <li><a class="link-analytics" href="/stayinformed/crowdsourced-stories"><span>Stories</span></a></li>
-            <li><a class="link-analytics" href="/getinvolved/apply-to-the-small-grants-fund"><span>Small grants fund</span></a></li>
+            <li><a class="link-analytics" href="/small-grants-fund"><span>Small grants fund</span></a></li>
             <li><a class="link-analytics -button" href="/sitemap">Sitemap</a></li>
           </ul>
         </div>        
