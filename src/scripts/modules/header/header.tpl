@@ -127,7 +127,7 @@
             <li><a href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank"><span>Discussion forum</span></a></li>
             <li class="shape-blog"><a class="link-analytics external-link" target="_blank" href="http://blog.globalforestwatch.org/"><span>Blog</span></a></li>
             <li><a class="link-analytics" href="/stayinformed/crowdsourced-stories"><span>Stories</span></a></li>
-            <li><a class="link-analytics" href="/getinvolved/apply-to-the-small-grants-fund"><span>Small grants fund</span></a></li>
+            <li><a class="link-analytics" href="/small-grants-fund"><span>Small grants fund</span></a></li>
             <li><a class="link-analytics -button" href="/sitemap">Sitemap</a></li>
           </ul>
         </div>        

@@ -22,7 +22,7 @@
         <ul>
           <li><a href="http://blog.globalforestwatch.org/" target="_blank">BLOG</a></li>
           <li><a href="/stayinformed/crowdsourced-stories">STORIES</a></li>
-          <li><a href="/getinvolved/apply-to-the-small-grants-fund">SMALL GRANTS FUND</a></li>
+          <li><a href="/small-grants-fund">SMALL GRANTS FUND</a></li>
         </ul>
       </div>
       <div class="sitemap">
