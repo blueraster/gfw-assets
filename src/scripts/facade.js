@@ -108,7 +108,6 @@ $gfwDom.jsonp = (url, options) => {
 // GIST: https://gist.github.com/bullgare/5336154
 // Function for get all the params of a form
 $gfwDom.serialize = (form) => {
-	console.log(form);
 	if (!form || form.nodeName !== "FORM") {
 		return;
 	}
@@ -127,30 +126,29 @@ $gfwDom.serialize = (form) => {
 			case 'button':
 			case 'reset':
 			case 'submit':
-				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				obj[form.elements[i].name] = form.elements[i].value;
 				break;
 			case 'checkbox':
-			case 'radio':
-				if (form.elements[i].checked) {
-					obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
-				}
+			case 'radio':	
+
+				obj[form.elements[i].name] = form.elements[i].value;
 				break;
 			case 'file':
 				break;
 			}
 			break;
 		case 'TEXTAREA':
-			obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+			obj[form.elements[i].name] = form.elements[i].value;
 			break;
 		case 'SELECT':
 			switch (form.elements[i].type) {
 			case 'select-one':
-				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				obj[form.elements[i].name] = form.elements[i].value;
 				break;
 			case 'select-multiple':
 				for (let j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
 					if (form.elements[i].options[j].selected) {
-						obj[form.elements[i].name] = encodeURIComponent(form.elements[i].options[j].value);
+						obj[form.elements[i].name] = form.elements[i].options[j].value;
 					}
 				}
 				break;
@@ -161,13 +159,13 @@ $gfwDom.serialize = (form) => {
 			case 'reset':
 			case 'submit':
 			case 'button':
-				obj[form.elements[i].name] = encodeURIComponent(form.elements[i].value);
+				obj[form.elements[i].name] = form.elements[i].value;
 				break;
 			}
 			break;
 		}
 	}
-
+	console.log(obj);
 	return obj;
 }
 

@@ -20,7 +20,7 @@
               <form id="contact-form">
                 <div class="field -short">
                   <label for="contact-email">Email *</label>
-                  <input type="email" name="contact-email">
+                  <input id="contact-email" type="email" name="contact-email">
                 </div>
                 <div class="field">
                   <label for="contact-topic">Topic *</label>

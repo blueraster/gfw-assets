@@ -3,6 +3,7 @@
 import $gfwdom from '../../facade';
 import utils from '../../utils';
 import contactTpl from './contact.tpl';
+import validate from 'validate.js';
 
 const topics = {
   'report-a-bug-or-error-on-gfw': {
@@ -38,6 +39,22 @@ const topics = {
     placeholder: 'How can we help you?',
   },        
 }
+
+const constraints = {
+  'contact-email': {
+    presence: true,
+    email: true
+  },
+  'contact-topic': {
+    presence: true
+  },
+  'contact-message': {
+    presence: true
+  },
+  'contact-signup': {
+    presence: true
+  }
+};
 
 
 /**
@@ -97,6 +114,8 @@ class Contact {
     this.$el.on('click', '.js-btn-submit', this.actionSubmit.bind(this));
     this.$el.on('click', '.js-btn-close', this.hide.bind(this));
     this.$el.on('click', '.js-modal-close', this.hide.bind(this));
+    this.$el.on('change', 'input, textarea, select', this.validateInput.bind(this));
+
     this.$el.on('change','#contact-topic', this.changeTopic.bind(this));
   }
 
@@ -176,14 +195,17 @@ class Contact {
   /**
    * UI Events inside the contact modal
    * - actionSubmit: validate form before send it
-   * @param  {step} number
    */
   actionSubmit(e) {
     e && e.preventDefault();
-    // Show spinner
-    this.$spinner.addClass('-active');
+    (this.validate()) ? this.actionValid() : this.actionNotValid();
+  }
 
+  // Send the data to the API
+  actionValid() {
+    // // Production send request
     // // Send request
+    // this.$spinner.addClass('-active');
     // var xhr = new XMLHttpRequest();
     // // xhr.open('POST', utils.getAPIHost() + '/emails');
     // xhr.open('POST', 'http://api-proxy-staging.globalforestwatch.org/emails');
@@ -211,6 +233,34 @@ class Contact {
       this.changeStep('error');
       this.$spinner.removeClass('-active');
     }
+  }
+
+  actionNotValid() {
+    this.$form.find('label').removeClass('-error');
+    for (var key in this.errors) {
+      var $element = this.$form.find('label[for='+key+']');
+      $element.addClass('-error');
+    }
+  }
+  
+  validate(e) {
+    e && e.preventDefault();
+    let attributes = $gfwdom.serialize(this.$form[0]);    
+
+    // Validate form, if is valid the response will be undefined
+    this.errors = validate(attributes, constraints);
+    return ! !!this.errors;
+  }
+
+  validateInput(e) {
+    e && e.preventDefault();
+    let errors = validate.single(e.currentTarget.value, constraints[e.currentTarget.name]);
+    if (!!errors) {
+      this.errors[e.currentTarget.name] = errors[0];
+    } else {
+      delete this.errors[e.currentTarget.name];  
+    }
+    this.actionNotValid();
   }
 
   /**
