@@ -203,36 +203,36 @@ class Contact {
 
   // Send the data to the API
   actionValid() {
-    // // Production send request
-    // // Send request
-    // this.$spinner.addClass('-active');
-    // var xhr = new XMLHttpRequest();
-    // // xhr.open('POST', utils.getAPIHost() + '/emails');
-    // xhr.open('POST', 'http://api-proxy-staging.globalforestwatch.org/emails');
-    // xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+    // Production send request
+    // Send request
+    this.$spinner.addClass('-active');
+    var xhr = new XMLHttpRequest();
+    // xhr.open('POST', utils.getAPIHost() + '/emails');
+    xhr.open('POST', 'http://api-proxy-staging.globalforestwatch.org/emails');
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
-    // xhr.onload = function() {
-    //   if (xhr.status === 200 || xhr.status === 201) {
-    //     this.changeStep('success');
-    //     this.$spinner.removeClass('-active');
-    //   } else {
-    //     this.changeStep('error');
-    //     this.$spinner.removeClass('-active');
-    //   }
-    // }.bind(this);
-    // xhr.send(JSON.stringify($gfwdom.serialize(this.$form[0])));
+    xhr.onload = function() {
+      if (xhr.status === 200 || xhr.status === 201) {
+        this.changeStep('success');
+        this.$spinner.removeClass('-active');
+      } else {
+        this.changeStep('error');
+        this.$spinner.removeClass('-active');
+      }
+    }.bind(this);
+    xhr.send(JSON.stringify($gfwdom.serialize(this.$form[0])));
 
 
 
-    // Develop Send request
-    // Comment this code if this is going to pro
-    if (true) {
-      this.changeStep('success');
-      this.$spinner.removeClass('-active');
-    } else {
-      this.changeStep('error');
-      this.$spinner.removeClass('-active');
-    }
+    // // Develop Send request
+    // // Comment this code if this is going to pro
+    // if (true) {
+    //   this.changeStep('success');
+    //   this.$spinner.removeClass('-active');
+    // } else {
+    //   this.changeStep('error');
+    //   this.$spinner.removeClass('-active');
+    // }
   }
 
   actionNotValid() {

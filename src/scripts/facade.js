@@ -130,7 +130,6 @@ $gfwDom.serialize = (form) => {
 				break;
 			case 'checkbox':
 			case 'radio':	
-
 				obj[form.elements[i].name] = form.elements[i].value;
 				break;
 			case 'file':
@@ -165,7 +164,6 @@ $gfwDom.serialize = (form) => {
 			break;
 		}
 	}
-	console.log(obj);
 	return obj;
 }
 
