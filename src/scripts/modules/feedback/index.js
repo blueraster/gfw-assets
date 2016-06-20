@@ -221,6 +221,7 @@ class Feedback {
 
       success: data => {
         (data === true) ? this.changeStep(3) : this.changeStep(4);
+        this.resetForm();
         this.$spinner.removeClass('-active');
       },
 
@@ -242,6 +243,10 @@ class Feedback {
       $input.addClass('-error');
       $label.addClass('-error');
     }
+  }
+
+  resetForm() {
+    this.$form.find('input, textarea, select').val(null);
   }
   
   validate(e) {
@@ -283,14 +288,15 @@ class Feedback {
     if($gfwdom(e.currentTarget).val() === 'true') {
       constraints['email'].presence = true;
       this.validateInput('email', this.$email.val());
-      this.updateForm();
+      this.$email.parent().find('label').html('Email *')
       // this.$email.addClass('required')
     } else {
       constraints['email'].presence = false;
       this.validateInput('email', this.$email.val());
-      this.updateForm();
+      this.$email.parent().find('label').html('Email')
       // this.$email.removeClass('required')
     }
+    this.updateForm();
   }
 
   changeStep(step) {

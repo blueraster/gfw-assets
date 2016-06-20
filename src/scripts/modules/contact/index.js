@@ -50,9 +50,6 @@ const constraints = {
   },
   'contact-message': {
     presence: true
-  },
-  'contact-signup': {
-    presence: true
   }
 };
 
@@ -117,7 +114,7 @@ class Contact {
     this.$el.on('click', '.js-btn-close', this.hide.bind(this));
     this.$el.on('click', '.js-modal-close', this.hide.bind(this));
     
-    this.$el.on('change', 'input, textarea, select', this.validateInput.bind(this));
+    this.$el.on('change', 'input, textarea, select', this.changeInput.bind(this));
     
     this.$el.on('change','#contact-topic', this.changeTopic.bind(this));
   }
@@ -201,28 +198,35 @@ class Contact {
    */
   actionSubmit(e) {
     e && e.preventDefault();
-    (this.validate()) ? this.actionValid() : this.actionNotValid();
+    (this.validate()) ? this.sendForm() : this.updateForm();
   }
 
   // Send the data to the API
-  actionValid() {
+  sendForm() {
     // Production send request
     // Send request
     this.$spinner.addClass('-active');
     var xhr = new XMLHttpRequest();
-    // xhr.open('POST', utils.getAPIHost() + '/emails');
-    xhr.open('POST', 'http://api-proxy-staging.globalforestwatch.org/emails');
+    xhr.open('POST', utils.getAPIHost() + '/emails');
+    // xhr.open('POST', 'http://api-proxy-staging.globalforestwatch.org/emails');
     xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
     xhr.onload = function() {
       if (xhr.status === 200 || xhr.status === 201) {
         this.changeStep('success');
+        this.resetForm();
         this.$spinner.removeClass('-active');
       } else {
         this.changeStep('error');
         this.$spinner.removeClass('-active');
       }
     }.bind(this);
+
+    xhr.onerror = () => {
+      this.changeStep('error');
+      this.$spinner.removeClass('-active');
+    }
+
     xhr.send(JSON.stringify($gfwdom.serialize(this.$form[0])));
 
 
@@ -238,7 +242,7 @@ class Contact {
     // }
   }
 
-  actionNotValid() {
+  updateForm() {
     this.$form.find('input, textarea, select').removeClass('-error');
     this.$form.find('label').removeClass('-error');
     for (var key in this.errors) {
@@ -249,6 +253,10 @@ class Contact {
     }
   }
   
+  resetForm() {
+    this.$form.find('input, textarea, select').val(null);
+  }
+
   validate(e) {
     e && e.preventDefault();
     let attributes = $gfwdom.serialize(this.$form[0]);    
@@ -258,15 +266,19 @@ class Contact {
     return ! !!this.errors;
   }
 
-  validateInput(e) {
-    e && e.preventDefault();
-    let errors = validate.single(e.currentTarget.value, constraints[e.currentTarget.name]);
+  validateInput(name, value) {
+    let errors = validate.single(value, constraints[name]);
     if (!!errors) {
-      this.errors[e.currentTarget.name] = errors[0];
+      this.errors[name] = errors[0];
     } else {
-      delete this.errors[e.currentTarget.name];  
+      this.errors && this.errors[name] && delete this.errors[name];  
     }
-    this.actionNotValid();
+  }
+
+  changeInput(e) {
+    e && e.preventDefault();
+    this.validateInput(e.currentTarget.name, e.currentTarget.value);
+    this.updateForm();
   }
 
   /**
