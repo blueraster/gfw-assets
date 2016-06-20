@@ -18,6 +18,10 @@ $label-width: 85px;
     &:focus {
       border-color: darken($border1,10%);
     }
+
+    &.-error {
+      border-color: darken($red,10%); 
+    }
   }
 
   /**

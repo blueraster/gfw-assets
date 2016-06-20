@@ -3,6 +3,7 @@
 import $gfwdom from '../../facade';
 import utils from '../../utils';
 import feedbackTpl from './feedback.tpl';
+import validate from 'validate.js';
 
 const colors = {
   'default': 'green',
@@ -11,6 +12,14 @@ const colors = {
   'climate.globalforestwatch.org': 'blue'
 };
 
+const constraints = {
+  'email': {
+    email: true
+  },
+  'feedback': {
+    presence: true
+  }
+};
 
 /**
  * Feedback
@@ -58,22 +67,28 @@ class Feedback {
     this.$modalStepBtn =   this.$el.find('.modal-step-btn');
 
     this.$form     = this.$el.find('#feedback-form');
-    this.$textarea = this.$el.find('#feedback-textarea');
-    this.$email    = this.$el.find('#feedback-email');
-    this.$hostname = this.$el.find('#feedback-hostname');
+    this.$textarea = this.$el.find('#feedback');
+    this.$email    = this.$el.find('#email');
+    this.$hostname = this.$el.find('#hostname');
 
     this.$dinamicColor = this.$el.find('.js-dinamic-color');
 
     this.hidden = true;
+    this.errors = [];
   }
 
   setListeners() {
     this.$body.on('click', '.feedback-link', this.show.bind(this));
 
-    this.$el.on('click', '.js-modal-close', this.hide.bind(this));
     this.$el.on('click', '.js-btn-continue', this.actionContinue.bind(this));
+
     this.$el.on('click', '.js-btn-submit', this.actionSubmit.bind(this));
-    this.$el.on('click', '.js-btn-close', this.actionClose.bind(this));
+
+    this.$el.on('click', '.js-modal-close', this.hide.bind(this));
+    this.$el.on('click', '.js-btn-close', this.hide.bind(this));
+
+    this.$el.on('change', 'input, textarea, select', this.changeInput.bind(this));    
+
     this.$el.on('change','.js-radio-box input', this.changeRequire.bind(this));
   }
 
@@ -97,7 +112,7 @@ class Feedback {
     window.history.pushState('Hide feedback', document.title, this.toggleParam('show_feedback',null));
 
     //Give back scroll beyond modal window.
-    this.$htmlbody.removeClass('-no-scroll');
+    // this.$htmlbody.removeClass('-no-scroll');
     this.changeStep(1);
 
     return this;
@@ -107,7 +122,7 @@ class Feedback {
     (!!this.hidden) ? this.stopBindings() : this.initBindings();
     this.$el.toggleClass('-active', !this.hidden);
     //Prevent scroll beyond modal window.
-    this.$htmlbody.toggleClass('-no-scroll', !this.hidden);
+    // this.$htmlbody.toggleClass('-no-scroll', !this.hidden);
     this.$contentWrapper[0].scrollTop = 0;
   }
 
@@ -183,35 +198,17 @@ class Feedback {
 
    * - actionSend: send feedback form
 
-   * - actionClose: trigger hide feedback
-   * @param  {e} event
-
    */
   actionContinue(e) {
     this.changeStep(2);
   }
 
   actionSubmit(e) {
-    if (this.$email.hasClass('required')) {
-      if (this.validateEmail(this.$email.val())) {
-        this.actionSend();
-      } else {
-        alert('Please enter an email address to continue');
-      }
-    } else {
-      if (!!this.$textarea.val()) {
-        this.actionSend();
-      } else {
-        alert('Please enter feedback, or sign up to be a GFW tester and enter an email address to continue');
-      }
-    }
+    e && e.preventDefault();
+    (this.validate()) ? this.sendForm() : this.updateForm();
   }
 
-  actionClose(e) {
-    this.hide();
-  }
-
-  actionSend() {
+  sendForm() {
     this.$spinner.addClass('-active');
 
     var url = '';
@@ -236,6 +233,40 @@ class Feedback {
     })
   }
 
+  updateForm() {
+    this.$form.find('input, textarea, select').removeClass('-error');
+    this.$form.find('label').removeClass('-error');
+    for (var key in this.errors) {
+      var $input = this.$form.find('#'+key);
+      var $label = this.$form.find('label[for='+key+']');
+      $input.addClass('-error');
+      $label.addClass('-error');
+    }
+  }
+  
+  validate(e) {
+    e && e.preventDefault();
+    let attributes = $gfwdom.serialize(this.$form[0]);    
+
+    // Validate form, if is valid the response will be undefined
+    this.errors = validate(attributes, constraints);
+    return ! !!this.errors;
+  }
+
+  validateInput(name, value) {
+    let errors = validate.single(value, constraints[name]);
+    if (!!errors) {
+      this.errors[name] = errors[0];
+    } else {
+      this.errors && this.errors[name] && delete this.errors[name];  
+    }
+  }
+
+  changeInput(e) {
+    e && e.preventDefault();
+    this.validateInput(e.currentTarget.name, e.currentTarget.value);
+    this.updateForm();
+  }
 
   /**
    * Change Events
@@ -247,8 +278,19 @@ class Feedback {
    */
 
   changeRequire(e) {
+    // TO - DO
     e && e.preventDefault();
-    ($gfwdom(e.currentTarget).val() === 'true') ? this.$email.addClass('required') : this.$email.removeClass('required');
+    if($gfwdom(e.currentTarget).val() === 'true') {
+      constraints['email'].presence = true;
+      this.validateInput('email', this.$email.val());
+      this.updateForm();
+      // this.$email.addClass('required')
+    } else {
+      constraints['email'].presence = false;
+      this.validateInput('email', this.$email.val());
+      this.updateForm();
+      // this.$email.removeClass('required')
+    }
   }
 
   changeStep(step) {
@@ -267,25 +309,13 @@ class Feedback {
 
   /**
    * Helpers
-   * - validateEmail
-   * @param  {email}
-   * @return {Boolean}
-
    * - getQueryParams
    * @return {Object}
 
    * - toggleParam
    * @param  {key, value, url}
    * @return {String}
-
-   * - scrollTo
-   * @param  {element, to, duration}
-   * @return
    */
-  validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  }
 
   getQueryParams() {
     let qs = document.location.search;

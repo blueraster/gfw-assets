@@ -106,16 +106,19 @@ class Contact {
     this.$contactMessage = this.$el.find('#contact-message');
 
     this.hidden = true;
+    this.errors = {};
   }
 
   setListeners() {
     this.$body.on('click', '.contact-link', this.show.bind(this));
 
     this.$el.on('click', '.js-btn-submit', this.actionSubmit.bind(this));
+
     this.$el.on('click', '.js-btn-close', this.hide.bind(this));
     this.$el.on('click', '.js-modal-close', this.hide.bind(this));
+    
     this.$el.on('change', 'input, textarea, select', this.validateInput.bind(this));
-
+    
     this.$el.on('change','#contact-topic', this.changeTopic.bind(this));
   }
 
@@ -139,7 +142,7 @@ class Contact {
     window.history.pushState('Hide contact', document.title, this.toggleParam('show_contact',null));
 
     //Give back scroll beyond modal window.
-    this.$htmlbody.removeClass('-no-scroll');
+    // this.$htmlbody.removeClass('-no-scroll');
     this.changeStep(1);
 
     return this;
@@ -149,7 +152,7 @@ class Contact {
     (!!this.hidden) ? this.stopBindings() : this.initBindings();
     this.$el.toggleClass('-active', !this.hidden);
     //Prevent scroll beyond modal window.
-    this.$htmlbody.toggleClass('-no-scroll', !this.hidden);
+    // this.$htmlbody.toggleClass('-no-scroll', !this.hidden);
     this.$contentWrapper[0].scrollTop = 0;
   }
 
@@ -236,10 +239,13 @@ class Contact {
   }
 
   actionNotValid() {
+    this.$form.find('input, textarea, select').removeClass('-error');
     this.$form.find('label').removeClass('-error');
     for (var key in this.errors) {
-      var $element = this.$form.find('label[for='+key+']');
-      $element.addClass('-error');
+      var $input = this.$form.find('#'+key);
+      var $label = this.$form.find('label[for='+key+']');
+      $input.addClass('-error');
+      $label.addClass('-error');
     }
   }
   

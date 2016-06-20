@@ -1,6 +1,6 @@
 <span id="feedbackLink" class="feedback-link feedback-link-fixed"><span>Feedback</span></span>
 <!-- Feedback -->
-<div id="feedbackModal" class="feedback-modal">
+<div id="feedbackModal" class="feedback-modal m-modal-assets">
   <!-- BACKDROP -->
   <div class="modal-backdrop"></div>
   <!-- WINDOW -->
@@ -40,27 +40,42 @@
             </header>
             <div class="modal-step-content">
               <form id="feedback-form" class="feedback-form">
-                <input name="hostname" id="feedback-hostname" type="hidden"/>
-                <textarea name="feedback" id="feedback-textarea" placeholder="Type something"></textarea>
-                <div class="feedback-tester js-dinamic-color">
-                  <p>Interested in testing new features and helping to improve the website?  Sign up to <strong>become an official GFW tester!</strong></p>
+                <input name="hostname" id="hostname" type="hidden"/>
+                
+                <div class="field">
+                  <label for="feedback">Message *</label>
+                  <textarea id="feedback" name="feedback" placeholder="Type something"></textarea>
+                </div>
+                
+                <div class="field -short">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" placeholder="Email" type="email">
+                </div>
+                
+                <div class="field">
+                  <h3>INTERESTED IN TESTING NEW FEATURES ON GFW?</h3>
+                  <p>Sign up and become an official GFW tester!</p>
                   <div class="radio-box js-radio-box">
                     <div class="custom-radio js-dinamic-color">
                       <input id="signup_true1" name="signup" type="radio" value="true">
-                      <label for="signup_true1"><span></span>Yes, sign me up.</label>
+                      <label for="signup_true1">
+                        <span></span> Yes, sign me up.
+                      </label>
                     </div>
                     <div class="custom-radio js-dinamic-color">
                       <input id="signup_false1" name="signup" type="radio" value="false" checked="checked">
-                      <label for="signup_false1"><span></span>No thanks.</label>
+                      <label for="signup_false1">
+                        <span></span> No thanks.
+                      </label>
                     </div>
-                  </div>
-                  <p>
-                    <input id="feedback-email" name="email" placeholder="Email" type="email">
-                  </p>
+                  </div>                    
                 </div>
-                <div class="feedback-tester js-dinamic-color">
-                  <p>Want to be the first to know about Global Forest Watch updates?  Sign up for <a class="js-dinamic-color" href="http://www.wri.org/global-forest-watch-updates-and-newsletter" target="_blank">our newsletter</a>. </p>
+
+                <div class="field">
+                  <h3>Want to be the first to know about Global Forest Watch updates?</h3>
+                  <p>Sign up for <a class="js-dinamic-color" href="http://www.wri.org/global-forest-watch-updates-and-newsletter" target="_blank">our newsletter</a>. </p>
                 </div>
+
               </form>
             </div>
           </li>
