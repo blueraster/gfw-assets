@@ -9,6 +9,7 @@
 import Header from './scripts/modules/header';
 import Footer from './scripts/modules/footer';
 import Feedback from './scripts/modules/feedback';
+import Contact from './scripts/modules/contact';
 
 // Add styles
 import './styles/fonts.css';
@@ -23,6 +24,9 @@ const init = () => {
 
   // Adding feedback
   new Feedback();	
+
+  // Adding contact
+  new Contact();	
 }
 
 if(!!document.readyState && (document.readyState === "complete" || document.readyState === "interactive")) {

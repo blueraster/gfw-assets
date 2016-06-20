@@ -107,7 +107,8 @@ $gfwDom.jsonp = (url, options) => {
 
 // GIST: https://gist.github.com/bullgare/5336154
 // Function for get all the params of a form
-$gfwDom.serialize = form => {
+$gfwDom.serialize = (form) => {
+	console.log(form);
 	if (!form || form.nodeName !== "FORM") {
 		return;
 	}
@@ -167,17 +168,7 @@ $gfwDom.serialize = form => {
 		}
 	}
 
-	// http://stackoverflow.com/a/6566471/3603884
-	// Transform the object to a string. Maybe we should do it in two steps
-	let str = '';
-	for (let key in obj) {
-		if (str != '') {
-		  str += '&';
-		}
-		str += key + '=' + encodeURIComponent(obj[key]);
-	}
-
-	return str;
+	return obj;
 }
 
 module.exports = $gfwDom;

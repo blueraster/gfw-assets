@@ -6,7 +6,7 @@
   <!-- WINDOW -->
   <div class="modal-window">
     <a href="#" class="modal-close js-modal-close">
-      <svg><use xlink:href="#shape-close"></use></svg>
+      <svg><use xlink:href="#icon-h-close"></use></svg>
     </a>
     <div class="modal-spinner js-dinamic-color"></div>
     <div class="modal-wrapper -scroll-bar">
