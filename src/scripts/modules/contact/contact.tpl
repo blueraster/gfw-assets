@@ -12,8 +12,8 @@
     <div class="modal-wrapper -scroll-bar">
       <div class="modal-content">
         <ul class="modal-steps">
-          <!-- STEP 1 -->
-          <li class="modal-step -active" data-step="1">
+          <!-- STEP CONTACT -->
+          <li class="modal-step -active" data-step="contact">
             <header>
               <h2>Contact us & feedback</h2>
               <h3>Question, comment, request, feedback? We want to hear from you! Help us improve Global Forest Watch by completing the form below.</h3>
@@ -66,29 +66,33 @@
             </div>
           </li>
 
-          <!-- STEP 3 -->
+          <!-- STEP SUCCESS -->
           <li class="modal-step" data-step="success">
             <header>
-              <h2>Thank you! </br>We appreciate your help</h2>
-              <h3><strong>Users have spoken and we have listened!</strong> </br>Below are examples of changes and additions we’ve made to the website in response to feedback from users like you:</h3>
+              <h2>Thank you for contacting us!</h2>
+              <h3>Someone will be in touch shortly.</h3>
             </header>
             <div class="modal-step-content">
-              <ul class="bullets">
-                <li>Threshold settings for the UMD/Google tree cover loss data (read more <a class="js-dinamic-color" href="http://blog.globalforestwatch.org/2014/09/four-ways-gfw-just-became-more-useful/">here</a>)</li>
-                <li>Enhanced analysis functionality (i.e., for protected areas, subnational jurisdictions, and forest use concessions) (read more <a class="js-dinamic-color" href="http://blog.globalforestwatch.org/2014/09/four-ways-gfw-just-became-more-useful/">here</a>)</li>
-                <li>Time slider for the NASA active fires data and information about each fire</li>
-                <li>“Share this map view” feature (read more <a class="js-dinamic-color" href="http://blog.globalforestwatch.org/2014/05/five-gfw-site-updates/">here</a>)</li>
-                <li>A new homepage that better directs users to what they are looking for and communicates a clearer purpose</li>
-              </ul>
-              <p>Do you have questions about how to use GFW? Be sure to visit the <a class="js-dinamic-color" href="/howto">How To</a> page, and if you still need help email <a class="js-dinamic-color" href="mailto:gfw@wri.org">gfw@wri.org</a>. You can also connect with us on social media or by posting a comment to the <a class="js-dinamic-color" href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank">GFW Discussion Forum</a>.</p>
+              <iframe src="http://connect.wri.org/l/120942/2016-02-08/2trw5q" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
             </div>
           </li>
 
-          <!-- STEP 4 -->
+          <!-- STEP ERROR -->
           <li class="modal-step" data-step="error">
             <header>
               <h2>We're sorry, </br>but something went wrong</h2>
             </header>
+          </li>
+
+          <!-- STEP NEWSLETTER -->
+          <li class="modal-step" data-step="newsletter">
+            <header>
+              <h2>Updates and newsletters</h2>
+              <h3>Yes! Subscribe me to the Global Forest Watch Newsletter!</h3>
+            </header>
+            <div class="modal-step-content">
+              <iframe src="http://connect.wri.org/l/120942/2016-02-08/2trw5q" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
+            </div>
           </li>
 
         </ul>
@@ -99,7 +103,7 @@
       <span class="gradient"></span>
       <ul class="m-btncontainer -center -steps">
         <li>
-          <button data-step="1" class="btn green medium uppercase modal-step-btn js-dinamic-color js-btn-submit -active">Submit</button>
+          <button data-step="contact" class="btn green medium uppercase modal-step-btn js-dinamic-color js-btn-submit -active">Submit</button>
           <button data-step="success" class="btn green medium uppercase modal-step-btn js-dinamic-color js-btn-close">Close</button>
           <button data-step="error" class="btn green medium uppercase modal-step-btn js-dinamic-color js-btn-close">Close</button>
         </li>
