@@ -130,6 +130,7 @@ class Contact {
     e && e.preventDefault() && e.stopPropagation();
     this.hidden = false;
     this.toggle();
+    this.$contactTopic.val(null);
     window.history.pushState('Show contact', document.title, this.toggleParam('show_contact',true));
   }
 
