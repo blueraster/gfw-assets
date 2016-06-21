@@ -8,7 +8,6 @@
 
 import Header from './scripts/modules/header';
 import Footer from './scripts/modules/footer';
-import Feedback from './scripts/modules/feedback';
 import Contact from './scripts/modules/contact';
 
 // Add styles
@@ -21,9 +20,6 @@ const init = () => {
 
   // Adding footer
   new Footer();
-
-  // Adding feedback
-  new Feedback();	
 
   // Adding contact
   new Contact();	

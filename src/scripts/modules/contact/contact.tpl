@@ -1,3 +1,5 @@
+<span id="feedbackLink" class="feedback-link feedback-link-fixed"><span>Feedback</span></span>
+
 <div id="contactModalGfw" class="m-modal-assets">
   <!-- BACKDROP -->
   <div class="modal-backdrop"></div>
@@ -13,7 +15,7 @@
           <!-- STEP 1 -->
           <li class="modal-step -active" data-step="1">
             <header>
-              <h2>Contact us</h2>
+              <h2>Contact us & feedback</h2>
               <h3>Question, comment, request, feedback? We want to hear from you! Help us improve Global Forest Watch by completing the form below.</h3>
             </header>
             <div class="modal-step-content">

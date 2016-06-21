@@ -108,6 +108,7 @@ class Contact {
 
   setListeners() {
     this.$body.on('click', '.contact-link', this.show.bind(this));
+    this.$body.on('click', '.feedback-link', this.showFeedback.bind(this));
 
     this.$el.on('click', '.js-btn-submit', this.actionSubmit.bind(this));
 
@@ -130,6 +131,13 @@ class Contact {
     this.hidden = false;
     this.toggle();
     window.history.pushState('Show contact', document.title, this.toggleParam('show_contact',true));
+  }
+
+  showFeedback(e) {
+    e && e.preventDefault() && e.stopPropagation();
+    this.show();
+    this.$contactTopic.val('provide-feedback');
+    this.$contactTopic.trigger("change");
   }
 
   hide(e) {
