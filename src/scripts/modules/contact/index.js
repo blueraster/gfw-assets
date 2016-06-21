@@ -109,6 +109,7 @@ class Contact {
   setListeners() {
     this.$body.on('click', '.contact-link', this.show.bind(this));
     this.$body.on('click', '.feedback-link', this.showFeedback.bind(this));
+    this.$body.on('click', '.newsletter-link', this.showNewsletter.bind(this));
 
     this.$el.on('click', '.js-btn-submit', this.actionSubmit.bind(this));
 
@@ -141,6 +142,12 @@ class Contact {
     this.$contactTopic.trigger("change");
   }
 
+  showNewsletter(e) {
+    e && e.preventDefault() && e.stopPropagation();
+    this.changeStep('newsletter');
+    this.show();
+  }
+
   hide(e) {
     e && e.preventDefault();
     this.hidden = true;
@@ -149,7 +156,7 @@ class Contact {
 
     //Give back scroll beyond modal window.
     // this.$htmlbody.removeClass('-no-scroll');
-    this.changeStep(1);
+    this.changeStep('contact');
 
     return this;
   }

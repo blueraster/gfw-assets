@@ -12,8 +12,8 @@
     <div class="modal-wrapper -scroll-bar">
       <div class="modal-content">
         <ul class="modal-steps">
-          <!-- STEP 1 -->
-          <li class="modal-step -active" data-step="1">
+          <!-- STEP CONTACT -->
+          <li class="modal-step -active" data-step="contact">
             <header>
               <h2>Contact us & feedback</h2>
               <h3>Question, comment, request, feedback? We want to hear from you! Help us improve Global Forest Watch by completing the form below.</h3>
@@ -66,7 +66,7 @@
             </div>
           </li>
 
-          <!-- STEP 3 -->
+          <!-- STEP SUCCESS -->
           <li class="modal-step" data-step="success">
             <header>
               <h2>Thank you for contacting us!</h2>
@@ -77,11 +77,22 @@
             </div>
           </li>
 
-          <!-- STEP 4 -->
+          <!-- STEP ERROR -->
           <li class="modal-step" data-step="error">
             <header>
               <h2>We're sorry, </br>but something went wrong</h2>
             </header>
+          </li>
+
+          <!-- STEP NEWSLETTER -->
+          <li class="modal-step" data-step="newsletter">
+            <header>
+              <h2>Updates and newsletters</h2>
+              <h3>Yes! Subscribe me to the Global Forest Watch Newsletter!</h3>
+            </header>
+            <div class="modal-step-content">
+              <iframe src="http://connect.wri.org/l/120942/2016-02-08/2trw5q" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
+            </div>
           </li>
 
         </ul>
@@ -92,7 +103,7 @@
       <span class="gradient"></span>
       <ul class="m-btncontainer -center -steps">
         <li>
-          <button data-step="1" class="btn green medium uppercase modal-step-btn js-dinamic-color js-btn-submit -active">Submit</button>
+          <button data-step="contact" class="btn green medium uppercase modal-step-btn js-dinamic-color js-btn-submit -active">Submit</button>
           <button data-step="success" class="btn green medium uppercase modal-step-btn js-dinamic-color js-btn-close">Close</button>
           <button data-step="error" class="btn green medium uppercase modal-step-btn js-dinamic-color js-btn-close">Close</button>
         </li>
