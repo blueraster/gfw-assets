@@ -1,16 +1,18 @@
-$widthModal: 500px;
+$widthModal: 1024px;
 $heightModal: auto;
 
-#feedbackGfw {
-  font-family: "Fira GFW Sans", Helvetica, serif;
-  // This fixes the ligatures issue in Chrome and Safari > 9.0
-  -webkit-font-feature-settings: "liga" 0;
-  font-feature-settings: "liga" 0;
-  // This fixes the ligatures issue in Safari
-  -webkit-font-variant-ligatures: no-common-ligatures;
+#headerGfw, #footerGfw, #feedbackGfw, #contactGfw {
 
-  // Layout
-  .feedback-modal {
+
+  .m-modal-assets {
+    font-family: "Fira GFW Sans", Helvetica, serif;
+    // This fixes the ligatures issue in Chrome and Safari > 9.0
+    -webkit-font-feature-settings: "liga" 0;
+    font-feature-settings: "liga" 0;
+    // This fixes the ligatures issue in Safari
+    -webkit-font-variant-ligatures: no-common-ligatures;
+
+    // Layout
     position: fixed;
     top: 0;
     left: 0;
@@ -18,6 +20,7 @@ $heightModal: auto;
     width: 100%;
     height: 100%;
     display: none;
+  
     &.-active {
       display: block;
 
@@ -34,7 +37,8 @@ $heightModal: auto;
         }
       }
     }
-
+    
+    // Styles
     .modal-backdrop {
       position: absolute;
       top: 0;
@@ -45,6 +49,7 @@ $heightModal: auto;
       opacity: 0;
       visibility: hidden;
       transition: all 0.2s $easeInOutSine;
+      background: rgba(0,0,0,0.25);
     }
 
     .modal-window {
@@ -57,6 +62,9 @@ $heightModal: auto;
       opacity: 0;
       visibility: hidden;
       transition: all 0s $easeInOutSine;
+      background: $white;
+      border: none;
+      box-shadow: $shadow1;
 
       @media (min-width: $br-mobile){
         left: 50%; top: 50%;
@@ -65,58 +73,6 @@ $heightModal: auto;
         min-height: 100px;
         transform: translate(-50%,-60%);
       }
-
-      .modal-spinner {
-        display: none;
-        @include spinner (40px, 5px, $primary-color);
-        pointer-events: none;
-        &.-active {
-          display: block;
-        }
-        &.red {
-          @include spinner (40px, 5px, $red);
-        }
-        &.orange {
-          @include spinner (40px, 5px, $orange);
-        }
-        &.blue {
-          @include spinner (40px, 5px, $blue);
-        }
-      }
-
-      .modal-close {
-        display: block;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        width: 40px;
-        height: 40px;
-        z-index: 20;
-
-        svg{
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 50%;
-          height: 50%;
-          transform: translate(-50%,-50%);
-        }
-      }
-    }
-  }
-
-
-  // Styles
-  .feedback-modal{
-
-    .modal-backdrop {
-      background: rgba(0,0,0,0.25);
-    }
-
-    .modal-window {
-      background: $white;
-      border: none;
-      box-shadow: $shadow1;
 
       // GRADIENTS
       &:before, &:after {
@@ -160,25 +116,72 @@ $heightModal: auto;
         width: 100%;
         top: 0;
         left: 0;
-        padding: 20px 20px 0;
+        padding: 70px 20px 50px;
         border-bottom: 66px solid transparent;
         @media (min-width: $br-mobile){
-          max-height: 450px;
+          max-height: 90vh;
         }
-        .modal-content {
-          height: auto;
-          width: 100%;
-          outline: none;
 
-          font-size: 15px;
-          color: $dark;
-          border: none;
-          box-shadow: none;
-          background: transparent;
-          border-radius: 0;
+        .modal-content {
         }
       }
     }
+
+
+
+
+
+
+
+
+    // SPINNER
+    .modal-spinner {
+      display: none;
+      @include spinner (40px, 5px, $primary-color);
+      pointer-events: none;
+      
+      &.-active {
+        display: block;
+      }
+
+      &.red {
+        @include spinner (40px, 5px, $red);
+      }
+
+      &.orange {
+        @include spinner (40px, 5px, $orange);
+      }
+
+      &.blue {
+        @include spinner (40px, 5px, $blue);
+      }
+    }
+
+    // CLOSE
+    .modal-close {
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 40px;
+      height: 40px;
+      z-index: 20;
+
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 14px;
+        height: 14px;
+        margin: -7px 0 0 -7px;
+      }
+    }
+
+
+
+
+
+
 
     // MODAL HEADER
     .modal-header {
@@ -189,6 +192,7 @@ $heightModal: auto;
       background: $white;
       z-index: 2;
       @include clearfix();
+      
       // GRADIENTS
       .gradient {
         content: "";
@@ -200,7 +204,7 @@ $heightModal: auto;
         @include gradient(top,rgba(255,255,255,1),rgba(255,255,255,0));
       }
 
-      ul{
+      ul {
         margin: 15px 0;
         position: relative;
         left: 50%;
@@ -212,16 +216,18 @@ $heightModal: auto;
         border: 1px solid $primary-color;
         border-radius: 45px;
 
-        li{
+        li {
           font-size: 19px;
           padding: 10px 20px 7px;
           color: $dark;
           cursor: pointer;
           font-weight: 500;
           border-radius: 40px;
+          
           &:hover {
             background: darken($white,1%);
           }
+          
           &.-active {
             color: $white;
             background: $primary-color;
@@ -240,6 +246,7 @@ $heightModal: auto;
       z-index: 2;
       padding: 15px 0;
       @include clearfix();
+      
       // GRADIENTS
       .gradient {
         content: "";
@@ -251,32 +258,52 @@ $heightModal: auto;
         border-bottom: 1px solid $border1;
         @include gradient(top,rgba(255,255,255,0),rgba(255,255,255,1));
       }
-
     }
 
-    .modal-content {
-      font-size: 13px;
-      line-height: 1;
-      h2 {
-        text-align: center;
-        font-size: 32px;
-        font-weight: 300;
-        color: $dark;
-        padding: 0 0 20px;
-      }
 
-      h3 {
-        font-size: 21px;
-        font-weight: 400;
-        line-height: 1.25;
-        text-transform: none;
-        strong {
-          font-weight: 500;
+
+
+    // CONTENT
+    .modal-content {
+      height: auto;
+      width: 100%;
+      outline: none;
+      margin: 0 auto;
+      max-width: 700px;
+
+      color: $dark;
+      border: none;
+      box-shadow: none;
+      background: transparent;
+      border-radius: 0;      
+      font-size: 14px;
+      line-height: 1.25;
+      
+      header {
+        h2 {
+          font-size: 35px;
+          font-weight: 300;
+          color: $dark;
+          padding: 0 0 20px;
+          line-height: 1.25;
         }
+
+        h3 {
+          font-size: 21px;
+          font-weight: 300;
+          line-height: 1.5;
+          text-transform: none;
+          strong {
+            font-weight: 400;
+          }
+        }
+
       }
-      .bullets  {
+      
+      .bullets {
         list-style-type: disc;
         color: $dark;
+        
         > li{
           list-style-type: disc;
           padding: 10px 0 0;
@@ -284,35 +311,42 @@ $heightModal: auto;
           line-height: 1.25;
           display: list-item;
           text-transform: none;
+          
           &:first-child{
             padding: 0;
           }
         }
       }
 
-      li { list-style: none;}
-
-      p {
-        line-height: 1.25;
+      li { 
+        list-style: none;
       }
 
-      a:not(.btn){
+      p {
+        line-height: 1.5;
+      }
+
+      a:not(.btn) {
         color: $primary-color;
+        
         &:hover{
           color: darken($primary-color,5%);
         }
+        
         &.red {
           color: $red;
           &:hover {
             color: darken($red, 25%);
           }
         }
+        
         &.orange {
           color: $orange;
           &:hover {
             color: darken($orange, 25%);
           }
         }
+        
         &.blue {
           color: $blue;
           &:hover {
@@ -320,22 +354,31 @@ $heightModal: auto;
           }
         }
       }
-
     }
 
+
+
+
+
+    // STEPS
     .modal-steps {
       // This !important is here because ODP has some weird styles
       padding: 20px !important;
+      
       > li {
         display: none;
         text-transform: none;
+        
         &.-active {
           display: block;
         }
+        
         .modal-step-content {
           padding: 20px 0 0;
+          
           > * {
             margin: 15px 0 0;
+            
             &:first-child {
               margin: 0;
             }
@@ -344,48 +387,23 @@ $heightModal: auto;
       }
     }
 
-    // EXCEPTIONS
-    .feedback-form {
-      > * {
-        display: block;
-        margin: 10px 0 0;
-        &:first-child {
-          margin: 0;
-        }
-      }
-
-      .feedback-tester {
-        padding: 20px;
-        border: 1px solid $primary-color;
-        border-radius: 2px;
-        &.red {
-          border: 1px solid $red;
-        }
-        &.orange {
-          border: 1px solid $orange;
-        }
-        &.blue {
-          border: 1px solid $blue;
-        }
-      }
-    }
-
     .m-btncontainer {
       display: flex;
       align-items: center;
+
       &.-center {
         justify-content: center;
       }
+
       &.-steps {
         .btn {
           display: none;
+
           &.-active {
             display: block;
           }
         }
       }
     }
-
-
   }
 }
