@@ -59,7 +59,7 @@ class Navigation {
 
   getMenu() {
     let hostname = location.hostname;
-    let path = (location.pathname) ? location.pathname.split('/')[1] : null;
+    let path = (!!location.pathname && location.pathname != '/') ? location.pathname.split('/')[1] : null;
 
     // Develop
     // let hostname = 'staging.globalforestwatch.org';
