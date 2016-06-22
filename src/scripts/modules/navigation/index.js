@@ -7,14 +7,32 @@ import navigationTpl from './navigation.tpl';
 import globaljson from './global.json';
 import climatejson from './climate.json';
 import howtojson from './howto.json';
+import developersjson from './developers.json';
 import firesjson from './fires.json';
+import commoditiesjson from './commodities.json';
 
 const navigationMenus = {
   'default': globaljson,
   'localhost': globaljson,
+  
+  // Paths
+  '/howto': howtojson,
+  '/developers-corner' : developersjson,
+
+  // Fires
+  'fires.globalforestwatch.org': firesjson,
+  'wri-gfw-fires-staging.herokuapp.com' : firesjson,
+
+  // Commodities
+  'commodities.globalforestwatch.org': commoditiesjson,
+  'commodities-test.herokuapp.com': commoditiesjson,
+
+  // Climate
   'climate.globalforestwatch.org': climatejson,
-  'howto.globalforestwatch.org': howtojson,
-  'fires.globalforestwatch.org': firesjson
+  'gfwc-staging.herokuapp.com': climatejson,
+
+  // Water
+  'wri-gfw-water.herokuapp.com': globaljson,
 };
 
 
@@ -34,8 +52,23 @@ class Navigation {
   }
 
   render() {
-    const menu = navigationMenus[location.hostname] || navigationMenus['default'];
-    this.$el.html(navigationTpl({ menu: menu}));
+    this.$el.html(navigationTpl({ 
+      menu: this.getMenu()
+    }));
+  }
+
+  getMenu() {
+    let hostname = location.hostname;
+    let path = location.path;
+
+    // Develop
+    // let hostname = 'staging.globalforestwatch.org';
+    // let path = '/developers-corner';  
+
+    if (hostname == 'localhost' || hostname == 'staging.globalforestwatch.org' || hostname == 'www.globalforestwatch.org') {
+      return navigationMenus[path] || navigationMenus['default'];
+    }
+    return navigationMenus[hostname] || navigationMenus['default'];
   }
 
 }
