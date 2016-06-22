@@ -16,8 +16,8 @@ const navigationMenus = {
   'localhost': globaljson,
   
   // Paths
-  '/howto': howtojson,
-  '/developers-corner' : developersjson,
+  'howto': howtojson,
+  'developers-corner' : developersjson,
 
   // Fires
   'fires.globalforestwatch.org': firesjson,
@@ -59,7 +59,7 @@ class Navigation {
 
   getMenu() {
     let hostname = location.hostname;
-    let path = location.path;
+    let path = (location.pathname) ? location.pathname.split('/')[1] : null;
 
     // Develop
     // let hostname = 'staging.globalforestwatch.org';
