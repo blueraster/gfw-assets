@@ -1,67 +1,92 @@
 [{
   "name": "Home",
-  "link": "/"
+  "link": "/howto/"
   },{
-  "name": "Search by theme",
+  "name": "Subjects",
   "link": "",
   "submenu": [
     {
       "name": "Visualize data",
-      "link": "/gfw-howto/themes/visualize-data"
+      "link": "/howto/categories/visualize-data/"
     },
     {
       "name": "View statistics",
-      "link": "/gfw-howto/themes/view-statistics"
+      "link": "/howto/categories/view-statistics/"
     },
     {
       "name": "Analyze data",
-      "link": "/gfw-howto/themes/analyze-data"
+      "link": "/howto/categories/analyze-data/"
     },
     {
       "name": "Suscribe to alerts",
-      "link": "/gfw-howto/themes/suscribe-to-alerts"
+      "link": "/howto/categories/suscribe-to-alerts/"
     },
     {
       "name": "Submit a story",
-      "link": "/gfw-howto/themes/submit-a-story"
+      "link": "/howto/categories/submit-a-story/"
     },
     {
-      "name": "Tutorial videos",
-      "link": "/gfw-howto/themes/tutorial-videos"
+      "name": "Download data",
+      "link": "/howto/categories/download-data/"
     },
     {
-      "name": "Webinars",
-      "link": "/gfw-howto/themes/webinars"
+      "name": "Create custom maps/",
+      "link": "/howto/categories/create-custom-maps/"
     },
     {
-      "name": "Training modules",
-      "link": "/gfw-howto/themes/training-modules"
+      "name": "GIS",
+      "link": "/howto/categories/gis/"
     },
     {
       "name": "FAQ's",
-      "link": "/gfw-howto/faqs"
+      "link": "/howto/categories/faqs/"
     }
   ]
 },
 {
-  "name": "Search by app",
+  "name": "Materials",
+  "link": "",
+  "submenu": [
+    {
+      "name": "Tutorial videos",
+      "link": "/howto/categories/tutorial-videos/"
+    },
+    {
+      "name": "Webinars",
+      "link": "/howto/categories/webinars/"
+    },
+    {
+      "name": "FAQ's",
+      "link": "/howto/categories/faqs/"
+    },
+    {
+      "name": "Training modules",
+      "link": "/howto/categories/training-modules/"
+    },
+    {
+      "name": "Blogs",
+      "link": "/howto/categories/blogs/"
+    }
+  ]
+},{
+  "name": "Tags",
   "link": "",
   "submenu": [
     {
       "name": "Gfw",
-      "link": "/gfw-howto/apps/gfw"
+      "link": "/howto/tags/gfw/"
     },
     {
       "name": "Climate",
-      "link": "/gfw-howto/apps/climate"
+      "link": "/howto/tags/climate/"
     },
     {
       "name": "Fires",
-      "link": "/gfw-howto/apps/fires"
+      "link": "/howto/tags/fires/"
     },
     {
       "name": "Commodities",
-      "link": "/gfw-howto/apps/commodities"
+      "link": "/howto/tags/commodities/"
     }
   ]
 }]
