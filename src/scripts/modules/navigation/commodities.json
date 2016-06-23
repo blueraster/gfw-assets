@@ -1,0 +1,39 @@
+[{
+    "name": "Home",
+    "link": "/#v=home"
+  },{
+    "name": "Map",
+    "link": "/#v=map"
+  },{
+    "name": "Methods",
+    "link": "/#v=map"
+  },{
+    "name": "Data submission",
+    "link": "/#v=submission"
+  },{
+    "name": "About",
+    "link": "/#v=about",
+	  "submenu": [
+	    {
+	      "name": "About GFW Commodities",
+	      "link": "/#v=about&n=GFW"
+	    },
+	    {
+	      "name": "History",
+	      "link": "/#v=about&n=History"
+	    },
+	    {
+	      "name": "The GFW Partnership",
+	      "link": "/#v=about&n=Partners"
+	    },
+	    {
+	      "name": "Tutorial Videos",
+	      "link": "/#v=about&n=Videos"
+	    },
+	    {
+	      "name": "Other Resources",
+	      "link": "/#v=about&n=Users"
+	    }
+	  ]
+	}
+]
