@@ -11,7 +11,7 @@
           <li><a href="http://fires.globalforestwatch.org/" target="blank">FIRES</a></li>
           <li><a href="http://commodities.globalforestwatch.org/" target="blank">COMMODITIES</a></li>
           <li><a href="http://climate.globalforestwatch.org/" target="blank">CLIMATE</a></li>        
-          <li><a href="/explore">EXPLORE ALL APPS</a></li>        
+          <li><a href="/developers-corner/gallery/">EXPLORE ALL APPS</a></li>        
         </ul>
         <ul>
           <li><a href="/developers-corner/">DEVELOPER’S CORNER</a></li>

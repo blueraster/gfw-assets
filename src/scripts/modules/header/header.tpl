@@ -98,7 +98,7 @@
                   </a>
                 </li>
                 <li class="shape-explore">
-                  <a class="link-analytics" href="/explore">
+                  <a class="link-analytics" href="/developers-corner/gallery/">
                     <div class="app shape-explore">
                       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
                       <span>Explore all apps</span>

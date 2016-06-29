@@ -6,6 +6,6 @@
 	<ul>
 	  <li><a target="_blank" href="/my_gfw/subscriptions"><span>My Subscriptions</span></a></li>
 	  <li><a target="_blank" href="/my_gfw"><span>My Profile</span></a></li>
-	  <li><a target="_blank" href="/user/sign_out" id="my-gfw-sign-out"><span>Log Out</span></a></li>
+	  <li><a href="/user/sign_out" id="my-gfw-sign-out"><span>Log Out</span></a></li>
 	</ul>
 </div>
