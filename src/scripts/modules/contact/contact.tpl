@@ -37,7 +37,7 @@
                       <option value="gfw-fires-inquiry">GFW Fires inquiry</option>
                       <option value="gfw-climate-inquiry">GFW Climate inquiry</option>
                       <option value="general-inquiry">General inquiry</option>
-                    </select>                      
+                    </select>
                   </div>
                 </div>
                 <div class="field">
@@ -60,7 +60,7 @@
                         <span></span> No thanks.
                       </label>
                     </div>
-                  </div>                    
+                  </div>
                 </div>
               </form>
             </div>
@@ -98,7 +98,7 @@
         </ul>
       </div>
     </div>
-    
+
     <div class="modal-footer">
       <span class="gradient"></span>
       <ul class="m-btncontainer -center -steps">
@@ -109,5 +109,5 @@
         </li>
       </ul>
     </div>
-  </div>  
+  </div>
 </div>

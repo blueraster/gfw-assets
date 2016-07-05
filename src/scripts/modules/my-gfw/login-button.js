@@ -21,7 +21,6 @@ class LoginButton {
     // Use this if you want to check the login dropdown
     // this.loggedIn = true;
     // this.render();
-    
     utils.isLoggedIn({
       success: function(response) {
         this.loggedIn = true;
