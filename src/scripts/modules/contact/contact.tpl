@@ -32,7 +32,7 @@
                       <option value="report-a-bug-or-error-on-gfw">Report a bug or error on GFW</option>
                       <option value="provide-feedback">Provide feedback</option>
                       <option value="media-request">Media request</option>
-                      <option value="data-related-inquiry">Data related inquiry</option>
+                      <option value="data-related-inquiry">Data related inquiry or suggestion</option>
                       <option value="gfw-commodities-inquiry">GFW Commodities inquiry</option>
                       <option value="gfw-fires-inquiry">GFW Fires inquiry</option>
                       <option value="gfw-climate-inquiry">GFW Climate inquiry</option>
