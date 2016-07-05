@@ -110,6 +110,7 @@ class Contact {
     this.$body.on('click', '.contact-link', this.show.bind(this));
     this.$body.on('click', '.feedback-link', this.showFeedback.bind(this));
     this.$body.on('click', '.newsletter-link', this.showNewsletter.bind(this));
+    this.$body.on('click', '.data-suggestion-link', this.showDataSuggestion.bind(this));
 
     this.$el.on('click', '.js-btn-submit', this.actionSubmit.bind(this));
 
@@ -133,6 +134,13 @@ class Contact {
     this.toggle();
     this.$contactTopic.val(null);
     window.history.pushState('Show contact', document.title, this.toggleParam('show_contact',true));
+  }
+
+  showDataSuggestion(e) {
+    e && e.preventDefault() && e.stopPropagation();
+    this.show();
+    this.$contactTopic.val('data-related-inquiry');
+    this.$contactTopic.trigger("change");
   }
 
   showFeedback(e) {
