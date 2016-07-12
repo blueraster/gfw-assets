@@ -240,7 +240,8 @@ class Header {
    */  
   initTransifex() {
     var blacklist = [
-      'www.globalforestwatch.org'
+      'www.globalforestwatch.org',
+      'climate.globalforestwatch.org'
     ];
 
     // Check if the location.hostname is in the blacklist
