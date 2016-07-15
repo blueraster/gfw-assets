@@ -292,8 +292,12 @@ class Header {
    * Init My GFW
    */
   initMyGFW() {
-    const loginButton = new LoginButton();
-    loginButton.init();
+    if (utils.isDefaultHost()) {
+      const loginButton = new LoginButton();
+      loginButton.init();
+    } else {
+      $gfwdom('#my-gfw-container').css({ display: 'none'});
+    }
   }
 
   initNavigation() {

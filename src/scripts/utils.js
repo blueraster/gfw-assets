@@ -1,7 +1,7 @@
 'use strict';
 
 const smallBreakPoint = 850;
-const gfwDomains = [
+const whitelist = [
   'www.globalforestwatch.org',
   'localhost',
   'gfw-nav.herokuapp.com',
@@ -12,7 +12,14 @@ const apiUrls = {
   'gfw-nav.herokuapp.com': 'http://staging.api-staging.globalforestwatch.org',
   'staging.globalforestwatch.org': 'http://staging.api-staging.globalforestwatch.org'
 };
-const defaultGfwDomain = gfwDomains[0];
+
+const blacklist = [
+  'climate.globalforestwatch.org',
+  'commodities.globalforestwatch.org',
+  'fires.globalforestwatch.org',
+]
+
+const defaultGfwDomain = whitelist[0];
 
 /**
  * Utils
@@ -48,7 +55,7 @@ const utils = {
 
   getHost() {
     let currentLocation = window.location.hostname;
-    const isValidLocation = gfwDomains.indexOf(currentLocation) !== -1;
+    const isValidLocation = whitelist.indexOf(currentLocation) !== -1;
     // Checking if current location is contained in gfw domains array
     if (!isValidLocation) {
       currentLocation = defaultGfwDomain;
@@ -97,7 +104,20 @@ const utils = {
   },
 
   isDefaultHost() {
-    return gfwDomains.indexOf(window.location.hostname) !== -1;
+    var hostname = window.location.hostname,
+        // check is the hostname is inside the whitelist
+        is_white = whitelist.indexOf(hostname) !== -1,
+        is_black;
+
+    // check is the hostname is inside the blacklist or 
+    // if it has 'globalforestwatch.org' in its hostname        
+    if (blacklist.indexOf(hostname) === -1) {
+      is_black = (hostname.indexOf('globalforestwatch.org') === -1);
+    } else {
+      is_black = true;
+    }
+
+    return (is_white || !is_black);
   },
 
   // Returns a function, that, as long as it continues to be invoked, will not
