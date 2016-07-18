@@ -66,10 +66,15 @@ const utils = {
     return `http://${currentLocation}`;
   },
 
-  getAPIHost() {
+  getAPIHost(v2=false) {
     if (window.gfw && window.gfw.config) {
-      return window.gfw.config.GFW_API_HOST;
+      if (v2 === true) {
+        return window.gfw.config.GFW_API_HOST_NEW_API;
+      } else {
+        return window.gfw.config.GFW_API_HOST;
+      }
     }
+
     let currentLocation = window.location.hostname;
     let apiLocation = apiUrls[currentLocation] || apiUrls[defaultGfwDomain];
 
