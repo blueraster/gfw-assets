@@ -34,7 +34,7 @@ class Header {
     this.initListeners();
 
     this.initTranslate();
-    
+
     this.initLinksUrls();
     this.initMyGFW();
     this.initNavigation();
@@ -61,7 +61,7 @@ class Header {
     this.$headerSubmenuApp = this.$header.find('#submenuApps');
     this.$headerSubmenuMore = this.$header.find('#submenuMore');
     this.$headerSubmenuLogin = this.$header.find('#submenuLogin');
-    
+
 
     // Links
     this.$links = this.$header.find('a');
@@ -101,7 +101,7 @@ class Header {
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
     this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
     this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
-    
+
     this.$header.on('click', '.btn-search', this.toggleSearch.bind(this));
 
     // Be careful, this will break down the mobile menus toggle
@@ -131,7 +131,7 @@ class Header {
 
       } else {
         this.hideMenus();
-      }      
+      }
     }
   }
 
@@ -149,7 +149,7 @@ class Header {
       }
     });
     // Key bindings
-    this.$document.off('keyup.apps');    
+    this.$document.off('keyup.apps');
   }
 
   toggleSearch(e) {
@@ -202,7 +202,7 @@ class Header {
         });
       } else {
         document.location = url;
-      }   
+      }
     }
   }
 
@@ -213,7 +213,7 @@ class Header {
     if (!!window.liveSettings) {
       this.initTransifex();
     } else {
-      this.initGoogleTranslate();  
+      this.initGoogleTranslate();
     }
   };
 
@@ -232,18 +232,18 @@ class Header {
       translateScript.type= 'text/javascript';
       translateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
       document.head.appendChild(translateScript);
-    }, 0);    
+    }, 0);
   }
 
   /**
    * Transifex
-   */  
+   */
   initTransifex() {
     var blacklist = [
       'www.globalforestwatch.org',
       'climate.globalforestwatch.org',
-      'fires.globalforestwatch.org',
-      'commodities.globalforestwatch.org'
+      // 'fires.globalforestwatch.org',
+      // 'commodities.globalforestwatch.org'
     ];
 
     // Check if the location.hostname is in the blacklist
