@@ -262,7 +262,7 @@ class Header {
       translateScript.type= 'text/javascript';
       translateScript.src = '//cdn.transifex.com/live.js';
       document.head.appendChild(translateScript);
-    }, 5000);
+    }, 0);
   };
 
 
