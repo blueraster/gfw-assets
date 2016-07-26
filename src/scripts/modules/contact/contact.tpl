@@ -36,6 +36,7 @@
                       <option value="gfw-commodities-inquiry">GFW Commodities inquiry</option>
                       <option value="gfw-fires-inquiry">GFW Fires inquiry</option>
                       <option value="gfw-climate-inquiry">GFW Climate inquiry</option>
+                      <option value="gfw-water-inquiry">GFW Water inquiry</option>
                       <option value="general-inquiry">General inquiry</option>
                     </select>
                   </div>
@@ -72,9 +73,10 @@
               <h2>Thank you for contacting us!</h2>
               <h3>Someone will be in touch shortly.</h3>
             </header>
-            <div class="modal-step-content">
+            <!-- Let's wait until the Pardot team has prepared the newsletter -->
+            <!-- <div class="modal-step-content">
               <iframe src="http://connect.wri.org/l/120942/2016-02-08/2trw5q" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
-            </div>
+            </div> -->
           </li>
 
           <!-- STEP ERROR -->

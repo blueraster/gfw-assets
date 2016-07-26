@@ -19,7 +19,7 @@ const topics = {
     placeholder: 'How can we help you?',
   },
   'data-related-inquiry': {
-    name: 'Data related inquiry',
+    name: 'Data-related inquiry or suggestion',
     placeholder: 'How can we help you?',
   },
   'gfw-commodities-inquiry': {
@@ -32,6 +32,10 @@ const topics = {
   },
   'gfw-climate-inquiry': {
     name: 'GFW Climate inquiry',
+    placeholder: 'How can we help you?',
+  },
+  'gfw-water-inquiry': {
+    name: 'GFW Water inquiry',
     placeholder: 'How can we help you?',
   },
   'general-inquiry': {
@@ -232,7 +236,6 @@ class Contact {
     this.$spinner.addClass('-active');
     var xhr = new XMLHttpRequest();
     xhr.open('POST', utils.getAPIHost() + '/emails');
-    // xhr.open('POST', 'http://api-proxy-staging.globalforestwatch.org/emails');
     xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
     xhr.onload = function() {
