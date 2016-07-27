@@ -172,7 +172,7 @@
     <div class="m-footer-terms">
       <a href="/terms">Terms of Service</a> ·
       <a href="http://stats.pingdom.com/ghabapk9rihc" target="_blank">Global Forest Watch System Status</a> ·
-      <a href="mailto:gfw@wri.org">Contact us</a>
+      <a class="contact-link" href="mailto:gfw@wri.org">Contact us</a>
     </div>
   </footer>
 </div>

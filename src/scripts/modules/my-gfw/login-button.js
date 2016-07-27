@@ -21,7 +21,6 @@ class LoginButton {
     // Use this if you want to check the login dropdown
     // this.loggedIn = true;
     // this.render();
-    
     utils.isLoggedIn({
       success: function(response) {
         this.loggedIn = true;
@@ -48,13 +47,13 @@ class LoginButton {
   initLoginLinks() {
     var $signin = this.$el.find('.my-gfw-sign-in');
     $signin.forEach(function(v) {
-      $gfwdom(v).attr('href', utils.getAPIHost() + '/' + $gfwdom(v).attr('href'))
-    });    
+      $gfwdom(v).attr('href', utils.getAPIHost(true) + '/' + $gfwdom(v).attr('href'))
+    });
   }
 
   initLogoutLinks() {
     const $signout = this.$el.find('#my-gfw-sign-out');
-    $signout.attr('href', utils.getAPIHost() + $signout.attr('href'));
+    $signout.attr('href', utils.getAPIHost(true) + $signout.attr('href'));
   }
 
   showModal(e) {
