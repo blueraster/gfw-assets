@@ -110,29 +110,39 @@ class Header {
 
   showMenu(e) {
     e && e.preventDefault();
-    if (utils.getWindowWidth() < 850) {
-      if (!$gfwdom(e.currentTarget).hasClass('-active')) {
-        // Hide all the opened menus
-        this.hideMenus();
-        // Prevent mobile scroll
+    let currentTarget = e.currentTarget;
+    if (!$gfwdom(currentTarget).hasClass('-active')) {
+      // Hide all the opened menus
+      this.hideMenus();
+      // Prevent mobile scroll
+      if (utils.getWindowWidth() < 850) {
         this.$htmlbody.toggleClass('-no-scroll');
-        // Active menu icon
-        $gfwdom(e.currentTarget).toggleClass('-active')
-        $gfwdom(e.currentTarget).find('svg').toggleClass('-inactive');
-        // Active menu
-        $gfwdom($gfwdom(e.currentTarget).data('submenu')).toggleClass('-active');
-
-        // Key bindings
-        this.$document.on('keyup.apps', e => {
-          if (e.keyCode === 27) {
-            this.hideMenus();
-          }
-        });
-
-      } else {
-        this.hideMenus();
       }
+
+      // Active menu icon
+      $gfwdom(currentTarget).toggleClass('-active')
+      $gfwdom(currentTarget).find('svg').toggleClass('-inactive');
+      // Active menu
+      $gfwdom($gfwdom(currentTarget).data('submenu')).toggleClass('-active');
+
+      // Key bindings
+      this.$document.on('keyup.apps', e => {
+        if (e.keyCode === 27) {
+          this.hideMenus();
+        }
+      });
+
+      // Click bindings
+      this.$document.on('click.apps', e => {
+        if(!this.el.contains(e.target)) {
+          this.hideMenus();
+        }
+      });
+
+    } else {
+      this.hideMenus();
     }
+
   }
 
   hideMenus(e) {
@@ -150,10 +160,16 @@ class Header {
     });
     // Key bindings
     this.$document.off('keyup.apps');
+
+    // Click bindings
+    this.$document.off('click.apps');
   }
 
   toggleSearch(e) {
     e && e.preventDefault();
+
+    // Hide the menus if they are active
+    this.hideMenus();
 
     // Toggle search div
     this.$headerSearch.toggleClass('-active');
