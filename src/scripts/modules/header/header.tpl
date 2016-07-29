@@ -12,7 +12,7 @@
       <li id="headerSearchBox" class="m-header-item -default -search -only-desktop shape-search">
         <a class="btn-search" title="Search GFW website" href="#">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg>
-          <span>Search</span>            
+          <span>Search</span>
         </a>
         <!-- SEARCH -->
         <div class="m-search">
@@ -21,18 +21,18 @@
             <input type="text" name="query" id="search-input" placeholder="Search GFW website">
             <button class="btn-search -close" type="button"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg></button>
           </form>
-        </div>        
+        </div>
       </li>
       <li class="m-header-item -default -only-desktop shape-howto">
         <a class="link-analytics" title="How to" href="/howto">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg>
-          <span>How to</span>            
+          <span>How to</span>
         </a>
       </li>
       <li class="m-header-item -default shape-mygfw" id="my-gfw-container">
         <a href="/login" id="submenuBtnLogin" title="Sign in" data-submenu="#submenuLogin" class="m-header-submenu-btn">
-          <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
+          <svg class="-inactive -close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>Log in <em class="-only-desktop">to My GFW</em></span>
         </a>
 
@@ -41,14 +41,14 @@
           <ul>
             <li class="my-gfw-sign-in-twitter"><a href="auth/twitter" class="my-gfw-sign-in">Log in with Twitter</a></li>
             <li class="my-gfw-sign-in-facebook"><a href="auth/facebook" class="my-gfw-sign-in">Log in with Facebook</a></li>
-            <li class="my-gfw-sign-in-google"><a href="auth/google" class="my-gfw-sign-in">Log in with Google</a></li>          
+            <li class="my-gfw-sign-in-google"><a href="auth/google" class="my-gfw-sign-in">Log in with Google</a></li>
           </ul>
         </div>
       </li>
       <li class="m-header-item -default -static shape-apps">
         <a id="btnSubmenuApps" data-submenu="#submenuApps" title="Apps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
-          <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <svg class="-inactive -close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>Apps</span>
         </a>
         <!-- APPS -->
@@ -108,19 +108,19 @@
               </ul>
             </div>
           </div>
-        </div>      
+        </div>
 
       </li>
       <li class="m-header-item -default shape-more">
         <a id="btnSubmenuMore" data-submenu="#submenuMore" title="More in GFW" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
-          <svg class="-inactive"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <svg class="-inactive -close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <span>More <em class="-only-desktop">in GFW</em></span>
         </a>
         <div id="submenuMore" class="m-header-submenu -more -default -right">
           <ul class="more-list">
-            <li class="shape-home"><a class="link-analytics" href="/"><span>GFW Home</span></a></li> 
-            <li class="shape-develop"><a class="link-analytics" href="/developers-corner/"><span>Developer's corner</span></a></li> 
+            <li class="shape-home"><a class="link-analytics" href="/"><span>GFW Home</span></a></li>
+            <li class="shape-develop"><a class="link-analytics" href="/developers-corner/"><span>Developer's corner</span></a></li>
             <li class="shape-howto"><a class="link-analytics" href="/howto"><span>How to</span></a></li>
             <!-- <li class="shape-mygfw" id="my-gfw-container2"></li> -->
             <li class="shape-odp"><a class="link-analytics external-link" target="_blank" href="http://data.globalforestwatch.org/"><span>Open Data Portal</span></a></li>
@@ -130,7 +130,7 @@
             <li><a class="link-analytics" href="/small-grants-fund"><span>Small grants fund</span></a></li>
             <li><a class="link-analytics -button" href="/sitemap">Sitemap</a></li>
           </ul>
-        </div>        
+        </div>
       </li>
     </ul>
 
