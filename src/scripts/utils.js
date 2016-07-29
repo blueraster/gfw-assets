@@ -69,7 +69,7 @@ const utils = {
   getAPIHost(v2=false) {
     if (window.gfw && window.gfw.config) {
       if (v2 === true) {
-        return window.gfw.config.GFW_API_HOST_NEW_API;
+        return window.gfw.config.GFW_API_HOST_NEW_API || window.gfw.config.GFW_API_HOST;
       } else {
         return window.gfw.config.GFW_API_HOST;
       }
