@@ -195,8 +195,19 @@ class Header {
       // Test if analytics exists and if it's an url
       if (window.ga !== undefined && regex.test(url)) {
         e && e.preventDefault();
+
+        // Really?? google analytics...
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits?hl=es#handling_timeouts
+        let callbackTriggered = false;
+        setTimeout(function(){
+          if (!callbackTriggered) {
+            document.location = url
+          }
+        }, 1000);
+
         window.ga('send', 'event', 'Menu', 'Click', url, {
           'hitCallback': function(){
+            callbackTriggered = true;
             document.location = url;
           }
         });
