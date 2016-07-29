@@ -5,7 +5,7 @@
   font-feature-settings: "liga" 0;
   // This fixes the ligatures issue in Safari
   -webkit-font-variant-ligatures: no-common-ligatures;
-  
+
   background: $dark;
   -webkit-font-smoothing: antialiased;
   z-index: 1000;
@@ -41,23 +41,23 @@
     justify-content: flex-start;
     @media (min-width: $br-mobile-portrait){
       justify-content: space-between;
-    } 
+    }
 
     &.-primary {
       width: calc(100% - 50px);
       @media (min-width: $br-mobile-portrait){
         width: auto;
-      } 
+      }
 
       > li {
         @media (max-width: $br-mobile-portrait - 1){
           width: 33.33333%;
-        } 
+        }
       }
     }
 
     &.-secondary {
-      
+
     }
 
     &.-mobile {
@@ -155,7 +155,7 @@
           background: $dark1;
 
           &:after {
-            background: $dark1;            
+            background: $dark1;
           }
 
           @media (min-width: $br-mobile){
@@ -185,11 +185,11 @@
           margin: 3px 0 0;
           font-size: 9px;
           display: block;
-          text-align: center;  
+          text-align: center;
           @media (min-width: $br-mobile){
             display: none;
           }
-                  
+
         }
 
         > svg {
@@ -203,18 +203,12 @@
             }
           }
 
+          &.-close {
+            height: 12px;
+          }
+
           &.-inactive {
             display: none;
-          }
-        }
-      }
-
-      @media (min-width: $br-mobile){
-        &:hover {
-          .m-header-submenu {
-            opacity: 1;
-            visibility: visible;
-            transition: all 0s linear 0s;
           }
         }
       }
@@ -230,7 +224,7 @@
     // Search items
     &.-search {
       transition: $transition2;
-      
+
       &.-active {
         width: 250px;
       }
@@ -245,7 +239,7 @@
         &.-active {
           // background: $white;
           z-index: 5;
-          background: $white;          
+          background: $white;
         }
 
 
@@ -275,5 +269,5 @@
         }
       }
     }
-  }  
+  }
 }
