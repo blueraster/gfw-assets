@@ -192,9 +192,9 @@ class Header {
         window.ga('send', 'event', 'Menu', 'Click', url);
       }
     } else {
-      e && e.preventDefault();
       // Test if analytics exists and if it's an url
       if (window.ga !== undefined && regex.test(url)) {
+        e && e.preventDefault();
         window.ga('send', 'event', 'Menu', 'Click', url, {
           'hitCallback': function(){
             document.location = url;
