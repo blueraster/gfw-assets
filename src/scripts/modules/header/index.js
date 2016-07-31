@@ -151,8 +151,8 @@ class Header {
     this.$headerSubmenu.removeClass('-active');
     this.$headerSubmenuApp.removeClass('-active');
     this.$headerSubmenuMore.removeClass('-active');
-    this.$headerSubmenuLogin.removeClass('-active');
-    this.$headerSubmenuBtns.forEach(function(v){
+    this.$header.find('#submenuLogin').removeClass('-active');
+    this.$header.find('.m-header-submenu-btn').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
         $gfwdom(v).find('svg').toggleClass('-inactive');

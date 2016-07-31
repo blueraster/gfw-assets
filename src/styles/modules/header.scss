@@ -204,7 +204,9 @@
           }
 
           &.-close {
-            height: 12px;
+            @media (min-width: $br-mobile){
+              height: 12px;
+            }
           }
 
           &.-inactive {
