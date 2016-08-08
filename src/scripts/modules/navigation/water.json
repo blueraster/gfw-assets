@@ -1,0 +1,13 @@
+[{
+    "name": "Home",
+    "link": "/"
+  },{
+    "name": "Map",
+    "link": "/map/"
+  },{
+    "name": "Partners",
+    "link": "/partners/"
+  },{
+    "name": "Learn More",
+    "link": "/learn-more/"
+}]
