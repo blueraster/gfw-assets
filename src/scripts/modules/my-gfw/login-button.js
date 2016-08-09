@@ -41,9 +41,14 @@ class LoginButton {
     const template = (!!this.loggedIn) ? loginButtonTpl : logoutButtonTpl;
     this.$el.html(template());
 
-    this.initLogoutLinks();
+    this.listeners();
 
     return this;
+  }
+
+  listeners() {
+    const $signout = this.$el.find('#my-gfw-sign-out');
+    $signout.on('click', this.logout.bind(this));
   }
 
   initLoginLinks() {
@@ -53,10 +58,26 @@ class LoginButton {
     });
   }
 
-  initLogoutLinks() {
-    const $signout = this.$el.find('#my-gfw-sign-out');
-    $signout.attr('href', utils.getAPIHost(true) + $signout.attr('href'));
+  logout(e) {
+    e && e.preventDefault();
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `${utils.getAPIHost(true)}/auth/logout`, true);
+    xhr.withCredentials = true;
+    xhr.onload = () => {
+      const responseStatus = xhr.status;
+      if (responseStatus !== 200) {
+        window.location.reload();
+      } else {
+        window.location.reload();
+      }
+    };
+
+    xhr.onerror = () => {
+      options.failure();
+    }
+    xhr.send();
   }
+
 
   showModal(e) {
     e && e.stopPropagation() && e.preventDefault();
