@@ -97,6 +97,14 @@
                     </div>
                   </a>
                 </li>
+                <li class="shape-water">
+                  <a class="external-link link-analytics" target="_blank" href="http://water.globalforestwatch.org/">
+                    <div class="app shape-water">
+                      <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-water"></use></svg>
+                      <span>Water</span>
+                    </div>
+                  </a>
+                </li>
                 <li class="shape-explore">
                   <a class="link-analytics" href="/developers-corner/gallery/">
                     <div class="app shape-explore">
