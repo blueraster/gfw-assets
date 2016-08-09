@@ -34,7 +34,7 @@ const navigationMenus = {
 
   // Water
   "water.globalforestwatch.org": waterjson,
-  'wri-gfw-water.herokuapp.com': waterjson,
+  'water-staging.globalforestwatch.org': waterjson,
 };
 
 
