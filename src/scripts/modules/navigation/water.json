@@ -9,5 +9,18 @@
     "link": "/partners/"
   },{
     "name": "Learn More",
-    "link": "/learn-more/"
+    "link": "/learn-more/",
+    "submenu": [{
+      "name": "About GFW Water",
+      "link": "/learn-more/?tab=water"
+    },{
+      "name": "Beyond the numbers",
+      "link": "/learn-more/?tab=numbers"
+    },{
+      "name": "Publications and blogs",
+      "link": "/learn-more/?tab=publications"
+    },{
+      "name": "Tutorials",
+      "link": "/learn-more/?tab=tutorials"
+    }]
 }]
