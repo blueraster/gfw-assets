@@ -9,18 +9,18 @@
     "link": "/partners/"
   },{
     "name": "Learn More",
-    "link": "/learn-more/",
+    "link": "/about/",
     "submenu": [{
       "name": "About GFW Water",
-      "link": "/learn-more/?tab=water"
+      "link": "/about/#about=water"
     },{
       "name": "Beyond the numbers",
-      "link": "/learn-more/?tab=numbers"
+      "link": "/about/#about=numbers"
     },{
       "name": "Publications and blogs",
-      "link": "/learn-more/?tab=publications"
+      "link": "/about/#about=publications"
     },{
       "name": "Tutorials",
-      "link": "/learn-more/?tab=tutorials"
+      "link": "/about/#about=tutorials"
     }]
 }]
