@@ -18,9 +18,11 @@ class LoginButton {
 
   // Check if the user is logged
   checkStatus() {
-    // Use this if you want to check the login dropdown
+    // Uncomment this if you want to check it locally
     // this.loggedIn = true;
     // this.render();
+
+    // Comment this if you want to check it locally
     utils.isLoggedIn({
       success: function(response) {
         this.loggedIn = true;
