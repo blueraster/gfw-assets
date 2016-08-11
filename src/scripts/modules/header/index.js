@@ -267,7 +267,6 @@ class Header {
    */
   initTransifex() {
     var blacklist = [
-      'www.globalforestwatch.org',
       'climate.globalforestwatch.org',
       // 'fires.globalforestwatch.org',
       // 'commodities.globalforestwatch.org'
