@@ -24,6 +24,7 @@ module.exports = {
 
   entry: [
     'webpack/hot/only-dev-server',
+    'babel-polyfill',
     './index.html',
     './main.js'
   ],
