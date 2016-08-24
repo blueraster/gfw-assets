@@ -266,6 +266,35 @@ class Header {
    * Transifex
    */
   initTransifex() {
+    window.liveSettings.detectlang = function() {
+      var getParam = function (name){
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp( regexS );
+        var results = regex.exec( window.location.href );
+        if( results == null )
+          return null;
+        else
+          return results[1];
+      }
+
+      var getParamFromLocalStorage = function (name){
+        if (!!localStorage.getItem('txlive:selectedlang')) {
+          return JSON.parse(localStorage.getItem('txlive:selectedlang'))
+        }
+        return null;
+      }
+
+      // If param exists, save it the localStorage
+      if (!!getParam('lang')) {
+        localStorage.setItem('txlive:selectedlang', getParam('lang'))
+      }
+
+      // Then, use the param or the localStorage attribute
+      var lang = getParam('lang') || getParamFromLocalStorage('txlive:selectedlang');
+      return lang;
+    }
+
     var blacklist = [
       'climate.globalforestwatch.org',
       // 'fires.globalforestwatch.org',
