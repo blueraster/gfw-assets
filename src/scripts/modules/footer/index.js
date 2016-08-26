@@ -8,12 +8,12 @@ import footerIconsTpl from './footer-icons.tpl';
 
 const sliderPause = 5000;
 const sliderOptions = {
-  infinite: 4,
-  slidesToScroll: 4,
+  infinite: 3,
+  slidesToScroll: 3,
   slideSpeed: 500
 };
 const slideMinWidth = 130;
-const maxSlidesAtOnce = 4;
+const maxSlidesAtOnce = 3;
 
 /**
  * Footer
@@ -29,7 +29,7 @@ class Footer {
     }
 
     /* Number of slides currently shown at once */
-    this.currentSlidesAtOnce = 4;
+    this.currentSlidesAtOnce = 3;
 
     /* We save the handlers binded to the current context to be able to use them
      * later. We can't bind them when assigning them to events because calling
