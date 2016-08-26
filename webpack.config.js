@@ -3,20 +3,7 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
-const prodPlugins = [
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false,
-      dead_code: true,
-      drop_debugger: true,
-      drop_console: true
-    },
-    comments: false
-  }),
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin()
-];
+const SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
 
@@ -42,11 +29,26 @@ module.exports = {
       {test: /\.tpl$/, loader: 'ejs-loader'},
       {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'},
       {test: /\.css$/, loader: 'style!raw'},
-      {test: /\.(eot|ttf|woff2|woff)$/, loader: 'url-loader?prefix=fonts/&context=./src/fonts'}
+      {test: /\.(eot|ttf|woff2|woff)$/, loader: 'url-loader?prefix=fonts/&context=./src/fonts'},
+      {test: /\.png$/, loaders: ['file?name=i/[hash].[ext]']}
     ]
   },
 
-  plugins: process.env.NODE_ENV === 'production' ? prodPlugins : [],
+  plugins: [
+    new SpritesmithPlugin({
+      src: {
+        cwd: path.resolve(__dirname, 'src/images/logos'),
+        glob: '*.png'
+      },
+      target: {
+        image: path.resolve(__dirname, 'src/images/sprites/logos-sprite.png'),
+        css: path.resolve(__dirname, 'src/styles/modules/logos-sprite.scss')
+      },
+      apiOptions: {
+        cssImageRef: "https://cdn.rawgit.com/simbiotica/gfw_assets/39365520305b62793c15efa9fefc712206e21493/images/sprites/logos-sprite.png"
+      }
+    })
+  ],
 
   sassLoader: {
     includePaths: [path.join(__dirname, 'src', 'styles')]
