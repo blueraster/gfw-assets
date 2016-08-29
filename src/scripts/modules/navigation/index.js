@@ -10,11 +10,12 @@ import howtojson from './howto.json';
 import developersjson from './developers.json';
 import firesjson from './fires.json';
 import commoditiesjson from './commodities.json';
+import waterjson from './water.json';
 
 const navigationMenus = {
   'default': globaljson,
   'localhost': globaljson,
-  
+
   // Paths
   'howto': howtojson,
   'developers-corner' : developersjson,
@@ -32,7 +33,8 @@ const navigationMenus = {
   'gfwc-staging.herokuapp.com': climatejson,
 
   // Water
-  'wri-gfw-water.herokuapp.com': globaljson,
+  "water.globalforestwatch.org": waterjson,
+  'water-staging.globalforestwatch.org': waterjson,
 };
 
 
@@ -52,7 +54,7 @@ class Navigation {
   }
 
   render() {
-    this.$el.html(navigationTpl({ 
+    this.$el.html(navigationTpl({
       menu: this.getMenu()
     }));
   }
@@ -63,7 +65,7 @@ class Navigation {
 
     // Develop
     // let hostname = 'staging.globalforestwatch.org';
-    // let path = '/developers-corner';  
+    // let path = '/developers-corner';
 
     if (hostname == 'localhost' || hostname == 'staging.globalforestwatch.org' || hostname == 'www.globalforestwatch.org') {
       return navigationMenus[path] || navigationMenus['default'];
