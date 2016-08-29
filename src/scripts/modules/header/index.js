@@ -297,7 +297,7 @@ class Header {
 
     var blacklist = [
       'climate.globalforestwatch.org',
-      // 'fires.globalforestwatch.org',
+      'water.globalforestwatch.org',
       // 'commodities.globalforestwatch.org'
     ];
 
