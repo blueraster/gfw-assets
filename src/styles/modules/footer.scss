@@ -200,6 +200,18 @@
           @include sprite($airbushover);
         }
       }
+      &.astrodigital {
+        @include sprite($astrodigital);
+        &:hover {
+          @include sprite($astrodigitalhover);
+        }
+      }
+      &.agrosatelite {
+        @include sprite($agrosatelite);
+        &:hover {
+          @include sprite($agrosatelitehover);
+        }
+      }
       &.bei {
         @include sprite($bei);
         &:hover {
@@ -240,6 +252,12 @@
         @include sprite($cartodb);
         &:hover {
           @include sprite($cartodbhover);
+        }
+      }
+      &.cargill {
+        @include sprite($cargill);
+        &:hover {
+          @include sprite($cargillhover);
         }
       }
       &.centerforglobaldevelopment {
@@ -343,6 +361,12 @@
         &:hover {
           @include sprite($ioihover);
         }
+      }
+      &.lapig {
+        @include sprite($lapig);
+        &:hover {
+          @include sprite($lapighover);
+        }        
       }
       &.ministiere {
         @include sprite($ministiere);
