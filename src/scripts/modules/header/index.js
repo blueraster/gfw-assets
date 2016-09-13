@@ -62,7 +62,6 @@ class Header {
     this.$headerSubmenuMore = this.$header.find('#submenuMore');
     this.$headerSubmenuLogin = this.$header.find('#submenuLogin');
 
-
     // Links
     this.$links = this.$header.find('a');
     this.$linksSubmenu = this.$header.find('a');
@@ -103,6 +102,8 @@ class Header {
     this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
 
     this.$header.on('click', '.btn-search', this.toggleSearch.bind(this));
+
+    this.$header.on('click', '#btnTransifexTranslateMobileElement', this.toggleTransifex.bind(this));
 
     // Be careful, this will break down the mobile menus toggle
     this.$header.on('click', '.link-analytics', this.sendAnalyticsEvent.bind(this));
@@ -190,6 +191,19 @@ class Header {
       this.$headerSearchBox.removeClass('-active');
       // Key unbindings
       this.$document.off('keyup.search');
+    }
+  }
+
+  toggleTransifex(e) {
+    var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
+    var $transifexList = this.$header.find('#transifexTranslateMobileElement');
+
+    if($btnTransifex.hasClass('-active')) {
+      $btnTransifex.removeClass('-active');
+      $transifexList.removeClass('-active');
+    } else {
+      $btnTransifex.addClass('-active');
+      $transifexList.addClass('-active');
     }
   }
 
@@ -293,7 +307,9 @@ class Header {
       // Then, use the param or the localStorage attribute
       var lang = getParam('lang') || getParamFromLocalStorage('txlive:selectedlang');
       return lang;
-    }
+    };
+
+    window.liveSettings.picker = (utils.isSmallScreen()) ? '#transifexTranslateMobileElement' : '#transifexTranslateElement';
 
     var blacklist = [
       'climate.globalforestwatch.org',
