@@ -1,5 +1,6 @@
 <div class="m-header-backdrop"></div>
 <ul>
+  <% if (!!transifex) { %>
   <li>
     <h3 id="btnTransifexTranslateMobileElement" class="-dark">
       <span>Language</span>
@@ -7,6 +8,7 @@
     </h3>
     <div id="transifexTranslateMobileElement" class="m-transifex"></div>
   </li>
+  <%}%>
 
   <li>
     <form action="http://www.globalforestwatch.org/search">

@@ -321,7 +321,7 @@ class Header {
     // If true hide transifex element, but keep it working to store the string of the page
     // Then init Google translate plugin
     if (blacklist.indexOf(location.hostname) != -1){
-      var $transifexEl = $gfwdom('#transifexTranslateElement');
+      var $transifexEl = $gfwdom(window.liveSettings.picker);
       $transifexEl.css({
         display: 'none'
       });
