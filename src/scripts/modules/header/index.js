@@ -176,13 +176,13 @@ class Header {
 
   resizeMenu() {
     if (utils.getWindowWidth() < 700) {
-      this.$headerSubmenu.forEach(function(v){
+      this.$header.find('.m-header-submenu').forEach(function(v){
         $gfwdom(v).css({
           height: utils.getWindowHeigth() - 50 + 'px'
         });
       })
     } else {
-      this.$headerSubmenu.forEach(function(v){
+      this.$header.find('.m-header-submenu').forEach(function(v){
         $gfwdom(v).css({ height: 'auto' });
       });
     }
