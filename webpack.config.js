@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const SpritesmithPlugin = require('webpack-spritesmith');
+process.env.BROWSERSLIST_CONFIG = 'browserslist';
 
 module.exports = {
 
