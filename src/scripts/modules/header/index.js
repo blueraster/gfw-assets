@@ -58,6 +58,7 @@ class Header {
     this.$header = $gfwdom('#headerGfw');
     this.$headerSubmenu = this.$header.find('.m-header-submenu');
     this.$headerSubmenuBtns = this.$header.find('.m-header-submenu-btn');
+    this.$headerSubmenuMenuMobile = this.$header.find('#submenuMenuMobile');
     this.$headerSubmenuApp = this.$header.find('#submenuApps');
     this.$headerSubmenuMore = this.$header.find('#submenuMore');
     this.$headerSubmenuLogin = this.$header.find('#submenuLogin');
@@ -97,11 +98,14 @@ class Header {
    * - sendAnalyticsEvent()
    */
   initListeners() {
-    // Mobile menus
+    // Resize
+    $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this))
+    // Menus
     this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
     this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
     this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
 
+    // Search
     this.$header.on('click', '.btn-search', this.toggleSearch.bind(this));
 
     // Be careful, this will break down the mobile menus toggle
@@ -116,14 +120,17 @@ class Header {
       this.hideMenus();
       // Prevent mobile scroll
       if (utils.getWindowWidth() < 850) {
+        this.resizeMenu();
         this.$htmlbody.toggleClass('-no-scroll');
       }
 
-      // Active menu icon
+      // Active menu icon && currentTarget
       $gfwdom(currentTarget).toggleClass('-active')
       $gfwdom(currentTarget).find('svg').toggleClass('-inactive');
+
       // Active menu
-      $gfwdom($gfwdom(currentTarget).data('submenu')).toggleClass('-active');
+      var $current = $gfwdom($gfwdom(currentTarget).data('submenu'));
+      $current.toggleClass('-active');
 
       // Key bindings
       this.$document.on('keyup.apps', e => {
@@ -148,10 +155,11 @@ class Header {
   hideMenus(e) {
     // Allow mobile scroll
     this.$htmlbody.removeClass('-no-scroll');
-    this.$headerSubmenu.removeClass('-active');
-    this.$headerSubmenuApp.removeClass('-active');
-    this.$headerSubmenuMore.removeClass('-active');
-    this.$header.find('#submenuLogin').removeClass('-active');
+    this.$headerSubmenu.removeClass('-active').css({ height: 'auto' });
+    this.$headerSubmenuApp.removeClass('-active').css({ height: 'auto' });
+    this.$headerSubmenuMore.removeClass('-active').css({ height: 'auto' });
+    this.$headerSubmenuMenuMobile.removeClass('-active').css({ height: 'auto' });
+    this.$header.find('#submenuLogin').removeClass('-active').css({ height: 'auto' });
     this.$header.find('.m-header-submenu-btn').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
@@ -163,6 +171,27 @@ class Header {
 
     // Click bindings
     this.$document.off('click.apps');
+  }
+
+  resizeMenu() {
+    if (utils.getWindowWidth() < 700) {
+      this.$header.find('.m-header-submenu').forEach(function(v){
+        $gfwdom(v).css({
+          height: utils.getWindowHeigth() - 50 + 'px'
+        });
+      })
+    } else {
+      this.$header.find('.m-header-submenu').forEach(function(v){
+        $gfwdom(v).css({ height: 'auto' });
+      });
+    }
+
+    if (utils.getWindowWidth() < 850) {
+      this.$headerSubmenuMenuMobile.css({
+        height: utils.getWindowHeigth() - 50 + 'px'
+      });
+    }
+
   }
 
   toggleSearch(e) {

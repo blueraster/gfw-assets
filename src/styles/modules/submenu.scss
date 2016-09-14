@@ -12,6 +12,7 @@
     line-height: 1.25;
     opacity: 0;
     visibility: hidden;
+    display: none;
     box-shadow: $shadow1;
 
     @media (min-width: $br-mobile-portrait) {
@@ -31,6 +32,7 @@
     &.-active {
       opacity: 1;
       visibility: visible;
+      display: block;
     }
 
     > * {
@@ -266,9 +268,9 @@
         max-height: 100%;
         @media (min-width: $br-mobile){
           display: flex;
+          justify-content: space-between;
           position: relative;
           bottom: auto;
-          justify-content: space-between;
         }
 
         > li {
@@ -448,6 +450,7 @@
         font-size: 14px;
         color: $white;
         text-align: center;
+        margin: 0 auto;
         @media (min-width: $br-mobile){
           text-align: left;
         }
@@ -464,7 +467,8 @@
         padding: 20px 40px 40px;
 
         li {
-          width: 250px;
+          width: 100%;
+          max-width: 250px;
           display: block;
           height: 50px;
           text-align: center;
@@ -472,6 +476,7 @@
           position: relative;
           @media (min-width: $br-mobile){
             margin: 0 0 10px;
+            width: 250px;
           }
 
         }
