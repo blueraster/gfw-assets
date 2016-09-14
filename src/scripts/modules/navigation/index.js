@@ -55,7 +55,8 @@ class Navigation {
 
   render() {
     this.$el.html(navigationTpl({
-      menu: this.getMenu()
+      menu: this.getMenu(),
+      transifex: !!window.liveSettings
     }));
   }
 
@@ -64,7 +65,7 @@ class Navigation {
     let path = (!!location.pathname && location.pathname != '/') ? location.pathname.split('/')[1] : null;
 
     // Develop
-    // let hostname = 'staging.globalforestwatch.org';
+    // let hostname = 'climate.globalforestwatch.org';
     // let path = '/developers-corner';
 
     if (hostname == 'localhost' || hostname == 'staging.globalforestwatch.org' || hostname == 'www.globalforestwatch.org') {

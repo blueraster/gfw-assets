@@ -63,7 +63,6 @@ class Header {
     this.$headerSubmenuMore = this.$header.find('#submenuMore');
     this.$headerSubmenuLogin = this.$header.find('#submenuLogin');
 
-
     // Links
     this.$links = this.$header.find('a');
     this.$linksSubmenu = this.$header.find('a');
@@ -107,6 +106,8 @@ class Header {
 
     // Search
     this.$header.on('click', '.btn-search', this.toggleSearch.bind(this));
+
+    this.$header.on('click', '#btnTransifexTranslateMobileElement', this.toggleTransifex.bind(this));
 
     // Be careful, this will break down the mobile menus toggle
     this.$header.on('click', '.link-analytics', this.sendAnalyticsEvent.bind(this));
@@ -222,6 +223,19 @@ class Header {
     }
   }
 
+  toggleTransifex(e) {
+    var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
+    var $transifexList = this.$header.find('#transifexTranslateMobileElement');
+
+    if($btnTransifex.hasClass('-active')) {
+      $btnTransifex.removeClass('-active');
+      $transifexList.removeClass('-active');
+    } else {
+      $btnTransifex.addClass('-active');
+      $transifexList.addClass('-active');
+    }
+  }
+
   sendAnalyticsEvent(e) {
     // TO-DO: Be careful with the links that are links on desktop
     // but buttons on mobile devices
@@ -322,7 +336,9 @@ class Header {
       // Then, use the param or the localStorage attribute
       var lang = getParam('lang') || getParamFromLocalStorage('txlive:selectedlang');
       return lang;
-    }
+    };
+
+    window.liveSettings.picker = (utils.isSmallScreen()) ? '#transifexTranslateMobileElement' : '#transifexTranslateElement';
 
     var blacklist = [
       'climate.globalforestwatch.org',
@@ -334,7 +350,7 @@ class Header {
     // If true hide transifex element, but keep it working to store the string of the page
     // Then init Google translate plugin
     if (blacklist.indexOf(location.hostname) != -1){
-      var $transifexEl = $gfwdom('#transifexTranslateElement');
+      var $transifexEl = $gfwdom(window.liveSettings.picker);
       $transifexEl.css({
         display: 'none'
       });
