@@ -2,7 +2,7 @@
   "name": "gfw-assets",
   "version": "1.0.0",
   "description": "Providing a navigation bar and footer shared by all Global Forest Watch websites, such as GFW, GFW Fires, Commodities, etc.",
-  "main": "Gruntfile.js",
+  "main": "",
   "directories": {
     "test": "test"
   },
