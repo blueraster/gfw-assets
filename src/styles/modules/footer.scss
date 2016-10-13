@@ -5,14 +5,14 @@
   font-feature-settings: "liga" 0;
   // This fixes the ligatures issue in Safari
   -webkit-font-variant-ligatures: no-common-ligatures;
-  
+
   background: $footer-background;
   z-index: 11;
   clear: both;
 
   .m-footer-logos {
     margin: 0 auto;
-    max-width: 700px;    
+    max-width: 700px;
   }
 
   .m-footer-list {
@@ -33,7 +33,7 @@
       ul {
         li {
           margin-bottom: 8px;
-          
+
           &:last-child {
             margin: 0;
           }
@@ -52,18 +52,18 @@
     .sitemap {
       text-align: center;
 
-      a {        
+      a {
         text-align: center;
         display: inline-block;
         border: 1px solid $primary-color;
         border-radius: 20px;
         padding: 10px 75px;
-        margin: 45px auto 0;   
+        margin: 45px auto 0;
         background: $primary-color;
         color: $white;
         font-size: 12px;
         line-height: 1.5;
-        
+
         &:hover {
           background: lighten($primary-color,5%);
         }
@@ -366,7 +366,7 @@
         @include sprite($lapig);
         &:hover {
           @include sprite($lapighover);
-        }        
+        }
       }
       &.ministiere {
         @include sprite($ministiere);
@@ -588,6 +588,12 @@
         @include sprite($zsl);
         &:hover {
           @include sprite($zslhover);
+        }
+      }
+      &.minepat {
+        @include sprite($minepat);
+        &:hover {
+          @include sprite($minepathover);
         }
       }
     }
