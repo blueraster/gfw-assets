@@ -8,11 +8,11 @@
     background: none;
     align-items: center;
     display: flex;
-    height: 35px; 
+    height: 35px;
 
     img {
       display: none;
-    }   
+    }
 
     .goog-te-menu-value {
       color: $light;
@@ -21,7 +21,7 @@
       line-height: 28px;
       position: relative;
       padding-right: 20px;
-      
+
       span {
         margin: 0 3px 0 0px;
       }
@@ -56,7 +56,7 @@
           width: 12px;
           position: absolute;
           top: 50%;
-          margin: -6px 0 0;          
+          margin: -6px 0 0;
         }
       }
     }
@@ -75,7 +75,7 @@
 
     @media (min-width: $br-mobile){
       &.-visible {
-        display: block;  
+        display: block;
       }
     }
 
@@ -133,8 +133,46 @@
         padding: 12px 15px;
         color: $light;
         position: relative;
-        z-index: 1; 
-        text-transform: uppercase;     
+        z-index: 1;
+        text-transform: uppercase;
+
+        &:hover {
+          background: lighten($dark1,5%);
+          color: $white;
+        }
+      }
+    }
+  }
+
+  #transifexTranslateMobileElement {
+    position: relative;
+    height: 100%;
+    font-size: 15px;
+    display: none;
+    align-items: center;
+
+    &.-active {
+      display: block;
+    }
+
+    .txlive-langselector-toggle {
+      display: none;
+    }
+
+    .txlive-langselector-list {
+      display: block;
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0,0);
+      padding: 0;
+      background: $dark1;
+
+      li {
+        padding: 12px 25px;
+        color: $light;
+        position: relative;
+        z-index: 1;
 
         &:hover {
           background: lighten($dark1,5%);

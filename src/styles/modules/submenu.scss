@@ -181,7 +181,6 @@
       padding: 0;
       z-index: 4;
       overflow-y: auto;
-      text-align: center;
 
       @media (min-width: $br-mobile){
         overflow-y: visible;
@@ -219,6 +218,26 @@
         background: #F2F2F3;
         color: $dark;
 
+        &.-dark {
+          background: $dark;
+          color: #F2F2F3;
+
+          svg {
+            position: absolute;
+            top: 20px;
+            right: 23px;
+            width: 14px;
+            height: 14px;
+          }
+        }
+
+        &.-active {
+          svg {
+            transform-origin: 50% 50%;
+            transform: rotate(45deg);
+          }
+        }
+
         @media (min-width: $br-mobile){
           border-top: none;
           font-size: 12px;
@@ -227,7 +246,7 @@
         }
 
         > a, > span {
-          padding: 15px 0;
+          padding: 15px 20px;
           display: block;
           @media (min-width: $br-mobile){
             padding: 0;
@@ -275,6 +294,7 @@
 
         > li {
           background: $white;
+          position: relative;
           @media (min-width: $br-mobile){
             width: 20%;
             padding: 0 25px;
@@ -292,6 +312,9 @@
 
           a {
             color: $dark;
+            padding: 15px 20px;
+            display: block;
+
             &:hover {
               color: $primary-color;
             }
@@ -314,6 +337,10 @@
               &:first-child {
                 margin: 0;
               }
+
+              a {
+                padding: 0 25px;
+              }
             }
           }
         }
@@ -322,7 +349,7 @@
       form {
         button {
           position: absolute;
-          top: 13px;
+          top: 15px;
           right: 20px;
 
           svg {
@@ -335,7 +362,7 @@
           appearance: none;
           box-shadow: none;
           font-family: inherit;
-          font-size: 13px;
+          font-size: 15px;
           margin: 0;
           border: none;
           border-bottom: 1px solid #BBB;

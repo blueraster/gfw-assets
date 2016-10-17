@@ -128,6 +128,7 @@
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://europe.croklaan.com/taking-responsibility" class="ioi"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.janegoodall.org/" class="thejanegoodallinstitute"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Laboratório de Processamento de Imagens e Geoprocessamento" href="https://www.lapig.iesa.ufg.br/lapig/" class="lapig"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.minepat.gov.cm/index.php/en/?lang=en" class="minepat"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Le Ministère des Forêts et de la Faune" href="http://www.minfof.cm/" class="ministiere"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Moises Bertoni" href="http://www.mbertoni.org.py/v1/en" class="moises"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Mongabay" href="http://www.mongabay.com/" class="mongabay"></a></li>
