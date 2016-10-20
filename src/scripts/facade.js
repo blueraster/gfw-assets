@@ -129,8 +129,12 @@ $gfwDom.serialize = (form) => {
 				obj[form.elements[i].name] = form.elements[i].value;
 				break;
 			case 'checkbox':
-			case 'radio':	
-				obj[form.elements[i].name] = form.elements[i].value;
+			case 'radio':
+        if (form.elements[i].checked) {
+          obj[form.elements[i].name] = form.elements[i].value;
+        } else if (!obj[form.elements[i].name]) {
+          obj[form.elements[i].name] = false;
+        }
 				break;
 			case 'file':
 				break;
