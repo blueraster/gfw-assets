@@ -2,7 +2,7 @@
 <ul>
   <% if (!!transifex) { %>
   <li>
-    <h3 id="btnTransifexTranslateMobileElement" class="-dark">
+    <h3 id="btnTransifexTranslateMobileElement" class="-selector">
       <span>Language</span>
       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-plus"></use></svg>
     </h3>
