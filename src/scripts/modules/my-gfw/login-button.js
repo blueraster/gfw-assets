@@ -61,9 +61,9 @@ class LoginButton {
 
   // Require profile completation
   checkCompleteProfile(response) {
-    const profileComplete = response.attributes.profileComplete;
-    if (!profileComplete) {
-      window.location = '/my_gfw';
+    const profileComplete = response.data.attributes.profileComplete;
+    if (!profileComplete && (window.location.pathname.indexOf('my_gfw') === -1)) {
+      window.location.href = '/my_gfw';
     }
   }
 
