@@ -25,6 +25,7 @@ class LoginButton {
     // Comment this if you want to check it locally
     utils.isLoggedIn({
       success: function(response) {
+        this.checkCompleteProfile(response);
         this.loggedIn = true;
         this.render();
         this.setupGoogleAnalytics(response);
@@ -56,6 +57,14 @@ class LoginButton {
     $signin.forEach(function(v) {
       $gfwdom(v).attr('href', utils.getAPIHost(true) + '/' + $gfwdom(v).attr('href'))
     });
+  }
+
+  // Require profile completation
+  checkCompleteProfile(response) {
+    const profileComplete = response.attributes.profileComplete || true;
+    if (!profileComplete) {
+      window.location = '/my_gfw';
+    }
   }
 
   logout(e) {
