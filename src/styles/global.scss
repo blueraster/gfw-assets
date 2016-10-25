@@ -4,7 +4,9 @@ $white: #FFF;
 $black: #000;
 $dark: #555;
 $dark1: #262424;
+$dark2: #6C6C6C;
 $light: #b8bab8;
+$medium-light: #EAE9E9;
 $footer-background: #eceee8;
 
 // animations
@@ -30,7 +32,8 @@ $transition1: all 0.15s $easeInOutSine;
 $transition2: all 0.25s $easeInOutSine;
 $shadow1: 0 0 4px rgba(142, 142, 142, 0.5);
 $border1: #E5E5DF;
-
+$border2: #D6D6D9;
+$border3: #F7F7F7;
 
 // Imports
 @import 'modules/reset.scss';
