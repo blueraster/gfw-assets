@@ -278,6 +278,12 @@
           @include sprite($ciathover);
         }
       }
+      &.conservationinternational {
+        @include sprite($conservationinternational);
+        &:hover {
+          @include sprite($conservationinternationalhover);
+        }
+      }
       &.clua {
         @include sprite($clua);
         &:hover {
@@ -366,6 +372,12 @@
         @include sprite($lapig);
         &:hover {
           @include sprite($lapighover);
+        }
+      }
+      &.minepat {
+        @include sprite($minepat);
+        &:hover {
+          @include sprite($minepathover);
         }
       }
       &.ministiere {
@@ -588,12 +600,6 @@
         @include sprite($zsl);
         &:hover {
           @include sprite($zslhover);
-        }
-      }
-      &.minepat {
-        @include sprite($minepat);
-        &:hover {
-          @include sprite($minepathover);
         }
       }
     }
