@@ -114,6 +114,7 @@
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://foreststreesagroforestry.org/" class="cgiar"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://ciat.cgiar.org/" class="ciat"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Climate and Land Use Alliance" href="http://www.climateandlandusealliance.org/" class="clua"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Conservation international" href="http://www.conservation.org/Pages/default.aspx" class="conservationinternational"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.digitalglobe.com/" class="digitalglobe"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.esri.com/gfw" class="esri"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://earthjournalism.net/" class="ejn"></a></li>
