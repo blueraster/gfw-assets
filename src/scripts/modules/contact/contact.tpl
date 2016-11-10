@@ -21,11 +21,11 @@
             <div class="modal-step-content">
               <form id="contact-form">
                 <div class="field -short">
-                  <label for="contact-email">Email *</label>
+                  <label for="email">Email *</label>
                   <input id="email" type="email" name="email">
                 </div>
                 <div class="field">
-                  <label for="contact-topic">Topic *</label>
+                  <label for="topic">Topic *</label>
                   <div class="m-select">
                     <select id="topic" class="js- chosen-select default required" name="topic" data-placeholder="Please select a topic so that we can best respond">
                       <option value=""></option>
@@ -50,14 +50,14 @@
                   <p>Sign up and become an official GFW tester!</p>
                   <div class="radio-box">
                     <div class="custom-radio">
-                      <input id="contact-signup-true" type="radio" name="signup" value="true">
-                      <label for="contact-signup-true">
+                      <input id="signup-true" type="radio" name="signup" value="true">
+                      <label for="signup-true">
                         <span></span> Yes, sign me up.
                       </label>
                     </div>
                     <div class="custom-radio">
-                      <input id="contact-signup-false" type="radio" name="signup" value="false" checked>
-                      <label for="contact-signup-false">
+                      <input id="signup-false" type="radio" name="signup" value="false" checked>
+                      <label for="signup-false">
                         <span></span> No thanks.
                       </label>
                     </div>

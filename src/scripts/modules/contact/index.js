@@ -102,9 +102,9 @@ class Contact {
     this.$modalStepBtn =   this.$el.find('.modal-step-btn');
 
     this.$form           = this.$el.find('#contact-form');
-    this.$contactEmail   = this.$el.find('#contact-email');
-    this.$contactTopic   = this.$el.find('#contact-topic');
-    this.$contactMessage = this.$el.find('#contact-message');
+    this.$contactEmail   = this.$el.find('#email');
+    this.$contactTopic   = this.$el.find('#topic');
+    this.$contactMessage = this.$el.find('#message');
 
     this.hidden = true;
     this.errors = {};
@@ -123,7 +123,7 @@ class Contact {
 
     this.$el.on('change', 'input, textarea, select', this.changeInput.bind(this));
 
-    this.$el.on('change','#contact-topic', this.changeTopic.bind(this));
+    this.$el.on('change','#topic', this.changeTopic.bind(this));
   }
 
 
