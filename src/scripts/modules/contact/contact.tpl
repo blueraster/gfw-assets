@@ -22,12 +22,12 @@
               <form id="contact-form">
                 <div class="field -short">
                   <label for="contact-email">Email *</label>
-                  <input id="contact-email" type="email" name="contact-email">
+                  <input id="email" type="email" name="email">
                 </div>
                 <div class="field">
                   <label for="contact-topic">Topic *</label>
                   <div class="m-select">
-                    <select id="contact-topic" class="js- chosen-select default required" name="contact-topic" data-placeholder="Please select a topic so that we can best respond">
+                    <select id="topic" class="js- chosen-select default required" name="topic" data-placeholder="Please select a topic so that we can best respond">
                       <option value=""></option>
                       <option value="report-a-bug-or-error-on-gfw">Report a bug or error on GFW</option>
                       <option value="provide-feedback">Provide feedback</option>
@@ -42,21 +42,21 @@
                   </div>
                 </div>
                 <div class="field">
-                  <label for="contact-message">Message *</label>
-                  <textarea id="contact-message" name="contact-message" placeholder="How can we help you?"></textarea>
+                  <label for="message">Message *</label>
+                  <textarea id="message" name="message" placeholder="How can we help you?"></textarea>
                 </div>
                 <div class="field">
                   <h3>INTERESTED IN TESTING NEW FEATURES ON GFW?</h3>
                   <p>Sign up and become an official GFW tester!</p>
                   <div class="radio-box">
                     <div class="custom-radio">
-                      <input id="contact-signup-true" type="radio" name="contact-signup" value="true">
+                      <input id="contact-signup-true" type="radio" name="signup" value="true">
                       <label for="contact-signup-true">
                         <span></span> Yes, sign me up.
                       </label>
                     </div>
                     <div class="custom-radio">
-                      <input id="contact-signup-false" type="radio" name="contact-signup" value="false" checked>
+                      <input id="contact-signup-false" type="radio" name="signup" value="false" checked>
                       <label for="contact-signup-false">
                         <span></span> No thanks.
                       </label>
