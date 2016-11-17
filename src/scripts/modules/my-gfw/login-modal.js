@@ -43,7 +43,9 @@ class LoginModal {
   initLinks() {
     var $signin = this.$el.find('.my-gfw-sign-in');
     $signin.forEach(function(v) {
-      $gfwdom(v).attr('href', utils.getAPIHost() + $gfwdom(v).attr('href'))
+      let link = `${utils.getAPIHost(true) + '/' + $gfwdom(v).attr('href')}`;
+
+      $gfwdom(v).attr('href', link);
     });
   }
 
