@@ -8,9 +8,9 @@ const whitelist = [
   'staging.globalforestwatch.org'
 ];
 const apiUrls = {
-  'www.globalforestwatch.org': 'api.globalforestwatch.org',
-  'gfw-nav.herokuapp.com': 'http://staging.api-staging.globalforestwatch.org',
-  'staging.globalforestwatch.org': 'http://staging.api-staging.globalforestwatch.org'
+  'www.globalforestwatch.org': 'https://api.globalforestwatch.org',
+  'gfw-nav.herokuapp.com': 'http://staging-api.globalforestwatch.org',
+  'staging.globalforestwatch.org': 'http://staging-api.globalforestwatch.org'
 };
 
 const blacklist = [
@@ -79,7 +79,7 @@ const utils = {
     let currentLocation = window.location.hostname;
     let apiLocation = apiUrls[currentLocation] || apiUrls[defaultGfwDomain];
 
-    return `http://${apiLocation}`;
+    return apiLocation;
   },
 
   isLoggedIn(options) {
@@ -115,8 +115,8 @@ const utils = {
         is_white = whitelist.indexOf(hostname) !== -1,
         is_black;
 
-    // check is the hostname is inside the blacklist or 
-    // if it has 'globalforestwatch.org' in its hostname        
+    // check is the hostname is inside the blacklist or
+    // if it has 'globalforestwatch.org' in its hostname
     if (blacklist.indexOf(hostname) === -1) {
       is_black = (hostname.indexOf('globalforestwatch.org') === -1);
     } else {
