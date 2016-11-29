@@ -157,14 +157,16 @@ class Contact {
   showNewsletter(e) {
     e && e.preventDefault() && e.stopPropagation();
     this.changeStep('newsletter');
-    this.show();
+    this.hidden = false;
+    this.toggle();
+    window.history.pushState('Show newsletter', document.title, this.toggleParam('show_newsletter',true));
   }
 
   hide(e) {
     e && e.preventDefault();
     this.hidden = true;
     this.toggle();
-    window.history.pushState('Hide contact', document.title, this.toggleParam('show_contact',null));
+    this.removeParamsFromURL();
 
     //Give back scroll beyond modal window.
     // this.$htmlbody.removeClass('-no-scroll');
@@ -179,6 +181,17 @@ class Contact {
     //Prevent scroll beyond modal window.
     // this.$htmlbody.toggleClass('-no-scroll', !this.hidden);
     this.$contentWrapper[0].scrollTop = 0;
+  }
+
+  removeParamsFromURL() {
+    const params = ['show_contact', 'show_newsletter'];
+    let url = window.location.href;
+
+    for (var x = 0; x < params.length; x++) {
+      url = this.toggleParam(params[x], null, url);
+    }
+
+    window.history.pushState('Hide params', document.title, url);
   }
 
 
@@ -214,8 +227,12 @@ class Contact {
    */
   checkForParams() {
     const params = this.getQueryParams();
-    if (!!params && !!params['show_contact']) {
-      this.show();
+    if (!!params) {
+      if (!!params['show_contact']) {
+        this.show();
+      } else if (!!params['show_newsletter']) {
+        this.showNewsletter();
+      }
     }
   }
 
