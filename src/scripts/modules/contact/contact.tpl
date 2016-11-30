@@ -90,7 +90,7 @@
           <li class="modal-step" data-step="newsletter">
             <header>
               <h2>Updates and newsletters</h2>
-              <h3>Yes! Subscribe me to the Global Forest Watch Newsletter!</h3>
+              <h3>Subscribe me to the GFW Newsletter!</h3>
             </header>
             <div class="modal-step-content">
               <iframe scrolling="no" src="http://connect.wri.org/l/120942/2016-02-08/2trw5q" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
