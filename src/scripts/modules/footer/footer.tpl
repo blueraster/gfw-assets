@@ -24,6 +24,7 @@
           <li><a href="http://blog.globalforestwatch.org/" target="_blank">BLOG</a></li>
           <li><a href="/stayinformed/crowdsourced-stories">STORIES</a></li>
           <li><a href="/small-grants-fund">SMALL GRANTS FUND</a></li>
+          <li><a href="/my_gfw/subscriptions/new">RECEIVE FOREST LOSS ALERTS</a></li>
         </ul>
       </div>
       <div class="sitemap">
