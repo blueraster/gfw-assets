@@ -4,10 +4,11 @@
   <span>My GFW</span>
 </a>
 <div id="submenuLogin" class="m-header-submenu -default -more -right">
-	<ul class="more-list">
-	  <li><a target="_blank" href="/my_gfw/subscriptions"><span>My Subscriptions</span></a></li>
-	  <li><a target="_blank" href="/my_gfw/stories"><span>My Stories</span></a></li>
-	  <li><a target="_blank" href="/my_gfw"><span>My Profile</span></a></li>
-	  <li><a href="/auth/logout" id="my-gfw-sign-out"><span>Log Out</span></a></li>
-	</ul>
+  <ul class="more-list">
+    <li><a target="_blank" href="/my_gfw/subscriptions"><span>My Subscriptions</span></a></li>
+    <li><a target="_blank" href="/my_gfw/stories"><span>My Stories</span></a></li>
+    <li><a target="_blank" href="/my_gfw"><span>My Profile</span></a></li>
+    <li><a target="_blank" href="/my_gfw/subscriptions/new"><span>Receive forest loss alerts</span></a></li>
+    <li><a href="/auth/logout" id="my-gfw-sign-out"><span>Log Out</span></a></li>
+  </ul>
 </div>
