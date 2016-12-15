@@ -70,13 +70,13 @@
           <!-- STEP SUCCESS -->
           <li class="modal-step" data-step="success">
             <header>
-              <h2>Thank you for contacting us!</h2>
-              <h3>Someone will be in touch shortly.</h3>
-            </header>
+              <h2>Thank you for contacting Global Forest Watch! Check your inbox for a confirmation email.</h2>
+              <h3>Interested in getting news and updates from us?</h3>
 
-            <div class="modal-step-content">
-              <iframe src="http://connect.wri.org/l/120942/2016-02-08/2trw5q" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
-            </div>
+              <div class="modal-step-content">
+                <a class="btn green uppercase js-newsletter-sign-up" href="/?show_newsletter=true">Sign up for our newsletter</a>
+              </div>
+            </header>
           </li>
 
           <!-- STEP ERROR -->
