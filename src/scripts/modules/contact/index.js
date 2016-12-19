@@ -256,6 +256,7 @@ class Contact {
     this.$spinner.addClass('-active');
     var xhr = new XMLHttpRequest();
     xhr.open('POST', utils.getAPIHost(true) + '/form/contact-us');
+    xhr.withCredentials = true;
     xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
     xhr.onload = function() {
