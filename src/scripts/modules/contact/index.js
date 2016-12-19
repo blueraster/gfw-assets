@@ -124,6 +124,9 @@ class Contact {
     this.$el.on('change', 'input, textarea, select', this.changeInput.bind(this));
 
     this.$el.on('change','#topic', this.changeTopic.bind(this));
+
+    // Newsletter
+    this.$el.on('click', '.js-newsletter-sign-up', this.showNewsletter.bind(this));
   }
 
 
@@ -253,6 +256,7 @@ class Contact {
     this.$spinner.addClass('-active');
     var xhr = new XMLHttpRequest();
     xhr.open('POST', utils.getAPIHost(true) + '/form/contact-us');
+    xhr.withCredentials = true;
     xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
     xhr.onload = function() {
@@ -275,8 +279,8 @@ class Contact {
 
 
 
-    // // Develop Send request
-    // // Comment this code if this is going to pro
+    // Develop Send request
+    // Comment this code if this is going to pro
     // if (true) {
     //   this.changeStep('success');
     //   this.$spinner.removeClass('-active');
