@@ -275,7 +275,9 @@ class Contact {
       this.$spinner.removeClass('-active');
     }
 
-    xhr.send(JSON.stringify($gfwdom.serialize(this.$form[0])));
+    const form = $gfwdom.serialize(this.$form[0]);
+    form.language = utils.getTransifexLanguage();
+    xhr.send(JSON.stringify(form));
 
 
 
