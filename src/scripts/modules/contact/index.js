@@ -41,18 +41,18 @@ const topics = {
   'general-inquiry': {
     name: 'General inquiry',
     placeholder: 'How can we help you?',
-  },        
+  },
 }
 
 const constraints = {
-  'contact-email': {
+  'email': {
     presence: true,
     email: true
   },
-  'contact-topic': {
+  'topic': {
     presence: true
   },
-  'contact-message': {
+  'message': {
     presence: true
   }
 };
@@ -102,9 +102,9 @@ class Contact {
     this.$modalStepBtn =   this.$el.find('.modal-step-btn');
 
     this.$form           = this.$el.find('#contact-form');
-    this.$contactEmail   = this.$el.find('#contact-email');
-    this.$contactTopic   = this.$el.find('#contact-topic');
-    this.$contactMessage = this.$el.find('#contact-message');
+    this.$contactEmail   = this.$el.find('#email');
+    this.$contactTopic   = this.$el.find('#topic');
+    this.$contactMessage = this.$el.find('#message');
 
     this.hidden = true;
     this.errors = {};
@@ -120,10 +120,13 @@ class Contact {
 
     this.$el.on('click', '.js-btn-close', this.hide.bind(this));
     this.$el.on('click', '.js-modal-close', this.hide.bind(this));
-    
+
     this.$el.on('change', 'input, textarea, select', this.changeInput.bind(this));
-    
-    this.$el.on('change','#contact-topic', this.changeTopic.bind(this));
+
+    this.$el.on('change','#topic', this.changeTopic.bind(this));
+
+    // Newsletter
+    this.$el.on('click', '.js-newsletter-sign-up', this.showNewsletter.bind(this));
   }
 
 
@@ -252,11 +255,12 @@ class Contact {
     // Send request
     this.$spinner.addClass('-active');
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', utils.getAPIHost() + '/emails');
+    xhr.open('POST', utils.getAPIHost(true) + '/form/contact-us');
+    xhr.withCredentials = true;
     xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
     xhr.onload = function() {
-      if (xhr.status === 200 || xhr.status === 201) {
+      if (xhr.status === 200 || xhr.status === 201 || xhr.status === 204) {
         this.changeStep('success');
         this.resetForm();
         this.$spinner.removeClass('-active');
@@ -271,12 +275,14 @@ class Contact {
       this.$spinner.removeClass('-active');
     }
 
-    xhr.send(JSON.stringify($gfwdom.serialize(this.$form[0])));
+    const form = $gfwdom.serialize(this.$form[0]);
+    form.language = utils.getTransifexLanguage();
+    xhr.send(JSON.stringify(form));
 
 
 
-    // // Develop Send request
-    // // Comment this code if this is going to pro
+    // Develop Send request
+    // Comment this code if this is going to pro
     // if (true) {
     //   this.changeStep('success');
     //   this.$spinner.removeClass('-active');
@@ -296,14 +302,14 @@ class Contact {
       $label.addClass('-error');
     }
   }
-  
+
   resetForm() {
     this.$form.find('input, textarea, select').val(null);
   }
 
   validate(e) {
     e && e.preventDefault();
-    let attributes = $gfwdom.serialize(this.$form[0]);    
+    let attributes = $gfwdom.serialize(this.$form[0]);
 
     // Validate form, if is valid the response will be undefined
     this.errors = validate(attributes, constraints);
@@ -315,7 +321,7 @@ class Contact {
     if (!!errors) {
       this.errors[name] = errors[0];
     } else {
-      this.errors && this.errors[name] && delete this.errors[name];  
+      this.errors && this.errors[name] && delete this.errors[name];
     }
   }
 
@@ -348,7 +354,7 @@ class Contact {
 
   changeTopic(e) {
     var topic = e.currentTarget.value;
-    if (!!topic) {    
+    if (!!topic) {
       var placeholder = topics[topic]['placeholder'];
       this.$contactMessage.attr('placeholder', placeholder);
     }

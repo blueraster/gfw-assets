@@ -9,8 +9,8 @@ const whitelist = [
 ];
 const apiUrls = {
   'www.globalforestwatch.org': 'https://api.globalforestwatch.org',
-  'gfw-nav.herokuapp.com': 'http://staging-api.globalforestwatch.org',
-  'staging.globalforestwatch.org': 'http://staging-api.globalforestwatch.org'
+  'gfw-nav.herokuapp.com': 'https://staging-api.globalforestwatch.org',
+  'staging.globalforestwatch.org': 'https://staging-api.globalforestwatch.org'
 };
 
 const blacklist = [
@@ -21,6 +21,7 @@ const blacklist = [
 ]
 
 const defaultGfwDomain = whitelist[0];
+const defaultLanguage = 'en';
 
 /**
  * Utils
@@ -102,6 +103,18 @@ const utils = {
       options.failure();
     }
     xhr.send();
+  },
+
+  /**
+   * Returns the current language from Transifex
+   * @returns {string} language selected
+   */
+  getTransifexLanguage() {
+    var lang = defaultLanguage;
+    if (window.Transifex) {
+      lang = window.Transifex.live.getSelectedLanguageCode();
+    }
+    return lang;
   },
 
   // STATES

@@ -21,7 +21,7 @@ describe('Utils', function () {
     });
 
     it('getAPIHost is a string', function () {
-      expect(utils.getAPIHost()).to.be.a('string').to.equal('http://api.globalforestwatch.org');
+      expect(utils.getAPIHost()).to.be.a('string').to.equal('https://api.globalforestwatch.org');
     });
 
     it('isSmallScreen is false', function () {
@@ -98,5 +98,3 @@ describe('Utils', function () {
   });
 
 });
-
-
