@@ -8,7 +8,7 @@ const whitelist = [
   'staging.globalforestwatch.org'
 ];
 const apiUrls = {
-  'www.globalforestwatch.org': 'https://api.globalforestwatch.org',
+  'www.globalforestwatch.org': 'https://production-api.globalforestwatch.org',
   'gfw-nav.herokuapp.com': 'https://staging-api.globalforestwatch.org',
   'staging.globalforestwatch.org': 'https://staging-api.globalforestwatch.org'
 };
