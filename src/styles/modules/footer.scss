@@ -602,6 +602,12 @@
           @include sprite($zslhover);
         }
       }
+      &.conafor {
+        @include sprite($conafor);
+        &:hover {
+          @include sprite($conaforhover);
+        }
+      }
     }
   }
 
