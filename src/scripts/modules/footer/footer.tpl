@@ -162,6 +162,8 @@
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Woods Hole Research Center" href="http://www.whrc.org/" class="whrc"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Alliance for Zero Extinction" href="http://www.zeroextinction.org/" class="zeroextinction"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.zsl.org/" class="zsl"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.conafor.gob.mx/" class="conafor"></a></li>
+          <li class="js_slide"></li>
         </ul>
       </div>
       <span class="js_next next"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f-arrow-right"></use></svg></span>
