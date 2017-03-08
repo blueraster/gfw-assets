@@ -150,6 +150,14 @@
           padding: 16px 15px;
         }
 
+        .-svg {
+          display: flex;
+
+          &.-inactive {
+            display: none;
+          }
+        }
+
         &.-active {
           // background: $white;
           z-index: 5;
@@ -193,10 +201,11 @@
 
         }
 
-        > svg {
+        svg {
           display: block;
           height: 18px;
           margin: 0 auto;
+          pointer-events: none;
 
           @media (min-width: $br-mobile){
             &.-desktop-hide {
@@ -208,10 +217,6 @@
             @media (min-width: $br-mobile){
               height: 12px;
             }
-          }
-
-          &.-inactive {
-            display: none;
           }
         }
       }
@@ -245,12 +250,20 @@
           background: $white;
         }
 
+        .-svg {
+          display: flex;
 
-        > svg {
+          &.-inactive {
+            display: none;
+          }
+        }
+
+        svg {
           display: block;
           height: 18px;
           margin: 0 auto;
           fill: $dark1;
+          pointer-events: none;
 
           &.-inactive {
             display: none;

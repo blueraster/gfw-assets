@@ -1,6 +1,10 @@
 <a href="/my_gfw" target="_blank" title="My GFW" class="my-gfw-loggedin m-header-submenu-btn" data-submenu="#submenuLogin">
-  <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
-  <svg class="-inactive -close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+  <div class="-svg">
+    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
+  </div>
+  <div class="-inactive -svg">
+    <svg class="-close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+  </div>
   <span>My GFW</span>
 </a>
 <div id="submenuLogin" class="m-header-submenu -default -more -right">

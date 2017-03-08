@@ -6,9 +6,7 @@
  * @param  {window} root
  */
 
-if (!window._babelPolyfill) {
-  require('babel-polyfill');
-}
+require('core-js/fn/array/from');
 
 import Header from './scripts/modules/header';
 import Footer from './scripts/modules/footer';
