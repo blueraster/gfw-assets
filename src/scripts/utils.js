@@ -17,7 +17,7 @@ const blacklist = [
   'climate.globalforestwatch.org',
   'commodities.globalforestwatch.org',
   'fires.globalforestwatch.org',
-  'water.globalforestwatch.org',
+  'water.globalforestwatch.org'
 ]
 
 const defaultGfwDomain = whitelist[0];

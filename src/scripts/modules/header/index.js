@@ -77,8 +77,9 @@ class Header {
    * Set Params
    */
   setParams() {
+    var $parent = document.querySelector('#loader-gfw');
     this.params = {
-      current: this.$script.data('current')
+      current: $parent.getAttribute('data-current')
     }
   }
 
@@ -86,7 +87,9 @@ class Header {
    * Set current depending on the script data current
    */
   initHighlightCurrent() {
-    this.$header.find(this.params.current).addClass('-current');
+    if (this.params && this.params.current) {
+      this.$header.find(this.params.current).addClass('-current');
+    }
   }
 
   /**
@@ -127,10 +130,10 @@ class Header {
 
       // Active menu icon && currentTarget
       $gfwdom(currentTarget).toggleClass('-active')
-      $gfwdom(currentTarget).find('svg').toggleClass('-inactive');
+      $gfwdom(currentTarget).find('.-svg').toggleClass('-inactive');
 
       // Active menu
-      var $current = $gfwdom($gfwdom(currentTarget).data('submenu'));
+      var $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
       $current.toggleClass('-active');
 
       // Key bindings
@@ -164,7 +167,7 @@ class Header {
     this.$header.find('.m-header-submenu-btn').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
-        $gfwdom(v).find('svg').toggleClass('-inactive');
+        $gfwdom(v).find('.-svg').toggleClass('-inactive');
       }
     });
     // Key bindings
