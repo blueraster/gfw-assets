@@ -11,7 +11,9 @@
       <!-- // translation // -->
       <li id="headerSearchBox" class="m-header-item -default -search -only-desktop shape-search">
         <a class="btn-search" title="Search GFW website" href="#">
-          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg>
+          <div class="-svg">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg>
+          </div>
           <span>Search</span>
         </a>
         <!-- SEARCH -->
@@ -25,14 +27,20 @@
       </li>
       <li class="m-header-item -default -only-desktop shape-howto">
         <a class="link-analytics" title="How to" href="/howto">
-          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg>
+          <div class="-svg">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg>
+          </div>
           <span>How to</span>
         </a>
       </li>
       <li class="m-header-item -default shape-mygfw" id="my-gfw-container">
         <a href="/login" id="submenuBtnLogin" title="Sign in" data-submenu="#submenuLogin" class="m-header-submenu-btn">
-          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
-          <svg class="-inactive -close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <div class="-svg">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
+          </div>
+          <div class="-inactive -svg">
+            <svg class="-close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          </div>
           <span>Log in <em class="-only-desktop">to My GFW</em></span>
         </a>
 
@@ -47,8 +55,12 @@
       </li>
       <li class="m-header-item -default -static shape-apps">
         <a id="btnSubmenuApps" data-submenu="#submenuApps" title="Apps" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
-          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
-          <svg class="-inactive -close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <div class="-svg">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-apps"></use></svg>
+          </div>
+          <div class="-inactive -svg">
+            <svg class="-close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          </div>
           <span>Apps</span>
         </a>
         <!-- APPS -->
@@ -121,8 +133,12 @@
       </li>
       <li class="m-header-item -default shape-more">
         <a id="btnSubmenuMore" data-submenu="#submenuMore" title="More in GFW" data-stopnavigation="true" class="m-header-submenu-btn" href="/">
-          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
-          <svg class="-inactive -close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <div class="-svg">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
+          </div>
+          <div class="-inactive -svg">
+            <svg class="-close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          </div>
           <span>More <em class="-only-desktop">in GFW</em></span>
         </a>
         <div id="submenuMore" class="m-header-submenu -more -default -right">
@@ -145,8 +161,12 @@
     <ul class="m-header-nav -mobile">
       <li class="m-header-item -mobile shape-menu">
         <a id="btnSubmenuMenuMobile" data-submenu="#submenuMenuMobile" class="m-header-submenu-btn" href="/">
-          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-menu"></use></svg>
-          <svg class="-inactive -desktop-hide"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <div class="-svg">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-menu"></use></svg>
+          </div>
+          <div class="-inactive -svg">
+            <svg class="-desktop-hide -close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          </div>
           <!-- <span>Menu</span> -->
         </a>
         <!-- HOME SUBMENU -->
