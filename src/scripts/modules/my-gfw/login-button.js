@@ -55,7 +55,7 @@ class LoginButton {
   initLoginLinks() {
     var $signin = this.$el.find('.my-gfw-sign-in');
     $signin.forEach(function(v) {
-      let link = `${utils.getAPIHost(true) + '/' + $gfwdom(v).attr('href')}`;
+      let link = `${utils.getAPIHost() + '/' + $gfwdom(v).attr('href')}`;
 
       $gfwdom(v).attr('href', link);
     });
@@ -73,7 +73,7 @@ class LoginButton {
   logout(e) {
     e && e.preventDefault();
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `${utils.getAPIHost(true)}/auth/logout`, true);
+    xhr.open('GET', `${utils.getAPIHost()}/auth/logout`, true);
     xhr.withCredentials = true;
     xhr.onload = () => {
       const responseStatus = xhr.status;

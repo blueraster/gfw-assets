@@ -7,6 +7,9 @@ const whitelist = [
   'gfw-nav.herokuapp.com',
   'staging.globalforestwatch.org'
 ];
+
+const apiVersion = 'v1';
+
 const apiUrls = {
   'www.globalforestwatch.org': 'https://production-api.globalforestwatch.org',
   'gfw-nav.herokuapp.com': 'https://staging-api.globalforestwatch.org',
@@ -68,24 +71,22 @@ const utils = {
     return `http://${currentLocation}`;
   },
 
-  getAPIHost(v2=false) {
-    if (window.gfw && window.gfw.config) {
-      if (v2 === true) {
-        return window.gfw.config.GFW_API_HOST_NEW_API || window.gfw.config.GFW_API_HOST;
-      } else {
-        return window.gfw.config.GFW_API_HOST;
-      }
-    }
-
+  getAPIHost(versioned=false) {
     let currentLocation = window.location.hostname;
     let apiLocation = apiUrls[currentLocation] || apiUrls[defaultGfwDomain];
+
+    if (versioned) {
+      return `${apiLocation}/${apiVersion}`;
+    } else {
+      return apiLocation;
+    }
 
     return apiLocation;
   },
 
   isLoggedIn(options) {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `${this.getAPIHost(true)}/user`, true);
+    xhr.open('GET', `${this.getAPIHost()}/user`, true);
     xhr.withCredentials = true;
     xhr.onload = () => {
       const responseStatus = xhr.status;
