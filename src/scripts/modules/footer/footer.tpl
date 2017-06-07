@@ -115,6 +115,7 @@
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://foreststreesagroforestry.org/" class="cgiar"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://ciat.cgiar.org/" class="ciat"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Climate and Land Use Alliance" href="http://www.climateandlandusealliance.org/" class="clua"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.conafor.gob.mx/" class="conafor"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Conservation international" href="http://www.conservation.org" class="conservationinternational"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.digitalglobe.com/" class="digitalglobe"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.esri.com/gfw" class="esri"></a></li>
@@ -162,7 +163,6 @@
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Woods Hole Research Center" href="http://www.whrc.org/" class="whrc"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Alliance for Zero Extinction" href="http://www.zeroextinction.org/" class="zeroextinction"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.zsl.org/" class="zsl"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.conafor.gob.mx/" class="conafor"></a></li>
           <li class="js_slide"></li>
         </ul>
       </div>
