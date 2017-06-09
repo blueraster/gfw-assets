@@ -608,6 +608,30 @@
           @include sprite($conaforhover);
         }
       }
+      &.idb {
+        @include sprite($idb);
+        &:hover {
+          @include sprite($idbhover);
+        }
+      }
+      &.haka {
+        @include sprite($haka);
+        &:hover {
+          @include sprite($hakahover);
+        }
+      }
+      &.macarthur {
+        @include sprite($macarthur);
+        &:hover {
+          @include sprite($macarthurhover);
+        }
+      }
+      &.wilburforce {
+        @include sprite($wilburforce);
+        &:hover {
+          @include sprite($wilburforcehover);
+        }
+      }
     }
   }
 
