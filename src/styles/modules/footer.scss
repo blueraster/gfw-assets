@@ -278,6 +278,12 @@
           @include sprite($ciathover);
         }
       }
+      &.conafor {
+        @include sprite($conafor);
+        &:hover {
+          @include sprite($conaforhover);
+        }
+      }
       &.conservationinternational {
         @include sprite($conservationinternational);
         &:hover {
@@ -344,10 +350,22 @@
           @include sprite($googlehover);
         }
       }
+      &.haka {
+        @include sprite($haka);
+        &:hover {
+          @include sprite($hakahover);
+        }
+      }
       &.icf {
         @include sprite($icf);
         &:hover {
           @include sprite($icfhover);
+        }
+      }
+      &.idb {
+        @include sprite($idb);
+        &:hover {
+          @include sprite($idbhover);
         }
       }
       &.imazon {
@@ -372,6 +390,12 @@
         @include sprite($lapig);
         &:hover {
           @include sprite($lapighover);
+        }
+      }
+      &.macarthur {
+        @include sprite($macarthur);
+        &:hover {
+          @include sprite($macarthurhover);
         }
       }
       &.minepat {
@@ -584,6 +608,12 @@
           @include sprite($whrchover);
         }
       }
+      &.wilburforce {
+        @include sprite($wilburforce);
+        &:hover {
+          @include sprite($wilburforcehover);
+        }
+      }
       &.wri {
         @include sprite($wri);
         &:hover {
@@ -600,12 +630,6 @@
         @include sprite($zsl);
         &:hover {
           @include sprite($zslhover);
-        }
-      }
-      &.conafor {
-        @include sprite($conafor);
-        &:hover {
-          @include sprite($conaforhover);
         }
       }
     }
