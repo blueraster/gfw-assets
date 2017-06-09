@@ -125,12 +125,15 @@
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.genfound.org/" class="generation"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://globalforestwatch.ca/" class="globalforestwatchcanada"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://earthengine.google.org/" class="google"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.haka.or.id/" class="haka"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.icf.gob.hn/" class="icf"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.iadb.org/en/inter-american-development-bank,2837.html" class="idb"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.imazon.org.br/pagina-inicial-en?set_language=en&amp;cl=en" class="imazon"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.inab.gob.gt/" class="inab"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://europe.croklaan.com/taking-responsibility" class="ioi"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.janegoodall.org/" class="thejanegoodallinstitute"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Laboratório de Processamento de Imagens e Geoprocessamento" href="https://www.lapig.iesa.ufg.br/lapig/" class="lapig"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.macfound.org/" class="macarthur"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.minepat.gov.cm/index.php/en/?lang=en" class="minepat"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Le Ministère des Forêts et de la Faune" href="http://www.minfof.cm/" class="ministiere"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Moises Bertoni" href="http://www.mbertoni.org.py/v1/en" class="moises"></a></li>
@@ -161,6 +164,7 @@
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="https://www.urthecast.com/" class="urthecast"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://vizzuality.com/" class="vizzuality"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Woods Hole Research Center" href="http://www.whrc.org/" class="whrc"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.wilburforce.org/" class="wilburforce"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="Alliance for Zero Extinction" href="http://www.zeroextinction.org/" class="zeroextinction"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.zsl.org/" class="zsl"></a></li>
           <li class="js_slide"></li>
