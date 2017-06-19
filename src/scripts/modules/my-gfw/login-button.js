@@ -70,7 +70,7 @@ class LoginButton {
       'my_gfw/subscriptions/new',
       'stories/new'
     ];
-    if (!profileComplete && (pathsRequireCompletion.indexOf(window.location.pathname) > -1))
+    if (!profileComplete && (pathsRequireCompletion.indexOf(window.location.pathname) > -1)) {
       window.location.href = '/my_gfw';
     }
   }
