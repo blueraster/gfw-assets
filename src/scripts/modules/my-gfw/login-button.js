@@ -65,7 +65,14 @@ class LoginButton {
   checkCompleteProfile(response) {
     const profileComplete = response.data !== null &&
       response.data.attributes.profileComplete !== false;
-    if (!profileComplete && (window.location.pathname.indexOf('my_gfw') === -1)) {
+    // Only require from specific paths;
+    const pathsRequireCompletion = [
+      '/my_gfw/subscriptions/new',
+      '/stories/new'
+    ];
+    if (!profileComplete &&
+      $.inArray(window.location.pathname, pathsRequireCompletion) !== -1
+    ) {
       window.location.href = '/my_gfw';
     }
   }
