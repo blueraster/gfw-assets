@@ -66,11 +66,11 @@ class LoginButton {
     const profileComplete = response.data !== null &&
       response.data.attributes.profileComplete !== false;
     // Only require from specific paths;
-    const pathsRequireCompletion = [
-      'my_gfw/subscriptions/new',
-      'stories/new'
-    ];
-    if (!profileComplete && (pathsRequireCompletion.indexOf(window.location.pathname) > -1)) {
+    const pathsRequireCompletion = new Set([
+      '/my_gfw/subscriptions/new',
+      '/stories/new'
+    ]);
+    if (!profileComplete && pathsRequireCompletion.has(window.location.pathname)) {
       window.location.href = '/my_gfw';
     }
   }
