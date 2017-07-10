@@ -15,21 +15,21 @@
 
     <ul class="my-gfw-authentication">
       <li class="my-gfw-sign-in-twitter">
-        <a href="/auth/twitter" class="my-gfw-sign-in">
+        <a href="/auth/twitter?applications=gfw" class="my-gfw-sign-in">
           <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-twitter"></use></svg>
           Log in with Twitter
         </a>
       </li>
 
       <li class="my-gfw-sign-in-facebook">
-        <a href="/auth/facebook" class="my-gfw-sign-in">
+        <a href="/auth/facebook?applications=gfw" class="my-gfw-sign-in">
           <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-facebook"></use></svg>
           Log in with Facebook
         </a>
       </li>
 
       <li class="my-gfw-sign-in-google">
-        <a href="/auth/google" class="my-gfw-sign-in">
+        <a href="/auth/google?applications=gfw" class="my-gfw-sign-in">
           <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-googleplus"></use></svg>
           Log in with Google
         </a>
