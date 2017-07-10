@@ -22,7 +22,7 @@
     </li>
 
     <li class="my-gfw-sign-in-google">
-      <a href="/auth/google" class="my-gfw-sign-in">
+      <a href="/auth/google?applications=gfw" class="my-gfw-sign-in">
         <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-googleplus"></use></svg>
         Log in with Google
       </a>
