@@ -47,9 +47,9 @@
         <div id="submenuLogin" class="m-header-submenu -default -right -login">
           <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
           <ul>
-            <li class="my-gfw-sign-in-twitter"><a href="auth/twitter" class="my-gfw-sign-in">Log in with Twitter</a></li>
-            <li class="my-gfw-sign-in-facebook"><a href="auth/facebook" class="my-gfw-sign-in">Log in with Facebook</a></li>
-            <li class="my-gfw-sign-in-google"><a href="auth/google" class="my-gfw-sign-in">Log in with Google</a></li>
+            <li class="my-gfw-sign-in-twitter"><a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">Log in with Twitter</a></li>
+            <li class="my-gfw-sign-in-facebook"><a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">Log in with Facebook</a></li>
+            <li class="my-gfw-sign-in-google"><a href="auth/google?applications=gfw" class="my-gfw-sign-in">Log in with Google</a></li>
           </ul>
         </div>
       </li>
