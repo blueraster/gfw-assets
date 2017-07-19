@@ -1,11 +1,8 @@
 'use strict';
-
 import $gfwdom from '../../facade';
 import utils from '../../utils';
-
 import headerTpl from './header.tpl';
 import headerIconsTpl from './header-icons.tpl';
-
 import LoginButton from '../my-gfw/login-button';
 import Navigation from '../navigation';
 
@@ -14,6 +11,7 @@ import Navigation from '../navigation';
  * @param  {window} root
  * @return {Class}
  */
+
 class Header {
 
   constructor() {
@@ -35,7 +33,6 @@ class Header {
 
     this.initTranslate();
 
-    this.initLinksUrls();
     this.initMyGFW();
     this.initNavigation();
 
@@ -56,21 +53,9 @@ class Header {
 
     // Header
     this.$header = $gfwdom('#headerGfw');
-    this.$headerSubmenu = this.$header.find('.m-header-submenu');
-    this.$headerSubmenuBtns = this.$header.find('.m-header-submenu-btn');
-    this.$headerSubmenuMenuMobile = this.$header.find('#submenuMenuMobile');
-    this.$headerSubmenuApp = this.$header.find('#submenuApps');
-    this.$headerSubmenuMore = this.$header.find('#submenuMore');
-    this.$headerSubmenuLogin = this.$header.find('#submenuLogin');
+    this.subMenu = this.$header.find('.m-header-sub-menu-container');
+    this.navOptions = this.$header.find('.nav-options');
 
-    // Links
-    this.$links = this.$header.find('a');
-    this.$linksSubmenu = this.$header.find('a');
-
-    // Search
-    this.$headerSearchBox = this.$header.find('#headerSearchBox');
-    this.$headerSearch = this.$header.find('.m-search');
-    this.$headerSearchInput = this.$header.find('#search-input');
   };
 
   /**
@@ -100,20 +85,17 @@ class Header {
    * - sendAnalyticsEvent()
    */
   initListeners() {
-    // Resize
-    $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this))
     // Menus
-    this.$header.on('click', '.m-header-submenu-btn', this.showMenu.bind(this));
-    this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
-    this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
+    this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
 
-    // Search
-    this.$header.on('click', '.btn-search', this.toggleSearch.bind(this));
+    // this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
 
-    this.$header.on('click', '#btnTransifexTranslateMobileElement', this.toggleTransifex.bind(this));
+    // this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
 
-    // Be careful, this will break down the mobile menus toggle
-    this.$header.on('click', '.link-analytics', this.sendAnalyticsEvent.bind(this));
+    // this.$header.on('click', '#btnTransifexTranslateMobileElement', this.toggleTransifex.bind(this));
+
+    // // Be careful, this will break down the mobile menus toggle
+    // this.$header.on('click', '.link-analytics', this.sendAnalyticsEvent.bind(this));
   }
 
   showMenu(e) {
@@ -130,11 +112,11 @@ class Header {
 
       // Active menu icon && currentTarget
       $gfwdom(currentTarget).toggleClass('-active')
-      $gfwdom(currentTarget).find('.-svg').toggleClass('-inactive');
 
       // Active menu
       var $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
       $current.toggleClass('-active');
+      this.navOptions.toggleClass('-show-triangle');
 
       // Key bindings
       this.$document.on('keyup.apps', e => {
@@ -143,100 +125,43 @@ class Header {
         }
       });
 
-      // Click bindings
-      this.$document.on('click.apps', e => {
-        if(!this.el.contains(e.target)) {
-          this.hideMenus();
-        }
-      });
-
     } else {
+      this.navOptions.toggleClass('-show-triangle');
       this.hideMenus();
     }
-
   }
 
   hideMenus(e) {
-    // Allow mobile scroll
+    // // Allow mobile scroll
     this.$htmlbody.removeClass('-no-scroll');
-    this.$headerSubmenu.removeClass('-active').css({ height: 'auto' });
-    this.$headerSubmenuApp.removeClass('-active').css({ height: 'auto' });
-    this.$headerSubmenuMore.removeClass('-active').css({ height: 'auto' });
-    this.$headerSubmenuMenuMobile.removeClass('-active').css({ height: 'auto' });
-    this.$header.find('#submenuLogin').removeClass('-active').css({ height: 'auto' });
-    this.$header.find('.m-header-submenu-btn').forEach(function(v){
+    this.$header.find('.sub-menu').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
-        $gfwdom(v).find('.-svg').toggleClass('-inactive');
+      }
+    });
+    this.$header.find('.open-menu-button').forEach(function(v){
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom(v).removeClass('-active')
+        // $gfwdom(v).find('.-svg').toggleClass('-inactive');
       }
     });
     // Key bindings
     this.$document.off('keyup.apps');
-
     // Click bindings
     this.$document.off('click.apps');
   }
 
-  resizeMenu() {
-    if (utils.getWindowWidth() < 700) {
-      this.$header.find('.m-header-submenu').forEach(function(v){
-        $gfwdom(v).css({
-          height: utils.getWindowHeigth() - 50 + 'px'
-        });
-      })
-    } else {
-      this.$header.find('.m-header-submenu').forEach(function(v){
-        $gfwdom(v).css({ height: 'auto' });
-      });
-    }
-
-    if (utils.getWindowWidth() < 850) {
-      this.$headerSubmenuMenuMobile.css({
-        height: utils.getWindowHeigth() - 50 + 'px'
-      });
-    }
-
-  }
-
-  toggleSearch(e) {
-    e && e.preventDefault();
-
-    // Hide the menus if they are active
-    this.hideMenus();
-
-    // Toggle search div
-    this.$headerSearch.toggleClass('-active');
-
-    if(this.$headerSearch.hasClass('-active')) {
-      this.$headerSearchBox.addClass('-active');
-      // Key bindings
-      this.$document.on('keyup.search', e => {
-        if (e.keyCode === 27) {
-          this.toggleSearch();
-        }
-      });
-      // Focus input. As it has an animation we need to set a timeout
-      setTimeout(function(){
-        document.getElementById(this.$headerSearchInput[0].id).focus();
-      }.bind(this),250)
-    } else {
-      this.$headerSearchBox.removeClass('-active');
-      // Key unbindings
-      this.$document.off('keyup.search');
-    }
-  }
-
   toggleTransifex(e) {
-    var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
-    var $transifexList = this.$header.find('#transifexTranslateMobileElement');
-
-    if($btnTransifex.hasClass('-active')) {
-      $btnTransifex.removeClass('-active');
-      $transifexList.removeClass('-active');
-    } else {
-      $btnTransifex.addClass('-active');
-      $transifexList.addClass('-active');
-    }
+    // var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
+    // var $transifexList = this.$header.find('#transifexTranslateMobileElement');
+    //
+    // if($btnTransifex.hasClass('-active')) {
+    //   $btnTransifex.removeClass('-active');
+    //   $transifexList.removeClass('-active');
+    // } else {
+    //   $btnTransifex.addClass('-active');
+    //   $transifexList.addClass('-active');
+    // }
   }
 
   sendAnalyticsEvent(e) {
@@ -367,31 +292,6 @@ class Header {
       document.head.appendChild(translateScript);
     }, 0);
   };
-
-
-
-  /**
-   * We need to make a difference between local, staging and PRO environment urls.
-   * Also we need to have a default value for the external applications
-   */
-  initLinksUrls() {
-    this.params.targets = !utils.isDefaultHost();
-    this.params.hostname = utils.getHost();
-
-    this.$links.forEach(function(v) {
-      const href = $gfwdom(v).attr('href');
-      if (href.charAt(0) == '/') {
-        $gfwdom(v).attr('href', this.params.hostname + href);
-      }
-    }.bind(this));
-
-    this.$linksSubmenu.forEach(v => {
-      const external = $gfwdom(v).hasClass('external-link');
-      if (this.params.targets) {
-        (!!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target','_blank');
-      }
-    });
-  }
 
   /**
    * Init My GFW
