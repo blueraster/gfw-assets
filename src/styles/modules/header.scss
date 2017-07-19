@@ -46,24 +46,25 @@ $max-width: 256px;
           background-repeat: no-repeat;
           width: $logo-size;
           height: $logo-size;
+          z-index: 1;
 
-          &.-gfw-global {
+          &.gfw-global {
             background-image: url('../images/gfw_logos/gfwGlobal.png');
           }
 
-          &.-gfw-fires {
+          &.gfw-fires {
             background-image: url('../images/gfw_logos/gfwFires.png');
           }
 
-          &.-gfw-commodities {
+          &.gfw-commodities {
             background-image: url('../images/gfw_logos/gfwCommodities.png');
           }
 
-          &.-gfw-water {
+          &.gfw-water {
             background-image: url('../images/gfw_logos/gfwWater.png');
           }
 
-          &.-gfw-climate {
+          &.gfw-climate {
             background-image: url('../images/gfw_logos/gfwClimate.png');
           }
         }
@@ -113,6 +114,7 @@ $max-width: 256px;
             	width: 0;
             	position: absolute;
             	pointer-events: none;
+              z-index: 1;
             }
 
             &::after {
@@ -170,6 +172,7 @@ $max-width: 256px;
 
     .sub-menu {
       display: none;
+      position: absolute;
 
       &.-active {
         display: block;
@@ -234,23 +237,23 @@ $max-width: 256px;
               background-size: cover;
               background-repeat: no-repeat;
 
-              &.-gfw-global {
+              &.gfw-global {
                 background-image: url('../images/gfw_logos/gfwGlobal.png');
               }
 
-              &.-gfw-fires {
+              &.gfw-fires {
                 background-image: url('../images/gfw_logos/gfwFires.png');
               }
 
-              &.-gfw-commodities {
+              &.gfw-commodities {
                 background-image: url('../images/gfw_logos/gfwCommodities.png');
               }
 
-              &.-gfw-water {
+              &.gfw-water {
                 background-image: url('../images/gfw_logos/gfwWater.png');
               }
 
-              &.-gfw-climate {
+              &.gfw-climate {
                 background-image: url('../images/gfw_logos/gfwClimate.png');
               }
 

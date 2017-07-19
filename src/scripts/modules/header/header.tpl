@@ -1,8 +1,7 @@
 <header class="m-header">
   <nav class="row align-justify m-header-nav-container">
     <div class="row logo-sections-container">
-      <div class="logo-menu -gfw-global">
-      </div>
+      <div class="logo-menu"></div>
       <ul class="row align-middle nav-sections">
         <li>
           <a href="">Map</a>
@@ -45,10 +44,11 @@
         <div class="applications-container">
           <h3>OTHER APPLICATIONS</h3>
           <div class="row boxes-container">
-            <div class="box -gfw-climate"></div>
-            <div class="box -gfw-fires"></div>
-            <div class="box -gfw-commodities"></div>
-            <div class="box -gfw-water"></div>
+            <div class="box gfw-global"></div>
+            <div class="box gfw-climate"></div>
+            <div class="box gfw-fires"></div>
+            <div class="box gfw-commodities"></div>
+            <div class="box gfw-water"></div>
             <div class="box -last">
               <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
               <span>explore all apps</span>

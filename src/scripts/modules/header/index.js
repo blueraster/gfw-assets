@@ -25,17 +25,13 @@ class Header {
   render() {
     this.el.innerHTML = headerTpl() + headerIconsTpl();
     this.cache();
-
+    this.setLogos();
     this.setParams();
-
     this.initHighlightCurrent();
     this.initListeners();
-
     this.initTranslate();
-
     this.initMyGFW();
     this.initNavigation();
-
     return this;
   }
 
@@ -44,6 +40,7 @@ class Header {
    */
   cache() {
     this.$document =  $gfwdom(document);
+    this.site = window.liveSettings.site;
 
     // Script
     this.$script = $gfwdom('#loader-gfw');
@@ -55,7 +52,17 @@ class Header {
     this.$header = $gfwdom('#headerGfw');
     this.subMenu = this.$header.find('.m-header-sub-menu-container');
     this.navOptions = this.$header.find('.nav-options');
+    this.logoMenu = this.$header.find('.logo-menu');
+    this.boxesContainer = this.$header.find('.boxes-container');
+    this.currentBox = this.boxesContainer.find('.box.'+this.site);
+  };
 
+  /**
+   * Set logos on header and options gallery
+   */
+  setLogos() {
+    this.logoMenu.addClass(this.site);
+    this.currentBox.remove();
   };
 
   /**
@@ -88,7 +95,7 @@ class Header {
     // Menus
     this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
 
-    // this.$header.on('click', '.m-header-backdrop', this.hideMenus.bind(this));
+    this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
 
     // this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
 
@@ -303,6 +310,27 @@ class Header {
     } else {
       $gfwdom('#my-gfw-container').css({ display: 'none'});
     }
+  }
+
+  resizeMenu() {
+    if (utils.getWindowWidth() < 700) {
+      this.$header.find('.m-header-submenu').forEach(function(v){
+        $gfwdom(v).css({
+          height: utils.getWindowHeigth() - 50 + 'px'
+        });
+      })
+    } else {
+      this.$header.find('.m-header-submenu').forEach(function(v){
+        $gfwdom(v).css({ height: 'auto' });
+      });
+    }
+
+    if (utils.getWindowWidth() < 850) {
+      this.$headerSubmenuMenuMobile.css({
+        height: utils.getWindowHeigth() - 50 + 'px'
+      });
+    }
+
   }
 
   initNavigation() {
