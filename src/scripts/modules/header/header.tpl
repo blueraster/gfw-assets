@@ -2,20 +2,7 @@
   <nav class="row align-justify m-header-nav-container">
     <div class="row logo-sections-container">
       <div class="logo-menu"></div>
-      <ul class="row align-middle nav-sections">
-        <li>
-          <a href="">Map</a>
-        </li>
-        <li>
-          <a href="">Countries</a>
-        </li>
-        <li>
-          <a href="">Blog</a>
-        </li>
-        <li>
-          <a href="">About</a>
-        </li>
-      </ul>
+      <ul class="row align-middle nav-sections"></ul>
     </div>
     <div class="row options-container">
       <ul class="row align-middle nav-options">

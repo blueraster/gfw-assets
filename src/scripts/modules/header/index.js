@@ -26,6 +26,7 @@ class Header {
     this.el.innerHTML = headerTpl() + headerIconsTpl();
     this.cache();
     this.setLogos();
+    this.setMenuOptions();
     this.setParams();
     this.initHighlightCurrent();
     this.initListeners();
@@ -39,6 +40,54 @@ class Header {
    * Cache all the elements that we will use after
    */
   cache() {
+
+    this.menuOptions = [
+      {
+        site: 'gfw-global',
+        options: [
+          {
+            title: 'map',
+            url: '/map'
+          },
+          {
+            title: 'countries',
+            url: '/countries'
+          },
+          {
+            title: 'blog',
+            url: '/blog'
+          },
+          {
+            title: 'about',
+            url: '/about'
+          },
+        ]
+      },
+
+      {
+        site: 'gfw-fires',
+        options: [
+          {
+            title: 'gfw fires',
+            url: '/'
+          },
+          {
+            title: 'map',
+            url: '/map'
+          },
+          {
+            title: 'learn more',
+            url: '/about'
+          },
+          {
+            title: 'share stories',
+            url: '/story'
+          },
+        ]
+      }
+    ];
+
+
     this.$document =  $gfwdom(document);
     this.site = window.liveSettings.site;
 
@@ -50,6 +99,7 @@ class Header {
 
     // Header
     this.$header = $gfwdom('#headerGfw');
+    this.navSections = this.$header.find('.nav-sections');
     this.subMenu = this.$header.find('.m-header-sub-menu-container');
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
@@ -64,6 +114,21 @@ class Header {
     this.logoMenu.addClass(this.site);
     this.currentBox.remove();
   };
+
+  setMenuOptions() {
+    var position = 0;
+    var menuOptions = '';
+    for (var i = 0; i < this.menuOptions.length; i++) {
+      if (this.menuOptions[i].site === this.site) {
+        var position = i;
+        i = this.menuOptions.length; //exit force
+      }
+    }
+    for (var i = 0; i < this.menuOptions[position].options.length; i++) {
+        menuOptions += '<li><a href="'+this.menuOptions[position].options[i].url+'">'+this.menuOptions[position].options[i].title+'</a></li>'
+    }
+    this.navSections.html(menuOptions);
+  }
 
   /**
    * Set Params
