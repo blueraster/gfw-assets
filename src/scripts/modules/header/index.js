@@ -156,6 +156,10 @@ class Header {
 
   showMenuKeyBoard() {
     if (!this.keyboardPulse) {
+      var $languageMenu = this.$header.find('.txlive-langselector-list');
+      if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
+        $languageMenu.removeClass('txlive-langselector-list-opened');
+      }
       this.hideMenus();
       if (utils.getWindowWidth() < 850) {
         this.resizeMenu();
