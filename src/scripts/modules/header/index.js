@@ -43,7 +43,6 @@ class Header {
    */
   cache() {
     this.keyboardPulse = false;
-
     this.$document =  $gfwdom(document);
     this.site = window.liveSettings.site;
 
@@ -55,6 +54,8 @@ class Header {
 
     // Header
     this.$header = $gfwdom('#headerGfw');
+    this.navOptions = this.$header.find('.nav-options');
+    this.logoMenu = this.$header.find('.logo-menu');
     this.navSections = this.$header.find('.nav-sections');
     this.subMenu = this.$header.find('.m-header-sub-menu-dashboard');
 
@@ -63,6 +64,8 @@ class Header {
     this.searchInput = document.getElementById('search-input'); //autofocus
     this.openMenuDashboard = this.$header.find('.open-menu-button-dashboard');
     this.menuDashboard = this.$header.find('#dashboard-sub-menu');
+    this.boxesContainer = this.$header.find('.boxes-container');
+    this.currentBox = this.boxesContainer.find('.box.'+this.site);
 
     //Login Menu
     this.menuLogin = this.$header.find('.m-header-sub-menu-login');
@@ -70,11 +73,6 @@ class Header {
     //Language Menu
     this.menuLanguage = this.$header.find('.txlive-langselector-list');
     this.triangleLanguage = this.$header.find('.lang-triangle');
-
-    this.navOptions = this.$header.find('.nav-options');
-    this.logoMenu = this.$header.find('.logo-menu');
-    this.boxesContainer = this.$header.find('.boxes-container');
-    this.currentBox = this.boxesContainer.find('.box.'+this.site);
   };
 
   /**
@@ -85,6 +83,16 @@ class Header {
     this.currentBox.remove();
   };
 
+  /**
+   * Set menu's options
+   */
+  setMenuOptions() {
+    this.navSections.html(menuOptions.getOptions(this.site));
+  };
+
+  /**
+   * Function for capturing keyboard and open the dashboard
+   */
   keyboardOpenMenu() {
     document.onkeypress = function(evt) {
        evt = evt || window.event;
@@ -94,10 +102,6 @@ class Header {
          this.showMenuKeyBoard();
        }
     }.bind(this);
-  };
-
-  setMenuOptions() {
-    this.navSections.html(menuOptions.getOptions(this.site));
   };
 
   /**
@@ -120,30 +124,14 @@ class Header {
   }
 
   /**
-   * Events
-   * - showMenu(),
-   * - hideMenus()
-   * - toggleSearch()
-   * - sendAnalyticsEvent()
+   * Main functions for menu
    */
-  initListeners() {
-    // Menus
-    this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
-    this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
-
-    // this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
-
-    // this.$header.on('click', '#btnTransifexTranslateMobileElement', this.toggleTransifex.bind(this));
-
-    // // Be careful, this will break down the mobile menus toggle
-    // this.$header.on('click', '.link-analytics', this.sendAnalyticsEvent.bind(this));
-  }
-
   utilsMenus() {
     // Key bindings
     this.$document.on('keyup.apps', e => {
       if (e.keyCode === 27) {
         this.hideMenus();
+        this.hideLanguageMenu();
       }
     });
 
@@ -151,6 +139,26 @@ class Header {
     if (utils.getWindowWidth() < 850) {
       this.resizeMenu();
       this.$htmlbody.toggleClass('-no-scroll');
+    }
+  }
+
+  initListeners() {
+    // Menus
+    this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
+    this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
+  }
+
+  changeTriangleLanguage(value) {
+    if(value === '#language-sub-menu') {
+      if (this.triangleLanguage.hasClass('-open')) {
+        this.triangleLanguage.removeClass('-open');
+      } else {
+        this.triangleLanguage.addClass('-open');
+      }
+    } else {
+      if (this.triangleLanguage.hasClass('-open')) {
+        this.triangleLanguage.removeClass('-open');
+      }
     }
   }
 
@@ -170,20 +178,6 @@ class Header {
       this.searchInput.focus();
       this.utilsMenus();
       this.keyboardPulse = true;
-    }
-  }
-
-  changeTriangleLanguage(value) {
-    if(value === '#language-sub-menu') {
-      if (this.triangleLanguage.hasClass('-open')) {
-        this.triangleLanguage.removeClass('-open');
-      } else {
-        this.triangleLanguage.addClass('-open');
-      }
-    } else {
-      if (this.triangleLanguage.hasClass('-open')) {
-        this.triangleLanguage.removeClass('-open');
-      }
     }
   }
 
@@ -246,8 +240,16 @@ class Header {
     this.$document.off('click.apps');
 
     this.keyboardPulse = false;
-    if (this.navOptions.hasClass('-show-triangle')) {
-      this.navOptions.toggleClass('-show-triangle');
+    this.navOptions.toggleClass('-show-triangle');
+  }
+
+  hideLanguageMenu() {
+    var $languageMenu = this.$header.find('.txlive-langselector-list');
+    if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
+      $languageMenu.removeClass('txlive-langselector-list-opened');
+    }
+    if (this.triangleLanguage.hasClass('-open')) {
+      this.changeTriangleLanguage('#language-sub-menu');
     }
   }
 
@@ -452,8 +454,6 @@ class Header {
   initNavigation() {
     new Navigation();
   }
-
-
 }
 
 export default Header;
