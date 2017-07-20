@@ -56,13 +56,16 @@ class Header {
     // Header
     this.$header = $gfwdom('#headerGfw');
     this.navSections = this.$header.find('.nav-sections');
-    this.subMenu = this.$header.find('.m-header-sub-menu-container');
+    this.subMenu = this.$header.find('.m-header-sub-menu-dashboard');
 
     //Dashboard Menu
     this.searchContainer = document.getElementById('search-container');
     this.searchInput = document.getElementById('search-input'); //autofocus
     this.openMenuDashboard = this.$header.find('.open-menu-button-dashboard');
     this.menuDashboard = this.$header.find('#dashboard-sub-menu');
+
+    //Login Menu
+    this.menuLogin = this.$header.find('.m-header-sub-menu-login');
 
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
@@ -157,7 +160,6 @@ class Header {
       }
       this.openMenuDashboard.addClass('-active');
       this.menuDashboard.addClass('-active');
-      this.navOptions.toggleClass('-show-triangle');
       this.searchInput.focus();
       this.utilsMenus();
       this.keyboardPulse = true;
@@ -204,7 +206,7 @@ class Header {
         $gfwdom(v).removeClass('-active')
       }
     });
-    
+
     this.$header.find('.open-menu-button').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
@@ -224,16 +226,16 @@ class Header {
   }
 
   toggleTransifex(e) {
-    // var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
-    // var $transifexList = this.$header.find('#transifexTranslateMobileElement');
-    //
-    // if($btnTransifex.hasClass('-active')) {
-    //   $btnTransifex.removeClass('-active');
-    //   $transifexList.removeClass('-active');
-    // } else {
-    //   $btnTransifex.addClass('-active');
-    //   $transifexList.addClass('-active');
-    // }
+    var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
+    var $transifexList = this.$header.find('#transifexTranslateMobileElement');
+
+    if($btnTransifex.hasClass('-active')) {
+      $btnTransifex.removeClass('-active');
+      $transifexList.removeClass('-active');
+    } else {
+      $btnTransifex.addClass('-active');
+      $transifexList.addClass('-active');
+    }
   }
 
   sendAnalyticsEvent(e) {
@@ -255,7 +257,6 @@ class Header {
       if (window.ga !== undefined && regex.test(url)) {
         e && e.preventDefault();
 
-        // Really?? google analytics...
         // https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits?hl=es#handling_timeouts
         let callbackTriggered = false;
         setTimeout(function(){

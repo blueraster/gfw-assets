@@ -9,10 +9,35 @@
         <li class="open-menu-button">
           English
           <div class="triangle"></div>
+          <div id="languages-sub-menu" class="m-header-sub-menu-languages sub-menu -active">
+
+
+
+
+            <div id="transifexTranslateElement" class="m-transifex"></div>
+
+
+
+
+          </div>
         </li>
-        <li class="open-menu-button">
+        <li class="-js-open-menu open-menu-button open-menu-button-login" data-submenu="#login-sub-menu">
           My gfw
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
+          <div id="login-sub-menu" class="m-header-sub-menu-login sub-menu">
+            <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
+            <ul>
+              <li class="my-gfw-sign-in-twitter login-item -twitter ">
+                <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">Log in with Twitter</a>
+              </li>
+              <li class="my-gfw-sign-in-facebook login-item -facebook">
+                <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">Log in with Facebook</a>
+              </li>
+              <li class="my-gfw-sign-in-google login-item -google">
+                <a href="auth/google?applications=gfw" class="my-gfw-sign-in">Log in with Google</a>
+              </li>
+            </ul>
+          </div>
         </li>
         <li class="-js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">
           More
@@ -21,7 +46,7 @@
       </ul>
     </div>
   </nav>
-  <div class="m-header-sub-menu-container sub-menu" id="dashboard-sub-menu">
+  <div class="m-header-sub-menu-dashboard sub-menu" id="dashboard-sub-menu">
     <div class="row nav-sub-menu-container -center">
       <div class="small-10 medium-10 large-10 -center">
         <form class="search-container" id="search-container">
