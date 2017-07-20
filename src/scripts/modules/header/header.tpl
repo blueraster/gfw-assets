@@ -14,7 +14,7 @@
           My gfw
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
         </li>
-        <li class="-js-open-menu open-menu-button" data-submenu="#dashboard-sub-menu">
+        <li class="-js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">
           More
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
         </li>
@@ -24,8 +24,8 @@
   <div class="m-header-sub-menu-container sub-menu" id="dashboard-sub-menu">
     <div class="row nav-sub-menu-container -center">
       <div class="small-10 medium-10 large-10 -center">
-        <form class="search-container">
-          <input type="text" placeholder="SEARCH" />
+        <form class="search-container" id="search-container">
+          <input type="text" id="search-input" placeholder="SEARCH" autofocus/>
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg>
         </form>
         <div class="applications-container">

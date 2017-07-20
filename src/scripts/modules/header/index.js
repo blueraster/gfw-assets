@@ -2,6 +2,7 @@
 import $gfwdom from '../../facade';
 import utils from '../../utils';
 import headerTpl from './header.tpl';
+import menuOptions from './menuOptions';
 import headerIconsTpl from './header-icons.tpl';
 import LoginButton from '../my-gfw/login-button';
 import Navigation from '../navigation';
@@ -26,6 +27,7 @@ class Header {
     this.el.innerHTML = headerTpl() + headerIconsTpl();
     this.cache();
     this.setLogos();
+    this.keyboardOpenMenu();
     this.setMenuOptions();
     this.setParams();
     this.initHighlightCurrent();
@@ -40,53 +42,7 @@ class Header {
    * Cache all the elements that we will use after
    */
   cache() {
-
-    this.menuOptions = [
-      {
-        site: 'gfw-global',
-        options: [
-          {
-            title: 'map',
-            url: '/map'
-          },
-          {
-            title: 'countries',
-            url: '/countries'
-          },
-          {
-            title: 'blog',
-            url: '/blog'
-          },
-          {
-            title: 'about',
-            url: '/about'
-          },
-        ]
-      },
-
-      {
-        site: 'gfw-fires',
-        options: [
-          {
-            title: 'gfw fires',
-            url: '/'
-          },
-          {
-            title: 'map',
-            url: '/map'
-          },
-          {
-            title: 'learn more',
-            url: '/about'
-          },
-          {
-            title: 'share stories',
-            url: '/story'
-          },
-        ]
-      }
-    ];
-
+    this.keyboardPulse = false;
 
     this.$document =  $gfwdom(document);
     this.site = window.liveSettings.site;
@@ -101,6 +57,13 @@ class Header {
     this.$header = $gfwdom('#headerGfw');
     this.navSections = this.$header.find('.nav-sections');
     this.subMenu = this.$header.find('.m-header-sub-menu-container');
+
+    //Dashboard Menu
+    this.searchContainer = document.getElementById('search-container');
+    this.searchInput = document.getElementById('search-input'); //autofocus
+    this.openMenuDashboard = this.$header.find('.open-menu-button-dashboard');
+    this.menuDashboard = this.$header.find('#dashboard-sub-menu');
+
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
     this.boxesContainer = this.$header.find('.boxes-container');
@@ -115,20 +78,20 @@ class Header {
     this.currentBox.remove();
   };
 
+  keyboardOpenMenu() {
+    document.onkeypress = function(evt) {
+       evt = evt || window.event;
+       var charCode = evt.which || evt.keyCode;
+       var charStr = String.fromCharCode(charCode);
+       if (/[a-z0-9]/i.test(charStr)) {
+         this.showMenuKeyBoard();
+       }
+    }.bind(this);
+  };
+
   setMenuOptions() {
-    var position = 0;
-    var menuOptions = '';
-    for (var i = 0; i < this.menuOptions.length; i++) {
-      if (this.menuOptions[i].site === this.site) {
-        var position = i;
-        i = this.menuOptions.length; //exit force
-      }
-    }
-    for (var i = 0; i < this.menuOptions[position].options.length; i++) {
-        menuOptions += '<li><a href="'+this.menuOptions[position].options[i].url+'">'+this.menuOptions[position].options[i].title+'</a></li>'
-    }
-    this.navSections.html(menuOptions);
-  }
+    this.navSections.html(menuOptions.getOptions(this.site));
+  };
 
   /**
    * Set Params
@@ -170,17 +133,43 @@ class Header {
     // this.$header.on('click', '.link-analytics', this.sendAnalyticsEvent.bind(this));
   }
 
+  utilsMenus() {
+    // Key bindings
+    this.$document.on('keyup.apps', e => {
+      if (e.keyCode === 27) {
+        this.hideMenus();
+      }
+    });
+
+    // Prevent mobile scroll
+    if (utils.getWindowWidth() < 850) {
+      this.resizeMenu();
+      this.$htmlbody.toggleClass('-no-scroll');
+    }
+  }
+
+  showMenuKeyBoard() {
+    if (!this.keyboardPulse) {
+      this.hideMenus();
+      if (utils.getWindowWidth() < 850) {
+        this.resizeMenu();
+        this.$htmlbody.toggleClass('-no-scroll');
+      }
+      this.openMenuDashboard.addClass('-active');
+      this.menuDashboard.addClass('-active');
+      this.navOptions.toggleClass('-show-triangle');
+      this.searchInput.focus();
+      this.utilsMenus();
+      this.keyboardPulse = true;
+    }
+  }
+
   showMenu(e) {
     e && e.preventDefault();
     let currentTarget = e.currentTarget;
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       // Hide all the opened menus
       this.hideMenus();
-      // Prevent mobile scroll
-      if (utils.getWindowWidth() < 850) {
-        this.resizeMenu();
-        this.$htmlbody.toggleClass('-no-scroll');
-      }
 
       // Active menu icon && currentTarget
       $gfwdom(currentTarget).toggleClass('-active')
@@ -190,12 +179,11 @@ class Header {
       $current.toggleClass('-active');
       this.navOptions.toggleClass('-show-triangle');
 
-      // Key bindings
-      this.$document.on('keyup.apps', e => {
-        if (e.keyCode === 27) {
-          this.hideMenus();
-        }
-      });
+      if (this.menuDashboard.hasClass('-active')) {
+        this.searchInput.focus();
+      }
+
+      this.utilsMenus();
 
     } else {
       this.navOptions.toggleClass('-show-triangle');
@@ -205,22 +193,34 @@ class Header {
 
   hideMenus(e) {
     // // Allow mobile scroll
+    if (this.menuDashboard.hasClass('-active')) {
+      this.searchContainer.reset();
+    }
+
     this.$htmlbody.removeClass('-no-scroll');
+
     this.$header.find('.sub-menu').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
       }
     });
+    
     this.$header.find('.open-menu-button').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
         // $gfwdom(v).find('.-svg').toggleClass('-inactive');
       }
     });
+
     // Key bindings
     this.$document.off('keyup.apps');
     // Click bindings
     this.$document.off('click.apps');
+
+    this.keyboardPulse = false;
+    if (this.navOptions.hasClass('-show-triangle')) {
+      this.navOptions.toggleClass('-show-triangle');
+    }
   }
 
   toggleTransifex(e) {
