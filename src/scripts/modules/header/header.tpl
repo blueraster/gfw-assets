@@ -1,3 +1,4 @@
+<div class="m-header-backdrop"></div>
 <header class="m-header">
   <nav class="row align-justify m-header-nav-container">
     <div class="row logo-sections-container">
@@ -6,20 +7,9 @@
     </div>
     <div class="row options-container">
       <ul class="row align-middle nav-options">
-        <li class="open-menu-button">
-          English
-          <div class="triangle"></div>
-          <div id="languages-sub-menu" class="m-header-sub-menu-languages sub-menu -active">
-
-
-
-
-            <div id="transifexTranslateElement" class="m-transifex"></div>
-
-
-
-
-          </div>
+        <li class="-js-open-menu open-menu-button open-menu-button-language" data-submenu="#language-sub-menu">
+          <div class="triangle lang-triangle"></div>
+          <div id="transifexTranslateElement" class="m-transifex"></div>
         </li>
         <li class="-js-open-menu open-menu-button open-menu-button-login" data-submenu="#login-sub-menu">
           My gfw

@@ -151,21 +151,28 @@ $max-width: 256px;
               }
             }
 
-            .triangle {
-              width: 0;
-            	height: 0;
-            	border-left: 4px solid transparent;
-            	border-right: 4px solid transparent;
-            	border-top: 5px solid $dark;
-              margin-left: 5px;
-              margin-bottom: 4px;
-            }
-
             svg {
               width: 17px;
               height: 17px;
               fill: $dark;
               margin-left: 5px;
+            }
+          }
+
+          .triangle {
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid $dark;
+            margin-left: 5px;
+            margin-bottom: 4px;
+            right: -12px;
+            position: absolute;
+            top: calc(50% - 3px);
+
+            &.-open {
+              transform: rotate(180deg);
             }
           }
         }

@@ -1,4 +1,9 @@
 /* line 700, /Users/miguelbarrenechea/Proyects/gfw/app/assets/stylesheets/_header1600.scss */
+$white: #fff;
+$black: #555;
+$gray: #ddd;
+$dark-gray: #9b9b9b;;
+
 #googleTranslate .goog-te-gadget {
   font-family: inherit;
   text-align: center;
@@ -80,65 +85,46 @@
     }
 
     .txlive-langselector-toggle {
-      color: $light;
-      padding: 3px 25px 0 15px;
+      color: rgba($dark, .5);
       border: 1px solid transparent;
       text-transform: uppercase;
       cursor: pointer;
-      font-weight: 500;
+      transition: color .1s linear;
+      font-size: 12px;
+      text-transform: uppercase;
 
       &:hover {
-        color: $white;
+        color: $dark;
+        transition: color .1s linear;
       }
 
       .txlive-langselector-current {
         line-height: 1;
         display: block;
       }
-
-      .txlive-langselector-marker {
-        width: 12px;
-        height: 12px;
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translate(0,-50%);
-        background: url(http://www.globalforestwatch.org/assets/svg-icons/arrow-down-white.svg) center no-repeat;
-        background-size: contain;
-      }
     }
 
     .txlive-langselector-list {
       position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translate(-50%,5px);
-      min-width: 150px;
+      top: 47px;
+      right: -25px;
+      min-width: 200px;
+      max-width: 200px;
       padding: 0;
-      background: $dark1;
-
-      &:after {
-        content: "";
-        display: block;
-        width: 6px;
-        height: 6px;
-        background: $dark1;
-        transform: translate(-50%,-50%) rotate(45deg);
-        position: absolute;
-        top: 0;
-        left: 50%;
-      }
+      background: $white;
+      box-shadow: none;
+      border: 1px solid $gray;
+      border-top: 0px;
 
       li {
         padding: 12px 15px;
-        color: $light;
+        color: $dark;
         position: relative;
         z-index: 1;
         text-transform: uppercase;
 
         &:hover {
-          background: lighten($dark1,5%);
-          color: $white;
+          background-color: lighten($gray,1%);
         }
       }
     }
@@ -173,11 +159,6 @@
         color: $dark;
         position: relative;
         z-index: 1;
-
-        &:hover {
-          background: lighten($dark1,5%);
-          color: $white;
-        }
       }
     }
   }

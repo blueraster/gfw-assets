@@ -67,6 +67,10 @@ class Header {
     //Login Menu
     this.menuLogin = this.$header.find('.m-header-sub-menu-login');
 
+    //Language Menu
+    this.menuLanguage = this.$header.find('.txlive-langselector-list');
+    this.triangleLanguage = this.$header.find('.lang-triangle');
+
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
     this.boxesContainer = this.$header.find('.boxes-container');
@@ -125,7 +129,6 @@ class Header {
   initListeners() {
     // Menus
     this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
-
     this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
 
     // this.$header.on('click', '.m-apps-close', this.hideMenus.bind(this));
@@ -166,17 +169,37 @@ class Header {
     }
   }
 
+  changeTriangleLanguage(value) {
+    if(value === '#language-sub-menu') {
+      if (this.triangleLanguage.hasClass('-open')) {
+        this.triangleLanguage.removeClass('-open');
+      } else {
+        this.triangleLanguage.addClass('-open');
+      }
+    } else {
+      if (this.triangleLanguage.hasClass('-open')) {
+        this.triangleLanguage.removeClass('-open');
+      }
+    }
+  }
+
   showMenu(e) {
     e && e.preventDefault();
     let currentTarget = e.currentTarget;
+    var dataSubMenu = currentTarget.getAttribute('data-submenu');
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       // Hide all the opened menus
       this.hideMenus();
-
-      // Active menu icon && currentTarget
-      $gfwdom(currentTarget).toggleClass('-active')
-
       // Active menu
+      $gfwdom(currentTarget).toggleClass('-active')
+      this.changeTriangleLanguage(dataSubMenu);
+      // Hidden language Menu
+      if(dataSubMenu != '#language-sub-menu') {
+        var $languageMenu = this.$header.find('.txlive-langselector-list');
+        if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
+          $languageMenu.removeClass('txlive-langselector-list-opened');
+        }
+      }
       var $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
       $current.toggleClass('-active');
       this.navOptions.toggleClass('-show-triangle');
@@ -184,11 +207,10 @@ class Header {
       if (this.menuDashboard.hasClass('-active')) {
         this.searchInput.focus();
       }
-
       this.utilsMenus();
-
     } else {
       this.navOptions.toggleClass('-show-triangle');
+      this.changeTriangleLanguage(dataSubMenu);
       this.hideMenus();
     }
   }
@@ -366,6 +388,30 @@ class Header {
     }, 0);
   };
 
+
+
+  /**
+   * We need to make a difference between local, staging and PRO environment urls.
+   * Also we need to have a default value for the external applications
+   */
+  initLinksUrls() {
+    this.params.targets = !utils.isDefaultHost();
+    this.params.hostname = utils.getHost();
+
+    this.$links.forEach(function(v) {
+      const href = $gfwdom(v).attr('href');
+      if (href.charAt(0) == '/') {
+        $gfwdom(v).attr('href', this.params.hostname + href);
+      }
+    }.bind(this));
+
+    this.$linksSubmenu.forEach(v => {
+      const external = $gfwdom(v).hasClass('external-link');
+      if (this.params.targets) {
+        (!!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target','_blank');
+      }
+    });
+  }
   /**
    * Init My GFW
    */
