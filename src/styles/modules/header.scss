@@ -1,7 +1,3 @@
-$white: #fff;
-$black: #555;
-$gray: #ddd;
-$dark-gray: #9b9b9b;;
 $menu-height: 58px;
 $logo-size: 88px;
 $green-separator: 5px;
@@ -83,12 +79,12 @@ $max-width: 256px;
 
             a {
               font-size: 14px;
-              color: rgba($black, .8);
+              color: rgba($dark, .8);
               text-transform: uppercase;
               transition: color .1s linear;
 
               &:hover {
-                color: $black;
+                color: $dark;
               }
             }
           }
@@ -105,7 +101,7 @@ $max-width: 256px;
 
           li {
             font-size: 12px;
-            color: rgba($black, .5);
+            color: rgba($dark, .5);
             text-transform: uppercase;
             margin-right: 40px;
             cursor: pointer;
@@ -116,7 +112,7 @@ $max-width: 256px;
             height: 100%;
 
             &:hover {
-              color: $black;
+              color: $dark;
             }
 
             &:first-of-type {
@@ -234,7 +230,7 @@ $max-width: 256px;
             border-radius: 100px;
             width: 100%;
             height: 46px;
-            background-color: rgba($black, .08);
+            background-color: rgba($dark, .08);
             text-transform: uppercase;
             padding: 0 20px;
             outline: 0;
@@ -299,7 +295,7 @@ $max-width: 256px;
 
               &.-last {
                 background: $white;
-                border: 1px solid rgba($black, .2);
+                border: 1px solid rgba($dark, .2);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
