@@ -31,7 +31,8 @@
         </li>
         <li class="-js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">
           More
-          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
+          <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
+          <svg class="open-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
         </li>
       </ul>
     </div>
@@ -64,27 +65,27 @@
         <h3>More in GFW</h3>
         <div class="row more-options-container">
           <a class="more-options-item small-3 medium-3 large-3" href="#">
-            <div class="svg"></div>
+            <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-developer"></use></svg>
             <span>developers corners</span>
           </a>
           <a class="more-options-item small-3 medium-3 large-3" href="#">
-            <div class="svg"></div>
+            <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-how-to"></use></svg>
             <span>how to portal</span>
           </a>
           <a class="more-options-item small-3 medium-3 large-3" href="#">
-            <div class="svg"></div>
+            <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-samll-people"></use></svg>
             <span>small grants fund</span>
           </a>
           <a class="more-options-item small-3 medium-3 large-3" href="#">
-            <div class="svg"></div>
+            <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-open-data"></use></svg>
             <span>open data portal</span>
           </a>
           <a class="more-options-item small-3 medium-3 large-3" href="#">
-            <div class="svg"></div>
+            <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-blog"></use></svg>
             <span>blog</span>
           </a>
           <a class="more-options-item small-3 medium-3 large-3" href="#">
-            <div class="svg"></div>
+            <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-forum"></use></svg>
             <span>discussion forum</span>
           </a>
         </div>

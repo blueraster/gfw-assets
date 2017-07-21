@@ -119,6 +119,17 @@ $max-width: 256px;
               color: $black;
             }
 
+            &:first-of-type {
+              margin-right: 56px;
+
+              &.-active {
+                &::after,
+                &::before {
+                  right: -16px;
+                }
+              }
+            }
+
             &:last-of-type {
               margin-right: 0;
             }
@@ -156,6 +167,22 @@ $max-width: 256px;
               height: 17px;
               fill: $dark;
               margin-left: 5px;
+            }
+          }
+
+          .open-menu-button-dashboard {
+            &.-active {
+              .close-icon {
+                display: none;
+              }
+
+              .open-icon {
+                display: block;
+              }
+            }
+
+            .open-icon {
+              display: none;
             }
           }
 
@@ -324,7 +351,6 @@ $max-width: 256px;
             .svg {
               width: 20px;
               height: 20px;
-              background-color: green;
               margin-right: 12px;
             }
 
@@ -386,6 +412,7 @@ $max-width: 256px;
           align-content: center;
           width: 100%;
           margin-bottom: 10px;
+          transition: background-color .1s linear;
 
           &:first-of-type {
             margin-top: 20px;
@@ -397,14 +424,26 @@ $max-width: 256px;
 
           &.-facebook {
             background-color: $facebook;
+
+            &:hover {
+              background-color: lighten($facebook, 5%);
+            }
           }
 
           &.-twitter {
             background-color: $twitter;
+
+            &:hover {
+              background-color: lighten($twitter, 5%);
+            }
           }
 
           &.-google {
             background-color: $google;
+
+            &:hover {
+              background-color: lighten($google, 5%);
+            }
           }
 
           a {

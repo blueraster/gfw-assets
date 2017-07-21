@@ -123,6 +123,10 @@ $dark-gray: #9b9b9b;;
         z-index: 1;
         text-transform: uppercase;
 
+        &:first-of-type {
+          margin-top: 12px;
+        }
+
         &:hover {
           background-color: lighten($gray,1%);
         }
