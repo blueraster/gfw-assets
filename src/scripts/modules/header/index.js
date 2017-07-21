@@ -146,6 +146,8 @@ class Header {
     // Menus
     this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
     this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
+    this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
+    this.$header.on('click', '.txlive-langselector-current', this.showLanguageMenu.bind(this));
   }
 
   changeTriangleLanguage(value) {
@@ -241,6 +243,15 @@ class Header {
 
     this.keyboardPulse = false;
     this.navOptions.toggleClass('-show-triangle');
+  }
+
+  showLanguageMenu() {
+    var $languageMenu = this.$header.find('.txlive-langselector-list');
+    if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
+      $languageMenu.removeClass('txlive-langselector-list-opened');
+    } else {
+      $languageMenu.addClass('txlive-langselector-list-opened');
+    }
   }
 
   hideLanguageMenu() {
