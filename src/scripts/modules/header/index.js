@@ -71,7 +71,6 @@ class Header {
     this.menuLogin = this.$header.find('.m-header-sub-menu-login');
 
     //Language Menu
-    this.menuLanguage = this.$header.find('.txlive-langselector-list');
     this.triangleLanguage = this.$header.find('.lang-triangle');
   };
 
@@ -252,9 +251,11 @@ class Header {
     } else {
       $languageMenu.addClass('txlive-langselector-list-opened');
     }
+    this.$header.on('click', '.txlive-langselector-list > li', this.hideLanguageMenu.bind(this));
   }
 
   hideLanguageMenu() {
+    var $opened = this.$header.find('.txlive-langselector-list-opened');
     var $languageMenu = this.$header.find('.txlive-langselector-list');
     if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
       $languageMenu.removeClass('txlive-langselector-list-opened');
@@ -265,6 +266,7 @@ class Header {
   }
 
   toggleTransifex(e) {
+
     var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
     var $transifexList = this.$header.find('#transifexTranslateMobileElement');
 
