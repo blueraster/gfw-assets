@@ -1,35 +1,36 @@
 // Imports
+@import 'settings/utils';
 @import 'settings/foundation';
 @import 'settings/settings';
 @import 'settings/breackpoints';
 @import 'settings/animations';
 @import 'settings/colors';
-@import 'settings/reset.scss';
-@import 'settings/mixins.scss';
+@import 'settings/reset';
+@import 'settings/mixins';
 
-@import 'modules/buttons.scss';
-@import 'modules/form.scss';
+@import 'modules/buttons';
+@import 'modules/form';
 
 // header
-@import 'modules/header.scss';
-@import 'modules/search.scss';
+@import 'modules/header';
+@import 'modules/search';
 // apps
-@import 'modules/apps.scss';
-@import 'modules/translate.scss';
-@import 'modules/submenu.scss';
+@import 'modules/apps';
+@import 'modules/translate';
+@import 'modules/submenu';
 
 
 // section
-@import 'modules/section.scss';
+@import 'modules/section';
 
 // feedback
-@import 'modules/feedbacklink.scss';
+@import 'modules/feedbacklink';
 
 // modal
-@import 'modules/modal.scss';
-@import 'modules/select.scss';
+@import 'modules/modal';
+@import 'modules/select';
 
 // footer
-@import 'settings/logos-sprite.scss';
-@import 'modules/footer.scss';
-@import 'modules/slick.scss';
+@import 'settings/logos-sprite';
+@import 'modules/footer';
+@import 'modules/slick';

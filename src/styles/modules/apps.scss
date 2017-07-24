@@ -1,13 +1,10 @@
 #headerGfw {
-
 	.m-apps-content {
-
 	  h1 {
 	  	position: relative;
 	  	width: 60px;
 	  	height: 60px;
 	  	margin: 0 auto;
-	  	background: url(http://www.globalforestwatch.org/assets/logo-new-c84df4ee1f85536a7c0b574378f21ab0.png);
 	  	background-size: contain;
 	    @media (min-width: $br-mobile){
 		  	width: 90px;
@@ -23,7 +20,7 @@
 	  		color: $white;
 	  		font-size: 13px;
 	  		white-space: nowrap;
-	  		
+
 	  		span {
 	  			position: absolute;
 	  			top: 100%;
@@ -121,11 +118,11 @@
 								padding: 0 10px;
 					    	font-size: 12px;
 					    }
-						}	
+						}
 				  }
 
-	        &.shape-fires { 
-	        	.app { 
+	        &.shape-fires {
+	        	.app {
 	        		border-color: $red;
 	        		@media (min-width: $br-mobile){
 								&:hover, &.-current {
@@ -133,10 +130,10 @@
 								}
 							}
 	        	}
-	        	svg { fill: $red; } 
+	        	svg { fill: $red; }
 	        }
-	        &.shape-commodities { 
-	        	.app { 
+	        &.shape-commodities {
+	        	.app {
 	        		border-color: $orange;
 	        		@media (min-width: $br-mobile){
 								&:hover, &.-current {
@@ -144,10 +141,10 @@
 								}
 							}
 	        	}
-	        	svg { fill: $orange; } 
+	        	svg { fill: $orange; }
 	        }
-	        &.shape-climate { 
-	        	.app { 
+	        &.shape-climate {
+	        	.app {
 	        		border-color: $blue;
 	        		@media (min-width: $br-mobile){
 								&:hover, &.-current {
@@ -155,10 +152,10 @@
 								}
 							}
 	        	}
-	        	svg { fill: $blue; } 
+	        	svg { fill: $blue; }
 	        }
-	        &.shape-water { 
-	        	.app { 
+	        &.shape-water {
+	        	.app {
 	        		border-color: $bluewater;
 	        		@media (min-width: $br-mobile){
 								&:hover, &.-current {
@@ -166,7 +163,7 @@
 								}
 							}
 	        	}
-	        	svg { fill: $bluewater; } 
+	        	svg { fill: $bluewater; }
 	        }
 	  		}
 	  	}
