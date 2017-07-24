@@ -1,13 +1,13 @@
 a {
-  cursor: pointer;
   text-decoration: none;
+  cursor: pointer;
 }
 
 div,
 section,
 article {
   &.-center {
-    margin: 0 auto !important;
     width: 100%;
+    margin: 0 auto !important;
   }
 }
