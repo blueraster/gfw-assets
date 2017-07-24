@@ -143,6 +143,7 @@ class Header {
 
   initListeners() {
     // Menus
+    this.$htmlbody.on('click', '.m-header-nav-container, .m-header-nav-container *', this.closeBack.bind(this));
     this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
     this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
     this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
@@ -160,6 +161,14 @@ class Header {
       if (this.triangleLanguage.hasClass('-open')) {
         this.triangleLanguage.removeClass('-open');
       }
+    }
+  }
+
+  closeBack(e) {
+    e && e.preventDefault();
+    let currentTarget = e.currentTarget;
+    if(!$gfwdom(currentTarget).hasClass('open-menu-button') && !$gfwdom(currentTarget).hasClass('txlive-langselector-toggle')) {
+      this.hideMenus();
     }
   }
 

@@ -2,7 +2,9 @@
 <header class="m-header">
   <nav class="row align-justify m-header-nav-container">
     <div class="row logo-sections-container">
-      <div class="logo-menu"></div>
+      <a href="/">
+        <div class="logo-menu"></div>
+      </a>
       <ul class="row align-middle nav-sections"></ul>
     </div>
     <div class="row options-container">

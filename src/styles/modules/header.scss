@@ -2,6 +2,7 @@ $menu-height: 58px;
 $logo-size: 88px;
 $green-separator: 5px;
 $max-width: 256px;
+$gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.png', '../images/gfw_logos/gfwCommodities.png', '../images/gfw_logos/gfwWater.png', '../images/gfw_logos/gfwClimate.png';
 
 #headerGfw {
   position: fixed;
@@ -48,6 +49,7 @@ $max-width: 256px;
       .logo-sections-container {
 
         .logo-menu {
+          position: relative;
           width: rem(58px);
           height: rem(58px);
           background-repeat: no-repeat;
@@ -60,23 +62,23 @@ $max-width: 256px;
           }
 
           &.gfw-global {
-            background-image: url('../images/gfw_logos/gfwGlobal.png');
+            background-image: url(nth($gfw-images, 1));
           }
 
           &.gfw-fires {
-            background-image: url('../images/gfw_logos/gfwFires.png');
+            background-image: url(nth($gfw-images, 2));
           }
 
           &.gfw-commodities {
-            background-image: url('../images/gfw_logos/gfwCommodities.png');
+            background-image: url(nth($gfw-images, 3));
           }
 
           &.gfw-water {
-            background-image: url('../images/gfw_logos/gfwWater.png');
+            background-image: url(nth($gfw-images, 4));
           }
 
           &.gfw-climate {
-            background-image: url('../images/gfw_logos/gfwClimate.png');
+            background-image: url(nth($gfw-images, 5));
           }
         }
 
@@ -313,23 +315,23 @@ $max-width: 256px;
               cursor: pointer;
 
               &.gfw-global {
-                background-image: url('../images/gfw_logos/gfwGlobal.png');
+                background-image: url(nth($gfw-images, 1));
               }
 
               &.gfw-fires {
-                background-image: url('../images/gfw_logos/gfwFires.png');
+                background-image: url(nth($gfw-images, 2));
               }
 
               &.gfw-commodities {
-                background-image: url('../images/gfw_logos/gfwCommodities.png');
+                background-image: url(nth($gfw-images, 3));
               }
 
               &.gfw-water {
-                background-image: url('../images/gfw_logos/gfwWater.png');
+                background-image: url(nth($gfw-images, 4));
               }
 
               &.gfw-climate {
-                background-image: url('../images/gfw_logos/gfwClimate.png');
+                background-image: url(nth($gfw-images, 5));
               }
 
               &:last-of-type {
