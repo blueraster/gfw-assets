@@ -143,12 +143,17 @@ class Header {
     }
   }
 
+  utilsMenusMobile() {
+    this.$header.on('click', '.back-mobile-menu', this.hideMenusMobile.bind(this));
+  }
+
   initListeners() {
     // Menus
     $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this));
     $gfwdom(window).on('load', this.resizeMenu.bind(this));
     this.$htmlbody.on('click', '.m-header-nav-container, .m-header-nav-container *', this.closeBack.bind(this));
     this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
+    this.$body.on('click', '.-js-open-menu-mobile', this.showMenuMobile.bind(this));
     this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
     this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
     this.$header.on('click', '.txlive-langselector-current', this.showLanguageMenu.bind(this));
@@ -231,6 +236,24 @@ class Header {
     }
   }
 
+  showMenuMobile(e) {
+    e && e.preventDefault();
+    let currentTarget = e.currentTarget;
+    var $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+
+    if (!$gfwdom(currentTarget).hasClass('-active')) {
+      // Active menu
+      $gfwdom(currentTarget).toggleClass('-active')
+      // Hidden language Menu
+
+      $current.toggleClass('-active');
+      $gfwdom('.back-mobile-menu').toggleClass('-show');
+      this.utilsMenusMobile();
+    } else {
+      this.hideMenusMobile();
+    }
+  }
+
   hideMenus(e) {
     // // Allow mobile scroll
     if (this.menuDashboard.hasClass('-active')) {
@@ -248,7 +271,6 @@ class Header {
     this.$header.find('.open-menu-button').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
-        // $gfwdom(v).find('.-svg').toggleClass('-inactive');
       }
     });
 
@@ -259,6 +281,21 @@ class Header {
 
     this.keyboardPulse = false;
     this.navOptions.toggleClass('-show-triangle');
+  }
+
+  hideMenusMobile() {
+    this.$body.find('.sticky-nav-options > .sub-menu').forEach(function(v){
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom('.back-mobile-menu').toggleClass('-show');
+        $gfwdom(v).toggleClass('-active')
+      }
+    });
+
+    this.$body.find('.sticky-nav-options > .open-menu-button').forEach(function(v){
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom(v).removeClass('-active')
+      }
+    });
   }
 
   showLanguageMenu() {
@@ -477,11 +514,27 @@ class Header {
       if(!this.mobileMenu) {
         this.$body.append(`
           <div class="sticky-nav-options">
-            <div class="sticky-item -language">
+            <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu">
+              <div class="container">
+                <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
+                <ul>
+                  <li class="my-gfw-sign-in-twitter login-item -twitter ">
+                    <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">Log in with Twitter</a>
+                  </li>
+                  <li class="my-gfw-sign-in-facebook login-item -facebook">
+                    <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">Log in with Facebook</a>
+                  </li>
+                  <li class="my-gfw-sign-in-google login-item -google">
+                    <a href="auth/google?applications=gfw" class="my-gfw-sign-in">Log in with Google</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="sticky-item -language -border">
               <div class="triangle lang-triangle"></div>
               <div id="transifexTranslateElement" class="m-transifex"></div>
             </div>
-            <div class="sticky-item">
+            <div class="sticky-item -js-open-menu-mobile open-menu-button open-menu-button-login" data-submenu="#login-sub-menu-mobile">
               My GFW
             </div>
           </div>

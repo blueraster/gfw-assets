@@ -43,6 +43,7 @@
   </nav>
   <div class="m-header-sub-menu-dashboard sub-menu" id="dashboard-sub-menu">
     <div class="back-white"></div>
+    <div class="back-mobile-menu"></div>
     <div class="row nav-sub-menu-container -center">
       <div class="small-10 medium-10 large-10 -center">
         <form class="search-container" id="search-container">
