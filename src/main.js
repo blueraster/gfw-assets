@@ -12,6 +12,7 @@ import Header from './scripts/modules/header';
 import Footer from './scripts/modules/footer';
 import Contact from './scripts/modules/contact';
 
+
 // Add styles
 import './styles/fonts.css';
 import './styles/global.scss';

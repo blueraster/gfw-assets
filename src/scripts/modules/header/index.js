@@ -5,7 +5,6 @@ import headerTpl from './header.tpl';
 import menuOptions from './menuOptions';
 import headerIconsTpl from './header-icons.tpl';
 import LoginButton from '../my-gfw/login-button';
-import Navigation from '../navigation';
 
 /**
  * Header
@@ -34,7 +33,6 @@ class Header {
     this.initListeners();
     this.initTranslate();
     this.initMyGFW();
-    this.initNavigation();
     return this;
   }
 
@@ -43,6 +41,7 @@ class Header {
    */
   cache() {
     this.keyboardPulse = false;
+    this.mobileMenu = false;
     this.$document =  $gfwdom(document);
     this.site = window.liveSettings.site;
 
@@ -51,12 +50,14 @@ class Header {
 
     // Html-body
     this.$htmlbody = $gfwdom('html,body');
+    this.$body = $gfwdom('body');
 
     // Header
     this.$header = $gfwdom('#headerGfw');
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
     this.navSections = this.$header.find('.nav-sections');
+    this.navMobileSections = this.$header.find('.mobile-nav-sections');
     this.subMenu = this.$header.find('.m-header-sub-menu-dashboard');
 
     //Dashboard Menu
@@ -87,6 +88,7 @@ class Header {
    */
   setMenuOptions() {
     this.navSections.html(menuOptions.getOptions(this.site));
+    this.navMobileSections.html(menuOptions.getOptions(this.site));
   };
 
   /**
@@ -143,6 +145,8 @@ class Header {
 
   initListeners() {
     // Menus
+    $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this));
+    $gfwdom(window).on('load', this.resizeMenu.bind(this));
     this.$htmlbody.on('click', '.m-header-nav-container, .m-header-nav-container *', this.closeBack.bind(this));
     this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
     this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
@@ -220,6 +224,10 @@ class Header {
       this.navOptions.toggleClass('-show-triangle');
       this.changeTriangleLanguage(dataSubMenu);
       this.hideMenus();
+    }
+
+    if (utils.getWindowWidth() < 850) {
+      $gfwdom('.sticky-nav-options').toggleClass('-show');
     }
   }
 
@@ -466,15 +474,24 @@ class Header {
     }
 
     if (utils.getWindowWidth() < 850) {
-      this.$headerSubmenuMenuMobile.css({
-        height: utils.getWindowHeigth() - 50 + 'px'
-      });
+      if(!this.mobileMenu) {
+        this.$body.append(`
+          <div class="sticky-nav-options">
+            <div class="sticky-item -language">
+              <div class="triangle lang-triangle"></div>
+              <div id="transifexTranslateElement" class="m-transifex"></div>
+            </div>
+            <div class="sticky-item">
+              My GFW
+            </div>
+          </div>
+        `);
+        this.mobileMenu = true;
+      }
+    } else {
+      this.mobileMenu = false;
     }
 
-  }
-
-  initNavigation() {
-    new Navigation();
   }
 }
 

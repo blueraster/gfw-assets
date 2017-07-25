@@ -6,7 +6,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
 #headerGfw {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
   transform: translateZ(0);
@@ -27,39 +27,33 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
   }
 
   .m-header {
-    border-top: rem(1px) solid $gray;
+    border-bottom: rem(1px) solid $gray;
     background-color: $white;
-
 
     @media (min-width: $br-mobile) {
       border-top: 0;
-      border-bottom: rem(1px) solid $gray;
     }
 
     .m-header-nav-container {
       position: relative;
       justify-content: flex-start;
+      max-width: 83.33333%;
       height: $menu-height;
       margin: 0 auto;
 
       @media (min-width: $br-mobile) {
         justify-content: space-between;
+        max-width: none;
       }
 
       .logo-sections-container {
-
         .logo-menu {
           position: relative;
-          width: rem(58px);
-          height: rem(58px);
+          width: $logo-size;
+          height: $logo-size;
           background-repeat: no-repeat;
           background-size: cover;
-          z-index: 1;
-
-          @media (min-width: $br-mobile) {
-            width: $logo-size;
-            height: $logo-size;
-          }
+          z-index: 4;
 
           &.gfw-global {
             background-image: url(nth($gfw-images, 1));
@@ -114,9 +108,9 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
       }
 
       .options-container {
-        width: calc(100% - 58px);
-        padding-right: rem(20px);
-        padding-left: rem(20px);
+        width: calc(100% - 88px);
+        padding-right: 0;
+        padding-left: 0;
         border-left: rem(1px) solid $gray;
 
         @media (min-width: $br-mobile) {
@@ -128,11 +122,12 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
         .nav-options {
           display: flex;
           position: relative;
-          justify-content: space-between;
+          justify-content: flex-end;
           width: 100%;
           list-style: none;
 
           @media (min-width: $br-mobile) {
+            justify-content: space-between;
             width: auto;
           }
 
@@ -147,6 +142,15 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
             font-size: 12px;
             text-transform: uppercase;
             cursor: pointer;
+
+            &.open-menu-button-login,
+            &.open-menu-button-language {
+              display: none;
+
+              @media (min-width: $br-mobile) {
+                display: flex;
+              }
+            }
 
             &:hover {
               color: $dark;
@@ -213,10 +217,49 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
               .open-icon {
                 display: block;
               }
+
+              .menu-mobile-icon {
+                display: none;
+              }
             }
 
             .open-icon {
               display: none;
+            }
+
+            .desktop-title {
+              display: none;
+
+              @media (min-width: $br-mobile) {
+                display: block;
+              }
+            }
+
+            .mobile-title {
+              display: block;
+
+              @media (min-width: $br-mobile) {
+                display: none;
+              }
+            }
+
+            .close-icon,
+            .open-icon {
+              display: none;
+
+              @media (min-width: $br-mobile) {
+                display: block;
+              }
+            }
+
+            .menu-mobile-icon {
+              display: block;
+              width: rem(20px);
+              height: rem(20px);
+
+              @media (min-width: $br-mobile) {
+                display: none;
+              }
             }
           }
 
@@ -242,7 +285,13 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
     .sub-menu {
       display: none;
-      position: absolute;
+      position: relative;
+
+      @media (min-width: $br-mobile) {
+        position: absolute;
+        bottom: auto;
+        box-shadow: 0 rem(5px) rem(5px) -3px rgba($gray, .5);
+      }
 
       &.-active {
         display: block;
@@ -250,14 +299,29 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
     }
 
     .m-header-sub-menu-dashboard {
-      bottom: rem(59px);
+      position: relative;
       width: 100vw;
-      padding-bottom: rem(45px);
+      max-height: calc(100vh - 58px);
+      padding-bottom: rem(45px + $menu-height);
       border-top: rem(1px) solid $gray;
       background-color: $white;
+      overflow: scroll;
 
       @media (min-width: $br-mobile) {
-        bottom: auto;
+        position: inherit;
+        padding-bottom: rem(45px);
+      }
+
+      .back-white {
+        position: fixed;
+        width: 100%;
+        height: rem(40px);
+        background-color: $white;
+        z-index: 2;
+      }
+
+      @media (min-width: $br-mobile) {
+        max-height: none;
         box-shadow: 0 rem(5px) rem(5px) -3px rgba($gray, .5);
       }
 
@@ -291,6 +355,39 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
           }
         }
 
+        .mobile-nav-sections {
+          display: block;
+          margin-top: rem(30px);
+          padding-bottom: rem(30px);
+          padding-left: rem(20px);
+          border-bottom: 1px solid $gray;
+          list-style: none;
+
+          @media (min-width: $br-mobile) {
+            display: none;
+          }
+
+          li {
+            display: block;
+            margin-bottom: rem(30px);
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+
+            a {
+              transition: color .1s linear;
+              color: rgba($dark, .8);
+              font-size: 14px;
+              text-transform: uppercase;
+
+              &:hover {
+                color: $dark;
+              }
+            }
+          }
+        }
+
         .applications-container {
           margin-top: 36px;
 
@@ -303,16 +400,27 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
           .boxes-container {
             flex-direction: row;
+            flex-flow: row;
             margin-top: rem(30px);
+            overflow-x: scroll;
 
+            @media (min-width: $br-mobile) {
+              overflow-x: hidden;
+            }
 
             .box {
               width: $logo-size;
+              min-width: $logo-size;
               height: $logo-size;
-              margin-right: 40px;
+              min-height: $logo-size;
+              margin-right: rem(20px);
               background-repeat: no-repeat;
               background-size: cover;
               cursor: pointer;
+
+              @media (min-width: $br-mobile) {
+                margin-right: rem(40px);
+              }
 
               &.gfw-global {
                 background-image: url(nth($gfw-images, 1));
@@ -380,14 +488,25 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
         }
 
         .more-options-container {
+          flex-direction: column;
           margin-top: rem(36px);
+
+
+          @media (min-width: $br-mobile) {
+            flex-direction: row;
+          }
 
           .more-options-item {
             display: flex;
+            flex-basis: 100%;
             flex-direction: row;
             align-content: center;
             align-items: center;
             margin-bottom: rem(26px);
+
+            @media (min-width: $br-mobile) {
+              flex-basis: (100% / 4);
+            }
 
             .svg {
               width: rem(20px);
@@ -494,6 +613,52 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
             white-space: nowrap;
           }
         }
+      }
+    }
+  }
+}
+
+.sticky-nav-options {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  flex-direction: row;
+  width: 100%;
+  height: $menu-height;
+  min-height: $menu-height;
+  max-height: $menu-height;
+  transition: color .1s linear;
+  background-color: $white;
+  color: rgba($dark, .5);
+  font-size: 14px;
+  text-transform: uppercase;
+  box-shadow: 0 0 5px 0 rgba($gray, .5);
+  cursor: pointer;
+  z-index: 1000;
+
+  &:hover {
+    color: $dark;
+  }
+
+  &.-show {
+    display: flex;
+  }
+
+  .sticky-item {
+    display: flex;
+    flex-basis: 50%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    &:first-of-type {
+      border-right: 1px solid $gray;
+    }
+
+    &.-language {
+      .triangle {
+
       }
     }
   }

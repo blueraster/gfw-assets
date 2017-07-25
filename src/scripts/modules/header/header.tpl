@@ -32,20 +32,26 @@
           </div>
         </li>
         <li class="-js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">
-          More
+          <span class="mobile-title">Menu</span>
+          <span class="desktop-title">More</span>
           <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
           <svg class="open-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+          <svg class="menu-mobile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use></svg>
         </li>
       </ul>
     </div>
   </nav>
   <div class="m-header-sub-menu-dashboard sub-menu" id="dashboard-sub-menu">
+    <div class="back-white"></div>
     <div class="row nav-sub-menu-container -center">
       <div class="small-10 medium-10 large-10 -center">
         <form class="search-container" id="search-container">
           <input type="text" id="search-input" placeholder="SEARCH" autofocus/>
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg>
         </form>
+        <ul class="mobile-nav-sections">
+
+        </ul>
         <div class="applications-container">
           <h3>OTHER APPLICATIONS</h3>
           <div class="row boxes-container">
@@ -66,27 +72,27 @@
       <div class="small-10 medium-10 large-10 -center">
         <h3>More in GFW</h3>
         <div class="row more-options-container">
-          <a class="more-options-item small-3 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="#">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-developer"></use></svg>
             <span>developers corners</span>
           </a>
-          <a class="more-options-item small-3 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="#">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-how-to"></use></svg>
             <span>how to portal</span>
           </a>
-          <a class="more-options-item small-3 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="#">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-samll-people"></use></svg>
             <span>small grants fund</span>
           </a>
-          <a class="more-options-item small-3 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="#">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-open-data"></use></svg>
             <span>open data portal</span>
           </a>
-          <a class="more-options-item small-3 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="#">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-blog"></use></svg>
             <span>blog</span>
           </a>
-          <a class="more-options-item small-3 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="#">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-forum"></use></svg>
             <span>discussion forum</span>
           </a>
