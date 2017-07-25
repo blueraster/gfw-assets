@@ -663,12 +663,12 @@
 
     &:before {
       left: 0;
-      @include gradient(left,rgba($footer-background,1),rgba($footer-background,0));
+      @include gradient(to right,rgba($footer-background,1),rgba($footer-background,0));
     }
 
     &:after {
       right: 0;
-      @include gradient(right,rgba($footer-background,1),rgba($footer-background,0));
+      @include gradient(to left,rgba($footer-background,1),rgba($footer-background,0));
     }
   }
 

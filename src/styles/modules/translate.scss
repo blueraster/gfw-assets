@@ -1,63 +1,17 @@
-/* line 700, /Users/miguelbarrenechea/Proyects/gfw/app/assets/stylesheets/_header1600.scss */
-#googleTranslate .goog-te-gadget {
-  font-family: inherit;
-  text-align: center;
+#googleTranslate {
+  .goog-te-gadget {
+    font-family: inherit;
+    text-align: center;
 
-  .goog-te-gadget-simple {
-    border: none;
-    background: none;
-    align-items: center;
-    display: flex;
-    height: 35px;
+    .goog-te-gadget-simple {
+      display: flex;
+      align-items: center;
+      height: rem(35px);
+      border: 0;
+      background: none;
 
-    img {
-      display: none;
-    }
-
-    .goog-te-menu-value {
-      color: $light;
-      text-transform: uppercase;
-      font-size: 11px;
-      line-height: 28px;
-      position: relative;
-      padding-right: 20px;
-
-      span {
-        margin: 0 3px 0 0px;
-      }
-
-      span:first-child {
-        display: inline-block;
-        margin: 1px 5px 0;
-      }
-
-      span:nth-of-type(2) {
+      img {
         display: none;
-      }
-
-      span:last-child {
-        margin: 0;
-        visibility: hidden;
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 5px;
-        height: 16px;
-        width: 16px;
-        transform: translate(0, -55%);
-
-        &:before {
-          content: "";
-          visibility: visible;
-          display: block;
-          background: url(http://www.globalforestwatch.org/assets/svg-icons/arrow-down-white.svg) no-repeat center;
-          background-size: contain;
-          height: 12px;
-          width: 12px;
-          position: absolute;
-          top: 50%;
-          margin: -6px 0 0;
-        }
       }
     }
   }
@@ -66,90 +20,75 @@
 
 #headerGfw {
   #transifexTranslateElement {
-    position: relative;
-    height: 100%;
-    font-size: 11px;
     display: flex;
-    height: 35px;
+    position: relative;
     align-items: center;
+    height: rem(35px);
+    font-size: 11px;
 
-    @media (min-width: $br-mobile){
+    @media (min-width: $br-mobile) {
       &.-visible {
         display: block;
       }
     }
 
     .txlive-langselector-toggle {
-      color: $light;
-      padding: 3px 25px 0 15px;
-      border: 1px solid transparent;
+      transition: color .1s linear;
+      border: rem(1px) solid transparent;
+      color: rgba($dark, .5);
+      font-size: 12px;
       text-transform: uppercase;
       cursor: pointer;
-      font-weight: 500;
+
+
 
       &:hover {
-        color: $white;
+        transition: color .1s linear;
+        color: $dark;
       }
 
       .txlive-langselector-current {
-        line-height: 1;
         display: block;
-      }
-
-      .txlive-langselector-marker {
-        width: 12px;
-        height: 12px;
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translate(0,-50%);
-        background: url(http://www.globalforestwatch.org/assets/svg-icons/arrow-down-white.svg) center no-repeat;
-        background-size: contain;
+        line-height: 1;
       }
     }
 
     .txlive-langselector-list {
       position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translate(-50%,5px);
-      min-width: 150px;
+      top: rem(47px);
+      right: -25px;
+      min-width: rem(200px);
+      max-width: rem(200px);
       padding: 0;
-      background: $dark1;
-
-      &:after {
-        content: "";
-        display: block;
-        width: 6px;
-        height: 6px;
-        background: $dark1;
-        transform: translate(-50%,-50%) rotate(45deg);
-        position: absolute;
-        top: 0;
-        left: 50%;
-      }
+      border: 1px solid $gray;
+      border-top: 0;
+      background: $white;
+      box-shadow: none;
 
       li {
-        padding: 12px 15px;
-        color: $light;
         position: relative;
-        z-index: 1;
+        padding: 12px 15px;
+        color: $dark;
         text-transform: uppercase;
+        z-index: 1;
+
+        &:first-of-type {
+          margin-top: 12px;
+        }
 
         &:hover {
-          background: lighten($dark1,5%);
-          color: $white;
+          background-color: lighten($gray, 1%);
         }
       }
     }
   }
 
   #transifexTranslateMobileElement {
+    display: none;
     position: relative;
+    align-items: center;
     height: 100%;
     font-size: 15px;
-    display: none;
-    align-items: center;
 
     &.-active {
       display: block;
@@ -164,20 +103,15 @@
       position: relative;
       top: 0;
       left: 0;
-      transform: translate(0,0);
       padding: 0;
+      transform: translate(0, 0);
       background: $white;
 
       li {
+        position: relative;
         padding: 12px 25px;
         color: $dark;
-        position: relative;
         z-index: 1;
-
-        &:hover {
-          background: lighten($dark1,5%);
-          color: $white;
-        }
       }
     }
   }
