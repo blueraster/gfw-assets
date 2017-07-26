@@ -11,6 +11,7 @@
     "jbone": "^1.1.2",
     "lory.js": "^2.0.1",
     "validate.js": "^0.10.0",
+    "vissense": "^0.10.0",
     "webpack-spritesmith": "^0.2.6"
   },
   "devDependencies": {

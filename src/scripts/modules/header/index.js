@@ -216,6 +216,7 @@ class Header {
         this.searchInput.focus();
       }
       this.utilsMenus();
+      this.resizeMenu('boxes');
     } else {
       this.navOptions.toggleClass('-show-triangle');
       this.changeTriangleLanguage(dataSubMenu);
@@ -489,58 +490,94 @@ class Header {
     }
   }
 
-  resizeMenu() {
-    if (utils.getWindowWidth() < 700) {
-      this.$header.find('.m-header-submenu').forEach(function(v){
-        $gfwdom(v).css({
-          height: utils.getWindowHeigth() - 50 + 'px'
+  resizeMenu(value) {
+  if (value != 'boxes') {
+      if (utils.getWindowWidth() < 700) {
+        this.$header.find('.m-header-submenu').forEach(function(v){
+          $gfwdom(v).css({
+            height: utils.getWindowHeigth() - 50 + 'px'
+          });
+        })
+      } else {
+        this.$header.find('.m-header-submenu').forEach(function(v){
+          $gfwdom(v).css({ height: 'auto' });
         });
-      })
-    } else {
-      this.$header.find('.m-header-submenu').forEach(function(v){
-        $gfwdom(v).css({ height: 'auto' });
-      });
-    }
+      }
 
-    if (utils.getWindowWidth() < 850) {
-      if(!this.mobileMenu) {
-        this.initTranslate();
-        this.$headerBar.append(`
-          <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu sub-menu-mobile">
-            <div class="container">
-              <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
-              <ul>
-                <li class="my-gfw-sign-in-twitter login-item -twitter ">
-                  <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">Log in with Twitter</a>
-                </li>
-                <li class="my-gfw-sign-in-facebook login-item -facebook">
-                  <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">Log in with Facebook</a>
-                </li>
-                <li class="my-gfw-sign-in-google login-item -google">
-                  <a href="auth/google?applications=gfw" class="my-gfw-sign-in">Log in with Google</a>
-                </li>
-              </ul>
+
+      if (utils.getWindowWidth() < 850) {
+        if(!this.mobileMenu) {
+          this.initTranslate();
+          this.$headerBar.append(`
+            <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu sub-menu-mobile">
+              <div class="container">
+                <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
+                <ul>
+                  <li class="my-gfw-sign-in-twitter login-item -twitter ">
+                    <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">Log in with Twitter</a>
+                  </li>
+                  <li class="my-gfw-sign-in-facebook login-item -facebook">
+                    <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">Log in with Facebook</a>
+                  </li>
+                  <li class="my-gfw-sign-in-google login-item -google">
+                    <a href="auth/google?applications=gfw" class="my-gfw-sign-in">Log in with Google</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="sticky-nav-options">
-            <div class="sticky-item -language -border -js-open-menu-mobile open-menu-button" data-submenu="#tx-live-lang-picker">
-              <div id="transifexTranslateMobileElement" class="m-transifex"></div>
+            <div class="sticky-nav-options">
+              <div class="sticky-item -language -border -js-open-menu-mobile open-menu-button" data-submenu="#tx-live-lang-picker">
+                <div id="transifexTranslateMobileElement" class="m-transifex"></div>
+              </div>
+              <div class="sticky-item -js-open-menu-mobile open-menu-button open-menu-button-login" data-submenu="#login-sub-menu-mobile">
+                My GFW
+                <svg class="profile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
+                <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+              </div>
             </div>
-            <div class="sticky-item -js-open-menu-mobile open-menu-button open-menu-button-login" data-submenu="#login-sub-menu-mobile">
-              My GFW
-              <svg class="profile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
-              <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
-            </div>
-          </div>
-        `);
-        this.mobileMenu = true;
+          `);
+          this.mobileMenu = true;
+        }
+      } else {
+        $gfwdom('.m-header-sub-menu-login.sub-menu-mobile').remove();
+        $gfwdom('.sticky-nav-options').remove();
+        this.mobileMenu = false;
       }
     } else {
-      $gfwdom('.m-header-sub-menu-login.sub-menu-mobile').remove();
-      $gfwdom('.sticky-nav-options').remove();
-      this.mobileMenu = false;
+      var n = $gfwdom('.box').length;
+      var boxContainerWidth;
+      var longitude = 0;
+      var firstOut = false;
+      var boxContainerLeft;
+      var boxLeft;
+      var notAppear = false;
+      var  i = 0;
+      this.$boxContainer = this.$header.find('.applications-container');
+      this.$header.find('.boxes-container').forEach(function(v){
+          boxContainerWidth = v.offsetWidth;
+          boxContainerLeft = v.getBoundingClientRect().left;
+      });
+      this.$header.find('.box').forEach(function(v){
+        boxLeft = v.getBoundingClientRect().left - boxContainerLeft;
+        if (boxLeft + 88 >= boxContainerWidth) {
+          if (!firstOut) {
+            longitude = boxLeft - boxContainerWidth;
+            notAppear = true;
+            firstOut = true;
+          }
+        }
+      });
+      if(notAppear) {
+        this.$header.find('.box').forEach(function(v){
+          if(i < n) {
+            var distance = longitude + (longitude * 2);
+            if(distance > 0) {
+              $gfwdom(v).css('margin-right', distance+'px');
+            }
+          }
+        });
+      }
     }
-
   }
 }
 
