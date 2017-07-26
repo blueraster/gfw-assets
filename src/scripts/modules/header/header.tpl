@@ -32,7 +32,7 @@
         </li>
         <li class="-js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">
           <span class="mobile-title" data-submenu="#dashboard-sub-menu">Menu</span>
-          <span class="desktop-title" data-submenu="#dashboard-sub-menu">More</span>
+          <span class="desktop-title -js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">More</span>
           <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
           <svg class="open-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <svg class="menu-mobile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use></svg>

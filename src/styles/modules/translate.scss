@@ -84,35 +84,67 @@
   }
 
   #transifexTranslateMobileElement {
-    display: none;
-    position: relative;
+    display: flex;
     align-items: center;
     height: 100%;
     font-size: 15px;
+
+    @media (min-width: $br-mobile) {
+      display: none;
+    }
 
     &.-active {
       display: block;
     }
 
     .txlive-langselector-toggle {
-      display: none;
+      display: flex;
+      align-items: center;
     }
 
     .txlive-langselector-list {
-      display: block;
-      position: relative;
-      top: 0;
+      display: none;
+      position: absolute;
+      top: calc(-100vh + 116px);
       left: 0;
       padding: 0;
       transform: translate(0, 0);
       background: $white;
+      box-shadow: none;
+      width: 100vw;
+      height: calc(100vh - 118px);
+
+      &.-active {
+        display: block;
+      }
 
       li {
         position: relative;
-        padding: 12px 25px;
+        padding: 10px 0;
+        padding-left: 10px;
         color: $dark;
         z-index: 1;
+        max-width: 83.33333%;
+        margin: 0 auto 10px;
+
+        &:first-of-type {
+          margin-top: rem(40px);
+        }
+
+        &:hover {
+          background-color: lighten($gray, 1%);
+        }
       }
+    }
+
+    .txlive-langselector-marker {
+      display: block;
+      width: 0;
+      height: 0;
+      border-width: 6.9px 4px 0;
+      border-style: solid;
+      border-color: $dark transparent transparent transparent;
+      margin-left: rem(10px);
     }
   }
 }

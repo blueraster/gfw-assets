@@ -145,16 +145,15 @@ class Header {
   }
 
   utilsMenusMobile() {
+    this.$header.on('click', '#transifexTranslateMobileElement > .tx-live-lang-picker > li', this.hideMenusMobile.bind(this));
   }
 
   initListeners() {
     // Menus
     $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this));
     $gfwdom(window).on('load', this.resizeMenu.bind(this));
-    this.$htmlbody.on('click', '.m-header-nav-container, .m-header-nav-container *', this.closeBack.bind(this));
     this.$header.on('click', '.-js-open-menu, .-js-open-menu > .mobile-title, .-js-open-menu > .desktop-title', this.showMenu.bind(this));
     this.$body.on('click', '.-js-open-menu-mobile', this.showMenuMobile.bind(this));
-    this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
     this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
     this.$header.on('click', '.txlive-langselector-current', this.showLanguageMenu.bind(this));
   }
@@ -170,14 +169,6 @@ class Header {
       if (this.triangleLanguage.hasClass('-open')) {
         this.triangleLanguage.removeClass('-open');
       }
-    }
-  }
-
-  closeBack(e) {
-    e && e.preventDefault();
-    let currentTarget = e.currentTarget;
-    if(!$gfwdom(currentTarget).hasClass('open-menu-button') && !$gfwdom(currentTarget).hasClass('txlive-langselector-toggle')) {
-      this.hideMenus();
     }
   }
 
@@ -240,12 +231,11 @@ class Header {
     e && e.preventDefault();
     let currentTarget = e.currentTarget;
     var $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
-
     if (!$gfwdom(currentTarget).hasClass('-active')) {
+      this.hideMenusMobile();
       // Active menu
       $gfwdom(currentTarget).toggleClass('-active')
       // Hidden language Menu
-
       $current.toggleClass('-active');
       this.utilsMenusMobile();
     } else {
@@ -284,6 +274,12 @@ class Header {
 
   hideMenusMobile() {
     this.$body.find('.m-header > .sub-menu-mobile').forEach(function(v){
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom(v).toggleClass('-active')
+      }
+    });
+
+    this.$body.find('#tx-live-lang-picker').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).toggleClass('-active')
       }
@@ -459,8 +455,6 @@ class Header {
     }, 0);
   };
 
-
-
   /**
    * We need to make a difference between local, staging and PRO environment urls.
    * Also we need to have a default value for the external applications
@@ -510,6 +504,7 @@ class Header {
 
     if (utils.getWindowWidth() < 850) {
       if(!this.mobileMenu) {
+        this.initTranslate();
         this.$headerBar.append(`
           <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu sub-menu-mobile">
             <div class="container">
@@ -528,9 +523,8 @@ class Header {
             </div>
           </div>
           <div class="sticky-nav-options">
-            <div class="sticky-item -language -border">
-              <div class="triangle lang-triangle"></div>
-              <div id="transifexTranslateElement" class="m-transifex"></div>
+            <div class="sticky-item -language -border -js-open-menu-mobile open-menu-button" data-submenu="#tx-live-lang-picker">
+              <div id="transifexTranslateMobileElement" class="m-transifex"></div>
             </div>
             <div class="sticky-item -js-open-menu-mobile open-menu-button open-menu-button-login" data-submenu="#login-sub-menu-mobile">
               My GFW
@@ -542,6 +536,8 @@ class Header {
         this.mobileMenu = true;
       }
     } else {
+      $gfwdom('.m-header-sub-menu-login.sub-menu-mobile').remove();
+      $gfwdom('.sticky-nav-options').remove();
       this.mobileMenu = false;
     }
 

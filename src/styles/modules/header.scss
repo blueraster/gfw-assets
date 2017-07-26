@@ -27,6 +27,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
   }
 
   .m-header {
+    position: relative;
     border-bottom: rem(1px) solid $gray;
     background-color: $white;
 
@@ -40,10 +41,10 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
       max-width: 83.33333%;
       height: $menu-height;
       margin: 0 auto;
+      z-index: 10000;
 
       @media (min-width: $br-mobile) {
         justify-content: space-between;
-        max-width: none;
       }
 
       .logo-sections-container {
@@ -231,6 +232,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
             .desktop-title {
               display: none;
+              pointer-events: none;
 
               @media (min-width: $br-mobile) {
                 display: block;
@@ -239,6 +241,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
             .mobile-title {
               display: block;
+              pointer-events: none;
 
               @media (min-width: $br-mobile) {
                 display: none;
@@ -568,9 +571,10 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
       @media (min-width: $br-mobile) {
         top: rem(59px);
-        right: -10px;
+        left: -320px;
         min-width: rem(400px);
         max-width: rem(400px);
+        height: auto;
         padding: rem(40px);
       }
 
@@ -688,12 +692,13 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
       height: 100%;
 
       &.-border {
+        width: 50%;
         border-right: 1px solid $gray;
       }
 
-      &.-language {
-        .triangle {
-
+      &.-active {
+        .txlive-langselector-marker {
+          transform: rotate(180deg);
         }
       }
     }
