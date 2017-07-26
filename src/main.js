@@ -28,8 +28,8 @@ const init = () => {
   new Contact();
 }
 
-if(!!document.readyState && (document.readyState === "complete" || document.readyState === "interactive")) {
-	init();
+if (!!document.readyState && (document.readyState === 'complete' || document.readyState === 'interactive')) {
+  init();
 } else {
-	document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('DOMContentLoaded', init);
 }

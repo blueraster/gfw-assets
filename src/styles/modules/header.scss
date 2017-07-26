@@ -88,7 +88,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
           li {
             display: inline-block;
-            margin-right: 40px;
+            margin-right: rem(40px);
 
             &:last-of-type {
               margin-right: 0;
@@ -97,7 +97,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
             a {
               transition: color .1s linear;
               color: rgba($dark, .8);
-              font-size: 14px;
+              font-size: rem(14px);
               text-transform: uppercase;
 
               &:hover {
@@ -142,7 +142,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
             margin-right: rem(40px);
             transition: color .1s linear;
             color: rgba($dark, .5);
-            font-size: 12px;
+            font-size: rem(12px);
             text-transform: uppercase;
             cursor: pointer;
 
@@ -160,7 +160,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
             }
 
             &:first-of-type {
-              margin-right: 56px;
+              margin-right: rem(56px);
 
               &.-active {
                 &::after,
@@ -258,8 +258,8 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
             .menu-mobile-icon {
               display: block;
-              width: rem(20px);
-              height: rem(20px);
+              width: rem(17px);
+              height: rem(17px);
 
               @media (min-width: $br-mobile) {
                 display: none;
@@ -314,8 +314,8 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
       @media (min-width: $br-mobile) {
         position: inherit;
-        padding-bottom: rem(45px);
         max-height: none;
+        padding-bottom: rem(45px);
         box-shadow: 0 rem(5px) rem(5px) -3px rgba($gray, .5);
       }
 
@@ -377,7 +377,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
           margin-top: rem(30px);
           padding-bottom: rem(30px);
           padding-left: rem(20px);
-          border-bottom: 1px solid $gray;
+          border-bottom: rem(1px) solid $gray;
           list-style: none;
 
           @media (min-width: $br-mobile) {
@@ -395,7 +395,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
             a {
               transition: color .1s linear;
               color: rgba($dark, .8);
-              font-size: 14px;
+              font-size: rem(14px);
               text-transform: uppercase;
 
               &:hover {
@@ -406,11 +406,11 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
         }
 
         .applications-container {
-          margin-top: 36px;
+          margin-top: rem(36px);
 
           h3 {
             color: $dark-gray;
-            font-size: 14px;
+            font-size: rem(14px);
             line-height: 1;
             text-transform: uppercase;
           }
@@ -419,10 +419,17 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
             flex-direction: row;
             flex-flow: row;
             margin-top: rem(30px);
+            padding-bottom: rem(20px);
             overflow-x: scroll;
+            -ms-overflow-style: none;
+
 
             @media (min-width: $br-mobile) {
               overflow-x: hidden;
+            }
+
+            &::-webkit-scrollbar {
+              display: none;
             }
 
             .box {
@@ -475,7 +482,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
                   margin-top: rem(5px);
                   margin-bottom: rem(5px);
                   color: rgba($dark, .8);
-                  font-size: 12px;
+                  font-size: rem(12px);
                   line-height: 1.17;
                   text-align: center;
                   text-transform: uppercase;
@@ -493,13 +500,13 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
       }
 
       .m-header-more-container {
-        margin-top: 36px;
+        margin-top: rem(36px);
 
         h3 {
           padding-top: rem(36px);
-          border-top: 1px solid rgba($dark, .2);
+          border-top: rem(1px) solid rgba($dark, .2);
           color: $dark-gray;
-          font-size: 14px;
+          font-size: rem(14px);
           line-height: 1;
           text-transform: uppercase;
         }
@@ -533,7 +540,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
             span {
               color: $dark;
-              font-size: 12px;
+              font-size: rem(12px);
               text-transform: uppercase;
             }
           }
@@ -549,7 +556,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
             padding-top: rem(36px);
             border-top: rem(1px) solid rgba($dark, .2);
             color: $dark-gray;
-            font-size: 14px;
+            font-size: rem(14px);
             line-height: 1;
             text-transform: uppercase;
           }
@@ -559,7 +566,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
     .m-header-sub-menu-login {
       position: absolute;
-      top: 59px;
+      top: rem(59px);
       left: 0;
       width: 100%;
       height: calc(100% - 59px);
@@ -588,7 +595,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
       p {
         color: $dark;
-        font-size: 14px;
+        font-size: rem(14px);
         text-transform: initial;
 
         a {
@@ -643,7 +650,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
           a {
             color: $white;
-            font-size: 14px;
+            font-size: rem(14px);
             text-transform: uppercase;
             white-space: nowrap;
           }
@@ -664,9 +671,9 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
     transition: color .1s linear;
     background-color: $white;
     color: rgba($dark, .5);
-    font-size: 14px;
+    font-size: rem(14px);
     text-transform: uppercase;
-    box-shadow: 0 0 5px 0 rgba($gray, .5);
+    box-shadow: 0 0 rem(5px) 0 rgba($gray, .5);
     cursor: pointer;
     z-index: 1000;
 
@@ -692,7 +699,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
       &.-border {
         width: 50%;
-        border-right: 1px solid $gray;
+        border-right: rem(1px) solid $gray;
       }
 
       &.-active {

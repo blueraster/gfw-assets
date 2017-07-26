@@ -1,4 +1,3 @@
-'use strict';
 import $gfwdom from '../../facade';
 import utils from '../../utils';
 import headerTpl from './header.tpl';
@@ -13,7 +12,6 @@ import LoginButton from '../my-gfw/login-button';
  */
 
 class Header {
-
   constructor() {
     this.el = document.getElementById('headerGfw');
     if (!this.el) {
@@ -61,20 +59,20 @@ class Header {
     this.navMobileSections = this.$header.find('.mobile-nav-sections');
     this.subMenu = this.$header.find('.m-header-sub-menu-dashboard');
 
-    //Dashboard Menu
+    // Dashboard Menu
     this.searchContainer = document.getElementById('search-container');
-    this.searchInput = document.getElementById('search-input'); //autofocus
+    this.searchInput = document.getElementById('search-input');
     this.openMenuDashboard = this.$header.find('.open-menu-button-dashboard');
     this.menuDashboard = this.$header.find('#dashboard-sub-menu');
     this.boxesContainer = this.$header.find('.boxes-container');
-    this.currentBox = this.boxesContainer.find('.box.'+this.site);
+    this.currentBox = this.boxesContainer.find(`.box.${this.site}`);
 
-    //Login Menu
+    // Login Menu
     this.menuLogin = this.$header.find('.m-header-sub-menu-login');
 
-    //Language Menu
+    // Language Menu
     this.triangleLanguage = this.$header.find('.lang-triangle');
-  };
+  }
 
   /**
    * Set logos on header and options gallery
@@ -82,7 +80,7 @@ class Header {
   setLogos() {
     this.logoMenu.addClass(this.site);
     this.currentBox.remove();
-  };
+  }
 
   /**
    * Set menu's options
@@ -90,30 +88,30 @@ class Header {
   setMenuOptions() {
     this.navSections.html(menuOptions.getOptions(this.site));
     this.navMobileSections.html(menuOptions.getOptions(this.site));
-  };
+  }
 
   /**
    * Function for capturing keyboard and open the dashboard
    */
   keyboardOpenMenu() {
-    document.onkeypress = function(evt) {
-       evt = evt || window.event;
-       var charCode = evt.which || evt.keyCode;
-       var charStr = String.fromCharCode(charCode);
-       if (/[a-z0-9]/i.test(charStr)) {
-         this.showMenuKeyBoard();
-       }
+    document.onkeypress = function keyBoardOpen(evt) {
+      evt = evt || window.event;
+      const charCode = evt.which || evt.keyCode;
+      const charStr = String.fromCharCode(charCode);
+      if (/[a-z0-9]/i.test(charStr)) {
+        this.showMenuKeyBoard();
+      }
     }.bind(this);
-  };
+  }
 
   /**
    * Set Params
    */
   setParams() {
-    var $parent = document.querySelector('#loader-gfw');
+    const $parent = document.querySelector('#loader-gfw');
     this.params = {
-      current: $parent.getAttribute('data-current')
-    }
+      current: $parent.getAttribute('data-current'),
+    };
   }
 
   /**
@@ -130,7 +128,7 @@ class Header {
    */
   utilsMenus() {
     // Key bindings
-    this.$document.on('keyup.apps', e => {
+    this.$document.on('keyup.apps', (e) => {
       if (e.keyCode === 27) {
         this.hideMenus();
         this.hideLanguageMenu();
@@ -159,7 +157,7 @@ class Header {
   }
 
   changeTriangleLanguage(value) {
-    if(value === '#language-sub-menu') {
+    if (value === '#language-sub-menu') {
       if (this.triangleLanguage.hasClass('-open')) {
         this.triangleLanguage.removeClass('-open');
       } else {
@@ -174,7 +172,7 @@ class Header {
 
   showMenuKeyBoard() {
     if (!this.keyboardPulse) {
-      var $languageMenu = this.$header.find('.txlive-langselector-list');
+      const $languageMenu = this.$header.find('.txlive-langselector-list');
       if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
         $languageMenu.removeClass('txlive-langselector-list-opened');
       }
@@ -192,23 +190,22 @@ class Header {
   }
 
   showMenu(e) {
-    e && e.preventDefault();
-    let currentTarget = e.currentTarget;
-    var dataSubMenu = currentTarget.getAttribute('data-submenu');
+    const currentTarget = e.currentTarget;
+    const dataSubMenu = currentTarget.getAttribute('data-submenu');
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       // Hide all the opened menus
       this.hideMenus();
       // Active menu
-      $gfwdom(currentTarget).toggleClass('-active')
+      $gfwdom(currentTarget).toggleClass('-active');
       this.changeTriangleLanguage(dataSubMenu);
       // Hidden language Menu
-      if(dataSubMenu != '#language-sub-menu') {
-        var $languageMenu = this.$header.find('.txlive-langselector-list');
+      if (dataSubMenu !== '#language-sub-menu') {
+        const $languageMenu = this.$header.find('.txlive-langselector-list');
         if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
           $languageMenu.removeClass('txlive-langselector-list-opened');
         }
       }
-      var $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+      const $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
       $current.toggleClass('-active');
       this.navOptions.toggleClass('-show-triangle');
 
@@ -229,13 +226,12 @@ class Header {
   }
 
   showMenuMobile(e) {
-    e && e.preventDefault();
-    let currentTarget = e.currentTarget;
-    var $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+    const currentTarget = e.currentTarget;
+    const $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       this.hideMenusMobile();
       // Active menu
-      $gfwdom(currentTarget).toggleClass('-active')
+      $gfwdom(currentTarget).toggleClass('-active');
       // Hidden language Menu
       $current.toggleClass('-active');
       this.utilsMenusMobile();
@@ -244,7 +240,7 @@ class Header {
     }
   }
 
-  hideMenus(e) {
+  hideMenus() {
     // // Allow mobile scroll
     if (this.menuDashboard.hasClass('-active')) {
       this.searchContainer.reset();
@@ -252,7 +248,7 @@ class Header {
 
     this.$htmlbody.removeClass('-no-scroll');
 
-    this.$header.find('.sub-menu').forEach(function(v){
+    this.$header.find('.sub-menu').forEach(function findSubMenu(v) {
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
       }
@@ -471,7 +467,7 @@ class Header {
       }
     }.bind(this));
 
-    this.$linksSubmenu.forEach(v => {
+    this.$linksSubmenu.forEach(function(v) {
       const external = $gfwdom(v).hasClass('external-link');
       if (this.params.targets) {
         (!!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target','_blank');
@@ -570,7 +566,7 @@ class Header {
       if(notAppear) {
         this.$header.find('.box').forEach(function(v){
           if(i < n) {
-            var distance = longitude + (longitude * 2);
+            var distance = longitude * 3;
             if(distance > 0) {
               $gfwdom(v).css('margin-right', distance+'px');
             }
