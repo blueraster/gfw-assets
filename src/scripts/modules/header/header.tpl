@@ -1,4 +1,3 @@
-<div class="m-header-backdrop"></div>
 <header class="m-header">
   <nav class="row align-justify m-header-nav-container">
     <div class="row logo-sections-container">
@@ -32,8 +31,8 @@
           </div>
         </li>
         <li class="-js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">
-          <span class="mobile-title">Menu</span>
-          <span class="desktop-title">More</span>
+          <span class="mobile-title" data-submenu="#dashboard-sub-menu">Menu</span>
+          <span class="desktop-title" data-submenu="#dashboard-sub-menu">More</span>
           <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
           <svg class="open-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
           <svg class="menu-mobile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use></svg>
@@ -43,7 +42,6 @@
   </nav>
   <div class="m-header-sub-menu-dashboard sub-menu" id="dashboard-sub-menu">
     <div class="back-white"></div>
-    <div class="back-mobile-menu"></div>
     <div class="row nav-sub-menu-container -center">
       <div class="small-10 medium-10 large-10 -center">
         <form class="search-container" id="search-container">

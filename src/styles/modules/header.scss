@@ -53,7 +53,7 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
           height: $logo-size;
           background-repeat: no-repeat;
           background-size: cover;
-          z-index: 4;
+          z-index: 100;
 
           &.gfw-global {
             background-image: url(nth($gfw-images, 1));
@@ -557,14 +557,31 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
 
     .m-header-sub-menu-login {
       position: absolute;
-      top: rem(59px);
-      right: -10px;
-      min-width: rem(400px);
-      max-width: rem(400px);
-      padding: rem(40px);
+      top: 59px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 59px);
+      padding: rem(60px) 0;
       border: rem(1px) solid $gray;
       border-top: 0;
       background-color: $white;
+
+      @media (min-width: $br-mobile) {
+        top: rem(59px);
+        right: -10px;
+        min-width: rem(400px);
+        max-width: rem(400px);
+        padding: rem(40px);
+      }
+
+      .container {
+        max-width: 83.33333%;
+        margin: 0 auto;
+
+        @media (min-width: $br-mobile) {
+          max-width: none;
+        }
+      }
 
       p {
         color: $dark;
@@ -631,137 +648,79 @@ $gfw-images: '../images/gfw_logos/gfwGlobal.png', '../images/gfw_logos/gfwFires.
       }
     }
   }
-}
 
-.sticky-nav-options {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  flex-direction: row;
-  width: 100%;
-  height: $menu-height;
-  min-height: $menu-height;
-  max-height: $menu-height;
-  transition: color .1s linear;
-  background-color: $white;
-  color: rgba($dark, .5);
-  font-size: 14px;
-  text-transform: uppercase;
-  box-shadow: 0 0 5px 0 rgba($gray, .5);
-  cursor: pointer;
-  z-index: 1000;
-
-  &:hover {
-    color: $dark;
-  }
-
-  &.-show {
-    display: flex;
-  }
-
-  .back-mobile-menu {
-
-  }
-
-  .sticky-item {
-    display: flex;
-    flex-basis: 50%;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-
-    &.-border {
-      border-right: 1px solid $gray;
-    }
-
-    &.-language {
-      .triangle {
-
-      }
-    }
-  }
-
-  .m-header-sub-menu-login {
+  .sticky-nav-options {
     display: none;
-    position: absolute;
-    bottom: 59px;
+    position: fixed;
+    bottom: 0;
+    flex-direction: row;
     width: 100%;
-    height: auto;
+    height: $menu-height;
+    min-height: $menu-height;
+    max-height: $menu-height;
+    transition: color .1s linear;
     background-color: $white;
+    color: rgba($dark, .5);
+    font-size: 14px;
+    text-transform: uppercase;
     box-shadow: 0 0 5px 0 rgba($gray, .5);
+    cursor: pointer;
+    z-index: 1000;
 
-    &.-active {
-      display: block;
-    }
-
-    .container {
-      max-width: calc(100vw / 1.5);
-      margin: rem(50px) auto rem(40px);
-    }
-
-    p {
-      margin: 0;
+    &:hover {
       color: $dark;
-      font-size: 14px;
-      text-transform: initial;
+    }
 
-      a {
-        color: $primary-color;
+    &.-show {
+      display: flex;
+    }
+
+    .back-mobile-menu {
+
+    }
+
+    .sticky-item {
+      display: flex;
+      flex-basis: 50%;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      &.-border {
+        border-right: 1px solid $gray;
+      }
+
+      &.-language {
+        .triangle {
+
+        }
       }
     }
 
-    ul {
-      padding: 0;
-      list-style: none;
+    svg {
+      width: rem(17px);
+      height: rem(17px);
+      margin-left: rem(5px);
+      fill: $dark;
+    }
 
-      .login-item {
-        display: flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: rem(50px) !important;
-        margin-bottom: rem(30px);
-        transition: background-color .1s linear;
+    .open-menu-button-login {
+      .profile-icon {
+        display: block;
+      }
 
-        &:first-of-type {
-          margin-top: rem(20px);
+      .close-icon {
+        display: none;
+      }
+
+      &.-active {
+        .profile-icon {
+          display: none;
         }
 
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-
-        &.-facebook {
-          background-color: $facebook;
-
-          &:hover {
-            background-color: lighten($facebook, 5%);
-          }
-        }
-
-        &.-twitter {
-          background-color: $twitter;
-
-          &:hover {
-            background-color: lighten($twitter, 5%);
-          }
-        }
-
-        &.-google {
-          background-color: $google;
-
-          &:hover {
-            background-color: lighten($google, 5%);
-          }
-        }
-
-        a {
-          color: $white;
-          font-size: 14px;
-          text-transform: uppercase;
-          white-space: nowrap;
+        .close-icon {
+          display: block;
         }
       }
     }

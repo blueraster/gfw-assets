@@ -54,6 +54,7 @@ class Header {
 
     // Header
     this.$header = $gfwdom('#headerGfw');
+    this.$headerBar = this.$header.find('.m-header');
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
     this.navSections = this.$header.find('.nav-sections');
@@ -144,7 +145,6 @@ class Header {
   }
 
   utilsMenusMobile() {
-    this.$header.on('click', '.back-mobile-menu', this.hideMenusMobile.bind(this));
   }
 
   initListeners() {
@@ -152,7 +152,7 @@ class Header {
     $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this));
     $gfwdom(window).on('load', this.resizeMenu.bind(this));
     this.$htmlbody.on('click', '.m-header-nav-container, .m-header-nav-container *', this.closeBack.bind(this));
-    this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
+    this.$header.on('click', '.-js-open-menu, .-js-open-menu > .mobile-title, .-js-open-menu > .desktop-title', this.showMenu.bind(this));
     this.$body.on('click', '.-js-open-menu-mobile', this.showMenuMobile.bind(this));
     this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
     this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
@@ -247,7 +247,6 @@ class Header {
       // Hidden language Menu
 
       $current.toggleClass('-active');
-      $gfwdom('.back-mobile-menu').toggleClass('-show');
       this.utilsMenusMobile();
     } else {
       this.hideMenusMobile();
@@ -284,14 +283,13 @@ class Header {
   }
 
   hideMenusMobile() {
-    this.$body.find('.sticky-nav-options > .sub-menu').forEach(function(v){
+    this.$body.find('.m-header > .sub-menu-mobile').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
-        $gfwdom('.back-mobile-menu').toggleClass('-show');
         $gfwdom(v).toggleClass('-active')
       }
     });
 
-    this.$body.find('.sticky-nav-options > .open-menu-button').forEach(function(v){
+    this.$body.find('.m-header > .sticky-nav-options > .open-menu-button').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active')
       }
@@ -512,30 +510,32 @@ class Header {
 
     if (utils.getWindowWidth() < 850) {
       if(!this.mobileMenu) {
-        this.$body.append(`
-          <div class="sticky-nav-options">
-            <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu">
-              <div class="container">
-                <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
-                <ul>
-                  <li class="my-gfw-sign-in-twitter login-item -twitter ">
-                    <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">Log in with Twitter</a>
-                  </li>
-                  <li class="my-gfw-sign-in-facebook login-item -facebook">
-                    <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">Log in with Facebook</a>
-                  </li>
-                  <li class="my-gfw-sign-in-google login-item -google">
-                    <a href="auth/google?applications=gfw" class="my-gfw-sign-in">Log in with Google</a>
-                  </li>
-                </ul>
-              </div>
+        this.$headerBar.append(`
+          <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu sub-menu-mobile">
+            <div class="container">
+              <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
+              <ul>
+                <li class="my-gfw-sign-in-twitter login-item -twitter ">
+                  <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">Log in with Twitter</a>
+                </li>
+                <li class="my-gfw-sign-in-facebook login-item -facebook">
+                  <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">Log in with Facebook</a>
+                </li>
+                <li class="my-gfw-sign-in-google login-item -google">
+                  <a href="auth/google?applications=gfw" class="my-gfw-sign-in">Log in with Google</a>
+                </li>
+              </ul>
             </div>
+          </div>
+          <div class="sticky-nav-options">
             <div class="sticky-item -language -border">
               <div class="triangle lang-triangle"></div>
               <div id="transifexTranslateElement" class="m-transifex"></div>
             </div>
             <div class="sticky-item -js-open-menu-mobile open-menu-button open-menu-button-login" data-submenu="#login-sub-menu-mobile">
               My GFW
+              <svg class="profile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
+              <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
             </div>
           </div>
         `);
