@@ -40,7 +40,7 @@ class Header {
   cache() {
     this.keyboardPulse = false;
     this.mobileMenu = false;
-    this.$document =  $gfwdom(document);
+    this.$document = $gfwdom(document);
     this.site = window.liveSettings.site;
 
     // Script
@@ -95,8 +95,8 @@ class Header {
    */
   keyboardOpenMenu() {
     document.onkeypress = function keyBoardOpen(evt) {
-      evt = evt || window.event;
-      const charCode = evt.which || evt.keyCode;
+      const windowEvent = evt || window.event;
+      const charCode = windowEvent.which || windowEvent.keyCode;
       const charStr = String.fromCharCode(charCode);
       if (/[a-z0-9]/i.test(charStr)) {
         this.showMenuKeyBoard();
@@ -163,10 +163,8 @@ class Header {
       } else {
         this.triangleLanguage.addClass('-open');
       }
-    } else {
-      if (this.triangleLanguage.hasClass('-open')) {
-        this.triangleLanguage.removeClass('-open');
-      }
+    } else if (this.triangleLanguage.hasClass('-open')) {
+      this.triangleLanguage.removeClass('-open');
     }
   }
 
@@ -290,7 +288,7 @@ class Header {
   }
 
   showLanguageMenu() {
-    var $languageMenu = this.$header.find('.txlive-langselector-list');
+    const $languageMenu = this.$header.find('.txlive-langselector-list');
     if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
       $languageMenu.removeClass('txlive-langselector-list-opened');
     } else {
@@ -300,8 +298,7 @@ class Header {
   }
 
   hideLanguageMenu() {
-    var $opened = this.$header.find('.txlive-langselector-list-opened');
-    var $languageMenu = this.$header.find('.txlive-langselector-list');
+    const $languageMenu = this.$header.find('.txlive-langselector-list');
     if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
       $languageMenu.removeClass('txlive-langselector-list-opened');
     }
@@ -310,12 +307,11 @@ class Header {
     }
   }
 
-  toggleTransifex(e) {
+  toggleTransifex() {
+    const $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
+    const $transifexList = this.$header.find('#transifexTranslateMobileElement');
 
-    var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
-    var $transifexList = this.$header.find('#transifexTranslateMobileElement');
-
-    if($btnTransifex.hasClass('-active')) {
+    if ($btnTransifex.hasClass('-active')) {
       $btnTransifex.removeClass('-active');
       $transifexList.removeClass('-active');
     } else {
@@ -329,37 +325,34 @@ class Header {
     // but buttons on mobile devices
     // What can we do?
     // ANSWER: I've set a class 'link-analytics' to differenciate them
-    let $el = $gfwdom(e.currentTarget);
-    let url = $el.attr('href');
-    let target = $el.attr('target');
-    let regex = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+    const $el = $gfwdom(e.currentTarget);
+    const url = $el.attr('href');
+    const target = $el.attr('target');
+    const regex = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
 
-    if(!!target) {
+    if (!target) {
       if (window.ga !== undefined) {
         window.ga('send', 'event', 'Menu', 'Click', url);
       }
+    } else if (window.ga !== undefined && regex.test(url)) {
+      e && e.preventDefault();
+
+      // https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits?hl=es#handling_timeouts
+      let callbackTriggered = false;
+      setTimeout(function() {
+        if (!callbackTriggered) {
+          document.location = url
+        }
+      }, 1000);
+
+      window.ga('send', 'event', 'Menu', 'Click', url, {
+        'hitCallback': function(){
+          callbackTriggered = true;
+          document.location = url;
+        }
+      });
     } else {
-      // Test if analytics exists and if it's an url
-      if (window.ga !== undefined && regex.test(url)) {
-        e && e.preventDefault();
-
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits?hl=es#handling_timeouts
-        let callbackTriggered = false;
-        setTimeout(function(){
-          if (!callbackTriggered) {
-            document.location = url
-          }
-        }, 1000);
-
-        window.ga('send', 'event', 'Menu', 'Click', url, {
-          'hitCallback': function(){
-            callbackTriggered = true;
-            document.location = url;
-          }
-        });
-      } else {
-        document.location = url;
-      }
+      document.location = url;
     }
   }
 
