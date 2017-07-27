@@ -379,7 +379,7 @@ class Header {
       }
 
       const translateScript = document.createElement('script');
-      translateScript.type= 'text/javascript';
+      translateScript.type = 'text/javascript';
       translateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
       document.head.appendChild(translateScript);
     }, 0);
@@ -389,38 +389,41 @@ class Header {
    * Transifex
    */
   initTransifex() {
-    window.liveSettings.detectlang = function() {
-      var getParam = function (name){
-        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-        var regexS = "[\\?&]"+name+"=([^&#]*)";
-        var regex = new RegExp( regexS );
-        var results = regex.exec( window.location.href );
-        if( results == null )
-          return null;
-        else
-          return results[1];
-      }
+    window.liveSettings.detectlang = function getLiveSettings() {
+      const getParam = function getParamFunction(name) {
+        const nameTr = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        const regexS = `[\\?&]+${nameTr}+=([^&#]*)`;
+        const regex = new RegExp(regexS);
+        const results = regex.exec(window.location.href);
+        let returnVar = null;
+        if (results === null) {
+          returnVar = null;
+        } else {
+          returnVar = results[1];
+        }
+        return returnVar;
+      };
 
-      var getParamFromLocalStorage = function (name){
-        if (!!localStorage.getItem('txlive:selectedlang')) {
-          return JSON.parse(localStorage.getItem('txlive:selectedlang'))
+      const getParamFromLocalStorage = function getParamFromLocalStorage() {
+        if (!localStorage.getItem('txlive:selectedlang')) {
+          return JSON.parse(localStorage.getItem('txlive:selectedlang'));
         }
         return null;
-      }
+      };
 
       // If param exists, save it the localStorage
-      if (!!getParam('lang')) {
-        localStorage.setItem('txlive:selectedlang', getParam('lang'))
+      if (!getParam('lang')) {
+        localStorage.setItem('txlive:selectedlang', getParam('lang'));
       }
 
       // Then, use the param or the localStorage attribute
-      var lang = getParam('lang') || getParamFromLocalStorage('txlive:selectedlang');
+      const lang = getParam('lang') || getParamFromLocalStorage('txlive:selectedlang');
       return lang;
     };
 
     window.liveSettings.picker = (utils.isSmallScreen()) ? '#transifexTranslateMobileElement' : '#transifexTranslateElement';
 
-    var blacklist = [
+    const blacklist = [
       'climate.globalforestwatch.org',
       'water.globalforestwatch.org',
       // 'commodities.globalforestwatch.org'
@@ -429,21 +432,21 @@ class Header {
     // Check if the location.hostname is in the blacklist
     // If true hide transifex element, but keep it working to store the string of the page
     // Then init Google translate plugin
-    if (blacklist.indexOf(location.hostname) != -1){
-      var $transifexEl = $gfwdom(window.liveSettings.picker);
+    if (blacklist.indexOf(location.hostname) !== -1) {
+      const $transifexEl = $gfwdom(window.liveSettings.picker);
       $transifexEl.css({
-        display: 'none'
+        display: 'none',
       });
       this.initGoogleTranslate();
     }
 
     setTimeout(() => {
       const translateScript = document.createElement('script');
-      translateScript.type= 'text/javascript';
+      translateScript.type = 'text/javascript';
       translateScript.src = '//cdn.transifex.com/live.js';
       document.head.appendChild(translateScript);
     }, 0);
-  };
+  }
 
   /**
    * We need to make a difference between local, staging and PRO environment urls.
@@ -453,17 +456,17 @@ class Header {
     this.params.targets = !utils.isDefaultHost();
     this.params.hostname = utils.getHost();
 
-    this.$links.forEach(function(v) {
+    this.$links.forEach((v) => {
       const href = $gfwdom(v).attr('href');
-      if (href.charAt(0) == '/') {
+      if (href.charAt(0) === '/') {
         $gfwdom(v).attr('href', this.params.hostname + href);
       }
-    }.bind(this));
+    }).bind(this);
 
-    this.$linksSubmenu.forEach(function(v) {
+    this.$linksSubmenu.forEach((v) => {
       const external = $gfwdom(v).hasClass('external-link');
       if (this.params.targets) {
-        (!!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target','_blank');
+        (!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target', '_blank');
       }
     });
   }
@@ -475,27 +478,27 @@ class Header {
       const loginButton = new LoginButton();
       loginButton.init();
     } else {
-      $gfwdom('#my-gfw-container').css({ display: 'none'});
+      $gfwdom('#my-gfw-container').css({ display: 'none' });
     }
   }
 
   resizeMenu(value) {
-  if (value != 'boxes') {
+    if (value !== 'boxes') {
       if (utils.getWindowWidth() < 700) {
-        this.$header.find('.m-header-submenu').forEach(function(v){
+        this.$header.find('.m-header-submenu').forEach((v) => {
           $gfwdom(v).css({
-            height: utils.getWindowHeigth() - 50 + 'px'
+            height: `${utils.getWindowHeigth() - 50}px`,
           });
-        })
+        });
       } else {
-        this.$header.find('.m-header-submenu').forEach(function(v){
+        this.$header.find('.m-header-submenu').forEach((v) => {
           $gfwdom(v).css({ height: 'auto' });
         });
       }
 
 
       if (utils.getWindowWidth() < 850) {
-        if(!this.mobileMenu) {
+        if (!this.mobileMenu) {
           this.initTranslate();
           this.$headerBar.append(`
             <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu sub-menu-mobile">
@@ -533,20 +536,23 @@ class Header {
         this.mobileMenu = false;
       }
     } else {
-      var n = $gfwdom('.box').length;
-      var boxContainerWidth;
-      var longitude = 0;
-      var firstOut = false;
-      var boxContainerLeft;
-      var boxLeft;
-      var notAppear = false;
-      var  i = 0;
+      const n = $gfwdom('.box').length;
+      let boxContainerWidth = 0;
+      let longitude = 0;
+      let firstOut = false;
+      let boxContainerLeft = 0;
+      let boxLeft = 0;
+      let notAppear = false;
+      const i = 0;
+
       this.$boxContainer = this.$header.find('.applications-container');
-      this.$header.find('.boxes-container').forEach(function(v){
-          boxContainerWidth = v.offsetWidth;
-          boxContainerLeft = v.getBoundingClientRect().left;
+
+      this.$header.find('.boxes-container').forEach((v) => {
+        boxContainerWidth = v.offsetWidth;
+        boxContainerLeft = v.getBoundingClientRect().left;
       });
-      this.$header.find('.box').forEach(function(v){
+
+      this.$header.find('.box').forEach((v) => {
         boxLeft = v.getBoundingClientRect().left - boxContainerLeft;
         if (boxLeft + 88 >= boxContainerWidth) {
           if (!firstOut) {
@@ -556,12 +562,13 @@ class Header {
           }
         }
       });
-      if(notAppear) {
-        this.$header.find('.box').forEach(function(v){
-          if(i < n) {
-            var distance = longitude * 3;
-            if(distance > 0) {
-              $gfwdom(v).css('margin-right', distance+'px');
+
+      if (notAppear) {
+        this.$header.find('.box').forEach((v) => {
+          if (i < n) {
+            const distance = longitude * 3;
+            if (distance > 0) {
+              $gfwdom(v).css('margin-right', `${distance}px`);
             }
           }
         });
