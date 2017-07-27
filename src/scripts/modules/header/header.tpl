@@ -44,9 +44,9 @@
     <div class="back-white"></div>
     <div class="row nav-sub-menu-container -center">
       <div class="small-10 medium-10 large-10 -center">
-        <form class="search-container" id="search-container">
-          <input type="text" id="search-input" placeholder="SEARCH" autofocus/>
-          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg>
+        <form class="search-container" id="search-container" action="http://www.globalforestwatch.org/search">
+          <input type="text" name="query" id="search-input" placeholder="SEARCH" autofocus/>
+          <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
         </form>
         <ul class="mobile-nav-sections">
 
@@ -54,15 +54,15 @@
         <div class="applications-container">
           <h3>OTHER APPLICATIONS</h3>
           <div class="row boxes-container">
-            <div class="box gfw-global"></div>
-            <div class="box gfw-climate"></div>
-            <div class="box gfw-fires"></div>
-            <div class="box gfw-commodities"></div>
-            <div class="box gfw-water"></div>
-            <div class="box -last">
+            <a href="http://www.globalforestwatch.org/" target="_blank" class="box gfw-global"></a>
+            <a href="http://climate.globalforestwatch.org/" target="_blank" class="box gfw-climate"></a>
+            <a href="http://fires.globalforestwatch.org/home/" target="_blank" class="box gfw-fires"></a>
+            <a href="http://commodities.globalforestwatch.org/" target="_blank" class="box gfw-commodities"></a>
+            <a href="http://water.globalforestwatch.org/" target="_blank" class="box gfw-water"></a>
+            <a href="http://developers.globalforestwatch.org/gallery/" target="_blank" class="box -last">
               <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
               <span>explore all apps</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
