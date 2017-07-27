@@ -31,7 +31,8 @@ module.exports = {
       {test: /\.tpl$/, loader: 'ejs-loader'},
       {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'},
       {test: /\.css$/, loader: 'style!raw'},
-      {test: /\.(eot|ttf|woff2|woff)$/, loader: 'url-loader?prefix=fonts/&context=./fonts'}
+      {test: /\.(eot|ttf|woff2|woff)$/, loader: 'url-loader?prefix=fonts/&context=./fonts'},
+      {test: /\.png$/, loaders: ['file?name=i/[hash].[ext]']}
     ]
   },
 
