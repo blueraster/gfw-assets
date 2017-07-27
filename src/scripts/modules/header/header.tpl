@@ -18,15 +18,15 @@
           <div id="login-sub-menu" class="m-header-sub-menu-login sub-menu">
             <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
             <ul>
-              <li class="my-gfw-sign-in-twitter login-item -twitter ">
-                <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">Log in with Twitter</a>
-              </li>
-              <li class="my-gfw-sign-in-facebook login-item -facebook">
-                <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">Log in with Facebook</a>
-              </li>
-              <li class="my-gfw-sign-in-google login-item -google">
-                <a href="auth/google?applications=gfw" class="my-gfw-sign-in">Log in with Google</a>
-              </li>
+              <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">
+                <li class="my-gfw-sign-in-twitter login-item -twitter ">Log in with Twitter</li>
+              </a>
+              <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">
+                <li class="my-gfw-sign-in-facebook login-item -facebook">Log in with Facebook</li>
+              </a>
+              <a href="auth/google?applications=gfw" class="my-gfw-sign-in">
+                <li class="my-gfw-sign-in-google login-item -google">Log in with Google</li>
+              </a>
             </ul>
           </div>
         </li>

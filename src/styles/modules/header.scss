@@ -617,6 +617,7 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
           height: rem(50px) !important;
           margin-bottom: rem(10px);
           transition: background-color .1s linear;
+          color: $white !important;
 
           &:first-of-type {
             margin-top: rem(20px);
