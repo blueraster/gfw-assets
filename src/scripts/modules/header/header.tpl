@@ -12,7 +12,7 @@
           <div class="triangle lang-triangle"></div>
           <div id="transifexTranslateElement" class="m-transifex"></div>
         </li>
-        <li class="-js-open-menu open-menu-button open-menu-button-login" data-submenu="#login-sub-menu">
+        <li class="-js-open-menu open-menu-button open-menu-button-login" data-submenu="#login-sub-menu" id="my-gfw-container">
           My gfw
           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
           <div id="login-sub-menu" class="m-header-sub-menu-login sub-menu">
