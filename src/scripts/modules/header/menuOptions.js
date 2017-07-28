@@ -121,6 +121,7 @@ const gfwOptions = [
  */
 const menuOptions = {
   getOptions(value) {
+    let path = window.location.pathname;
     let position = 0;
     let menuOptionsNav = '';
     for (let i = 0; i < gfwOptions.length; i += 1) {
@@ -131,7 +132,7 @@ const menuOptions = {
     }
     for (let i = 0; i < gfwOptions[position].options.length; i += 1) {
       menuOptionsNav += `
-        <li>
+        <li class="${path.includes(gfwOptions[position].options[i].url) ? '-selected' : ''}" data-menu="${gfwOptions[position].options[i].url}">
           <a href="${gfwOptions[position].options[i].url}"> ${gfwOptions[position].options[i].title} </a>
         </li>`;
     }
