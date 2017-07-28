@@ -12,7 +12,7 @@ const gfwOptions = [
       },
       {
         title: 'blog',
-        url: '/blog',
+        url: 'http://blog.globalforestwatch.org/',
       },
       {
         title: 'about',
