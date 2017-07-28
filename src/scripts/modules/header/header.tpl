@@ -45,7 +45,7 @@
     <div class="row nav-sub-menu-container -center">
       <div class="small-10 medium-10 large-10 -center">
         <form class="search-container" id="search-container" action="http://www.globalforestwatch.org/search">
-          <input type="text" name="query" id="search-input" placeholder="SEARCH" autofocus/>
+          <input type="text" name="query" id="search-input" placeholder="SEARCH"/>
           <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
         </form>
         <ul class="mobile-nav-sections">

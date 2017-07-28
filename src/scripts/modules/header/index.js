@@ -185,7 +185,9 @@ class Header {
       }
       this.openMenuDashboard.addClass('-active');
       this.menuDashboard.addClass('-active');
-      this.searchInput.focus();
+      if (utils.getWindowWidth() > 850) {
+        this.searchInput.focus();
+      }
       this.utilsMenus();
       this.keyboardPulse = true;
     }
@@ -212,8 +214,13 @@ class Header {
       this.navOptions.toggleClass('-show-triangle');
 
       if (this.menuDashboard.hasClass('-active')) {
-        this.searchInput.focus();
+        console.log('open dash')
+        if (utils.getWindowWidth() > 850) {
+          console.log('focus!!!');
+          this.searchInput.focus();
+        }
       }
+
       this.utilsMenus();
       this.resizeMenu('boxes');
     } else {
