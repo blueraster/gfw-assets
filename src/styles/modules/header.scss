@@ -90,6 +90,21 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
             display: inline-block;
             margin-right: rem(40px);
 
+            &.-selected {
+              position: relative;
+
+              &::after {
+                display: block;
+                position: absolute;
+                bottom: -18px;
+                left: -12px;
+                width: calc(100% + 24px);
+                height: rem(4px);
+                background-color: $primary-color;
+                content: '';
+              }
+            }
+
             &:last-of-type {
               margin-right: 0;
             }
