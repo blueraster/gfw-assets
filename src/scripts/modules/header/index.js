@@ -94,16 +94,18 @@ class Header {
    * Function for capturing keyboard and open the dashboard
    */
   keyboardOpenMenu() {
-    document.onkeypress = function keyBoardOpen(evt) {
-      if (!$gfwdom(document.activeElement).is('input')) {
-        const windowEvent = evt || window.event;
-        const charCode = windowEvent.which || windowEvent.keyCode;
-        const charStr = String.fromCharCode(charCode);
-        if (/[a-z0-9]/i.test(charStr)) {
-          this.showMenuKeyBoard();
+    if(!this.$body.hasClass('is-map-page')) {
+      document.onkeypress = function keyBoardOpen(evt) {
+        if (!$gfwdom(document.activeElement).is('input')) {
+          const windowEvent = evt || window.event;
+          const charCode = windowEvent.which || windowEvent.keyCode;
+          const charStr = String.fromCharCode(charCode);
+          if (/[a-z0-9]/i.test(charStr)) {
+            this.showMenuKeyBoard();
+          }
         }
-      }
-    }.bind(this);
+      }.bind(this);
+    }
   }
 
   /**
