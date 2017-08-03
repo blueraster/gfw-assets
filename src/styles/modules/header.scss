@@ -56,8 +56,7 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
           background-size: cover;
           z-index: 100;
 
-          &.gfw-global,
-          &.gfw-mygfw {
+          &.gfw-global {
             background-image: url(nth($gfw-images, 1));
           }
 
@@ -469,8 +468,7 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
                 margin-right: rem(40px);
               }
 
-              &.gfw-global,
-              &.gfw-mygfw {
+              &.gfw-global {
                 background-image: url(nth($gfw-images, 1));
               }
 
