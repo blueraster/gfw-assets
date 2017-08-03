@@ -22,6 +22,28 @@ const gfwOptions = [
   },
 
   {
+    site: 'gfw-mygfw',
+    options: [
+      {
+        title: 'my subscriptions',
+        url: '/my_gfw/subscriptions',
+      },
+      {
+        title: 'my stories',
+        url: '/my_gfw/stories',
+      },
+      {
+        title: 'my profile',
+        url: '/my_gfw',
+      },
+      {
+        title: 'receive forest loss alerts',
+        url: '/my_gfw/subscriptions/new',
+      },
+    ],
+  },
+
+  {
     site: 'gfw-fires',
     options: [
       {
