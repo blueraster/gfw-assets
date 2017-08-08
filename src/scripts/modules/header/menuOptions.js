@@ -22,6 +22,28 @@ const gfwOptions = [
   },
 
   {
+    site: 'gfw-mygfw',
+    options: [
+      {
+        title: 'my subscriptions',
+        url: '/my_gfw/subscriptions',
+      },
+      {
+        title: 'my stories',
+        url: '/my_gfw/stories',
+      },
+      {
+        title: 'my profile',
+        url: '/my_gfw',
+      },
+      {
+        title: 'receive forest loss alerts',
+        url: '/my_gfw/subscriptions/new',
+      },
+    ],
+  },
+
+  {
     site: 'gfw-fires',
     options: [
       {
@@ -132,7 +154,7 @@ const menuOptions = {
     }
     for (let i = 0; i < gfwOptions[position].options.length; i += 1) {
       menuOptionsNav += `
-        <li class="${path.includes(gfwOptions[position].options[i].url) ? '-selected' : ''}" data-menu="${gfwOptions[position].options[i].url}">
+        <li class="${path === gfwOptions[position].options[i].url || path === gfwOptions[position].options[i].url + '/' ? '-selected' : ''}" data-menu="${gfwOptions[position].options[i].url}">
           <a href="${gfwOptions[position].options[i].url}"> ${gfwOptions[position].options[i].title} </a>
         </li>`;
     }
