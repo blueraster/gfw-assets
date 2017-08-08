@@ -247,7 +247,18 @@ class Header {
 
   showMenuMobile(e) {
     const currentTarget = e.currentTarget;
-    const $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+    const dataSubMenu = currentTarget.getAttribute('data-submenu');
+    let $current;
+
+    if (dataSubMenu === '#login-sub-menu-mobile') {
+      if ($gfwdom('.open-menu-button-login').find('.logged-button').length !== 0) {
+        $current = $gfwdom('#logged-sub-menu-mobile');
+      }
+    } else {
+      $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+    }
+
+    // const
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       this.hideMenusMobile();
       // Active menu
@@ -538,6 +549,15 @@ class Header {
                   </li>
                 </ul>
               </div>
+            </div>
+            <div id="logged-sub-menu-mobile" class="sub-menu-mobile m-header-submenu m-header-submenu-logged m-header-submenu-logged-mobile">
+              <ul class="more-list">
+                <li><a target="_blank" href="/my_gfw/subscriptions"><span>My Subscriptions</span></a></li>
+                <li><a target="_blank" href="/my_gfw/stories"><span>My Stories</span></a></li>
+                <li><a target="_blank" href="/my_gfw"><span>My Profile</span></a></li>
+                <li><a target="_blank" href="/my_gfw/subscriptions/new"><span>Receive forest loss alerts</span></a></li>
+                <li><a href="/auth/logout" id="my-gfw-sign-out"><span>Log Out</span></a></li>
+              </ul>
             </div>
             <div class="sticky-nav-options">
               <div class="sticky-item -language -border -js-open-menu-mobile open-menu-button" data-submenu="#tx-live-lang-picker">

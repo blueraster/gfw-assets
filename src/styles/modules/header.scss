@@ -710,13 +710,8 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
     }
 
     .m-header-submenu-logged {
-      top: rem(59px);
-      right: -25px;
-      min-width: rem(200px);
-      max-width: rem(200px);
+      height: calc(100vh - 118px) !important;
       padding: 0;
-      border: 1px solid $gray;
-      border-top: 0;
       background: $white !important;
       box-shadow: none;
       opacity: 1;
@@ -726,23 +721,46 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
         display: block !important;
       }
 
+      @media (min-width: $br-mobile) {
+        top: rem(59px);
+        right: -25px;
+        min-width: rem(200px);
+        max-width: rem(200px);
+        height: auto !important;
+        border: 1px solid $gray;
+        border-top: 0;
+
+        .login-list {
+          li {
+            max-width: none;
+            margin-right: 0 !important;
+
+            &:first-of-type {
+              margin-top: rem(12px);
+            }
+          }
+        }
+      }
+
       ul {
         li {
           display: block;
           position: relative;
-          margin-right: 0 !important;
+          max-width: 83.33333%;
+          margin: 0 auto 10px;
           padding: rem(12px) rem(15px);
+          cursor: pointer;
           z-index: 1;
+
+          &:first-of-type {
+            margin-top: rem(50px);
+          }
 
           a {
             span {
               color: $dark;
               text-transform: uppercase;
             }
-          }
-
-          &:first-of-type {
-            margin-top: 12px;
           }
 
           &:hover {
@@ -756,6 +774,7 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
   .sticky-nav-options {
     display: none;
     position: fixed;
+    top: calc(100vh - 59px);
     bottom: 0;
     flex-direction: row;
     width: 100%;

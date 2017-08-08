@@ -8,7 +8,7 @@
   <span>My GFW</span>
 </span>
 <div id="submenulogged" class="sub-menu m-header-submenu m-header-submenu-logged">
-  <ul class="more-list">
+  <ul class="more-list login-list">
     <li><a target="_blank" href="/my_gfw/subscriptions"><span>My Subscriptions</span></a></li>
     <li><a target="_blank" href="/my_gfw/stories"><span>My Stories</span></a></li>
     <li><a target="_blank" href="/my_gfw"><span>My Profile</span></a></li>
