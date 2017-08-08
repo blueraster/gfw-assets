@@ -248,6 +248,12 @@ class Header {
     if (utils.getWindowWidth() < 850) {
       $gfwdom('.sticky-nav-options').toggleClass('-show');
     }
+    this.clickAnyWhere();
+  }
+
+  clickAnyWhere() {
+    // console.log('hello');
+    // $gfwdom('body > *').not("body > #elementtokeep").remove();
   }
 
   showMenuMobile(e) {

@@ -1,35 +1,35 @@
 @font-face {
   font-family: 'Fira GFW Sans';
-  src: url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.eot');
-  src: url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.woff2') format('woff2'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.woff') format('woff'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.ttf') format('truetype'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.svg#fira_sansregular') format('svg');
+  src: url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.eot');
+  src: url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.woff2') format('woff2'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.woff') format('woff'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.ttf') format('truetype'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-regular-webfont.svg#fira_sansregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Fira GFW Sans';
-  src: url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.eot');
-  src: url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.eot?#iefix') format('embedded-opentype'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.woff2') format('woff2'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.woff') format('woff'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.ttf') format('truetype'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.svg#fira_sanslight') format('svg');
+  src: url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.eot');
+  src: url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.woff2') format('woff2'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.woff') format('woff'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.ttf') format('truetype'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-light-webfont.svg#fira_sanslight') format('svg');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Fira GFW Sans';
-  src: url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.eot');
-  src: url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.eot?#iefix') format('embedded-opentype'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.woff2') format('woff2'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.woff') format('woff'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.ttf') format('truetype'),
-    url('http://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.svg#fira_sansmedium') format('svg');
+  src: url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.eot');
+  src: url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.eot?#iefix') format('embedded-opentype'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.woff2') format('woff2'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.woff') format('woff'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.ttf') format('truetype'),
+    url('https://gfw-assets.s3.amazonaws.com/static/fonts/firasans-medium-webfont.svg#fira_sansmedium') format('svg');
   font-weight: 500;
   font-style: normal;
 }
