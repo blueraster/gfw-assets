@@ -552,11 +552,11 @@ class Header {
             </div>
             <div id="logged-sub-menu-mobile" class="sub-menu-mobile m-header-submenu m-header-submenu-logged m-header-submenu-logged-mobile">
               <ul class="more-list">
-                <li><a target="_blank" href="/my_gfw/subscriptions"><span>My Subscriptions</span></a></li>
-                <li><a target="_blank" href="/my_gfw/stories"><span>My Stories</span></a></li>
-                <li><a target="_blank" href="/my_gfw"><span>My Profile</span></a></li>
-                <li><a target="_blank" href="/my_gfw/subscriptions/new"><span>Receive forest loss alerts</span></a></li>
-                <li><a href="/auth/logout" id="my-gfw-sign-out"><span>Log Out</span></a></li>
+                <a target="_blank" href="/my_gfw/subscriptions"><li><span>My Subscriptions</span></li></a>
+                <a target="_blank" href="/my_gfw/stories"><li><span>My Stories</span></li></a>
+                <a target="_blank" href="/my_gfw"><li><span>My Profile</span></li></a>
+                <a target="_blank" href="/my_gfw/subscriptions/new"><li><span>Receive forest loss alerts</span></li></a>
+                <a href="/auth/logout" id="my-gfw-sign-out"><li><span>Log Out</span></li></a>
               </ul>
             </div>
             <div class="sticky-nav-options">

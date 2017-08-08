@@ -743,7 +743,7 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
       }
 
       ul {
-        li {
+        a {
           display: block;
           position: relative;
           max-width: 83.33333%;
@@ -752,13 +752,16 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
           cursor: pointer;
           z-index: 1;
 
+          span {
+            color: $dark;
+          }
+
           &:first-of-type {
-            margin-top: rem(50px);
+            margin-top: rem(40px);
           }
 
           a {
             span {
-              color: $dark;
               text-transform: uppercase;
             }
           }
