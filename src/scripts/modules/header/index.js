@@ -67,6 +67,9 @@ class Header {
     this.boxesContainer = this.$header.find('.boxes-container');
     this.currentBox = this.boxesContainer.find(`.box.${this.site}`);
 
+    this.$links = this.$header.find('a');
+    this.$linksSubmenu = this.$header.find('a');
+
     // Login Menu
     this.menuLogin = this.$header.find('.m-header-sub-menu-login');
 
@@ -401,6 +404,7 @@ class Header {
   };
 
   initGoogleTranslate() {
+    console.log('google');
     setTimeout(() => {
       window['googleTranslateElementInitGFW'] = () => {
         new google.translate.TranslateElement({
@@ -481,28 +485,6 @@ class Header {
     }, 0);
   }
 
-  /**
-   * We need to make a difference between local, staging and PRO environment urls.
-   * Also we need to have a default value for the external applications
-   */
-  initLinksUrls() {
-    this.params.targets = !utils.isDefaultHost();
-    this.params.hostname = utils.getHost();
-
-    this.$links.forEach((v) => {
-      const href = $gfwdom(v).attr('href');
-      if (href.charAt(0) === '/') {
-        $gfwdom(v).attr('href', this.params.hostname + href);
-      }
-    }).bind(this);
-
-    this.$linksSubmenu.forEach((v) => {
-      const external = $gfwdom(v).hasClass('external-link');
-      if (this.params.targets) {
-        (!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target', '_blank');
-      }
-    });
-  }
   /**
    * Init My GFW
    */
