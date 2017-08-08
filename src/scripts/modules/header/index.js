@@ -479,7 +479,6 @@ class Header {
     window.liveSettings.picker = (utils.isSmallScreen()) ? '#transifexTranslateMobileElement' : '#transifexTranslateElement';
 
     const blacklist = [
-      'localhost',
       'climate.globalforestwatch.org',
       'water.globalforestwatch.org',
       // 'commodities.globalforestwatch.org'
