@@ -29,7 +29,9 @@ class Header {
     this.setParams();
     this.initHighlightCurrent();
     this.initListeners();
-    this.initTranslate();
+    if (utils.getWindowWidth() > 850) {
+      this.initTranslate();
+    }
     this.initMyGFW();
     return this;
   }
@@ -256,6 +258,8 @@ class Header {
     if (dataSubMenu === '#login-sub-menu-mobile') {
       if ($gfwdom('.open-menu-button-login').find('.logged-button').length !== 0) {
         $current = $gfwdom('#logged-sub-menu-mobile');
+      } else {
+        $current = $gfwdom('#login-sub-menu-mobile');
       }
     } else {
       $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
@@ -404,15 +408,29 @@ class Header {
   };
 
   initGoogleTranslate() {
-    console.log('google');
+    $gfwdom('#transifexTranslateElement').css('display', 'none');
+    $gfwdom('#googleTranslate').css('display', 'block');
+    $gfwdom('.googleTranslateMobile').css('display', 'block');
+    $gfwdom('.lang-triangle').css('display', 'none');
     setTimeout(() => {
-      window['googleTranslateElementInitGFW'] = () => {
-        new google.translate.TranslateElement({
-          pageLanguage: '',
-          includedLanguages: 'ar,es,en,fr,id,pt,ru,zh-CN,de,uk,ro,tr,it,hi,km',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        },'googleTranslate');
+      if (utils.getWindowWidth() > 850) {
+        window['googleTranslateElementInitGFW'] = () => {
+          new google.translate.TranslateElement({
+            pageLanguage: '',
+            includedLanguages: 'ar,es,en,fr,id,pt,ru,zh-CN,de,uk,ro,tr,it,hi,km',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+          },'googleTranslate');
+        }
+      } else {
+        window['googleTranslateElementInitGFW'] = () => {
+          new google.translate.TranslateElement({
+            pageLanguage: '',
+            includedLanguages: 'ar,es,en,fr,id,pt,ru,zh-CN,de,uk,ro,tr,it,hi,km',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+          },'googleTranslateMobile');
+        }
       }
 
       const translateScript = document.createElement('script');
@@ -461,6 +479,7 @@ class Header {
     window.liveSettings.picker = (utils.isSmallScreen()) ? '#transifexTranslateMobileElement' : '#transifexTranslateElement';
 
     const blacklist = [
+      'localhost',
       'climate.globalforestwatch.org',
       'water.globalforestwatch.org',
       // 'commodities.globalforestwatch.org'
@@ -514,7 +533,6 @@ class Header {
 
       if (utils.getWindowWidth() < 850) {
         if (!this.mobileMenu) {
-          this.initTranslate();
           this.$headerBar.append(`
             <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu sub-menu-mobile">
               <div class="container">
@@ -544,6 +562,7 @@ class Header {
             <div class="sticky-nav-options">
               <div class="sticky-item -language -border -js-open-menu-mobile open-menu-button" data-submenu="#tx-live-lang-picker">
                 <div id="transifexTranslateMobileElement" class="m-transifex"></div>
+                <div id="googleTranslateMobile" class="googleTranslateMobile"></div>
               </div>
               <div class="sticky-item -js-open-menu-mobile open-menu-button open-menu-button-login" data-submenu="#login-sub-menu-mobile">
                 My GFW
@@ -553,6 +572,7 @@ class Header {
             </div>
           `);
           this.mobileMenu = true;
+          this.initTranslate();
         }
       } else {
         $gfwdom('.m-header-sub-menu-login.sub-menu-mobile').remove();

@@ -26,6 +26,41 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
     left: auto;
   }
 
+  #googleTranslate,
+  #googleTranslateMobile {
+    display: none;
+
+    .goog-te-gadget-icon {
+      display: none !important;
+    }
+
+    .skiptranslate {
+      .goog-te-gadget-simple {
+        .goog-te-menu-value {
+          span {
+            border-left: 0 !important;
+
+            &:first-of-type {
+              transition: color .1s linear;
+              color: rgba($dark, .5);
+              font-size: rem(12px);
+              text-transform: uppercase;
+              cursor: pointer;
+
+              &:hover {
+                color: $dark;
+              }
+            }
+
+            &:last-of-type {
+              margin-left: rem(5px) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
   .m-header {
     position: relative;
     border-bottom: rem(1px) solid $gray;

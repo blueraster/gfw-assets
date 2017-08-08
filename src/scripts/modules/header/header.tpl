@@ -11,6 +11,7 @@
         <li class="-js-open-menu open-menu-button open-menu-button-language" data-submenu="#language-sub-menu">
           <div class="triangle lang-triangle"></div>
           <div id="transifexTranslateElement" class="m-transifex"></div>
+          <div id="googleTranslate"></div>
         </li>
         <li class="-js-open-menu open-menu-button open-menu-button-login" data-submenu="#login-sub-menu" id="my-gfw-container">
           My gfw
