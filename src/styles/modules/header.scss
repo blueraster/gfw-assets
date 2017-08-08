@@ -684,7 +684,7 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
 
     .my-gfw-loggedin {
       display: flex;
-      flex-direction: row;
+      flex-direction: row-reverse;
       align-items: center;
 
       .-svg {
