@@ -195,7 +195,15 @@ class Header {
 
   showMenu(e) {
     const currentTarget = e.currentTarget;
-    const dataSubMenu = currentTarget.getAttribute('data-submenu');
+    let dataSubMenu = currentTarget.getAttribute('data-submenu');
+    let $current;
+
+    if (dataSubMenu === '#login-sub-menu') {
+      if ($gfwdom('.open-menu-button-login').find('.logged-button').length !== 0) {
+        dataSubMenu = '#submenulogged';
+      }
+    }
+
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       // Hide all the opened menus
       this.hideMenus();
@@ -209,14 +217,17 @@ class Header {
           $languageMenu.removeClass('txlive-langselector-list-opened');
         }
       }
-      const $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+      if (dataSubMenu === '#submenulogged') {
+        $current = $gfwdom('#submenulogged');
+      } else {
+        $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+      }
+
       $current.toggleClass('-active');
       this.navOptions.toggleClass('-show-triangle');
 
       if (this.menuDashboard.hasClass('-active')) {
-        console.log('open dash')
         if (utils.getWindowWidth() > 850) {
-          console.log('focus!!!');
           this.searchInput.focus();
         }
       }
