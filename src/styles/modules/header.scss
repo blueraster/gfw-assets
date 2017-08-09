@@ -893,6 +893,7 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
   height: 100vh;
   background-color: $white;
   opacity: 0;
+  z-index: 3;
 
   &.-show {
     display: block;
