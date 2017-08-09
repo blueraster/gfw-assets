@@ -143,7 +143,30 @@ const gfwOptions = [
  */
 const menuOptions = {
   getOptions(value) {
-    let path = window.location.pathname;
+    const path = window.location.pathname;
+    const site = window.liveSettings.site;
+    let siteStyles;
+
+    switch (site) {
+      case 'gfw-global':
+        siteStyles = '-selected -global';
+        break;
+      case 'gfw-fires':
+        siteStyles = '-selected -fires';
+        break;
+      case 'gfw-water':
+        siteStyles = '-selected -water';
+        break;
+      case 'gfw-climate':
+        siteStyles = '-selected -climate';
+        break;
+      case 'gfw-commodities':
+        siteStyles = '-selected -commodities';
+        break;
+      default:
+        siteStyles = '';
+    }
+
     let position = 0;
     let menuOptionsNav = '';
     for (let i = 0; i < gfwOptions.length; i += 1) {
@@ -154,7 +177,7 @@ const menuOptions = {
     }
     for (let i = 0; i < gfwOptions[position].options.length; i += 1) {
       menuOptionsNav += `
-        <li class="${path === gfwOptions[position].options[i].url || path === gfwOptions[position].options[i].url + '/' ? '-selected' : ''}" data-menu="${gfwOptions[position].options[i].url}">
+        <li class="${path === gfwOptions[position].options[i].url || path === gfwOptions[position].options[i].url + '/' ? siteStyles : ''}" data-menu="${gfwOptions[position].options[i].url}">
           <a href="${gfwOptions[position].options[i].url}"> ${gfwOptions[position].options[i].title} </a>
         </li>`;
     }

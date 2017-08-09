@@ -3,6 +3,10 @@ $logo-size: 88px;
 $green-separator: 5px;
 $max-width: 256px;
 $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwGlobal.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwFires.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwCommodities.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwWater.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwClimate.png';
+$fires: #e7002f;
+$climate: #5b80a0;
+$water: #4099ce;
+$commodities: #e98300;
 
 #headerGfw {
   position: fixed;
@@ -136,8 +140,37 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
                 left: -12px;
                 width: calc(100% + 24px);
                 height: rem(4px);
-                background-color: $primary-color;
                 content: '';
+              }
+            }
+
+            &.-global {
+              &::after {
+                background-color: $primary-color;
+              }
+            }
+
+            &.-fires {
+              &::after {
+                background-color: $fires;
+              }
+            }
+
+            &.-water {
+              &::after {
+                background-color: $water;
+              }
+            }
+
+            &.-climate {
+              &::after {
+                background-color: $climate;
+              }
+            }
+
+            &.-commodities {
+              &::after {
+                background-color: $commodities;
               }
             }
 
