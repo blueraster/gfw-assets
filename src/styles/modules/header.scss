@@ -884,3 +884,17 @@ $gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf
     }
   }
 }
+
+.back-close-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $white;
+  opacity: 0;
+
+  &.-show {
+    display: block;
+  }
+}

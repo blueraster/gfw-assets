@@ -163,6 +163,10 @@ class Header {
     this.$body.on('click', '.-js-open-menu-mobile', this.showMenuMobile.bind(this));
     this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
     this.$header.on('click', '.txlive-langselector-current', this.showLanguageMenu.bind(this));
+    this.$body.append('<div class="back-close-menu"></div>');
+    this.$backMenu = $gfwdom('.back-close-menu');
+    this.$body.on('click', '.back-close-menu', this.hideMenus.bind(this));
+    this.$body.on('click', '.back-close-menu', this.hideLanguageMenu.bind(this));
   }
 
   changeTriangleLanguage(value) {
@@ -212,6 +216,7 @@ class Header {
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       // Hide all the opened menus
       this.hideMenus();
+      this.$backMenu.addClass('-show');
       // Active menu
       $gfwdom(currentTarget).toggleClass('-active');
       this.changeTriangleLanguage(dataSubMenu);
@@ -248,13 +253,8 @@ class Header {
     if (utils.getWindowWidth() < 850) {
       $gfwdom('.sticky-nav-options').toggleClass('-show');
     }
-    this.clickAnyWhere();
   }
 
-  clickAnyWhere() {
-    // console.log('hello');
-    // $gfwdom('body > *').not("body > #elementtokeep").remove();
-  }
 
   showMenuMobile(e) {
     const currentTarget = e.currentTarget;
@@ -294,15 +294,17 @@ class Header {
 
     this.$header.find('.sub-menu').forEach(function findSubMenu(v) {
       if ($gfwdom(v).hasClass('-active')) {
-        $gfwdom(v).removeClass('-active')
+        $gfwdom(v).removeClass('-active');
+        this.$backMenu.removeClass('-show');
       }
-    });
+    }.bind(this));
 
     this.$header.find('.open-menu-button').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
-        $gfwdom(v).removeClass('-active')
+        $gfwdom(v).removeClass('-active');
+        this.$backMenu.removeClass('-show');
       }
-    });
+    }.bind(this));
 
     // Key bindings
     this.$document.off('keyup.apps');
