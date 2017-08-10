@@ -29,9 +29,7 @@ class Header {
     this.setParams();
     this.initHighlightCurrent();
     this.initListeners();
-    if (utils.getWindowWidth() > 850) {
-      this.initTranslate();
-    }
+    this.initTranslate();
     this.initMyGFW();
     return this;
   }
