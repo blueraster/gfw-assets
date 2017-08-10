@@ -86,7 +86,7 @@ const utils = {
 
   isLoggedIn(options) {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `${this.getAPIHost()}/user`, true);
+    xhr.open('GET', `${this.getAPIHost()}/${apiVersion}/user/`, true);
     xhr.withCredentials = true;
     xhr.onload = () => {
       const responseStatus = xhr.status;
