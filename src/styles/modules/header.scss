@@ -82,6 +82,55 @@ $commodities: #e98300;
       margin: 0 auto;
       z-index: 10000;
 
+      &.-mobile-menu {
+        justify-content: flex-start;
+
+        .logo-sections-container {
+          .nav-sections {
+            display: none;
+          }
+        }
+
+        .options-container {
+          width: calc(100% - 88px);
+          padding-left: 0;
+
+          .nav-options {
+            justify-content: flex-end;
+            width: 100%;
+
+            li {
+              &.open-menu-button-login,
+              &.open-menu-button-language {
+                display: none;
+              }
+            }
+
+            .open-menu-button-dashboard {
+              .desktop-title {
+                display: none;
+                pointer-events: none;
+              }
+
+              .mobile-title {
+                display: block;
+                pointer-events: none;
+              }
+
+              .close-icon {
+                display: none;
+              }
+
+              .menu-mobile-icon {
+                display: block;
+                width: rem(17px);
+                height: rem(17px);
+              }
+            }
+          }
+        }
+      }
+
       @media (min-width: $br-mobile) {
         justify-content: space-between;
       }
@@ -201,8 +250,6 @@ $commodities: #e98300;
 
         @media (min-width: $br-mobile) {
           width: auto;
-          margin-right: rem(40px);
-          padding-right: 0;
           padding-left: rem(40px);
         }
 
@@ -367,6 +414,30 @@ $commodities: #e98300;
               transform: rotate(180deg);
             }
           }
+        }
+      }
+
+      &.-small-menu {
+        .nav-sections {
+          margin-left: rem(20px);
+
+          li {
+            margin-right: rem(20px);
+          }
+        }
+
+        .nav-options  {
+          li {
+            margin-right: rem(20px);
+
+            &:first-of-type {
+              margin-right: rem(36px);
+            }
+          }
+        }
+
+        .options-container {
+          padding-left: rem(20px);
         }
       }
     }
@@ -653,6 +724,39 @@ $commodities: #e98300;
           }
         }
       }
+
+      &.-mobile {
+        position: relative;
+        max-height: calc(100vh - 58px);
+        padding-bottom: rem(45px + $menu-height);
+
+        .back-white {
+          display: block;
+        }
+
+        .nav-sub-menu-container {
+          .mobile-nav-sections {
+            display: block;
+          }
+
+          .applications-container {
+            .boxes-container {
+              overflow-x: scroll;
+              -ms-overflow-style: none;
+            }
+          }
+        }
+
+        .m-header-more-container {
+          .more-options-container {
+            flex-direction: column;
+
+            .more-options-item {
+              flex-basis: 100%;
+            }
+          }
+        }
+      }
     }
 
     .m-header-sub-menu-login {
@@ -660,7 +764,7 @@ $commodities: #e98300;
       top: rem(59px);
       left: 0;
       width: 100%;
-      height: calc(100% - 59px);
+      height: 100vh;
       padding: rem(60px) 0;
       border: rem(1px) solid $gray;
       border-top: 0;
@@ -748,6 +852,25 @@ $commodities: #e98300;
           }
         }
       }
+
+      &.-mobile {
+        position: absolute;
+        top: rem(59px);
+        left: 0;
+        width: 100%;
+        min-width: none;
+        max-width: none;
+        height: 100vh;
+        padding: rem(60px) 0;
+        border: rem(1px) solid $gray;
+        border-top: 0;
+        background-color: $white;
+
+        .container {
+          max-width: 83.33333%;
+          margin: 0 auto;
+        }
+      }
     }
 
     .my-gfw-loggedin {
@@ -778,6 +901,7 @@ $commodities: #e98300;
     }
 
     .m-header-submenu-logged {
+      width: 100vw;
       height: calc(100vh - 118px) !important;
       padding: 0;
       background: $white !important;
@@ -787,6 +911,7 @@ $commodities: #e98300;
 
       &.-active {
         display: block !important;
+        top: 59px;
       }
 
       @media (min-width: $br-mobile) {
@@ -838,6 +963,18 @@ $commodities: #e98300;
             background-color: lighten($gray, 1%);
           }
         }
+      }
+
+      &.-mobile {
+        height: calc(100vh - 118px) !important;
+        padding: 0;
+        background: $white !important;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible !important;
+        left: 0;
+        min-width: none;
+        max-width: none;
       }
     }
   }
