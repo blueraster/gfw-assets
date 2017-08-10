@@ -42,6 +42,10 @@ class Header {
   cache() {
     this.keyboardPulse = false;
     this.mobileMenu = false;
+    this.smallMenu = 0;
+    this.minMenuWidth = 0;
+    this.doLinkResize = false;
+    this.goToResize = false;
     this.$document = $gfwdom(document);
     this.site = window.liveSettings.site;
 
@@ -57,9 +61,14 @@ class Header {
     this.$headerBar = this.$header.find('.m-header');
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
+
     this.navSections = this.$header.find('.nav-sections');
+    this.navSectionLogo = this.$header.find('.logo-sections-container');
+    this.navOptions = this.$header.find('.options-container');
+
     this.navMobileSections = this.$header.find('.mobile-nav-sections');
     this.subMenu = this.$header.find('.m-header-sub-menu-dashboard');
+    this.navContainer = this.$header.find('.m-header-nav-container');
 
     // Dashboard Menu
     this.searchContainer = document.getElementById('search-container');
@@ -77,6 +86,8 @@ class Header {
 
     // Language Menu
     this.triangleLanguage = this.$header.find('.lang-triangle');
+
+
   }
 
   /**
@@ -157,8 +168,12 @@ class Header {
 
   initListeners() {
     // Menus
+    $gfwdom(window).on('resize.assets', this.resizeMenuLinks.bind(this));
+    $gfwdom(window).on('load', this.resizeMenuLinks.bind(this));
+
     $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this));
     $gfwdom(window).on('load', this.resizeMenu.bind(this));
+
     this.$header.on('click', '.-js-open-menu, .-js-open-menu > .mobile-title, .-js-open-menu > .desktop-title', this.showMenu.bind(this));
     this.$body.on('click', '.-js-open-menu-mobile', this.showMenuMobile.bind(this));
     this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
@@ -250,7 +265,7 @@ class Header {
       this.hideMenus();
     }
 
-    if (utils.getWindowWidth() < 850) {
+    if (utils.getWindowWidth() < 850 || utils.getWindowWidth() < this.minMenuWidth) {
       $gfwdom('.sticky-nav-options').toggleClass('-show');
     }
   }
@@ -537,8 +552,7 @@ class Header {
         });
       }
 
-
-      if (utils.getWindowWidth() < 850) {
+      if (utils.getWindowWidth() < 850 || utils.getWindowWidth() <= this.minMenuWidth) {
         if (!this.mobileMenu) {
           this.$headerBar.append(`
             <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu sub-menu-mobile">
@@ -580,6 +594,15 @@ class Header {
           `);
           this.mobileMenu = true;
           this.initTranslate();
+
+          // if (utils.getWindowWidth() <= this.minMenuWidth || utils.getWindowWidth() < 850) {
+          //   $gfwdom('.sticky-nav-options').toggleClass('-show');
+          // }
+
+          if (utils.getWindowWidth() <= this.minMenuWidth) {
+            $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
+            $gfwdom('#logged-sub-menu-mobile').addClass('-mobile');
+          }
         }
       } else {
         $gfwdom('.m-header-sub-menu-login.sub-menu-mobile').remove();
@@ -625,6 +648,131 @@ class Header {
         });
       }
     }
+  }
+
+  resizeMenuLinks() {
+    const logoWidth = 88;
+    const sectionsCount = $gfwdom('.nav-sections > li').length;
+    const optionsCount = $gfwdom('.nav-options > li').length;
+    let bigMenu = logoWidth + 40;
+    let smallMenu = logoWidth + 20;
+    let bigOptionMenu = 0;
+    let smallOptionMenu = 0;
+    let windowSmall = 0;
+    let windowMobile = 0;
+
+    $gfwdom('.nav-sections > li').forEach(function calc(v, l) {
+      if (l === (sectionsCount - 1)) {
+        bigMenu += $gfwdom(v).get(0).clientWidth;
+        smallMenu += $gfwdom(v).get(0).clientWidth;
+      } else {
+        bigMenu += $gfwdom(v).get(0).clientWidth + 40;
+        smallMenu += $gfwdom(v).get(0).clientWidth + 20;
+      }
+    });
+
+    $gfwdom('.nav-options > li').forEach(function calc(v, l) {
+      if (l === 0) {
+        bigOptionMenu += $gfwdom(v).get(0).clientWidth + 56;
+        smallOptionMenu += $gfwdom(v).get(0).clientWidth + 36;
+      }
+
+      if (l >= 1) {
+        bigOptionMenu += $gfwdom(v).get(0).clientWidth + 40;
+        smallOptionMenu += $gfwdom(v).get(0).clientWidth + 20;
+      }
+
+      if (l === (optionsCount - 1)) {
+        bigOptionMenu += $gfwdom(v).get(0).clientWidth;
+        smallOptionMenu += $gfwdom(v).get(0).clientWidth;
+      }
+    });
+
+    if (!this.goToResize) {
+      if ((bigMenu + bigOptionMenu) > (this.navContainer.get(0).clientWidth - 40)) {
+        this.navContainer.addClass('-small-menu');
+        this.goToResize = true;
+        let w = (bigMenu + bigOptionMenu) + (40);
+        w = parseInt(w * 0.83333);
+        w = ((bigMenu + bigOptionMenu) + 40) - (w);
+        w = ((bigMenu + bigOptionMenu) + 40) + (w) + (20);
+        this.smallMenu = w;
+      } else {
+        this.goToResize = true;
+      }
+
+      if ((smallMenu + smallOptionMenu) > (this.navContainer.get(0).clientWidth - 40)) {
+        if (this.navContainer.hasClass('-small-menu')) {
+          this.navContainer.removeClass('-small-menu');
+          this.navContainer.addClass('-mobile-menu');
+          this.subMenu.addClass('-mobile');
+          $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
+          this.minMenuWidth = utils.getWindowWidth();
+          let w = (smallMenu + smallOptionMenu) + (40);
+          w = parseInt(w * 0.83333);
+          w = ((smallMenu + smallOptionMenu) + 40) - (w);
+          w = ((smallMenu + smallOptionMenu) + 40) + (w) + (20);
+          this.minMenuWidth = w;
+        }
+        this.goToResize = true;
+      } else {
+        this.goToResize = true;
+      }
+    }
+
+
+    if (this.smallMenu !== 0) {
+      this.doLinkResize = false;
+      if (utils.getWindowWidth() > this.smallMenu) {
+        this.doLinkResize = true;
+        this.navContainer.removeClass('-mobile-menu');
+        this.navContainer.removeClass('-small-menu');
+        this.subMenu.removeClass('-mobile');
+        $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
+      } else {
+        this.doLinkResize = false;
+      }
+    }
+
+    if (utils.getWindowWidth() < 1300 && !this.doLinkResize) {
+      if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 40)) {
+
+        if (!this.navContainer.hasClass('-mobile-menu')) {
+          if (this.navContainer.hasClass('-small-menu')) {
+            this.navContainer.removeClass('-small-menu');
+            this.navContainer.addClass('-mobile-menu');
+            this.subMenu.addClass('-mobile');
+            $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
+            this.minMenuWidth = utils.getWindowWidth();
+          } else {
+            this.smallMenu = utils.getWindowWidth();
+            this.navContainer.addClass('-small-menu');
+
+            if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 40)) {
+              this.minMenuWidth = utils.getWindowWidth();
+              this.navContainer.removeClass('-small-menu');
+              this.navContainer.addClass('-mobile-menu');
+              this.subMenu.addClass('-mobile');
+              $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
+            }
+          }
+        }
+
+        if (utils.getWindowWidth() > this.minMenuWidth) {
+          this.navContainer.removeClass('-mobile-menu');
+          this.subMenu.removeClass('-mobile');
+          $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
+          this.navContainer.addClass('-small-menu');
+        }
+      }
+    } else {
+      this.navContainer.removeClass('-small-menu');
+      this.navContainer.removeClass('-mobile-menu');
+      this.subMenu.removeClass('-mobile');
+      $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
+    }
+
+
   }
 }
 
