@@ -658,6 +658,8 @@ class Header {
     let smallOptionMenu = 0;
     let windowSmall = 0;
     let windowMobile = 0;
+    let widthBasic = utils.getWindowWidth() - this.navContainer.get(0).clientWidth;
+    widthBasic = this.navContainer.get(0).clientWidth - widthBasic;
 
     $gfwdom('.nav-sections > li').forEach(function calc(v, l) {
       if (l === (sectionsCount - 1)) {
@@ -687,54 +689,36 @@ class Header {
     });
 
     if (!this.goToResize) {
-      if ((bigMenu + bigOptionMenu) > (this.navContainer.get(0).clientWidth - 40)) {
+      if ((bigMenu + bigOptionMenu) > (this.navContainer.get(0).clientWidth - 200)) {
         this.navContainer.addClass('-small-menu');
         this.goToResize = true;
-        let w = (bigMenu + bigOptionMenu) + (40);
-        w = parseInt(w * 0.83333);
-        w = ((bigMenu + bigOptionMenu) + 40) - (w);
-        w = ((bigMenu + bigOptionMenu) + 40) + (w) + (20);
-        this.smallMenu = w;
-      } else {
-        this.goToResize = true;
-      }
-
-      if ((smallMenu + smallOptionMenu) > (this.navContainer.get(0).clientWidth - 40)) {
-        if (this.navContainer.hasClass('-small-menu')) {
-          this.navContainer.removeClass('-small-menu');
-          this.navContainer.addClass('-mobile-menu');
-          this.subMenu.addClass('-mobile');
-          $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
-          this.minMenuWidth = utils.getWindowWidth();
-          let w = (smallMenu + smallOptionMenu) + (40);
-          w = parseInt(w * 0.83333);
-          w = ((smallMenu + smallOptionMenu) + 40) - (w);
-          w = ((smallMenu + smallOptionMenu) + 40) + (w) + (20);
-          this.minMenuWidth = w;
-        }
-        this.goToResize = true;
+        // let w = (bigMenu + bigOptionMenu);
+        // w = parseInt(w * 0.83333);
+        // w = ((bigMenu + bigOptionMenu)) - (w);
+        // w = ((bigMenu + bigOptionMenu)) + (w);
+        this.smallMenu = utils.getWindowWidth();
       } else {
         this.goToResize = true;
       }
     }
 
+    // if (this.smallMenu !== 0) {
+    //   this.doLinkResize = false;
+    //   if ((this.navContainer.get(0).clientWidth - 200) > this.smallMenu) {
+    //     console.log('hello');
+    //     this.doLinkResize = true;
+    //     this.navContainer.removeClass('-mobile-menu');
+    //     this.navContainer.removeClass('-small-menu');
+    //     this.subMenu.removeClass('-mobile');
+    //     $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
+    //   } else {
+    //     this.doLinkResize = false;
+    //   }
+    // }
 
-    if (this.smallMenu !== 0) {
-      this.doLinkResize = false;
-      if (utils.getWindowWidth() > this.smallMenu) {
-        this.doLinkResize = true;
-        this.navContainer.removeClass('-mobile-menu');
-        this.navContainer.removeClass('-small-menu');
-        this.subMenu.removeClass('-mobile');
-        $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
-      } else {
-        this.doLinkResize = false;
-      }
-    }
+    if (utils.getWindowWidth() < 1800 && !this.doLinkResize) {
 
-    if (utils.getWindowWidth() < 1300 && !this.doLinkResize) {
-      if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 40)) {
-
+      if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 200)) {
         if (!this.navContainer.hasClass('-mobile-menu')) {
           if (this.navContainer.hasClass('-small-menu')) {
             this.navContainer.removeClass('-small-menu');
@@ -746,7 +730,7 @@ class Header {
             this.smallMenu = utils.getWindowWidth();
             this.navContainer.addClass('-small-menu');
 
-            if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 40)) {
+            if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 200)) {
               this.minMenuWidth = utils.getWindowWidth();
               this.navContainer.removeClass('-small-menu');
               this.navContainer.addClass('-mobile-menu');

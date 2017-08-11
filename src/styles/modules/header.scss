@@ -14,7 +14,8 @@ $commodities: #e98300;
   left: 0;
   width: 100%;
   transform: translateZ(0);
-  background: $dark;
+  border-bottom: rem(1px) solid $gray;
+  background: $white;
   font-family: 'Fira GFW Sans', Helvetica, serif;
   z-index: 1000;
   // This fixes the ligatures issue in Chrome and Safari > 9.0
@@ -67,7 +68,7 @@ $commodities: #e98300;
 
   .m-header {
     position: relative;
-    border-bottom: rem(1px) solid $gray;
+    margin: 0 auto;
     background-color: $white;
 
     @media (min-width: $br-mobile) {
@@ -75,9 +76,9 @@ $commodities: #e98300;
     }
 
     .m-header-nav-container {
+      display: flex;
       position: relative;
       justify-content: flex-start;
-      max-width: 83.33333%;
       height: $menu-height;
       margin: 0 auto;
       z-index: 10000;
