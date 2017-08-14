@@ -926,7 +926,11 @@ $commodities: #e98300;
         border-top: 0;
 
         .login-list {
+          padding-right: 0;
+          padding-left: 0;
+
           a {
+            padding: 12px 15px;
             max-width: none;
             margin-right: 0 !important;
 
@@ -938,12 +942,13 @@ $commodities: #e98300;
       }
 
       ul {
+        padding-right: 1rem;
+        padding-left: 1rem;
+
         a {
           display: block;
           position: relative;
-          max-width: 83.33333%;
-          margin: 0 auto 10px;
-          padding: rem(12px) rem(15px);
+          padding: rem(10px);
           cursor: pointer;
           z-index: 1;
 
@@ -952,7 +957,7 @@ $commodities: #e98300;
           }
 
           &:first-of-type {
-            margin-top: rem(40px);
+            margin-top: rem(50px);
           }
 
           a {
