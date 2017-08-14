@@ -1,3 +1,4 @@
+<div class="line-dashboard"></div>
 <header class="row m-header">
   <nav class="align-justify m-header-nav-container small-12 columns">
     <div class="row logo-sections-container">

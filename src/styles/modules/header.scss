@@ -466,13 +466,13 @@ $commodities: #e98300;
       padding-bottom: rem(45px + $menu-height);
       border-top: rem(1px) solid $gray;
       background-color: $white;
+      box-shadow: none;
       overflow: scroll;
 
       @media (min-width: $br-mobile) {
         position: inherit;
         max-height: none;
         padding-bottom: rem(45px);
-        box-shadow: 0 rem(5px) rem(5px) -3px rgba($gray, .5);
       }
 
       .back-white {
@@ -1070,4 +1070,12 @@ $commodities: #e98300;
   &.-show {
     display: block;
   }
+}
+
+.line-dashboard {
+  position: absolute;
+  top: 58px;
+  width: 100vw;
+  height: 1px;
+  background-color: #ddd;
 }
