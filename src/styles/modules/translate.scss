@@ -107,7 +107,8 @@
       position: absolute;
       top: calc(-100vh + 118px);
       left: 0;
-      padding: 0;
+      padding-right: 1rem;
+      padding-left: 1rem;
       transform: translate(0, 0);
       background: $white;
       box-shadow: none;
@@ -124,8 +125,7 @@
         padding-left: 10px;
         color: $dark;
         z-index: 1;
-        max-width: 83.33333%;
-        margin: 0 auto 10px;
+
 
         &:first-of-type {
           margin-top: rem(50px);

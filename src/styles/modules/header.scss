@@ -781,8 +781,9 @@ $commodities: #e98300;
       }
 
       .container {
-        max-width: 83.33333%;
         margin: 0 auto;
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
 
         @media (min-width: $br-mobile) {
           max-width: none;
