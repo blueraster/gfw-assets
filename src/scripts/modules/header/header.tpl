@@ -1,5 +1,6 @@
-<header class="m-header">
-  <nav class="row align-justify m-header-nav-container">
+<div class="line-dashboard"></div>
+<header class="row m-header">
+  <nav class="align-justify m-header-nav-container small-12 columns">
     <div class="row logo-sections-container">
       <a href="/">
         <div class="logo-menu"></div>
@@ -44,7 +45,7 @@
   <div class="m-header-sub-menu-dashboard sub-menu" id="dashboard-sub-menu">
     <div class="back-white"></div>
     <div class="row nav-sub-menu-container -center">
-      <div class="small-10 medium-10 large-10 -center">
+      <div class="columns small-12 medium-12 large-12 -center">
         <form class="search-container" id="search-container" action="http://www.globalforestwatch.org/search">
           <input type="text" name="query" id="search-input" placeholder="SEARCH"/>
           <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
@@ -69,7 +70,7 @@
       </div>
     </div>
     <div class="row m-header-more-container -center">
-      <div class="small-10 medium-10 large-10 -center">
+      <div class="columns small-12 medium-12 large-12 -center">
         <h3>More in GFW</h3>
         <div class="row more-options-container">
           <a class="more-options-item small-12 medium-3 large-3" href="#">
@@ -100,7 +101,7 @@
       </div>
     </div>
     <div class="row m-sitemap-info-container">
-      <div class="small-10 medium-10 large-10 -center">
+      <div class="columns small-12 medium-12 large-12 -center">
         <div class="sitemap-container">
           <h3>SITEMAP</h3>
         </div>
