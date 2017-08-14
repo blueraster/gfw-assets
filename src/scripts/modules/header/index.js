@@ -226,6 +226,10 @@ class Header {
       }
     }
 
+    if (this.minMenuWidth !== 0) {
+      $gfwdom('.sticky-nav-options').addClass('-show');
+    }
+
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       // Hide all the opened menus
       this.hideMenus();
@@ -309,6 +313,9 @@ class Header {
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active');
         this.$backMenu.removeClass('-show');
+        if (this.minMenuWidth !== 0) {
+          $gfwdom('.sticky-nav-options').removeClass('-show');
+        }
       }
     }.bind(this));
 
@@ -692,37 +699,19 @@ class Header {
       if ((bigMenu + bigOptionMenu) > (this.navContainer.get(0).clientWidth - 200)) {
         this.navContainer.addClass('-small-menu');
         this.goToResize = true;
-        // let w = (bigMenu + bigOptionMenu);
-        // w = parseInt(w * 0.83333);
-        // w = ((bigMenu + bigOptionMenu)) - (w);
-        // w = ((bigMenu + bigOptionMenu)) + (w);
         this.smallMenu = utils.getWindowWidth();
       } else {
         this.goToResize = true;
       }
     }
 
-    // if (this.smallMenu !== 0) {
-    //   this.doLinkResize = false;
-    //   if ((this.navContainer.get(0).clientWidth - 200) > this.smallMenu) {
-    //     console.log('hello');
-    //     this.doLinkResize = true;
-    //     this.navContainer.removeClass('-mobile-menu');
-    //     this.navContainer.removeClass('-small-menu');
-    //     this.subMenu.removeClass('-mobile');
-    //     $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
-    //   } else {
-    //     this.doLinkResize = false;
-    //   }
-    // }
-
-    if (utils.getWindowWidth() < 1800 && !this.doLinkResize) {
-
+    if (utils.getWindowWidth() < 1800 && !this.doLinkResize && utils.getWindowWidth() > 850) {
       if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 200)) {
         if (!this.navContainer.hasClass('-mobile-menu')) {
           if (this.navContainer.hasClass('-small-menu')) {
             this.navContainer.removeClass('-small-menu');
             this.navContainer.addClass('-mobile-menu');
+            console.log('hello men!');
             this.subMenu.addClass('-mobile');
             $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
             this.minMenuWidth = utils.getWindowWidth();
@@ -735,6 +724,7 @@ class Header {
               this.navContainer.removeClass('-small-menu');
               this.navContainer.addClass('-mobile-menu');
               this.subMenu.addClass('-mobile');
+
               $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
             }
           }
@@ -753,8 +743,6 @@ class Header {
       this.subMenu.removeClass('-mobile');
       $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
     }
-
-
   }
 }
 
