@@ -77,7 +77,7 @@
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-developer"></use></svg>
             <span>developers corners</span>
           </a>
-          <a class="more-options-item small-12 medium-3 large-3" href="http://www.globalforestwatch.org/sitemap" target="_blank">
+          <a class="more-options-item small-12 medium-3 large-3" href="http://www.globalforestwatch.org/howto" target="_blank">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-how-to"></use></svg>
             <span>how to portal</span>
           </a>
