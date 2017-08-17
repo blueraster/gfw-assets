@@ -73,27 +73,27 @@
       <div class="columns small-12 medium-12 large-12 -center">
         <h3>More in GFW</h3>
         <div class="row more-options-container">
-          <a class="more-options-item small-12 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="http://developers.globalforestwatch.org/" target="_blank">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-developer"></use></svg>
             <span>developers corners</span>
           </a>
-          <a class="more-options-item small-12 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="http://www.globalforestwatch.org/sitemap" target="_blank">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-how-to"></use></svg>
             <span>how to portal</span>
           </a>
-          <a class="more-options-item small-12 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="http://www.globalforestwatch.org/small-grants-fund" target="_blank">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-samll-people"></use></svg>
             <span>small grants fund</span>
           </a>
-          <a class="more-options-item small-12 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="http://data.globalforestwatch.org/" target="_blank">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-open-data"></use></svg>
             <span>open data portal</span>
           </a>
-          <a class="more-options-item small-12 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="http://blog.globalforestwatch.org/" target="_blank">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-blog"></use></svg>
             <span>blog</span>
           </a>
-          <a class="more-options-item small-12 medium-3 large-3" href="#">
+          <a class="more-options-item small-12 medium-3 large-3" href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-forum"></use></svg>
             <span>discussion forum</span>
           </a>
@@ -103,7 +103,7 @@
     <div class="row m-sitemap-info-container">
       <div class="columns small-12 medium-12 large-12 -center">
         <div class="sitemap-container">
-          <h3>SITEMAP</h3>
+          <a href="http://www.globalforestwatch.org/sitemap" target="_blank"><h3>SITEMAP</h3></a>
         </div>
       </div>
     </div>

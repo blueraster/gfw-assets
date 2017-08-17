@@ -172,6 +172,7 @@ $commodities: #e98300;
 
           @media (min-width: $br-mobile) {
             display: flex;
+            max-height: 58px;
             margin-left: rem(40px);
             list-style: none;
           }
