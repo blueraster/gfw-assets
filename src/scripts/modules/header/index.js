@@ -540,7 +540,6 @@ class Header {
       const loginButton = new LoginButton();
       loginButton.init();
     } else {
-      $gfwdom('#my-gfw-container').css({ display: 'none' });
     }
   }
 
