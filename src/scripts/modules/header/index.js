@@ -1,11 +1,9 @@
-'use strict';
 import $gfwdom from '../../facade';
 import utils from '../../utils';
 import headerTpl from './header.tpl';
 import menuOptions from './menuOptions';
 import headerIconsTpl from './header-icons.tpl';
 import LoginButton from '../my-gfw/login-button';
-import Navigation from '../navigation';
 
 /**
  * Header
@@ -14,7 +12,6 @@ import Navigation from '../navigation';
  */
 
 class Header {
-
   constructor() {
     this.el = document.getElementById('headerGfw');
     if (!this.el) {
@@ -34,7 +31,6 @@ class Header {
     this.initListeners();
     this.initTranslate();
     this.initMyGFW();
-    this.initNavigation();
     return this;
   }
 
@@ -43,7 +39,12 @@ class Header {
    */
   cache() {
     this.keyboardPulse = false;
-    this.$document =  $gfwdom(document);
+    this.mobileMenu = false;
+    this.smallMenu = 0;
+    this.minMenuWidth = 0;
+    this.doLinkResize = false;
+    this.goToResize = false;
+    this.$document = $gfwdom(document);
     this.site = window.liveSettings.site;
 
     // Script
@@ -51,28 +52,41 @@ class Header {
 
     // Html-body
     this.$htmlbody = $gfwdom('html,body');
+    this.$body = $gfwdom('body');
 
     // Header
     this.$header = $gfwdom('#headerGfw');
+    this.$headerBar = this.$header.find('.m-header');
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
-    this.navSections = this.$header.find('.nav-sections');
-    this.subMenu = this.$header.find('.m-header-sub-menu-dashboard');
 
-    //Dashboard Menu
+    this.navSections = this.$header.find('.nav-sections');
+    this.navSectionLogo = this.$header.find('.logo-sections-container');
+    this.navOptions = this.$header.find('.options-container');
+
+    this.navMobileSections = this.$header.find('.mobile-nav-sections');
+    this.subMenu = this.$header.find('.m-header-sub-menu-dashboard');
+    this.navContainer = this.$header.find('.m-header-nav-container');
+
+    // Dashboard Menu
     this.searchContainer = document.getElementById('search-container');
-    this.searchInput = document.getElementById('search-input'); //autofocus
+    this.searchInput = document.getElementById('search-input');
     this.openMenuDashboard = this.$header.find('.open-menu-button-dashboard');
     this.menuDashboard = this.$header.find('#dashboard-sub-menu');
     this.boxesContainer = this.$header.find('.boxes-container');
-    this.currentBox = this.boxesContainer.find('.box.'+this.site);
+    this.currentBox = this.boxesContainer.find(`.box.${this.site}`);
 
-    //Login Menu
+    this.$links = this.$header.find('a');
+    this.$linksSubmenu = this.$header.find('a');
+
+    // Login Menu
     this.menuLogin = this.$header.find('.m-header-sub-menu-login');
 
-    //Language Menu
+    // Language Menu
     this.triangleLanguage = this.$header.find('.lang-triangle');
-  };
+
+
+  }
 
   /**
    * Set logos on header and options gallery
@@ -80,37 +94,42 @@ class Header {
   setLogos() {
     this.logoMenu.addClass(this.site);
     this.currentBox.remove();
-  };
+  }
 
   /**
    * Set menu's options
    */
   setMenuOptions() {
     this.navSections.html(menuOptions.getOptions(this.site));
-  };
+    this.navMobileSections.html(menuOptions.getOptions(this.site));
+  }
 
   /**
    * Function for capturing keyboard and open the dashboard
    */
   keyboardOpenMenu() {
-    document.onkeypress = function(evt) {
-       evt = evt || window.event;
-       var charCode = evt.which || evt.keyCode;
-       var charStr = String.fromCharCode(charCode);
-       if (/[a-z0-9]/i.test(charStr)) {
-         this.showMenuKeyBoard();
-       }
-    }.bind(this);
-  };
+    if(!this.$body.hasClass('is-map-page')) {
+      document.onkeypress = function keyBoardOpen(evt) {
+        if (!$gfwdom(document.activeElement).is('input')) {
+          const windowEvent = evt || window.event;
+          const charCode = windowEvent.which || windowEvent.keyCode;
+          const charStr = String.fromCharCode(charCode);
+          if (/[a-z0-9]/i.test(charStr)) {
+            this.showMenuKeyBoard();
+          }
+        }
+      }.bind(this);
+    }
+  }
 
   /**
    * Set Params
    */
   setParams() {
-    var $parent = document.querySelector('#loader-gfw');
+    const $parent = document.querySelector('#loader-gfw');
     this.params = {
-      current: $parent.getAttribute('data-current')
-    }
+      current: $parent.getAttribute('data-current'),
+    };
   }
 
   /**
@@ -127,7 +146,7 @@ class Header {
    */
   utilsMenus() {
     // Key bindings
-    this.$document.on('keyup.apps', e => {
+    this.$document.on('keyup.apps', (e) => {
       if (e.keyCode === 27) {
         this.hideMenus();
         this.hideLanguageMenu();
@@ -141,40 +160,43 @@ class Header {
     }
   }
 
+  utilsMenusMobile() {
+    this.$header.on('click', '#transifexTranslateMobileElement > .tx-live-lang-picker > li', this.hideMenusMobile.bind(this));
+  }
+
   initListeners() {
     // Menus
-    this.$htmlbody.on('click', '.m-header-nav-container, .m-header-nav-container *', this.closeBack.bind(this));
-    this.$header.on('click', '.-js-open-menu', this.showMenu.bind(this));
-    this.$header.on('click', '.-js-close-back-menus', this.hideMenus.bind(this));
+    $gfwdom(window).on('resize.assets', this.resizeMenuLinks.bind(this));
+    $gfwdom(window).on('load', this.resizeMenuLinks.bind(this));
+
+    $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this));
+    $gfwdom(window).on('load', this.resizeMenu.bind(this));
+
+    this.$header.on('click', '.-js-open-menu, .-js-open-menu > .mobile-title, .-js-open-menu > .desktop-title', this.showMenu.bind(this));
+    this.$body.on('click', '.-js-open-menu-mobile', this.showMenuMobile.bind(this));
     this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
     this.$header.on('click', '.txlive-langselector-current', this.showLanguageMenu.bind(this));
+    this.$body.append('<div class="back-close-menu"></div>');
+    this.$backMenu = $gfwdom('.back-close-menu');
+    this.$body.on('click', '.back-close-menu', this.hideMenus.bind(this));
+    this.$body.on('click', '.back-close-menu', this.hideLanguageMenu.bind(this));
   }
 
   changeTriangleLanguage(value) {
-    if(value === '#language-sub-menu') {
+    if (value === '#language-sub-menu') {
       if (this.triangleLanguage.hasClass('-open')) {
         this.triangleLanguage.removeClass('-open');
       } else {
         this.triangleLanguage.addClass('-open');
       }
-    } else {
-      if (this.triangleLanguage.hasClass('-open')) {
-        this.triangleLanguage.removeClass('-open');
-      }
-    }
-  }
-
-  closeBack(e) {
-    e && e.preventDefault();
-    let currentTarget = e.currentTarget;
-    if(!$gfwdom(currentTarget).hasClass('open-menu-button') && !$gfwdom(currentTarget).hasClass('txlive-langselector-toggle')) {
-      this.hideMenus();
+    } else if (this.triangleLanguage.hasClass('-open')) {
+      this.triangleLanguage.removeClass('-open');
     }
   }
 
   showMenuKeyBoard() {
     if (!this.keyboardPulse) {
-      var $languageMenu = this.$header.find('.txlive-langselector-list');
+      const $languageMenu = this.$header.find('.txlive-langselector-list');
       if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
         $languageMenu.removeClass('txlive-langselector-list-opened');
       }
@@ -185,45 +207,101 @@ class Header {
       }
       this.openMenuDashboard.addClass('-active');
       this.menuDashboard.addClass('-active');
-      this.searchInput.focus();
+      if (utils.getWindowWidth() > 850) {
+        this.searchInput.focus();
+      }
       this.utilsMenus();
       this.keyboardPulse = true;
     }
   }
 
   showMenu(e) {
-    e && e.preventDefault();
-    let currentTarget = e.currentTarget;
-    var dataSubMenu = currentTarget.getAttribute('data-submenu');
+    const currentTarget = e.currentTarget;
+    let dataSubMenu = currentTarget.getAttribute('data-submenu');
+    let $current;
+
+    if (dataSubMenu === '#login-sub-menu') {
+      if ($gfwdom('.open-menu-button-login').find('.logged-button').length !== 0) {
+        dataSubMenu = '#submenulogged';
+      }
+    }
+
+    if (this.minMenuWidth !== 0) {
+      $gfwdom('.sticky-nav-options').addClass('-show');
+    }
+
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       // Hide all the opened menus
       this.hideMenus();
+      this.$backMenu.addClass('-show');
       // Active menu
-      $gfwdom(currentTarget).toggleClass('-active')
+      $gfwdom(currentTarget).toggleClass('-active');
       this.changeTriangleLanguage(dataSubMenu);
       // Hidden language Menu
-      if(dataSubMenu != '#language-sub-menu') {
-        var $languageMenu = this.$header.find('.txlive-langselector-list');
+      if (dataSubMenu !== '#language-sub-menu') {
+        const $languageMenu = this.$header.find('.txlive-langselector-list');
         if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
           $languageMenu.removeClass('txlive-langselector-list-opened');
         }
       }
-      var $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+      if (dataSubMenu === '#submenulogged') {
+        $current = $gfwdom('#submenulogged');
+      } else {
+        $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+      }
+
       $current.toggleClass('-active');
       this.navOptions.toggleClass('-show-triangle');
 
       if (this.menuDashboard.hasClass('-active')) {
-        this.searchInput.focus();
+        if (utils.getWindowWidth() > 850) {
+          this.searchInput.focus();
+        }
       }
+
       this.utilsMenus();
+      this.resizeMenu('boxes');
     } else {
       this.navOptions.toggleClass('-show-triangle');
       this.changeTriangleLanguage(dataSubMenu);
       this.hideMenus();
     }
+
+    if (utils.getWindowWidth() < 850 || utils.getWindowWidth() < this.minMenuWidth) {
+      $gfwdom('.sticky-nav-options').toggleClass('-show');
+    }
   }
 
-  hideMenus(e) {
+
+  showMenuMobile(e) {
+    const currentTarget = e.currentTarget;
+    const dataSubMenu = currentTarget.getAttribute('data-submenu');
+    let $current;
+
+    if (dataSubMenu === '#login-sub-menu-mobile') {
+      if ($gfwdom('.open-menu-button-login').find('.logged-button').length !== 0) {
+        $current = $gfwdom('#logged-sub-menu-mobile');
+      } else {
+        $current = $gfwdom('#login-sub-menu-mobile');
+      }
+    } else {
+      $current = $gfwdom(currentTarget.getAttribute('data-submenu'));
+    }
+
+    // const
+    if (!$gfwdom(currentTarget).hasClass('-active')) {
+      this.hideMenusMobile();
+      // Active menu
+      $gfwdom(currentTarget).toggleClass('-active');
+      // Hidden language Menu
+      $current.toggleClass('-active');
+      this.utilsMenusMobile();
+    } else {
+      this.hideMenusMobile();
+    }
+  }
+
+  hideMenus() {
     // // Allow mobile scroll
     if (this.menuDashboard.hasClass('-active')) {
       this.searchContainer.reset();
@@ -231,18 +309,22 @@ class Header {
 
     this.$htmlbody.removeClass('-no-scroll');
 
-    this.$header.find('.sub-menu').forEach(function(v){
+    this.$header.find('.sub-menu').forEach(function findSubMenu(v) {
       if ($gfwdom(v).hasClass('-active')) {
-        $gfwdom(v).removeClass('-active')
+        $gfwdom(v).removeClass('-active');
+        this.$backMenu.removeClass('-show');
+        if (this.minMenuWidth !== 0) {
+          $gfwdom('.sticky-nav-options').removeClass('-show');
+        }
       }
-    });
+    }.bind(this));
 
     this.$header.find('.open-menu-button').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
-        $gfwdom(v).removeClass('-active')
-        // $gfwdom(v).find('.-svg').toggleClass('-inactive');
+        $gfwdom(v).removeClass('-active');
+        this.$backMenu.removeClass('-show');
       }
-    });
+    }.bind(this));
 
     // Key bindings
     this.$document.off('keyup.apps');
@@ -253,8 +335,28 @@ class Header {
     this.navOptions.toggleClass('-show-triangle');
   }
 
+  hideMenusMobile() {
+    this.$body.find('.m-header > .sub-menu-mobile').forEach(function(v){
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom(v).toggleClass('-active')
+      }
+    });
+
+    this.$body.find('#tx-live-lang-picker').forEach(function(v){
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom(v).toggleClass('-active')
+      }
+    });
+
+    this.$body.find('.m-header > .sticky-nav-options > .open-menu-button').forEach(function(v){
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom(v).removeClass('-active')
+      }
+    });
+  }
+
   showLanguageMenu() {
-    var $languageMenu = this.$header.find('.txlive-langselector-list');
+    const $languageMenu = this.$header.find('.txlive-langselector-list');
     if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
       $languageMenu.removeClass('txlive-langselector-list-opened');
     } else {
@@ -264,8 +366,7 @@ class Header {
   }
 
   hideLanguageMenu() {
-    var $opened = this.$header.find('.txlive-langselector-list-opened');
-    var $languageMenu = this.$header.find('.txlive-langselector-list');
+    const $languageMenu = this.$header.find('.txlive-langselector-list');
     if ($languageMenu.hasClass('txlive-langselector-list-opened')) {
       $languageMenu.removeClass('txlive-langselector-list-opened');
     }
@@ -274,12 +375,11 @@ class Header {
     }
   }
 
-  toggleTransifex(e) {
+  toggleTransifex() {
+    const $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
+    const $transifexList = this.$header.find('#transifexTranslateMobileElement');
 
-    var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
-    var $transifexList = this.$header.find('#transifexTranslateMobileElement');
-
-    if($btnTransifex.hasClass('-active')) {
+    if ($btnTransifex.hasClass('-active')) {
       $btnTransifex.removeClass('-active');
       $transifexList.removeClass('-active');
     } else {
@@ -293,37 +393,34 @@ class Header {
     // but buttons on mobile devices
     // What can we do?
     // ANSWER: I've set a class 'link-analytics' to differenciate them
-    let $el = $gfwdom(e.currentTarget);
-    let url = $el.attr('href');
-    let target = $el.attr('target');
-    let regex = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+    const $el = $gfwdom(e.currentTarget);
+    const url = $el.attr('href');
+    const target = $el.attr('target');
+    const regex = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
 
-    if(!!target) {
+    if (!target) {
       if (window.ga !== undefined) {
         window.ga('send', 'event', 'Menu', 'Click', url);
       }
+    } else if (window.ga !== undefined && regex.test(url)) {
+      e && e.preventDefault();
+
+      // https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits?hl=es#handling_timeouts
+      let callbackTriggered = false;
+      setTimeout(function() {
+        if (!callbackTriggered) {
+          document.location = url
+        }
+      }, 1000);
+
+      window.ga('send', 'event', 'Menu', 'Click', url, {
+        'hitCallback': function(){
+          callbackTriggered = true;
+          document.location = url;
+        }
+      });
     } else {
-      // Test if analytics exists and if it's an url
-      if (window.ga !== undefined && regex.test(url)) {
-        e && e.preventDefault();
-
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits?hl=es#handling_timeouts
-        let callbackTriggered = false;
-        setTimeout(function(){
-          if (!callbackTriggered) {
-            document.location = url
-          }
-        }, 1000);
-
-        window.ga('send', 'event', 'Menu', 'Click', url, {
-          'hitCallback': function(){
-            callbackTriggered = true;
-            document.location = url;
-          }
-        });
-      } else {
-        document.location = url;
-      }
+      document.location = url;
     }
   }
 
@@ -339,18 +436,33 @@ class Header {
   };
 
   initGoogleTranslate() {
+    $gfwdom('#transifexTranslateElement').css('display', 'none');
+    $gfwdom('#googleTranslate').css('display', 'block');
+    $gfwdom('.googleTranslateMobile').css('display', 'block');
+    $gfwdom('.lang-triangle').css('display', 'none');
     setTimeout(() => {
-      window['googleTranslateElementInitGFW'] = () => {
-        new google.translate.TranslateElement({
-          pageLanguage: '',
-          includedLanguages: 'ar,es,en,fr,id,pt,ru,zh-CN,de,uk,ro,tr,it,hi,km',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        },'googleTranslate');
+      if (utils.getWindowWidth() > 850) {
+        window['googleTranslateElementInitGFW'] = () => {
+          new google.translate.TranslateElement({
+            pageLanguage: '',
+            includedLanguages: 'ar,es,en,fr,id,pt,ru,zh-CN,de,uk,ro,tr,it,hi,km',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+          },'googleTranslate');
+        }
+      } else {
+        window['googleTranslateElementInitGFW'] = () => {
+          new google.translate.TranslateElement({
+            pageLanguage: '',
+            includedLanguages: 'ar,es,en,fr,id,pt,ru,zh-CN,de,uk,ro,tr,it,hi,km',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+          },'googleTranslateMobile');
+        }
       }
 
       const translateScript = document.createElement('script');
-      translateScript.type= 'text/javascript';
+      translateScript.type = 'text/javascript';
       translateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
       document.head.appendChild(translateScript);
     }, 0);
@@ -360,86 +472,66 @@ class Header {
    * Transifex
    */
   initTransifex() {
-    window.liveSettings.detectlang = function() {
-      var getParam = function (name){
-        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-        var regexS = "[\\?&]"+name+"=([^&#]*)";
-        var regex = new RegExp( regexS );
-        var results = regex.exec( window.location.href );
-        if( results == null )
-          return null;
-        else
-          return results[1];
-      }
+    window.liveSettings.detectlang = function getLiveSettings() {
+      const getParam = function getParamFunction(name) {
+        const nameTr = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        const regexS = `[\\?&]+${nameTr}+=([^&#]*)`;
+        const regex = new RegExp(regexS);
+        const results = regex.exec(window.location.href);
+        let returnVar = null;
+        if (results === null) {
+          returnVar = null;
+        } else {
+          returnVar = results[1];
+        }
+        return returnVar;
+      };
 
-      var getParamFromLocalStorage = function (name){
-        if (!!localStorage.getItem('txlive:selectedlang')) {
-          return JSON.parse(localStorage.getItem('txlive:selectedlang'))
+      const getParamFromLocalStorage = function getParamFromLocalStorage() {
+        if (!localStorage.getItem('txlive:selectedlang')) {
+          return JSON.parse(localStorage.getItem('txlive:selectedlang'));
         }
         return null;
-      }
+      };
 
       // If param exists, save it the localStorage
-      if (!!getParam('lang')) {
-        localStorage.setItem('txlive:selectedlang', getParam('lang'))
+      if (!getParam('lang')) {
+        localStorage.setItem('txlive:selectedlang', getParam('lang'));
       }
 
       // Then, use the param or the localStorage attribute
-      var lang = getParam('lang') || getParamFromLocalStorage('txlive:selectedlang');
+      const lang = getParam('lang') || getParamFromLocalStorage('txlive:selectedlang');
       return lang;
     };
 
     window.liveSettings.picker = (utils.isSmallScreen()) ? '#transifexTranslateMobileElement' : '#transifexTranslateElement';
 
-    var blacklist = [
+    const blacklist = [
       'climate.globalforestwatch.org',
       'water.globalforestwatch.org',
+      'gfwc-staging.herokuapp.com',
       // 'commodities.globalforestwatch.org'
     ];
 
     // Check if the location.hostname is in the blacklist
     // If true hide transifex element, but keep it working to store the string of the page
     // Then init Google translate plugin
-    if (blacklist.indexOf(location.hostname) != -1){
-      var $transifexEl = $gfwdom(window.liveSettings.picker);
+    if (blacklist.indexOf(location.hostname) !== -1) {
+      const $transifexEl = $gfwdom(window.liveSettings.picker);
       $transifexEl.css({
-        display: 'none'
+        display: 'none',
       });
       this.initGoogleTranslate();
     }
 
     setTimeout(() => {
       const translateScript = document.createElement('script');
-      translateScript.type= 'text/javascript';
+      translateScript.type = 'text/javascript';
       translateScript.src = '//cdn.transifex.com/live.js';
       document.head.appendChild(translateScript);
     }, 0);
-  };
-
-
-
-  /**
-   * We need to make a difference between local, staging and PRO environment urls.
-   * Also we need to have a default value for the external applications
-   */
-  initLinksUrls() {
-    this.params.targets = !utils.isDefaultHost();
-    this.params.hostname = utils.getHost();
-
-    this.$links.forEach(function(v) {
-      const href = $gfwdom(v).attr('href');
-      if (href.charAt(0) == '/') {
-        $gfwdom(v).attr('href', this.params.hostname + href);
-      }
-    }.bind(this));
-
-    this.$linksSubmenu.forEach(v => {
-      const external = $gfwdom(v).hasClass('external-link');
-      if (this.params.targets) {
-        (!!external) ? $gfwdom(v).removeAttr('target') : $gfwdom(v).attr('target','_blank');
-      }
-    });
   }
+
   /**
    * Init My GFW
    */
@@ -448,33 +540,210 @@ class Header {
       const loginButton = new LoginButton();
       loginButton.init();
     } else {
-      $gfwdom('#my-gfw-container').css({ display: 'none'});
+      $gfwdom('#my-gfw-container').css({ display: 'none' });
     }
   }
 
-  resizeMenu() {
-    if (utils.getWindowWidth() < 700) {
-      this.$header.find('.m-header-submenu').forEach(function(v){
-        $gfwdom(v).css({
-          height: utils.getWindowHeigth() - 50 + 'px'
+  resizeMenu(value) {
+    if (value !== 'boxes') {
+      if (utils.getWindowWidth() < 700) {
+        this.$header.find('.m-header-submenu').forEach((v) => {
+          $gfwdom(v).css({
+            height: `${utils.getWindowHeigth() - 50}px`,
+          });
         });
-      })
+      } else {
+        this.$header.find('.m-header-submenu').forEach((v) => {
+          $gfwdom(v).css({ height: 'auto' });
+        });
+      }
+
+      if (utils.getWindowWidth() < 850 || utils.getWindowWidth() <= this.minMenuWidth) {
+        if (!this.mobileMenu) {
+          this.$headerBar.append(`
+            <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu sub-menu-mobile">
+              <div class="container">
+                <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
+                <ul>
+                  <li class="my-gfw-sign-in-twitter login-item -twitter ">
+                    <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">Log in with Twitter</a>
+                  </li>
+                  <li class="my-gfw-sign-in-facebook login-item -facebook">
+                    <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">Log in with Facebook</a>
+                  </li>
+                  <li class="my-gfw-sign-in-google login-item -google">
+                    <a href="auth/google?applications=gfw" class="my-gfw-sign-in">Log in with Google</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="logged-sub-menu-mobile" class="sub-menu-mobile m-header-submenu m-header-submenu-logged m-header-submenu-logged-mobile">
+              <ul class="more-list">
+                <a target="_blank" href="/my_gfw/subscriptions"><li><span>My Subscriptions</span></li></a>
+                <a target="_blank" href="/my_gfw/stories"><li><span>My Stories</span></li></a>
+                <a target="_blank" href="/my_gfw"><li><span>My Profile</span></li></a>
+                <a target="_blank" href="/my_gfw/subscriptions/new"><li><span>Receive forest loss alerts</span></li></a>
+                <a href="/auth/logout" id="my-gfw-sign-out"><li><span>Log Out</span></li></a>
+              </ul>
+            </div>
+            <div class="sticky-nav-options">
+              <div class="sticky-item -language -border -js-open-menu-mobile open-menu-button" data-submenu="#tx-live-lang-picker">
+                <div id="transifexTranslateMobileElement" class="m-transifex"></div>
+                <div id="googleTranslateMobile" class="googleTranslateMobile"></div>
+              </div>
+              <div class="sticky-item -js-open-menu-mobile open-menu-button open-menu-button-login" data-submenu="#login-sub-menu-mobile">
+                My GFW
+                <svg class="profile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
+                <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+              </div>
+            </div>
+          `);
+          this.mobileMenu = true;
+          this.initTranslate();
+
+          // if (utils.getWindowWidth() <= this.minMenuWidth || utils.getWindowWidth() < 850) {
+          //   $gfwdom('.sticky-nav-options').toggleClass('-show');
+          // }
+
+          if (utils.getWindowWidth() <= this.minMenuWidth) {
+            $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
+            $gfwdom('#logged-sub-menu-mobile').addClass('-mobile');
+          }
+        }
+      } else {
+        $gfwdom('.m-header-sub-menu-login.sub-menu-mobile').remove();
+        $gfwdom('.sticky-nav-options').remove();
+        this.mobileMenu = false;
+      }
     } else {
-      this.$header.find('.m-header-submenu').forEach(function(v){
-        $gfwdom(v).css({ height: 'auto' });
-      });
-    }
+      const n = $gfwdom('.box').length;
+      let boxContainerWidth = 0;
+      let longitude = 0;
+      let firstOut = false;
+      let boxContainerLeft = 0;
+      let boxLeft = 0;
+      let notAppear = false;
+      const i = 0;
 
-    if (utils.getWindowWidth() < 850) {
-      this.$headerSubmenuMenuMobile.css({
-        height: utils.getWindowHeigth() - 50 + 'px'
-      });
-    }
+      this.$boxContainer = this.$header.find('.applications-container');
 
+      this.$header.find('.boxes-container').forEach((v) => {
+        boxContainerWidth = v.offsetWidth;
+        boxContainerLeft = v.getBoundingClientRect().left;
+      });
+
+      this.$header.find('.box').forEach((v) => {
+        boxLeft = v.getBoundingClientRect().left - boxContainerLeft;
+        if (boxLeft + 88 >= boxContainerWidth) {
+          if (!firstOut) {
+            longitude = boxLeft - boxContainerWidth;
+            notAppear = true;
+            firstOut = true;
+          }
+        }
+      });
+
+      if (notAppear) {
+        this.$header.find('.box').forEach((v) => {
+          if (i < n) {
+            const distance = longitude * 3;
+            if (distance > 0) {
+              $gfwdom(v).css('margin-right', `${distance}px`);
+            }
+          }
+        });
+      }
+    }
   }
 
-  initNavigation() {
-    new Navigation();
+  resizeMenuLinks() {
+    const logoWidth = 88;
+    const sectionsCount = $gfwdom('.nav-sections > li').length;
+    const optionsCount = $gfwdom('.nav-options > li').length;
+    let bigMenu = logoWidth + 40;
+    let smallMenu = logoWidth + 20;
+    let bigOptionMenu = 0;
+    let smallOptionMenu = 0;
+    let windowSmall = 0;
+    let windowMobile = 0;
+    let widthBasic = utils.getWindowWidth() - this.navContainer.get(0).clientWidth;
+    widthBasic = this.navContainer.get(0).clientWidth - widthBasic;
+
+    $gfwdom('.nav-sections > li').forEach(function calc(v, l) {
+      if (l === (sectionsCount - 1)) {
+        bigMenu += $gfwdom(v).get(0).clientWidth;
+        smallMenu += $gfwdom(v).get(0).clientWidth;
+      } else {
+        bigMenu += $gfwdom(v).get(0).clientWidth + 40;
+        smallMenu += $gfwdom(v).get(0).clientWidth + 20;
+      }
+    });
+
+    $gfwdom('.nav-options > li').forEach(function calc(v, l) {
+      if (l === 0) {
+        bigOptionMenu += $gfwdom(v).get(0).clientWidth + 56;
+        smallOptionMenu += $gfwdom(v).get(0).clientWidth + 36;
+      }
+
+      if (l >= 1) {
+        bigOptionMenu += $gfwdom(v).get(0).clientWidth + 40;
+        smallOptionMenu += $gfwdom(v).get(0).clientWidth + 20;
+      }
+
+      if (l === (optionsCount - 1)) {
+        bigOptionMenu += $gfwdom(v).get(0).clientWidth;
+        smallOptionMenu += $gfwdom(v).get(0).clientWidth;
+      }
+    });
+
+    if (!this.goToResize) {
+      if ((bigMenu + bigOptionMenu) > (this.navContainer.get(0).clientWidth - 200)) {
+        this.navContainer.addClass('-small-menu');
+        this.goToResize = true;
+        this.smallMenu = utils.getWindowWidth();
+      } else {
+        this.goToResize = true;
+      }
+    }
+
+    if (utils.getWindowWidth() < 1800 && !this.doLinkResize && utils.getWindowWidth() > 850) {
+      if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 200)) {
+        if (!this.navContainer.hasClass('-mobile-menu')) {
+          if (this.navContainer.hasClass('-small-menu')) {
+            this.navContainer.removeClass('-small-menu');
+            this.navContainer.addClass('-mobile-menu');
+            console.log('hello men!');
+            this.subMenu.addClass('-mobile');
+            $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
+            this.minMenuWidth = utils.getWindowWidth();
+          } else {
+            this.smallMenu = utils.getWindowWidth();
+            this.navContainer.addClass('-small-menu');
+
+            if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 200)) {
+              this.minMenuWidth = utils.getWindowWidth();
+              this.navContainer.removeClass('-small-menu');
+              this.navContainer.addClass('-mobile-menu');
+              this.subMenu.addClass('-mobile');
+
+              $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
+            }
+          }
+        }
+
+        if (utils.getWindowWidth() > this.minMenuWidth) {
+          this.navContainer.removeClass('-mobile-menu');
+          this.subMenu.removeClass('-mobile');
+          $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
+          this.navContainer.addClass('-small-menu');
+        }
+      }
+    } else {
+      this.navContainer.removeClass('-small-menu');
+      this.navContainer.removeClass('-mobile-menu');
+      this.subMenu.removeClass('-mobile');
+      $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
+    }
   }
 }
 

@@ -56,7 +56,6 @@ class LoginButton {
     var $signin = this.$el.find('.my-gfw-sign-in');
     $signin.forEach(function(v) {
       let link = `${utils.getAPIHost() + '/' + $gfwdom(v).attr('href')}`;
-
       $gfwdom(v).attr('href', link);
     });
   }

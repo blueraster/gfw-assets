@@ -1,26 +1,46 @@
-'use strict';
-
 const gfwOptions = [
   {
     site: 'gfw-global',
     options: [
       {
         title: 'map',
-        url: '/map'
+        url: '/map',
       },
       {
         title: 'countries',
-        url: '/countries'
+        url: '/countries',
       },
       {
         title: 'blog',
-        url: '/blog'
+        url: 'http://blog.globalforestwatch.org/',
       },
       {
         title: 'about',
-        url: '/about'
+        url: '/about',
       },
-    ]
+    ],
+  },
+
+  {
+    site: 'gfw-mygfw',
+    options: [
+      {
+        title: 'my subscriptions',
+        url: '/my_gfw/subscriptions',
+      },
+      {
+        title: 'my stories',
+        url: '/my_gfw/stories',
+      },
+      {
+        title: 'my profile',
+        url: '/my_gfw',
+      },
+      {
+        title: 'receive forest loss alerts',
+        url: '/my_gfw/subscriptions/new',
+      },
+    ],
   },
 
   {
@@ -28,21 +48,21 @@ const gfwOptions = [
     options: [
       {
         title: 'gfw fires',
-        url: '/'
+        url: '/',
       },
       {
         title: 'map',
-        url: '/map'
+        url: '/map',
       },
       {
         title: 'learn more',
-        url: '/about'
+        url: '/about',
       },
       {
         title: 'share stories',
-        url: '/story'
+        url: '/story',
       },
-    ]
+    ],
   },
 
   {
@@ -50,25 +70,25 @@ const gfwOptions = [
     options: [
       {
         title: 'GFW Commodities',
-        url: '/'
+        url: '/',
       },
       {
         title: 'map',
-        url: '/#v=map'
+        url: '/#v=map',
       },
       {
         title: 'Methods',
-        url: '/#v=methods'
+        url: '/#v=methods',
       },
       {
         title: 'Data Submission',
-        url: '/#v=submission'
+        url: '/#v=submission',
       },
       {
         title: 'Learn More',
-        url: '/#v=about'
+        url: '/#v=about',
       },
-    ]
+    ],
   },
 
   {
@@ -76,17 +96,17 @@ const gfwOptions = [
     options: [
       {
         title: 'Map',
-        url: '/map'
+        url: '/map',
       },
       {
         title: 'Partners',
-        url: '/partners'
+        url: '/partners',
       },
       {
         title: 'Learn More',
-        url: '/about'
-      }
-    ]
+        url: '/about',
+      },
+    ],
   },
 
   {
@@ -94,26 +114,30 @@ const gfwOptions = [
     options: [
       {
         title: 'Map',
-        url: '/map'
+        url: '/map',
       },
       {
         title: 'Country Data',
-        url: '/countries'
+        url: '/countries',
       },
       {
         title: 'Country Comparisons',
-        url: '/compare-countries'
+        url: '/compare-countries',
+      },
+      {
+        title: 'Data download',
+        url: '/data-download',
       },
       {
         title: 'Insights',
-        url: '/insights'
+        url: '/insights',
       },
       {
         title: 'About',
-        url: '/about'
+        url: '/about',
       },
-    ]
-  }
+    ],
+  },
 ];
 
 /**
@@ -122,24 +146,47 @@ const gfwOptions = [
  * @return {Object}
  */
 const menuOptions = {
-
-  // GETTERS
   getOptions(value) {
-    var position = 0;
-    var menuOptions = '';
-    for (var i = 0; i < gfwOptions.length; i++) {
+    const path = window.location.pathname;
+    const site = window.liveSettings.site;
+    let siteStyles;
+
+    switch (site) {
+      case 'gfw-global':
+        siteStyles = '-selected -global';
+        break;
+      case 'gfw-fires':
+        siteStyles = '-selected -fires';
+        break;
+      case 'gfw-water':
+        siteStyles = '-selected -water';
+        break;
+      case 'gfw-climate':
+        siteStyles = '-selected -climate';
+        break;
+      case 'gfw-commodities':
+        siteStyles = '-selected -commodities';
+        break;
+      default:
+        siteStyles = '';
+    }
+
+    let position = 0;
+    let menuOptionsNav = '';
+    for (let i = 0; i < gfwOptions.length; i += 1) {
       if (gfwOptions[i].site === value) {
-        var position = i;
-        i = gfwOptions.length; //exit force
+        position = i;
+        i = gfwOptions.length;
       }
     }
-    for (var i = 0; i < gfwOptions[position].options.length; i++) {
-        menuOptions += '<li><a href="'+gfwOptions[position].options[i].url+'">'+gfwOptions[position].options[i].title+'</a></li>'
+    for (let i = 0; i < gfwOptions[position].options.length; i += 1) {
+      menuOptionsNav += `
+        <li class="${path === gfwOptions[position].options[i].url || path === gfwOptions[position].options[i].url + '/' ? siteStyles : ''}" data-menu="${gfwOptions[position].options[i].url}">
+          <a href="${gfwOptions[position].options[i].url}"> ${gfwOptions[position].options[i].title} </a>
+        </li>`;
     }
-    return menuOptions;
+    return menuOptionsNav;
   },
-
-
 };
 
 export default menuOptions;

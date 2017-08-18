@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "core-js": "^2.4.1",
     "jbone": "^1.1.2",
     "lory.js": "^2.0.1",
     "validate.js": "^0.10.0",
+    "vissense": "^0.10.0",
     "webpack-spritesmith": "^0.2.6"
   },
   "devDependencies": {
@@ -22,6 +24,9 @@
     "css-loader": "^0.23.1",
     "dotenv": "^2.0.0",
     "ejs-loader": "^0.2.1",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
     "file-loader": "^0.8.5",
     "json-loader": "^0.5.4",
     "karma": "^0.13.21",
