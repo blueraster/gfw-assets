@@ -125,6 +125,10 @@ const gfwOptions = [
         url: '/compare-countries',
       },
       {
+        title: 'Data download',
+        url: '/data-download',
+      },
+      {
         title: 'Insights',
         url: '/insights',
       },
