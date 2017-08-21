@@ -1,12 +1,12 @@
 // Imports
 @import 'settings/utils';
-@import 'settings/foundation';
 @import 'settings/settings';
 @import 'settings/breackpoints';
 @import 'settings/animations';
 @import 'settings/colors';
-@import 'settings/reset';
 @import 'settings/mixins';
+@import 'settings/reset';
+@import 'settings/foundation';
 
 @import 'modules/buttons';
 @import 'modules/form';

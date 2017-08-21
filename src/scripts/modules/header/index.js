@@ -511,6 +511,7 @@ class Header {
       'climate.globalforestwatch.org',
       'water.globalforestwatch.org',
       'gfwc-staging.herokuapp.com',
+      'localhost',
       // 'commodities.globalforestwatch.org'
     ];
 
