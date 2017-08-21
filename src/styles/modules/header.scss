@@ -295,6 +295,14 @@ $commodities: #e98300;
             &:first-of-type {
               margin-right: rem(56px);
 
+              &.-min-width-transifex {
+                min-width: rem(50px);
+              }
+
+              &.-min-width-google {
+                min-width: rem(115px);
+              }
+
               &.-active {
                 &::after,
                 &::before {

@@ -472,6 +472,7 @@ class Header {
    * Transifex
    */
   initTransifex() {
+    console.log($gfwdom('.open-menu-button-language').addClass('-min-width-transifex'));
     window.liveSettings.detectlang = function getLiveSettings() {
       const getParam = function getParamFunction(name) {
         const nameTr = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
@@ -711,7 +712,6 @@ class Header {
           if (this.navContainer.hasClass('-small-menu')) {
             this.navContainer.removeClass('-small-menu');
             this.navContainer.addClass('-mobile-menu');
-            console.log('hello men!');
             this.subMenu.addClass('-mobile');
             $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
             this.minMenuWidth = utils.getWindowWidth();
