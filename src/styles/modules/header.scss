@@ -76,9 +76,7 @@ $commodities: #e98300;
     }
 
     .m-header-nav-container {
-      display: flex;
       position: relative;
-      justify-content: space-between;
       height: $menu-height;
       margin: 0 auto;
       z-index: 10000;
@@ -141,6 +139,8 @@ $commodities: #e98300;
       }
 
       .logo-sections-container {
+        position: absolute;
+
         .logo-menu {
           position: relative;
           width: $logo-size;
@@ -250,7 +250,12 @@ $commodities: #e98300;
       }
 
       .options-container {
-        min-width: rem(312px);
+        position: absolute;
+        right: 0;
+        background-color: $white;
+        height: 100%;
+        width: rem(371px) !important;
+        min-width: rem(371px);
         margin-right: 0;
         padding-right: 0;
         padding-left: 0;
@@ -448,26 +453,13 @@ $commodities: #e98300;
             margin-right: rem(20px);
 
             &:first-of-type {
-              margin-right: rem(36px);
+              margin-right: rem(20px);
             }
           }
         }
 
         .options-container {
           padding-left: rem(20px);
-        }
-      }
-
-      &.-absolute {
-        .logo-sections-container {
-          position: absolute;
-        }
-
-        .options-container {
-          position: absolute;
-          right: rem(80px);
-          height: 100%;
-          background-color: $white;
         }
       }
     }
@@ -862,8 +854,8 @@ $commodities: #e98300;
       }
 
       ul {
-        list-style: none;
         padding-left: 0;
+        list-style: none;
 
         .login-item {
           display: flex;

@@ -89,8 +89,6 @@ class Header {
 
     // Language Menu
     this.triangleLanguage = this.$header.find('.lang-triangle');
-
-
   }
 
   /**
@@ -173,6 +171,7 @@ class Header {
   initListeners() {
     // Menus
     $gfwdom(window).on('resize.assets', this.resizeMenuLinks.bind(this));
+    // $gfwdom(window).on('load', this.resizeMenuLinks.bind(this));
 
     $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this));
 
@@ -663,24 +662,10 @@ class Header {
       if (!this.navContainer.hasClass('-small-menu')) {
         this.smallMenu = utils.getWindowWidth();
         this.navContainer.addClass('-small-menu');
-      } else {
-        // this.navContainer.removeClass('-small-menu');
-        // this.navContainer.addClass('-mobile-menu');
-        // this.subMenu.addClass('-mobile');
-        // this.mobileMenuWidth = utils.getWindowWidth();
       }
     }
 
-    let sizePx = 0;
-    this.$header.find('.nav-sections > li').forEach((v, i) => {
-      if (i === (this.$header.find('.nav-sections > li').length - 1)) {
-        sizePx += $gfwdom(v).get(0).clientWidth;
-      } else {
-        sizePx += $gfwdom(v).get(0).clientWidth + 20; // change con menus grandes
-      }
-    });
-
-    if (($gfwdom('.options-container').get(0).offsetLeft - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 30) {
+    if ((($gfwdom('.options-container').get(0).offsetLeft - 150) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
       const size = this.$header.find('.nav-sections > li').length - this.deleteLinks;
       this.$header.find('.nav-sections > li').forEach((v, i) => {
         if (i === size) {
@@ -692,23 +677,11 @@ class Header {
             }
           });
 
-          if (($gfwdom('.options-container').get(0).offsetLeft - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 30) {
+          if ((($gfwdom('.options-container').get(0).offsetLeft - 150) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
             this.resizeMenuLinks();
           }
         }
       });
-    }
-
-    if (!this.loadFirstResize && this.smallMenu !== 0) {
-      if (($gfwdom(this.navSectionLogo).get(0).clientWidth +
-         $gfwdom(this.navOptions).get(0).clientWidth) >
-        (this.navContainer.get(0).clientWidth - 200)) {
-        // this.navContainer.removeClass('-small-menu');
-        // this.navContainer.addClass('-mobile-menu');
-        // this.subMenu.addClass('-mobile');
-        // this.mobileMenuWidth = utils.getWindowWidth();
-        // this.loadFirstResize = true;
-      }
     }
   }
 }
