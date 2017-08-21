@@ -506,7 +506,6 @@ class Header {
       'climate.globalforestwatch.org',
       'water.globalforestwatch.org',
       'gfwc-staging.herokuapp.com',
-      'localhost',
       // 'commodities.globalforestwatch.org'
     ];
 
@@ -658,7 +657,7 @@ class Header {
 
     if (($gfwdom(this.navSectionLogo).get(0).clientWidth +
          $gfwdom(this.navOptions).get(0).clientWidth) >
-        (this.navContainer.get(0).clientWidth - 200)) {
+        (this.navContainer.get(0).clientWidth - 250)) {
       if (!this.navContainer.hasClass('-small-menu')) {
         this.smallMenu = utils.getWindowWidth();
         this.navContainer.addClass('-small-menu');
