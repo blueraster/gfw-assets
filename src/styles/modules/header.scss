@@ -251,16 +251,17 @@ $commodities: #e98300;
 
       .options-container {
         position: absolute;
-        right: 0;
+        right: rem(14px);
         background-color: $white;
         height: 100%;
-        width: rem(371px) !important;
-        min-width: rem(371px);
+        // width: rem(371px) !important;
+        // min-width: rem(371px);
         margin-right: 0;
         padding-right: 0;
         padding-left: 0;
 
         @media (min-width: $br-mobile) {
+          right: rem(80px);
           padding-left: rem(40px);
           border-left: rem(1px) solid $gray;
         }

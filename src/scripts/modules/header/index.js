@@ -467,7 +467,7 @@ class Header {
    * Transifex
    */
   initTransifex() {
-    // $gfwdom('.open-menu-button-language').addClass('-min-width-transifex'));
+    $gfwdom('.open-menu-button-language').addClass('-min-width-transifex');
     window.liveSettings.detectlang = function getLiveSettings() {
       const getParam = function getParamFunction(name) {
         const nameTr = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
