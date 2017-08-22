@@ -97,6 +97,12 @@ class Header {
   setLogos() {
     this.logoMenu.addClass(this.site);
     this.currentBox.remove();
+    if (this.site === 'gfw-global') {
+      this.boxesContainer.find('.box.gfw-watcher').remove();
+    }
+    if (this.site === 'gfw-watcher') {
+      this.boxesContainer.find('.box.gfw-global').remove();
+    }
   }
 
   /**
