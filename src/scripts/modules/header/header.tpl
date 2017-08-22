@@ -11,8 +11,10 @@
       <ul class="row align-middle nav-options">
         <li class="-js-open-menu open-menu-button open-menu-button-language" data-submenu="#language-sub-menu">
           <div class="triangle lang-triangle"></div>
-          <div id="transifexTranslateElement" class="m-transifex"></div>
-          <div id="googleTranslate"></div>
+          <div id="transifexTranslateElement" class="m-transifex">
+          </div>
+          <div id="googleTranslate">
+          </div>
         </li>
         <li class="-js-open-menu open-menu-button open-menu-button-login" data-submenu="#login-sub-menu" id="my-gfw-container">
           My gfw
@@ -72,6 +74,7 @@
     <div class="row m-header-more-container -center">
       <div class="columns small-12 medium-12 large-12 -center">
         <h3>More in GFW</h3>
+        <ul class="row more-options-secondary-container"></ul>
         <div class="row more-options-container">
           <a class="more-options-item small-12 medium-3 large-3" href="http://developers.globalforestwatch.org/" target="_blank">
             <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-developer"></use></svg>

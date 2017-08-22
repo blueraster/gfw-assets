@@ -76,12 +76,14 @@ $commodities: #e98300;
     }
 
     .m-header-nav-container {
-      display: flex;
       position: relative;
-      justify-content: flex-start;
       height: $menu-height;
       margin: 0 auto;
       z-index: 10000;
+
+      @media (min-width: $br-mobile) {
+        justify-content: flex-start;
+      }
 
       &.-mobile-menu {
         justify-content: flex-start;
@@ -137,6 +139,8 @@ $commodities: #e98300;
       }
 
       .logo-sections-container {
+        position: absolute;
+
         .logo-menu {
           position: relative;
           width: $logo-size;
@@ -174,6 +178,7 @@ $commodities: #e98300;
             display: flex;
             max-height: 58px;
             margin-left: rem(40px);
+            padding-left: 0;
             list-style: none;
           }
 
@@ -187,7 +192,7 @@ $commodities: #e98300;
               &::after {
                 display: block;
                 position: absolute;
-                bottom: -21px;
+                bottom: -17px;
                 left: -12px;
                 width: calc(100% + 24px);
                 height: rem(4px);
@@ -244,15 +249,20 @@ $commodities: #e98300;
       }
 
       .options-container {
-        width: calc(100% - 88px);
+        position: absolute;
+        right: rem(14px);
+        background-color: $white;
+        height: 100%;
+        // width: rem(371px) !important;
+        // min-width: rem(371px);
         margin-right: 0;
         padding-right: 0;
         padding-left: 0;
-        border-left: rem(1px) solid $gray;
 
         @media (min-width: $br-mobile) {
-          width: auto;
+          right: rem(80px);
           padding-left: rem(40px);
+          border-left: rem(1px) solid $gray;
         }
 
         .nav-options {
@@ -260,6 +270,7 @@ $commodities: #e98300;
           position: relative;
           justify-content: flex-end;
           width: 100%;
+          padding-left: 0;
           list-style: none;
 
           @media (min-width: $br-mobile) {
@@ -293,7 +304,16 @@ $commodities: #e98300;
             }
 
             &:first-of-type {
+              min-width: rem(115px);
               margin-right: rem(56px);
+
+              &.-min-width-transifex {
+                min-width: rem(50px);
+              }
+
+              &.-min-width-google {
+                min-width: rem(115px);
+              }
 
               &.-active {
                 &::after,
@@ -433,7 +453,7 @@ $commodities: #e98300;
             margin-right: rem(20px);
 
             &:first-of-type {
-              margin-right: rem(36px);
+              margin-right: rem(20px);
             }
           }
         }
@@ -474,6 +494,7 @@ $commodities: #e98300;
         position: inherit;
         max-height: none;
         padding-bottom: rem(45px);
+        overflow: hidden;
       }
 
       .back-white {
@@ -682,6 +703,7 @@ $commodities: #e98300;
 
           @media (min-width: $br-mobile) {
             flex-direction: row;
+            margin-top: 0;
           }
 
           .more-options-item {
@@ -703,6 +725,37 @@ $commodities: #e98300;
             }
 
             span {
+              color: $dark;
+              font-size: rem(12px);
+              text-transform: uppercase;
+            }
+          }
+        }
+
+        .more-options-secondary-container {
+          display: none;
+          margin-top: rem(26px);
+          padding-left: 0;
+          list-style: none;
+
+          @media (min-width: $br-mobile) {
+            display: block;
+          }
+
+          li {
+            display: none;
+            margin-right: rem(30px);
+            margin-bottom: rem(36px);
+
+            &:last-of-type {
+              margin-right: 0;
+            }
+
+            &.-show {
+              display: inline-block;
+            }
+
+            a {
               color: $dark;
               font-size: rem(12px);
               text-transform: uppercase;
@@ -802,6 +855,7 @@ $commodities: #e98300;
       }
 
       ul {
+        padding-left: 0;
         list-style: none;
 
         .login-item {

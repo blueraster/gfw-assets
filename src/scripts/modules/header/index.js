@@ -29,6 +29,8 @@ class Header {
     this.setParams();
     this.initHighlightCurrent();
     this.initListeners();
+    this.resizeMenu();
+    this.resizeMenuLinks();
     this.initTranslate();
     this.initMyGFW();
     return this;
@@ -41,9 +43,11 @@ class Header {
     this.keyboardPulse = false;
     this.mobileMenu = false;
     this.smallMenu = 0;
-    this.minMenuWidth = 0;
+    this.mobileMenuWidth = 0;
+    this.loadFirstResize = false;
     this.doLinkResize = false;
     this.goToResize = false;
+    this.deleteLinks = 1;
     this.$document = $gfwdom(document);
     this.site = window.liveSettings.site;
 
@@ -59,6 +63,7 @@ class Header {
     this.$headerBar = this.$header.find('.m-header');
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
+    this.initLanguageText = this.$header.find('.init-language-tex');
 
     this.navSections = this.$header.find('.nav-sections');
     this.navSectionLogo = this.$header.find('.logo-sections-container');
@@ -84,8 +89,6 @@ class Header {
 
     // Language Menu
     this.triangleLanguage = this.$header.find('.lang-triangle');
-
-
   }
 
   /**
@@ -100,6 +103,7 @@ class Header {
    * Set menu's options
    */
   setMenuOptions() {
+    $gfwdom('.more-options-secondary-container').html(menuOptions.getOptions(this.site));
     this.navSections.html(menuOptions.getOptions(this.site));
     this.navMobileSections.html(menuOptions.getOptions(this.site));
   }
@@ -108,7 +112,7 @@ class Header {
    * Function for capturing keyboard and open the dashboard
    */
   keyboardOpenMenu() {
-    if(!this.$body.hasClass('is-map-page')) {
+    if (!this.$body.hasClass('is-map-page')) {
       document.onkeypress = function keyBoardOpen(evt) {
         if (!$gfwdom(document.activeElement).is('input')) {
           const windowEvent = evt || window.event;
@@ -167,10 +171,9 @@ class Header {
   initListeners() {
     // Menus
     $gfwdom(window).on('resize.assets', this.resizeMenuLinks.bind(this));
-    $gfwdom(window).on('load', this.resizeMenuLinks.bind(this));
+    // $gfwdom(window).on('load', this.resizeMenuLinks.bind(this));
 
     $gfwdom(window).on('resize.assets', this.resizeMenu.bind(this));
-    $gfwdom(window).on('load', this.resizeMenu.bind(this));
 
     this.$header.on('click', '.-js-open-menu, .-js-open-menu > .mobile-title, .-js-open-menu > .desktop-title', this.showMenu.bind(this));
     this.$body.on('click', '.-js-open-menu-mobile', this.showMenuMobile.bind(this));
@@ -226,10 +229,6 @@ class Header {
       }
     }
 
-    if (this.minMenuWidth !== 0) {
-      $gfwdom('.sticky-nav-options').addClass('-show');
-    }
-
     if (!$gfwdom(currentTarget).hasClass('-active')) {
       // Hide all the opened menus
       this.hideMenus();
@@ -267,7 +266,7 @@ class Header {
       this.hideMenus();
     }
 
-    if (utils.getWindowWidth() < 850 || utils.getWindowWidth() < this.minMenuWidth) {
+    if (utils.getWindowWidth() < 850) {
       $gfwdom('.sticky-nav-options').toggleClass('-show');
     }
   }
@@ -313,9 +312,6 @@ class Header {
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active');
         this.$backMenu.removeClass('-show');
-        if (this.minMenuWidth !== 0) {
-          $gfwdom('.sticky-nav-options').removeClass('-show');
-        }
       }
     }.bind(this));
 
@@ -460,7 +456,6 @@ class Header {
           },'googleTranslateMobile');
         }
       }
-
       const translateScript = document.createElement('script');
       translateScript.type = 'text/javascript';
       translateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
@@ -472,6 +467,7 @@ class Header {
    * Transifex
    */
   initTransifex() {
+    $gfwdom('.open-menu-button-language').addClass('-min-width-transifex');
     window.liveSettings.detectlang = function getLiveSettings() {
       const getParam = function getParamFunction(name) {
         const nameTr = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
@@ -536,10 +532,10 @@ class Header {
    * Init My GFW
    */
   initMyGFW() {
+    console.log('hello!');
     if (utils.isDefaultHost()) {
       const loginButton = new LoginButton();
       loginButton.init();
-    } else {
     }
   }
 
@@ -557,7 +553,7 @@ class Header {
         });
       }
 
-      if (utils.getWindowWidth() < 850 || utils.getWindowWidth() <= this.minMenuWidth) {
+      if (utils.getWindowWidth() < 850) {
         if (!this.mobileMenu) {
           this.$headerBar.append(`
             <div id="login-sub-menu-mobile" class="m-header-sub-menu-login sub-menu sub-menu-mobile">
@@ -598,16 +594,6 @@ class Header {
             </div>
           `);
           this.mobileMenu = true;
-          this.initTranslate();
-
-          // if (utils.getWindowWidth() <= this.minMenuWidth || utils.getWindowWidth() < 850) {
-          //   $gfwdom('.sticky-nav-options').toggleClass('-show');
-          // }
-
-          if (utils.getWindowWidth() <= this.minMenuWidth) {
-            $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
-            $gfwdom('#logged-sub-menu-mobile').addClass('-mobile');
-          }
         }
       } else {
         $gfwdom('.m-header-sub-menu-login.sub-menu-mobile').remove();
@@ -656,92 +642,46 @@ class Header {
   }
 
   resizeMenuLinks() {
-    const logoWidth = 88;
-    const sectionsCount = $gfwdom('.nav-sections > li').length;
-    const optionsCount = $gfwdom('.nav-options > li').length;
-    let bigMenu = logoWidth + 40;
-    let smallMenu = logoWidth + 20;
-    let bigOptionMenu = 0;
-    let smallOptionMenu = 0;
-    let windowSmall = 0;
-    let windowMobile = 0;
-    let widthBasic = utils.getWindowWidth() - this.navContainer.get(0).clientWidth;
-    widthBasic = this.navContainer.get(0).clientWidth - widthBasic;
-
-    $gfwdom('.nav-sections > li').forEach(function calc(v, l) {
-      if (l === (sectionsCount - 1)) {
-        bigMenu += $gfwdom(v).get(0).clientWidth;
-        smallMenu += $gfwdom(v).get(0).clientWidth;
-      } else {
-        bigMenu += $gfwdom(v).get(0).clientWidth + 40;
-        smallMenu += $gfwdom(v).get(0).clientWidth + 20;
-      }
-    });
-
-    $gfwdom('.nav-options > li').forEach(function calc(v, l) {
-      if (l === 0) {
-        bigOptionMenu += $gfwdom(v).get(0).clientWidth + 56;
-        smallOptionMenu += $gfwdom(v).get(0).clientWidth + 36;
-      }
-
-      if (l >= 1) {
-        bigOptionMenu += $gfwdom(v).get(0).clientWidth + 40;
-        smallOptionMenu += $gfwdom(v).get(0).clientWidth + 20;
-      }
-
-      if (l === (optionsCount - 1)) {
-        bigOptionMenu += $gfwdom(v).get(0).clientWidth;
-        smallOptionMenu += $gfwdom(v).get(0).clientWidth;
-      }
-    });
-
-    if (!this.goToResize) {
-      if ((bigMenu + bigOptionMenu) > (this.navContainer.get(0).clientWidth - 200)) {
-        this.navContainer.addClass('-small-menu');
-        this.goToResize = true;
-        this.smallMenu = utils.getWindowWidth();
-      } else {
-        this.goToResize = true;
+    if (this.smallMenu !== 0 && utils.getWindowWidth() > this.smallMenu) {
+      if (this.navContainer.hasClass('-small-menu')) {
+        this.navContainer.removeClass('-small-menu');
       }
     }
 
-    if (utils.getWindowWidth() < 1800 && !this.doLinkResize && utils.getWindowWidth() > 850) {
-      if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 200)) {
-        if (!this.navContainer.hasClass('-mobile-menu')) {
-          if (this.navContainer.hasClass('-small-menu')) {
-            this.navContainer.removeClass('-small-menu');
-            this.navContainer.addClass('-mobile-menu');
-            console.log('hello men!');
-            this.subMenu.addClass('-mobile');
-            $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
-            this.minMenuWidth = utils.getWindowWidth();
-          } else {
-            this.smallMenu = utils.getWindowWidth();
-            this.navContainer.addClass('-small-menu');
+    if (this.mobileMenuWidth !== 0 && utils.getWindowWidth() > this.mobileMenu) {
+      if (this.navContainer.hasClass('-mobile-menu')) {
+        this.navContainer.removeClass('-mobile-menu');
+        this.subMenu.removeClass('-mobile');
+        this.navContainer.addClass('-small-menu');
+      }
+    }
 
-            if (($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth) > (this.navContainer.get(0).clientWidth - 200)) {
-              this.minMenuWidth = utils.getWindowWidth();
-              this.navContainer.removeClass('-small-menu');
-              this.navContainer.addClass('-mobile-menu');
-              this.subMenu.addClass('-mobile');
+    if (($gfwdom(this.navSectionLogo).get(0).clientWidth +
+         $gfwdom(this.navOptions).get(0).clientWidth) >
+        (this.navContainer.get(0).clientWidth - 250)) {
+      if (!this.navContainer.hasClass('-small-menu')) {
+        this.smallMenu = utils.getWindowWidth();
+        this.navContainer.addClass('-small-menu');
+      }
+    }
 
-              $gfwdom('#login-sub-menu-mobile').addClass('-mobile');
+    if ((($gfwdom('.options-container').get(0).offsetLeft - 150) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
+      const size = this.$header.find('.nav-sections > li').length - this.deleteLinks;
+      this.$header.find('.nav-sections > li').forEach((v, i) => {
+        if (i === size) {
+          $gfwdom(v).css('display', 'none');
+          this.deleteLinks += 1;
+          this.$header.find('.more-options-secondary-container > li').forEach((vD, iD) => {
+            if ($gfwdom(v).data('menu') === $gfwdom(vD).data('menu')) {
+              $gfwdom(vD).addClass('-show');
             }
+          });
+
+          if ((($gfwdom('.options-container').get(0).offsetLeft - 150) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
+            this.resizeMenuLinks();
           }
         }
-
-        if (utils.getWindowWidth() > this.minMenuWidth) {
-          this.navContainer.removeClass('-mobile-menu');
-          this.subMenu.removeClass('-mobile');
-          $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
-          this.navContainer.addClass('-small-menu');
-        }
-      }
-    } else {
-      this.navContainer.removeClass('-small-menu');
-      this.navContainer.removeClass('-mobile-menu');
-      this.subMenu.removeClass('-mobile');
-      $gfwdom('#login-sub-menu-mobile').removeClass('-mobile');
+      });
     }
   }
 }
