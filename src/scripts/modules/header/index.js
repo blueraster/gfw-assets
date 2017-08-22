@@ -532,6 +532,7 @@ class Header {
    * Init My GFW
    */
   initMyGFW() {
+    console.log('hello!');
     if (utils.isDefaultHost()) {
       const loginButton = new LoginButton();
       loginButton.init();
