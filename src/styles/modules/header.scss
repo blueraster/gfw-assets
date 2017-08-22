@@ -151,7 +151,8 @@ $commodities: #e98300;
           z-index: 100;
 
           &.gfw-global,
-          &.gfw-mygfw {
+          &.gfw-mygfw,
+          &.gfw-watcher {
             background-image: url(nth($gfw-images, 1));
           }
 
@@ -632,6 +633,7 @@ $commodities: #e98300;
                 margin-right: rem(40px);
               }
 
+              &.gfw-global,
               &.gfw-global {
                 background-image: url(nth($gfw-images, 1));
               }
