@@ -15,6 +15,7 @@ $commodities: #e98300;
   width: 100%;
   transform: translateZ(0);
   border-bottom: rem(1px) solid $gray;
+  box-shadow: 0 0 5px 0 rgba($gray, .5);
   background: $white;
   font-family: 'Fira GFW Sans', Helvetica, serif;
   z-index: 1000;
