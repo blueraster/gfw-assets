@@ -22,6 +22,28 @@ const gfwOptions = [
   },
 
   {
+    site: 'gfw-watcher',
+    options: [
+      {
+        title: 'map',
+        url: 'http://www.globalforestwatch.org/map',
+      },
+      {
+        title: 'countries',
+        url: 'http://www.globalforestwatch.org/countries',
+      },
+      {
+        title: 'blog',
+        url: 'http://blog.globalforestwatch.org/',
+      },
+      {
+        title: 'about',
+        url: 'http://www.globalforestwatch.org/about',
+      },
+    ],
+  },
+
+  {
     site: 'gfw-mygfw',
     options: [
       {
