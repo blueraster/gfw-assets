@@ -59,7 +59,7 @@
           <h3>OTHER APPLICATIONS</h3>
           <div class="row boxes-container">
             <a href="http://www.globalforestwatch.org/" target="_blank" class="box gfw-global"></a>
-            <a href="http://www.globalforestwatch.org/" target="_blank" class="box gfw-watcher"></a>
+            <a href="https://forest-watcher.herokuapp.com/" target="_blank" class="box gfw-watcher"></a>
             <a href="http://climate.globalforestwatch.org/" target="_blank" class="box gfw-climate"></a>
             <a href="http://fires.globalforestwatch.org/home/" target="_blank" class="box gfw-fires"></a>
             <a href="http://commodities.globalforestwatch.org/" target="_blank" class="box gfw-commodities"></a>
