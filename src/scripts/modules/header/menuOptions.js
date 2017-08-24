@@ -58,10 +58,6 @@ const gfwOptions = [
         title: 'my profile',
         url: '/my_gfw',
       },
-      {
-        title: 'receive forest loss alerts',
-        url: '/my_gfw/subscriptions/new',
-      },
     ],
   },
 

@@ -12,7 +12,6 @@
     <a target="_blank" href="/my_gfw/subscriptions"><li><span>My Subscriptions</span></li></a>
     <a target="_blank" href="/my_gfw/stories"><li><span>My Stories</span></li></a>
     <a target="_blank" href="/my_gfw"><li><span>My Profile</span></li></a>
-    <a target="_blank" href="/my_gfw/subscriptions/new"><li><span>Receive forest loss alerts</span></li></a>
     <a href="/auth/logout" id="my-gfw-sign-out"><li><span>Log Out</span></li></a>
   </ul>
 </div>
