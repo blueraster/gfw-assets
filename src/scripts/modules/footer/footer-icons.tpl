@@ -1,6 +1,6 @@
 <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <symbol id="icon-arrow" viewBox="0 0 21 32">
+    <symbol id="icon-footer-arrow" viewBox="0 0 21 32">
       <title>arrow</title>
       <path d="M19.733 3.733l-3.733-3.733-16 16 16 16 3.733-3.733-12.267-12.267z"></path>
     </symbol>
