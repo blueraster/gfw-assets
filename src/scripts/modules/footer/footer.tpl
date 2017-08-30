@@ -11,17 +11,17 @@
       </ul>
       <ul class="m-footer-links-social">
         <li>
-          <a href="https://twitter.com/globalforests">
+          <a href="https://twitter.com/globalforests" target="_blank">
             <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
           </a>
         </li>
         <li>
-          <a href="https://www.facebook.com/globalforests/">
+          <a href="https://www.facebook.com/globalforests/" target="_blank">
             <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/globalforests/">
+          <a href="https://www.instagram.com/globalforests/" target="_blank">
             <svg class="icon icon-instagram"><use xlink:href="#icon-instagram"></use></svg>
           </a>
         </li>
