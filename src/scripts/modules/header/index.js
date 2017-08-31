@@ -464,7 +464,7 @@ class Header {
       }
       const translateScript = document.createElement('script');
       translateScript.type = 'text/javascript';
-      translateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
+      translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
       document.head.appendChild(translateScript);
     }, 0);
   }
