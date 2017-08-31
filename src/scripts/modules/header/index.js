@@ -665,7 +665,7 @@ class Header {
 
     if (($gfwdom(this.navSectionLogo).get(0).clientWidth +
          $gfwdom(this.navOptions).get(0).clientWidth) >
-        (this.navContainer.get(0).clientWidth + 250)) {
+        (this.navContainer.get(0).clientWidth + 100)) {
       if (!this.navContainer.hasClass('-small-menu')) {
         this.smallMenu = utils.getWindowWidth();
         this.navContainer.addClass('-small-menu');
