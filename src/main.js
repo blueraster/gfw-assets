@@ -1,7 +1,9 @@
 'use strict';
-
-if (!global._babelPolyfill) {
+if (!window._babelPolyfill) {
+  console.log('false polyfill');
   require('babel-polyfill');
+} else {
+  console.log('true polyfill');
 }
 
 /**
