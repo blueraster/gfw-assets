@@ -1,5 +1,9 @@
 'use strict';
 
+if (!global._babelPolyfill) {
+  require('babel-polyfill');
+}
+
 /**
  * Main file:
  * In this we are going to initialize all modules

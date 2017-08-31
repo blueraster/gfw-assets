@@ -649,8 +649,6 @@ class Header {
   }
 
   resizeMenuLinks() {
-    console.log(this.navContainer.get(0).clientWidth + 250);
-    console.log($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth);
     if (this.smallMenu !== 0 && utils.getWindowWidth() > this.smallMenu) {
       if (this.navContainer.hasClass('-small-menu')) {
         this.navContainer.removeClass('-small-menu');
