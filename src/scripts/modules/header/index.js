@@ -649,6 +649,8 @@ class Header {
   }
 
   resizeMenuLinks() {
+    console.log(this.navContainer.get(0).clientWidth + 250);
+    console.log($gfwdom(this.navSectionLogo).get(0).clientWidth + $gfwdom(this.navOptions).get(0).clientWidth);
     if (this.smallMenu !== 0 && utils.getWindowWidth() > this.smallMenu) {
       if (this.navContainer.hasClass('-small-menu')) {
         this.navContainer.removeClass('-small-menu');
@@ -665,14 +667,14 @@ class Header {
 
     if (($gfwdom(this.navSectionLogo).get(0).clientWidth +
          $gfwdom(this.navOptions).get(0).clientWidth) >
-        (this.navContainer.get(0).clientWidth - 250)) {
+        (this.navContainer.get(0).clientWidth + 250)) {
       if (!this.navContainer.hasClass('-small-menu')) {
         this.smallMenu = utils.getWindowWidth();
         this.navContainer.addClass('-small-menu');
       }
     }
 
-    if ((($gfwdom('.options-container').get(0).offsetLeft - 150) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
+    if ((($gfwdom('.options-container').get(0).offsetLeft) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
       const size = this.$header.find('.nav-sections > li').length - this.deleteLinks;
       this.$header.find('.nav-sections > li').forEach((v, i) => {
         if (i === size) {
@@ -684,7 +686,7 @@ class Header {
             }
           });
 
-          if ((($gfwdom('.options-container').get(0).offsetLeft - 150) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
+          if ((($gfwdom('.options-container').get(0).offsetLeft) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
             this.resizeMenuLinks();
           }
         }
