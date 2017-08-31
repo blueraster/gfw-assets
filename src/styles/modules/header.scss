@@ -69,12 +69,14 @@ $commodities: #e98300;
 
   .m-header {
     position: relative;
-    min-width: rem(812px);
+    min-width: calc(100vw - 30px);
+    max-width: 66.5rem;
     margin: 0 auto;
     background-color: $white;
 
     @media (min-width: $br-mobile) {
       max-width: 66.5rem;
+      min-width: inherit;
       margin-right: auto;
       margin-left: auto;
       border-top: 0;
