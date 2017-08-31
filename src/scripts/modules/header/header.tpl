@@ -1,15 +1,15 @@
 <div class="line-dashboard"></div>
 <div class="namespace-gfw-header">
-  <header class="row m-header">
-    <nav class="align-justify m-header-nav-container small-12 columns">
-      <div class="row logo-sections-container">
+  <header class=" m-header">
+    <nav class="m-header-nav-container  ">
+      <div class="logo-sections-container">
         <a href="/">
           <div class="logo-menu"></div>
         </a>
-        <ul class="row align-middle nav-sections"></ul>
+        <ul class="nav-sections"></ul>
       </div>
-      <div class="row options-container">
-        <ul class="row align-middle nav-options">
+      <div class="options-container">
+        <ul class="nav-options">
           <li class="-js-open-menu open-menu-button open-menu-button-language" data-submenu="#language-sub-menu">
             <div class="triangle lang-triangle"></div>
             <div id="transifexTranslateElement" class="m-transifex">
@@ -47,8 +47,8 @@
     </nav>
     <div class="m-header-sub-menu-dashboard sub-menu" id="dashboard-sub-menu">
       <div class="back-white"></div>
-      <div class="row nav-sub-menu-container -center">
-        <div class="columns small-12 medium-12 large-12 -center">
+      <div class=" nav-sub-menu-container -center">
+        <div class="    -center">
           <form class="search-container" id="search-container" action="http://www.globalforestwatch.org/search">
             <input type="text" name="query" id="search-input" placeholder="SEARCH"/>
             <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
@@ -58,7 +58,7 @@
           </ul>
           <div class="applications-container">
             <h3>OTHER APPLICATIONS</h3>
-            <div class="row boxes-container">
+            <div class=" boxes-container">
               <a href="http://www.globalforestwatch.org/" target="_blank" class="box gfw-global"></a>
               <a href="https://forest-watcher.herokuapp.com/" target="_blank" class="box gfw-watcher"></a>
               <a href="http://climate.globalforestwatch.org/" target="_blank" class="box gfw-climate"></a>
@@ -73,40 +73,40 @@
           </div>
         </div>
       </div>
-      <div class="row m-header-more-container -center">
-        <div class="columns small-12 medium-12 large-12 -center">
+      <div class=" m-header-more-container -center">
+        <div class="    -center">
           <h3>More in GFW</h3>
-          <ul class="row more-options-secondary-container"></ul>
-          <div class="row more-options-container">
-            <a class="more-options-item small-12 medium-3 large-3" href="http://developers.globalforestwatch.org/" target="_blank">
+          <ul class=" more-options-secondary-container"></ul>
+          <div class=" more-options-container">
+            <a class="more-options-item" href="http://developers.globalforestwatch.org/" target="_blank">
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-developer"></use></svg>
               <span>developers corners</span>
             </a>
-            <a class="more-options-item small-12 medium-3 large-3" href="http://www.globalforestwatch.org/howto" target="_blank">
+            <a class="more-options-item" href="http://www.globalforestwatch.org/howto" target="_blank">
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-how-to"></use></svg>
               <span>how to portal</span>
             </a>
-            <a class="more-options-item small-12 medium-3 large-3" href="http://www.globalforestwatch.org/small-grants-fund" target="_blank">
+            <a class="more-options-item" href="http://www.globalforestwatch.org/small-grants-fund" target="_blank">
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-samll-people"></use></svg>
               <span>small grants fund</span>
             </a>
-            <a class="more-options-item small-12 medium-3 large-3" href="http://data.globalforestwatch.org/" target="_blank">
+            <a class="more-options-item" href="http://data.globalforestwatch.org/" target="_blank">
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-open-data"></use></svg>
               <span>open data portal</span>
             </a>
-            <a class="more-options-item small-12 medium-3 large-3" href="http://blog.globalforestwatch.org/" target="_blank">
+            <a class="more-options-item" href="http://blog.globalforestwatch.org/" target="_blank">
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-blog"></use></svg>
               <span>blog</span>
             </a>
-            <a class="more-options-item small-12 medium-3 large-3" href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank">
+            <a class="more-options-item" href="https://groups.google.com/forum/#!forum/globalforestwatch" target="_blank">
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-forum"></use></svg>
               <span>discussion forum</span>
             </a>
           </div>
         </div>
       </div>
-      <div class="row m-sitemap-info-container">
-        <div class="columns small-12 medium-12 large-12 -center">
+      <div class=" m-sitemap-info-container">
+        <div class="-center">
           <div class="sitemap-container">
             <a href="http://www.globalforestwatch.org/sitemap" target="_blank"><h3>SITEMAP</h3></a>
           </div>

@@ -108,11 +108,10 @@
       top: calc(-100vh + 118px);
       left: 0;
       padding-right: 1rem;
-      padding-left: 1rem;
       transform: translate(0, 0);
       background: $white;
       box-shadow: none;
-      width: 100vw;
+      width: calc(100vw - 15px);
       height: calc(100vh - 118px);
 
       &.-active {
