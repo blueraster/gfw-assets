@@ -6,14 +6,19 @@
 @import 'settings/colors';
 @import 'settings/mixins';
 @import 'settings/reset';
-@import 'settings/foundation';
+
+.namespace-gfw-header {
+  @import 'settings/foundation';
+}
 
 @import 'modules/buttons';
 @import 'modules/form';
 
 // header
+
 @import 'modules/header';
 @import 'modules/search';
+
 // apps
 @import 'modules/apps';
 @import 'modules/translate';
