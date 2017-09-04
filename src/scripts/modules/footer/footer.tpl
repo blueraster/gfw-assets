@@ -29,7 +29,7 @@
     </div>
     <div class="m-footer-links">
       <a class="text-button" href="/sitemap">SITEMAP</a>
-      <a class="text-button m-footer-links__contact" href="mailto:gfw@wri.org">
+      <a class="text-button m-footer-links__contact" href="/?show_contact=true">
         CONTACT US
         <svg class="icon icon-contact"><use xlink:href="#icon-contact"></use></svg>
       </a>
