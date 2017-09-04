@@ -48,6 +48,7 @@ class Header {
     this.doLinkResize = false;
     this.goToResize = false;
     this.deleteLinks = 1;
+    this.linksHiddenMenu = [];
     this.$document = $gfwdom(document);
     this.site = window.liveSettings.site;
 
@@ -464,7 +465,7 @@ class Header {
       }
       const translateScript = document.createElement('script');
       translateScript.type = 'text/javascript';
-      translateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
+      translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInitGFW';
       document.head.appendChild(translateScript);
     }, 0);
   }
@@ -512,6 +513,7 @@ class Header {
       'climate.globalforestwatch.org',
       'water.globalforestwatch.org',
       'gfwc-staging.herokuapp.com',
+      'forest-watcher.herokuapp.com',
       // 'commodities.globalforestwatch.org'
     ];
 
@@ -664,26 +666,43 @@ class Header {
 
     if (($gfwdom(this.navSectionLogo).get(0).clientWidth +
          $gfwdom(this.navOptions).get(0).clientWidth) >
-        (this.navContainer.get(0).clientWidth - 250)) {
+        (this.navContainer.get(0).clientWidth + 100)) {
       if (!this.navContainer.hasClass('-small-menu')) {
         this.smallMenu = utils.getWindowWidth();
         this.navContainer.addClass('-small-menu');
       }
     }
 
-    if ((($gfwdom('.options-container').get(0).offsetLeft - 150) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
+
+    this.linksHiddenMenu.forEach((v, i) => {
+      if (v.position < $gfwdom('.options-container').get(0).offsetLeft) {
+        this.$header.find('.nav-sections > li').forEach((vD, iD) => {
+          if (v.name === $gfwdom(vD).data('menu')) {
+            console.log('here!');
+            // $gfwdom(vD).css('display', 'block');
+          }
+        });
+      }
+    });
+
+    if ((($gfwdom('.options-container').get(0).offsetLeft) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
       const size = this.$header.find('.nav-sections > li').length - this.deleteLinks;
       this.$header.find('.nav-sections > li').forEach((v, i) => {
         if (i === size) {
           $gfwdom(v).css('display', 'none');
           this.deleteLinks += 1;
+          // console.log($gfwdom(this.navSectionLogo).get(0).clientWidth);
           this.$header.find('.more-options-secondary-container > li').forEach((vD, iD) => {
             if ($gfwdom(v).data('menu') === $gfwdom(vD).data('menu')) {
+              this.linksHiddenMenu.push({
+                name: $gfwdom(v).data('menu'),
+                position: ($gfwdom('.options-container').get(0).offsetLeft - this.navSectionLogo.get(0).clientWidth) + ($gfwdom('.nav-sections').get(0).clientWidth),
+              });
               $gfwdom(vD).addClass('-show');
             }
           });
 
-          if ((($gfwdom('.options-container').get(0).offsetLeft - 150) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
+          if ((($gfwdom('.options-container').get(0).offsetLeft) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
             this.resizeMenuLinks();
           }
         }

@@ -70,9 +70,15 @@ $commodities: #e98300;
   .m-header {
     position: relative;
     margin: 0 auto;
+    padding: 0 rem(15px);
     background-color: $white;
 
     @media (min-width: $br-mobile) {
+      min-width: inherit;
+      max-width: calc(1064px + 60px);
+      margin-right: auto;
+      margin-left: auto;
+      padding: 0 rem(30px);
       border-top: 0;
     }
 
@@ -140,7 +146,9 @@ $commodities: #e98300;
       }
 
       .logo-sections-container {
+        display: flex;
         position: absolute;
+        justify-content: center;
 
         .logo-menu {
           position: relative;
@@ -178,6 +186,7 @@ $commodities: #e98300;
 
           @media (min-width: $br-mobile) {
             display: flex;
+            align-items: center;
             max-height: 58px;
             margin-left: rem(40px);
             padding-left: 0;
@@ -252,6 +261,7 @@ $commodities: #e98300;
 
       .options-container {
         position: absolute;
+        display: flex;
         right: rem(14px);
         background-color: $white;
         height: 100%;
@@ -484,7 +494,9 @@ $commodities: #e98300;
 
     .m-header-sub-menu-dashboard {
       position: relative;
-      width: 100vw;
+      max-width: 66.5rem;
+      margin-right: auto;
+      margin-left: auto;
       max-height: calc(100vh - 58px);
       padding-bottom: rem(45px + $menu-height);
       border-top: rem(1px) solid $gray;
@@ -608,6 +620,7 @@ $commodities: #e98300;
             padding-bottom: rem(20px);
             overflow-x: scroll;
             -ms-overflow-style: none;
+            display: flex;
 
 
             @media (min-width: $br-mobile) {
@@ -702,6 +715,7 @@ $commodities: #e98300;
         .more-options-container {
           flex-direction: column;
           margin-top: rem(36px);
+          display: flex;
 
 
           @media (min-width: $br-mobile) {
@@ -711,14 +725,13 @@ $commodities: #e98300;
 
           .more-options-item {
             display: flex;
-            flex-basis: 100%;
             flex-direction: row;
             align-content: center;
             align-items: center;
             margin-bottom: rem(26px);
 
             @media (min-width: $br-mobile) {
-              flex-basis: (100% / 4);
+              margin-right: rem(30px);
             }
 
             .svg {
