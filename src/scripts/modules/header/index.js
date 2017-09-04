@@ -48,6 +48,7 @@ class Header {
     this.doLinkResize = false;
     this.goToResize = false;
     this.deleteLinks = 1;
+    this.linksHiddenMenu = [];
     this.$document = $gfwdom(document);
     this.site = window.liveSettings.site;
 
@@ -672,14 +673,31 @@ class Header {
       }
     }
 
+
+    this.linksHiddenMenu.forEach((v, i) => {
+      if (v.position < $gfwdom('.options-container').get(0).offsetLeft) {
+        this.$header.find('.nav-sections > li').forEach((vD, iD) => {
+          if (v.name === $gfwdom(vD).data('menu')) {
+            console.log('here!');
+            // $gfwdom(vD).css('display', 'block');
+          }
+        });
+      }
+    });
+
     if ((($gfwdom('.options-container').get(0).offsetLeft) - ($gfwdom('.nav-sections').get(0).offsetLeft + $gfwdom('.nav-sections').get(0).clientWidth)) < 0) {
       const size = this.$header.find('.nav-sections > li').length - this.deleteLinks;
       this.$header.find('.nav-sections > li').forEach((v, i) => {
         if (i === size) {
           $gfwdom(v).css('display', 'none');
           this.deleteLinks += 1;
+          // console.log($gfwdom(this.navSectionLogo).get(0).clientWidth);
           this.$header.find('.more-options-secondary-container > li').forEach((vD, iD) => {
             if ($gfwdom(v).data('menu') === $gfwdom(vD).data('menu')) {
+              this.linksHiddenMenu.push({
+                name: $gfwdom(v).data('menu'),
+                position: ($gfwdom('.options-container').get(0).offsetLeft - this.navSectionLogo.get(0).clientWidth) + ($gfwdom('.nav-sections').get(0).clientWidth),
+              });
               $gfwdom(vD).addClass('-show');
             }
           });
