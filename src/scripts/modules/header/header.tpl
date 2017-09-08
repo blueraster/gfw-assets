@@ -73,8 +73,8 @@
           </div>
         </div>
       </div>
-      <div class=" m-header-more-container -center">
-        <div class="    -center">
+      <div class="m-header-more-container -center">
+        <div class="-center">
           <h3>More in GFW</h3>
           <ul class=" more-options-secondary-container"></ul>
           <div class=" more-options-container">
@@ -82,11 +82,11 @@
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-developer"></use></svg>
               <span>developers corners</span>
             </a>
-            <a class="more-options-item" href="http://www.globalforestwatch.org/howto" target="_blank">
+            <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/howto<% } else { %>http://www.globalforestwatch.org/howto<% } %>" target="_blank">
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-how-to"></use></svg>
               <span>how to portal</span>
             </a>
-            <a class="more-options-item" href="http://www.globalforestwatch.org/small-grants-fund" target="_blank">
+            <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/small-grants-fund<% } else { %>http://www.globalforestwatch.org/small-grants-fund<% } %>" target="_blank">
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-samll-people"></use></svg>
               <span>small grants fund</span>
             </a>
