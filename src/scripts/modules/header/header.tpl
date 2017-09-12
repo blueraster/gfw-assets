@@ -102,6 +102,10 @@
               <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-forum"></use></svg>
               <span>discussion forum</span>
             </a>
+            <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/contribute-data<% } else { %>http://www.globalforestwatch.org/contribute-data<% } %>" target="_blank">
+              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-contribute_icon"></use></svg>
+              <span>contribute data</span>
+            </a>
           </div>
         </div>
       </div>
