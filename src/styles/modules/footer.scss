@@ -615,6 +615,12 @@
           @include sprite($scannexhover);
         }
       }
+      &.sentinelhub {
+        @include sprite($sentinelhub);
+        &:hover {
+          @include sprite($sentinelhubhover);
+        }
+      }
       &.sida {
         @include sprite($sida);
         &:hover {

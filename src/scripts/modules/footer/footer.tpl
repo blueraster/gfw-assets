@@ -164,6 +164,7 @@
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="RSPO" href="http://www.rspo.org/" class="rspo"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" title="RTRS" href="http://www.responsiblesoy.org/?lang=en" class="rtrs"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.scanex.ru/en/" class="scannex"></a></li>
+          <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.sentinel-hub.com/" class="sentinelhub"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.tiliafund.org/" class="thetiliafund"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.transparentworld.ru/ru/" class="tipos"></a></li>
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.gov.uk/government/organisations/department-for-international-development" class="ukaid"></a></li>
