@@ -1139,8 +1139,8 @@ $commodities: #e98300;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: $white;
-  opacity: 0;
+  background-color: $black;
+  opacity: .1;
   z-index: 3;
 
   &.-show {
