@@ -23,7 +23,7 @@ class Header {
   render() {
     this.el.innerHTML = headerTpl() + headerIconsTpl();
     this.cache();
-    this.setLogos();
+    this.setLogosOptions();
     this.keyboardOpenMenu();
     this.setMenuOptions();
     this.setParams();
@@ -90,13 +90,29 @@ class Header {
 
     // Language Menu
     this.triangleLanguage = this.$header.find('.lang-triangle');
+
+    // Black list menu Options
+    this.blacklistOptions = [
+      'globalforestwatch.org/small-grants-fund',
+      'staging.globalforestwatch.org/small-grants-fund',
+      'developers.globalforestwatch.org/',
+      'globalforestwatch.org/howto',
+      'staging.globalforestwatch.org/howto',
+      'blog.globalforestwatch.org/',
+      'staging.globalforestwatch.org/contribute-data',
+      'globalforestwatch.org/contribute-data',
+      'data.globalforestwatch.org/',
+    ];
   }
 
   /**
    * Set logos on header and options gallery
    */
-  setLogos() {
+  setLogosOptions() {
     this.logoMenu.addClass(this.site);
+    if (this.blacklistOptions.indexOf(location.hostname) !== -1) {
+      this.navSections.css('display', 'none');
+    }
     this.currentBox.remove();
     if (this.site === 'gfw-global') {
       this.boxesContainer.find('.box.gfw-watcher').remove();
@@ -678,7 +694,6 @@ class Header {
       if (v.position < $gfwdom('.options-container').get(0).offsetLeft) {
         this.$header.find('.nav-sections > li').forEach((vD, iD) => {
           if (v.name === $gfwdom(vD).data('menu')) {
-            console.log('here!');
             // $gfwdom(vD).css('display', 'block');
           }
         });
