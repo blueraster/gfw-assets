@@ -109,8 +109,12 @@ class Header {
    * Set logos on header and options gallery
    */
   setLogosOptions() {
+    var path = location.hostname;
+    if (location.pathname !== '/') {
+      path += location.pathname
+    }
     this.logoMenu.addClass(this.site);
-    if (this.blacklistOptions.indexOf(location.hostname) !== -1) {
+    if (this.blacklistOptions.indexOf(path) !== -1) {
       this.navSections.css('display', 'none');
     }
     this.currentBox.remove();
