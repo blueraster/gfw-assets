@@ -51,5 +51,9 @@
 <path d="M3 7h18c0.55 0 1-0.45 1-1s-0.45-1-1-1h-18c-0.55 0-1 0.45-1 1s0.45 1 1 1z"></path>
 <path d="M21 17h-18c-0.55 0-1 0.45-1 1s0.45 1 1 1h18c0.55 0 1-0.45 1-1s-0.45-1-1-1z"></path>
 </symbol>
+<symbol id="icon-left-arrow" viewBox="0 0 32 32">
+<title>left-arrow</title>
+<path fill="#ddd" style="fill: var(--color1, #ddd)" d="M24.381 0.762l-0.762-0.762-16.001 16 16.001 16 0.762-0.762-15.238-15.238z"></path>
+</symbol>
 </defs>
 </svg>
