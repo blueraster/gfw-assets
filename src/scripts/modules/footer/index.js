@@ -81,20 +81,16 @@ const links = [
     site: 'gfw-fires',
     options: [
       {
-        title: 'gfw fires',
-        url: '/',
+        title: 'GFW',
+        url: 'http://www.globalforestwatch.org/',
       },
       {
-        title: 'map',
-        url: '/map',
+        title: 'Blog',
+        url: 'http://blog.globalforestwatch.org/',
       },
       {
-        title: 'learn more',
-        url: '/about',
-      },
-      {
-        title: 'share stories',
-        url: '/story',
+        title: 'How to portal',
+        url: 'http://www.globalforestwatch.org/howto/',
       },
     ],
   },
@@ -103,24 +99,16 @@ const links = [
     site: 'gfw-commodities',
     options: [
       {
-        title: 'gfw Commodities',
-        url: '/',
+        title: 'GFW',
+        url: 'http://www.globalforestwatch.org/',
       },
       {
-        title: 'map',
-        url: '/#v=map',
+        title: 'Blog',
+        url: 'http://blog.globalforestwatch.org/',
       },
       {
-        title: 'Methods',
-        url: '/#v=methods',
-      },
-      {
-        title: 'Data Submission',
-        url: '/#v=submission',
-      },
-      {
-        title: 'Learn More',
-        url: '/#v=about',
+        title: 'How to portal',
+        url: 'http://www.globalforestwatch.org/howto/',
       },
     ],
   },
@@ -129,16 +117,16 @@ const links = [
     site: 'gfw-water',
     options: [
       {
-        title: 'map',
-        url: '/map',
+        title: 'GFW',
+        url: 'http://www.globalforestwatch.org/',
       },
       {
-        title: 'partners',
-        url: '/partners',
+        title: 'Blog',
+        url: 'http://blog.globalforestwatch.org/',
       },
       {
-        title: 'learn more',
-        url: '/about',
+        title: 'How to portal',
+        url: 'http://www.globalforestwatch.org/howto/',
       },
     ],
   },
@@ -147,28 +135,16 @@ const links = [
     site: 'gfw-climate',
     options: [
       {
-        title: 'map',
-        url: '/map',
+        title: 'GFW',
+        url: 'http://www.globalforestwatch.org/',
       },
       {
-        title: 'country data',
-        url: '/countries',
+        title: 'Blog',
+        url: 'http://blog.globalforestwatch.org/',
       },
       {
-        title: 'country comparisons',
-        url: '/compare-countries',
-      },
-      {
-        title: 'data download',
-        url: '/data-download',
-      },
-      {
-        title: 'insights',
-        url: '/insights',
-      },
-      {
-        title: 'about',
-        url: '/about',
+        title: 'How to portal',
+        url: 'http://www.globalforestwatch.org/howto/',
       },
     ],
   },
