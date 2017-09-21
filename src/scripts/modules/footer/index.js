@@ -20,20 +20,16 @@ const links = [
     site: 'gfw-global',
     options: [
       {
-        title: 'gfw',
-        url: '/',
+        title: 'GFW',
+        url: 'http://www.globalforestwatch.org/',
       },
       {
-        title: 'countries',
-        url: '/countries',
-      },
-      {
-        title: 'blog',
+        title: 'Blog',
         url: 'http://blog.globalforestwatch.org/',
       },
       {
-        title: 'about',
-        url: '/about',
+        title: 'How to portal',
+        url: 'http://www.globalforestwatch.org/howto/',
       },
     ],
   },
@@ -41,20 +37,16 @@ const links = [
     site: 'gfw-watcher',
     options: [
       {
-        title: 'map',
-        url: 'http://www.globalforestwatch.org/map',
+        title: 'GFW',
+        url: 'http://www.globalforestwatch.org/',
       },
       {
-        title: 'countries',
-        url: 'http://www.globalforestwatch.org/countries',
-      },
-      {
-        title: 'blog',
+        title: 'Blog',
         url: 'http://blog.globalforestwatch.org/',
       },
       {
-        title: 'about',
-        url: 'http://www.globalforestwatch.org/about',
+        title: 'How to portal',
+        url: 'http://www.globalforestwatch.org/howto/',
       },
     ],
   },
