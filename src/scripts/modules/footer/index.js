@@ -5,10 +5,14 @@ import footerTpl from './footer.tpl';
 import footerIconsTpl from './footer-icons.tpl';
 
 const sliderPause = 5000;
+let numberScroll = 1;
+if (window.innerWidth > 850) {
+  numberScroll = 4;
+}
 const sliderOptions = {
   enableMouseEvents: true,
   infinite: 4,
-  slidesToScroll: 4
+  slidesToScroll: numberScroll,
 };
 
 const links = [
