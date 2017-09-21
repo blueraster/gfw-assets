@@ -70,7 +70,6 @@ $commodities: #e98300;
   .m-header {
     position: relative;
     margin: 0 auto;
-    padding: 0 rem(15px);
     background-color: $white;
 
     @media (min-width: $br-mobile) {
@@ -78,7 +77,6 @@ $commodities: #e98300;
       max-width: calc(1064px + 60px);
       margin-right: auto;
       margin-left: auto;
-      padding: 0 rem(30px);
       border-top: 0;
     }
 
@@ -86,10 +84,12 @@ $commodities: #e98300;
       position: relative;
       height: $menu-height;
       margin: 0 auto;
+      padding: 0 rem(15px);
       z-index: 10000;
 
       @media (min-width: $br-mobile) {
         justify-content: flex-start;
+        padding: 0 rem(30px);
       }
 
       &.-mobile-menu {
@@ -494,10 +494,10 @@ $commodities: #e98300;
 
     .m-header-sub-menu-dashboard {
       position: relative;
-      max-width: 66.5rem;
       margin-right: auto;
       margin-left: auto;
       max-height: calc(100vh - 58px);
+      padding: 0 rem(15px);
       padding-bottom: rem(45px + $menu-height);
       border-top: rem(1px) solid $gray;
       background-color: $white;
@@ -507,6 +507,7 @@ $commodities: #e98300;
       @media (min-width: $br-mobile) {
         position: inherit;
         max-height: none;
+        padding: 0 rem(30px);
         padding-bottom: rem(45px);
         overflow: hidden;
       }
@@ -716,7 +717,7 @@ $commodities: #e98300;
           flex-direction: column;
           margin-top: rem(36px);
           display: flex;
-
+          flex-flow: row wrap;
 
           @media (min-width: $br-mobile) {
             flex-direction: row;
@@ -725,12 +726,14 @@ $commodities: #e98300;
 
           .more-options-item {
             display: flex;
+            flex-basis: 100%;
             flex-direction: row;
             align-content: center;
             align-items: center;
             margin-bottom: rem(26px);
 
             @media (min-width: $br-mobile) {
+              flex-basis: 15%;
               margin-right: rem(30px);
             }
 
