@@ -11,6 +11,14 @@
     padding: 0;
   }
 
+  .wrapper {
+    padding: 0 20px;
+
+    @media (min-width: $br-mobile){
+      padding: 0;
+    }
+  }
+
   .text-button {
     font-size: 12px;
     letter-spacing: 0.1px;
@@ -44,25 +52,58 @@
   }
 
   .m-footer-list {
-    display: none;
+    display: block;
     padding: 46px 0 25px;
     border-bottom: 2px solid $white-two;
 
     .m-footer-links {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+
+
+      @media (min-width: $br-mobile) {
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+      }
 
       &:nth-of-type(2) {
+        flex-direction: column-reverse;
         margin-top: 25px;
+
+        a {
+          margin-bottom: 10px;
+        }
+
+        @media (min-width: $br-mobile) {
+          flex-direction: row;
+          margin-top: 25px;
+
+          a {
+            margin-bottom: 0;
+          }
+        }
       }
     }
 
     .m-footer-links-texts {
       display: flex;
+      flex-flow: row wrap;
 
       li {
-        margin-right: 45px;
+        flex-basis: 100%;
+        margin-bottom: 15px;
+
+        @media (min-width: $br-mobile-small) {
+          flex-basis: 33%;
+          margin-right: 15px;
+          margin-bottom: 20px;
+        }
+
+        @media (min-width: $br-mobile){
+          flex-basis: auto;
+          margin-right: 45px;
+        }
       }
 
       a {
@@ -76,17 +117,29 @@
 
     .m-footer-links-social {
       display: flex;
+      margin-top: 15px;
       font-size: 0;
+
+
+      @media (min-width: $br-mobile){
+        margin-top: 0;
+      }
 
       li {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        border: solid 1px rgba($warm-grey, 0.2);
+        border: solid 1px rgba($warm-grey, .2);
         width: 48px;
         height: 48px;
-        margin-left: 17px;
+        margin-left: 0;
+        margin-right: 20px;
         border-radius: 100%;
+
+        @media (min-width: $br-mobile){
+          margin-left: 17px;
+          margin-right: 0;
+        }
       }
 
       .icon {
@@ -116,23 +169,27 @@
       .icon-contact {
         position: absolute;
         top: 1px;
-        right: 0;
+        left: 75px;
         width: 16px;
         height: 16px;
-        fill: rgba($greyish-brown, 0.5);
-      }
-    }
+        fill: rgba($greyish-brown, .5);
 
-    @media (min-width: $br-mobile){
-      display: block;
+        @media (min-width: $br-mobile) {
+          right: 1px;
+          left: inherit;
+        }
+      }
     }
   }
 
   .m-footer-info {
     padding-top: 27px;
+    display: flex;
+    flex-direction: column-reverse;
 
-    @media (min-width: $br-mobile){
+    @media (min-width: $br-mobile) {
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
@@ -140,9 +197,11 @@
     .m-footer-partner {
       align-self: flex-start;
       text-align: center;
+      margin: 30px auto;
 
       @media (min-width: $br-mobile){
         text-align: left;
+        margin: inherit;
       }
 
       > p {
@@ -209,7 +268,7 @@
         display: inline-block;
       }
 
-      &:hover{
+      &:hover {
         text-decoration: underline;
       }
     }
@@ -218,13 +277,14 @@
 
 #my-gfw-slider {
   position: relative;
-  width: calc(100% - 180px);
   max-width: 750px;
-  padding-left: 30px;
-  display: none;
+  display: block;
+  width: 100%;
+  padding: 0;
 
-  @media (min-width: $br-mobile){
-    display: block;
+  @media (min-width: $br-mobile) {
+    width: calc(100% - 180px);
+    padding-left: 30px;
   }
 
   > p {
@@ -239,8 +299,13 @@
     line-height: 0;
     overflow: hidden;
     white-space: nowrap;
-    width: calc(100% - 10px);
+    width: 140px;
     margin: 18px auto 0 auto;
+
+    @media (min-width: $br-mobile) {
+      width: calc(100% - 10px);
+    }
+
 
     &:before, &:after {
       content: "";
@@ -266,7 +331,11 @@
     position: relative;
     display: inline-block;
     height: 82px;
-    width: 25%;
+    width: 100%;
+
+    @media (min-width: $br-mobile) {
+      width: 25%;
+    }
 
     &.active {
       background: none;
@@ -767,7 +836,19 @@
   }
 
   .js_prev {
-    left: 19px;
+    left: 0;
+
+    svg {
+      margin-left: -18px;
+    }
+
+    @media (min-width: $br-mobile) {
+      left: 19px;
+
+      svg {
+        margin-left: 0;
+      }
+    }
   }
 
   .js_next {

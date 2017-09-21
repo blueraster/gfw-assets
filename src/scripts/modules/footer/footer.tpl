@@ -27,7 +27,7 @@
         </li>
       </ul>
     </div>
-    <div class="m-footer-links">
+    <div class="m-footer-links -links-contact-sitemap">
       <a class="text-button" href="/sitemap">SITEMAP</a>
       <a class="text-button m-footer-links__contact" href="/?show_contact=true">
         CONTACT US
