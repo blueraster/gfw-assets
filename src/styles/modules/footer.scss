@@ -95,12 +95,12 @@
         margin-bottom: 15px;
 
         @media (min-width: $br-mobile-small) {
-          flex-basis: 33%;
+          flex-basis: auto;
           margin-right: 15px;
           margin-bottom: 20px;
         }
 
-        @media (min-width: $br-mobile){
+        @media (min-width: $br-mobile) {
           flex-basis: auto;
           margin-right: 45px;
         }
