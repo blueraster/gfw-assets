@@ -26,7 +26,7 @@ const init = () => {
 
   // Adding contact
   new Contact();
-}
+};
 
 if (!!document.readyState && (document.readyState === 'complete' || document.readyState === 'interactive')) {
   init();
