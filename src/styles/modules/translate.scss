@@ -35,6 +35,7 @@
     .txlive-langselector-toggle {
       transition: color .1s linear;
       border: rem(1px) solid transparent;
+      background-color: $white;
       color: rgba($dark, .5);
       font-size: 12px;
       text-transform: uppercase;
