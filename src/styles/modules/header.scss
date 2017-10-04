@@ -2,7 +2,7 @@ $menu-height: 58px;
 $logo-size: 88px;
 $green-separator: 5px;
 $max-width: 256px;
-$gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwGlobal.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwFires.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwCommodities.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwWater.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwClimate.png';
+$gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwGlobal.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwFires.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwCommodities.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwWater.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwClimate.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/d17e04aadf246ceb737c37d48848489503a2d9c7/src/images/gfw_logos/gfwWatcher.png';
 $fires: #e7002f;
 $climate: #5b80a0;
 $water: #4099ce;
@@ -159,9 +159,12 @@ $commodities: #e98300;
           z-index: 100;
 
           &.gfw-global,
-          &.gfw-mygfw,
-          &.gfw-watcher {
+          &.gfw-mygfw {
             background-image: url(nth($gfw-images, 1));
+          }
+
+          &.gfw-watcher {
+            background-image: url(nth($gfw-images, 6));
           }
 
           &.gfw-fires {
