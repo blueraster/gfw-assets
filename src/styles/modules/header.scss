@@ -650,9 +650,12 @@ $commodities: #e98300;
                 margin-right: rem(40px);
               }
 
-              &.gfw-global,
-              &.gfw-watcher {
+              &.gfw-global {
                 background-image: url(nth($gfw-images, 1));
+              }
+
+              &.gfw-watcher {
+                background-image: url(nth($gfw-images, 6));
               }
 
               &.gfw-fires {
