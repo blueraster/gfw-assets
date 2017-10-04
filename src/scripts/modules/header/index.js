@@ -560,11 +560,19 @@ class Header {
    * Init My GFW
    */
   initMyGFW() {
-    if (utils.isDefaultHost()) {
-      const loginButton = new LoginButton();
-      loginButton.init();
+    const blacklist = [
+      'fires-staging.globalforestwatch.org',
+      'fires.globalforestwatch.org/',
+    ];
+    if (blacklist.indexOf(location.hostname) !== -1) {
+      $gfwdom('#my-gfw-container').css({ display: 'none' });
     } else {
-      $gfwdom('#my-gfw-container').css({ display: 'none'});
+      if (utils.isDefaultHost()) {
+        const loginButton = new LoginButton();
+        loginButton.init();
+      } else {
+        $gfwdom('#my-gfw-container').css({ display: 'none' });
+      }
     }
   }
 
