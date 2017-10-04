@@ -68,9 +68,12 @@ $commodities: #e98300;
   }
 
   .m-header {
-    position: relative;
     margin: 0 auto;
     background-color: $white;
+
+    .close-icon {
+      position: relative !important;
+    }
 
     @media (min-width: $br-mobile) {
       min-width: inherit;
@@ -496,7 +499,9 @@ $commodities: #e98300;
     }
 
     .m-header-sub-menu-dashboard {
-      position: relative;
+      position: absolute;
+      left: 0;
+      width: 100vw;
       margin-right: auto;
       margin-left: auto;
       max-height: calc(100vh - 58px);
@@ -508,7 +513,6 @@ $commodities: #e98300;
       overflow: scroll;
 
       @media (min-width: $br-mobile) {
-        position: inherit;
         max-height: none;
         padding: 0 rem(30px);
         padding-bottom: rem(45px);
@@ -548,6 +552,11 @@ $commodities: #e98300;
       .nav-sub-menu-container {
         flex-direction: column;
         padding: rem(50px) 0;
+
+        .form-search-container {
+          max-width: calc(1064px + 60px);
+          margin: 0 auto;
+        }
 
         .search-container {
           position: relative;
@@ -608,6 +617,7 @@ $commodities: #e98300;
         }
 
         .applications-container {
+          max-width: calc(1064px + 60px);
           margin-top: rem(36px);
 
           h3 {
@@ -709,6 +719,7 @@ $commodities: #e98300;
 
       .m-header-more-container {
         margin-top: rem(36px);
+        max-width: calc(1064px + 60px);
 
         h3 {
           padding-top: rem(36px);
@@ -791,7 +802,7 @@ $commodities: #e98300;
 
       .m-sitemap-info-container {
         margin: rem(10px) auto 0;
-
+        max-width: calc(1064px + 60px);
         .sitemap-container {
 
           h3 {

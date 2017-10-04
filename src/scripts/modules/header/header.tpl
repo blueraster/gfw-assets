@@ -48,7 +48,7 @@
     <div class="m-header-sub-menu-dashboard sub-menu" id="dashboard-sub-menu">
       <div class="back-white"></div>
       <div class=" nav-sub-menu-container -center">
-        <div class="    -center">
+        <div class="form-search-container -center">
           <form class="search-container" id="search-container" action="http://www.globalforestwatch.org/search">
             <input type="text" name="query" id="search-input" placeholder="SEARCH"/>
             <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
@@ -109,7 +109,7 @@
           </div>
         </div>
       </div>
-      <div class=" m-sitemap-info-container">
+      <div class="m-sitemap-info-container">
         <div class="-center">
           <div class="sitemap-container">
             <a href="http://www.globalforestwatch.org/sitemap"><h3>SITEMAP</h3></a>
