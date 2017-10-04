@@ -3,7 +3,7 @@
   <header class=" m-header">
     <nav class="m-header-nav-container  ">
       <div class="logo-sections-container">
-        <a href="/">
+        <a href="/" id="link-logo-menu">
           <div class="logo-menu"></div>
         </a>
         <ul class="nav-sections"></ul>
