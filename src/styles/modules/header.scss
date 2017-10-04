@@ -556,6 +556,11 @@ $commodities: #e98300;
         .form-search-container {
           max-width: calc(1064px + 60px);
           margin: 0 auto;
+          padding: 0 rem(15px);
+
+          @media (min-width: $br-mobile) {
+            padding: 0 rem(30px);
+          }
         }
 
         .search-container {
@@ -720,6 +725,11 @@ $commodities: #e98300;
       .m-header-more-container {
         margin-top: rem(36px);
         max-width: calc(1064px + 60px);
+        padding: 0 rem(15px);
+
+        @media (min-width: $br-mobile) {
+          padding: 0 rem(30px);
+        }
 
         h3 {
           padding-top: rem(36px);
@@ -803,6 +813,12 @@ $commodities: #e98300;
       .m-sitemap-info-container {
         margin: rem(10px) auto 0;
         max-width: calc(1064px + 60px);
+        padding: 0 rem(15px);
+
+        @media (min-width: $br-mobile) {
+          padding: 0 rem(30px);
+        }
+
         .sitemap-container {
 
           h3 {
