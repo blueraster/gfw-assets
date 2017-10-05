@@ -17,114 +17,6 @@ const sliderOptions = {
 
 const links = [
   {
-    site: 'gfw-global',
-    options: [
-      {
-        title: 'GFW',
-        url: 'http://www.globalforestwatch.org/',
-      },
-      {
-        title: 'Blog',
-        url: 'http://blog.globalforestwatch.org/',
-      },
-      {
-        title: 'How to portal',
-        url: 'http://www.globalforestwatch.org/howto/',
-      },
-    ],
-  },
-  {
-    site: 'gfw-watcher',
-    options: [
-      {
-        title: 'GFW',
-        url: 'http://www.globalforestwatch.org/',
-      },
-      {
-        title: 'Blog',
-        url: 'http://blog.globalforestwatch.org/',
-      },
-      {
-        title: 'How to portal',
-        url: 'http://www.globalforestwatch.org/howto/',
-      },
-    ],
-  },
-
-  {
-    site: 'gfw-mygfw',
-    options: [
-      {
-        title: 'my subscriptions',
-        url: '/my_gfw/subscriptions',
-      },
-      {
-        title: 'my stories',
-        url: '/my_gfw/stories',
-      },
-      {
-        title: 'my profile',
-        url: '/my_gfw',
-      },
-    ],
-  },
-
-  {
-    site: 'gfw-fires',
-    options: [
-      {
-        title: 'GFW',
-        url: 'http://www.globalforestwatch.org/',
-      },
-      {
-        title: 'Blog',
-        url: 'http://blog.globalforestwatch.org/',
-      },
-      {
-        title: 'How to portal',
-        url: 'http://www.globalforestwatch.org/howto/',
-      },
-    ],
-  },
-
-  {
-    site: 'gfw-commodities',
-    options: [
-      {
-        title: 'GFW',
-        url: 'http://www.globalforestwatch.org/',
-      },
-      {
-        title: 'Blog',
-        url: 'http://blog.globalforestwatch.org/',
-      },
-      {
-        title: 'How to portal',
-        url: 'http://www.globalforestwatch.org/howto/',
-      },
-    ],
-  },
-
-  {
-    site: 'gfw-water',
-    options: [
-      {
-        title: 'GFW',
-        url: 'http://www.globalforestwatch.org/',
-      },
-      {
-        title: 'Blog',
-        url: 'http://blog.globalforestwatch.org/',
-      },
-      {
-        title: 'How to portal',
-        url: 'http://www.globalforestwatch.org/howto/',
-      },
-    ],
-  },
-
-  {
-    site: 'gfw-climate',
     options: [
       {
         title: 'GFW',
@@ -165,21 +57,12 @@ class Footer {
 
   render() {
     this.site = window.liveSettings.site;
-    this.links = this.getSiteLinks();
-    this.el.innerHTML = footerTpl({ links: this.links }) + footerIconsTpl();
+    this.el.innerHTML = footerTpl({ links: links[0] }) + footerIconsTpl();
     this.sliderContainer = document.getElementById('my-gfw-slider');
     this.slidesContainer = document.querySelector('.frame');
     this.initSlider();
 
     return this;
-  }
-
-  getSiteLinks() {
-    const siteLinks = links.filter((value) => {
-      return value.site === this.site;
-    });
-
-    return siteLinks[0];
   }
 
   initSlider() {
