@@ -11,3 +11,10 @@ article {
     margin: 0 auto !important;
   }
 }
+
+.leaflet-control-container {
+  .leaflet-bottom ,
+  .leaflet-right {
+    z-index: 1 !important;
+  }
+}
