@@ -60,11 +60,11 @@
             <h3>OTHER APPLICATIONS</h3>
             <div class=" boxes-container">
               <a href="http://www.globalforestwatch.org/" target="_blank" class="box gfw-global"></a>
-              <a href="https://forest-watcher.herokuapp.com/" target="_blank" class="box gfw-watcher"></a>
               <a href="http://climate.globalforestwatch.org/" target="_blank" class="box gfw-climate"></a>
               <a href="http://fires.globalforestwatch.org/home/" target="_blank" class="box gfw-fires"></a>
               <a href="http://commodities.globalforestwatch.org/" target="_blank" class="box gfw-commodities"></a>
               <a href="http://water.globalforestwatch.org/" target="_blank" class="box gfw-water"></a>
+              <a href="https://forest-watcher.herokuapp.com/" target="_blank" class="box gfw-watcher"></a>
               <a href="http://developers.globalforestwatch.org/gallery/" target="_blank" class="box -last">
                 <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
                 <span>explore all apps</span>

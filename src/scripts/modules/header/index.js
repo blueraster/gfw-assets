@@ -118,12 +118,6 @@ class Header {
       this.navSections.css('display', 'none');
     }
     this.currentBox.remove();
-    if (this.site === 'gfw-global') {
-      this.boxesContainer.find('.box.gfw-watcher').remove();
-    }
-    if (this.site === 'gfw-watcher') {
-      this.boxesContainer.find('.box.gfw-global').remove();
-    }
   }
 
   /**
