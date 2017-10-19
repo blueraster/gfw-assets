@@ -24,7 +24,6 @@ class Header {
     this.el.innerHTML = headerTpl() + headerIconsTpl();
     this.cache();
     this.setLogosOptions();
-    this.keyboardOpenMenu();
     this.setMenuOptions();
     this.setParams();
     this.initHighlightCurrent();
@@ -32,6 +31,7 @@ class Header {
     this.resizeMenu();
     this.resizeMenuLinks();
     this.initTranslate();
+    this.closeMenuOptionsMenu();
     this.initMyGFW();
     return this;
   }
@@ -109,9 +109,9 @@ class Header {
    * Set logos on header and options gallery
    */
   setLogosOptions() {
-    var path = location.hostname;
+    let path = location.hostname;
     if (location.pathname !== '/') {
-      path += location.pathname
+      path += location.pathname;
     }
     this.logoMenu.addClass(this.site);
     if (this.blacklistOptions.indexOf(path) !== -1) {
@@ -121,30 +121,20 @@ class Header {
   }
 
   /**
+   * Functions for close dashboard when click menu options
+   */
+  closeMenuOptionsMenu() {
+    $gfwdom('.option-menu').on('click', this.hideMenus.bind(this));
+    $gfwdom('.option-menu').on('click', this.hideLanguageMenu.bind(this));
+  }
+
+  /**
    * Set menu's options
    */
   setMenuOptions() {
     $gfwdom('.more-options-secondary-container').html(menuOptions.getOptions(this.site));
     this.navSections.html(menuOptions.getOptions(this.site));
     this.navMobileSections.html(menuOptions.getOptions(this.site));
-  }
-
-  /**
-   * Function for capturing keyboard and open the dashboard
-   */
-  keyboardOpenMenu() {
-    // if (!this.$body.hasClass('is-map-page')) {
-    //   document.onkeypress = function keyBoardOpen(evt) {
-    //     if (!$gfwdom(document.activeElement).is('input') || !$gfwdom(document.activeElement).is('textarea')) {
-    //       const windowEvent = evt || window.event;
-    //       const charCode = windowEvent.which || windowEvent.keyCode;
-    //       const charStr = String.fromCharCode(charCode);
-    //       if (/[a-z0-9]/i.test(charStr)) {
-    //         this.showMenuKeyBoard();
-    //       }
-    //     }
-    //   }.bind(this);
-    // }
   }
 
   /**

@@ -16,7 +16,7 @@ const menuOptions = {
       } else {
         menuOptionsNav += `
           <li class="${path === navOptions.options[i].url || path === navOptions.options[i].url + '/' ? siteStyles : ''}" data-menu="${navOptions.options[i].url}">
-            <a href="${navOptions.options[i].url}"> ${navOptions.options[i].title} </a>
+            <a class="option-menu" href="${navOptions.options[i].url}"> ${navOptions.options[i].title} </a>
           </li>`;
       }
     }
