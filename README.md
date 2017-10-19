@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Vizzuality/gfw-assets.svg?branch=master)](https://travis-ci.org/Vizzuality/gfw-assets)
 
-This repo provides the navigation bar shared by all Global Forest Watch 
+This repo provides the navigation bar shared by all Global Forest Watch
 websites, such as GFW, GFW Fires, Commodities, etc.
 
 ![Navbar in action](src/images/preview.png?raw=true)
@@ -46,6 +46,40 @@ And this to add GFW's footer:
 To finish, add this script in your site:
 
 	<script id="loader-gfw" data-current=".shape-fires" src="https://[cdn-url]/gfw-assets.latest.js"></script>
+	<script type="text/javascript">
+		window.liveSettings = {
+			picker: '#transifexTranslateElement',
+			api_key: "9eda410a7db74687ba40771c56abd357",
+			detectlang: false,
+			page: 'map' //or empty if you are not on map page
+			site: 'gfw-watcher', // site
+			menuOptions: //options for the menu
+				{
+					options: [
+						{
+							title: 'logo', // important
+							url: ''
+						},
+						{
+							title: 'map',
+							url: '#',
+						},
+						{
+							title: 'countries',
+							url: '/countries',
+						},
+						{
+							title: 'blog',
+							url: 'http://blog.globalforestwatch.org/',
+						},
+						{
+							title: 'about',
+							url: '/about',
+						},
+					],
+				},
+		};
+	</script>
 
 Remember to add the `id="loader-gfw"` to the script tag and, if you want to highlight any of the links of the header you will have to add a `data-current` param.
 These are the `data-current` params that work:
