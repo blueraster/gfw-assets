@@ -117,6 +117,10 @@ class Header {
       path += location.pathname;
     }
     this.logoMenu.addClass(this.site);
+    const ribbon = window.liveSettings && window.liveSettings.ribbon;
+    if (ribbon) {
+      this.logoMenu.append(`<span class="ribbon"><span>${ribbon}</span></span>`);
+    }
     if (this.blacklistOptions.indexOf(path) !== -1) {
       this.navSections.css('display', 'none');
     }
