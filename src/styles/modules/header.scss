@@ -2,7 +2,13 @@ $menu-height: 58px;
 $logo-size: 88px;
 $green-separator: 5px;
 $max-width: 256px;
-$gfw-images: 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwGlobal.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwFires.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwCommodities.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwWater.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwClimate.png', 'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwWatcher.png';
+$gfw-images:
+  'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwGlobal.png',
+  'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwFires.png',
+  'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwCommodities.png',
+  'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwWater.png',
+  'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwClimate.png',
+  'https://raw.githubusercontent.com/Vizzuality/gfw-assets/7a3b4402fd3a466a20bc938029827f874c79dc1e/src/images/gfw_logos/gfwWatcher.png';
 $fires: #e7002f;
 $climate: #5b80a0;
 $water: #4099ce;
@@ -162,6 +168,8 @@ $commodities: #e98300;
           z-index: 100;
 
           &.gfw-global,
+          &.gfw-howto,
+          &.gfw-atlas,
           &.gfw-mygfw {
             background-image: url(nth($gfw-images, 1));
           }
@@ -184,6 +192,28 @@ $commodities: #e98300;
 
           &.gfw-climate {
             background-image: url(nth($gfw-images, 5));
+          }
+
+          .ribbon {
+            text-indent: 0px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            line-height: 1;
+            font-weight: 500;
+            font-size: 10px;
+            text-transform: uppercase;
+            -webkit-transform: translate(5px, 8px);
+            transform: translate(5px, 8px);
+
+            > span {
+              display: block;
+              position: relative;
+              z-index: 2;
+              color: white;
+              background: #b6b6ba;
+              padding: 3px 5px 2px;
+            }
           }
         }
 
