@@ -53,6 +53,7 @@ To finish, add this script in your site:
 		detectlang: false,
 		page: 'map' //or empty if you are not on map page
 		site: 'gfw-watcher', // site
+		ribbon: 'How to', // show bottom right ribbon text
 		menuOptions: //options for the menu
 		{
 			options: [
