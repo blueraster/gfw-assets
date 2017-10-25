@@ -4,7 +4,7 @@
   <li>
     <h3 id="btnTransifexTranslateMobileElement" class="-selector">
       <span>Language</span>
-      <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-plus"></use></svg>
+      <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-plus"></use></svg>
     </h3>
     <div id="transifexTranslateMobileElement" class="m-transifex"></div>
   </li>
@@ -12,7 +12,7 @@
 
   <li>
     <form action="http://www.globalforestwatch.org/search">
-      <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
+      <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-search"></use></svg></button>
       <input type="text" name="query" id="search-input-mobile" placeholder="Search GFW website">
     </form>
   </li>

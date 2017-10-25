@@ -74,6 +74,7 @@ $commodities: #e98300;
   }
 
   .m-header {
+    position: static;
     margin: 0 auto;
     background-color: $white;
 
@@ -619,6 +620,7 @@ $commodities: #e98300;
             outline: 0;
             background-color: rgba($dark, .08);
             text-transform: uppercase;
+            font-family: 'Fira GFW Sans', Helvetica, serif;
           }
 
           svg {
@@ -932,8 +934,8 @@ $commodities: #e98300;
 
       .container {
         margin: 0 auto;
-        padding-right: 1rem !important;
-        padding-left: 1rem !important;
+        padding-right: rem(16px) !important;
+        padding-left: rem(16px) !important;
 
         @media (min-width: $br-mobile) {
           max-width: none;
@@ -1093,8 +1095,8 @@ $commodities: #e98300;
       }
 
       ul {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: rem(16px);
+        padding-left: rem(16px);
 
         a {
           display: block;

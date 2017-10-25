@@ -19,7 +19,7 @@
           </li>
           <li class="-js-open-menu open-menu-button open-menu-button-login" data-submenu="#login-sub-menu" id="my-gfw-container">
             My gfw
-            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-mygfw"></use></svg>
             <div id="login-sub-menu" class="m-header-sub-menu-login sub-menu">
               <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
               <ul>
@@ -38,9 +38,9 @@
           <li class="-js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">
             <span class="mobile-title" data-submenu="#dashboard-sub-menu">Menu</span>
             <span class="desktop-title -js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">More</span>
-            <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
-            <svg class="open-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
-            <svg class="menu-mobile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use></svg>
+            <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-explore"></use></svg>
+            <svg class="open-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-close"></use></svg>
+            <svg class="menu-mobile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-menu"></use></svg>
           </li>
         </ul>
       </div>
@@ -51,7 +51,7 @@
         <div class="form-search-container -center">
           <form class="search-container" id="search-container" action="http://www.globalforestwatch.org/search">
             <input type="text" name="query" id="search-input" placeholder="SEARCH"/>
-            <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-search"></use></svg></button>
+            <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-search"></use></svg></button>
           </form>
           <ul class="mobile-nav-sections">
 
@@ -66,7 +66,7 @@
               <a href="http://water.globalforestwatch.org/" target="_blank" class="box gfw-water"></a>
               <a href="https://forest-watcher.herokuapp.com/" target="_blank" class="box gfw-watcher"></a>
               <a href="http://developers.globalforestwatch.org/gallery/" target="_blank" class="box -last">
-                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-explore"></use></svg>
                 <span>explore all apps</span>
               </a>
             </div>
@@ -79,31 +79,31 @@
           <ul class=" more-options-secondary-container"></ul>
           <div class=" more-options-container">
             <a class="more-options-item" href="http://developers.globalforestwatch.org/">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-developer"></use></svg>
+              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-developer"></use></svg>
               <span>developers corners</span>
             </a>
             <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/howto<% } else { %>http://www.globalforestwatch.org/howto<% } %>">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-how-to"></use></svg>
+              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-how-to"></use></svg>
               <span>how to portal</span>
             </a>
             <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/small-grants-fund<% } else { %>http://www.globalforestwatch.org/small-grants-fund<% } %>">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-samll-people"></use></svg>
+              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-samll-people"></use></svg>
               <span>small grants fund</span>
             </a>
             <a class="more-options-item" href="http://data.globalforestwatch.org/">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-open-data"></use></svg>
+              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-open-data"></use></svg>
               <span>open data portal</span>
             </a>
             <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/contribute-data<% } else { %>http://www.globalforestwatch.org/contribute-data<% } %>">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-contribute_icon"></use></svg>
+              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-contribute_icon"></use></svg>
               <span>contribute data</span>
             </a>
             <a class="more-options-item" href="http://blog.globalforestwatch.org/">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-blog"></use></svg>
+              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-blog"></use></svg>
               <span>blog</span>
             </a>
             <a class="more-options-item" href="https://groups.google.com/forum/#!forum/globalforestwatch">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-forum"></use></svg>
+              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-forum"></use></svg>
               <span>discussion forum</span>
             </a>
           </div>

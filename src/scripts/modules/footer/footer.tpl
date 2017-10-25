@@ -12,17 +12,17 @@
       <ul class="m-footer-links-social">
         <li>
           <a href="https://twitter.com/globalforests" target="_blank">
-            <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+            <svg class="icon icon-twitter"><use xlink:href="#gfw-header-icon-twitter"></use></svg>
           </a>
         </li>
         <li>
           <a href="https://www.facebook.com/globalforests/" target="_blank">
-            <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
+            <svg class="icon icon-facebook"><use xlink:href="#gfw-header-icon-facebook"></use></svg>
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com/globalforests/" target="_blank">
-            <svg class="icon icon-instagram"><use xlink:href="#icon-instagram"></use></svg>
+            <svg class="icon icon-instagram"><use xlink:href="#gfw-header-icon-instagram"></use></svg>
           </a>
         </li>
       </ul>
@@ -31,7 +31,7 @@
       <a class="text-button" href="/sitemap">SITEMAP</a>
       <a class="text-button m-footer-links__contact" href="/?show_contact=true">
         CONTACT US
-        <svg class="icon icon-contact"><use xlink:href="#icon-contact"></use></svg>
+        <svg class="icon icon-contact"><use xlink:href="#gfw-header-icon-contact"></use></svg>
       </a>
     </div>
   </div>
@@ -181,8 +181,8 @@
           <li class="js_slide"><a target="_blank" rel="noreferrer" href="http://www.zsl.org/" class="zsl"></a></li>
         </ul>
       </div>
-      <span class="js_prev prev"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-footer-arrow"></use></svg></span>
-      <span class="js_next next"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-footer-arrow"></use></svg></span>
+      <span class="js_prev prev"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-footer-arrow"></use></svg></span>
+      <span class="js_next next"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-footer-arrow"></use></svg></span>
     </div>
   </div>
   <div class="m-footer-terms">
