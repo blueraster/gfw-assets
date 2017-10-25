@@ -107,7 +107,7 @@
       position: absolute;
       top: calc(-100vh + 118px);
       left: 0;
-      padding-right: 1rem;
+      padding-right: rem(16px);
       transform: translate(0, 0);
       background: $white;
       box-shadow: none;

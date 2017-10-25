@@ -1,9 +1,9 @@
 <span title="My GFW" class="my-gfw-loggedin m-header-submenu-btn logged-button" data-submenu="#submenuLogin">
   <div class="-svg">
-    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-mygfw"></use></svg>
+    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-mygfw"></use></svg>
   </div>
   <div class="-inactive -svg">
-    <svg class="-close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-close"></use></svg>
+    <svg class="-close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-close"></use></svg>
   </div>
   <span>My GFW</span>
 </span>
