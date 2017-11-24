@@ -197,7 +197,6 @@ class Header {
     this.$body.on('click', '.-js-open-menu-mobile', this.showMenuMobile.bind(this));
     this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
     this.$header.on('click', '.txlive-langselector-current', this.showLanguageMenu.bind(this));
-    this.$body.append('<div class="back-close-menu"></div>');
     this.$backMenu = $gfwdom('.back-close-menu');
     this.$body.on('click', '.back-close-menu', this.hideMenus.bind(this));
     this.$body.on('click', '.back-close-menu', this.hideLanguageMenu.bind(this));

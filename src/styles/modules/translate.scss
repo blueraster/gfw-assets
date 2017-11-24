@@ -105,14 +105,18 @@
     .txlive-langselector-list {
       display: none;
       position: absolute;
-      top: calc(-100vh + 118px);
+      top: calc(-100vh + 117px);
       left: 0;
-      padding-right: rem(16px);
+      padding: 0 rem(15px);
       transform: translate(0, 0);
       background: $white;
       box-shadow: none;
-      width: calc(100vw - 15px);
-      height: calc(100vh - 118px);
+      width: calc(100vw);
+      height: calc(100vh - 117px);
+
+      @media (min-width: $br-mobile) {
+        padding: 0 rem(15px);
+      }
 
       &.-active {
         display: block;
@@ -122,7 +126,6 @@
       li {
         position: relative;
         padding: 10px 0;
-        padding-left: 10px;
         color: $dark;
         z-index: 1;
 

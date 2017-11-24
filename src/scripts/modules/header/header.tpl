@@ -1,7 +1,6 @@
-<div class="line-dashboard"></div>
 <div class="namespace-gfw-header">
-  <header class=" m-header">
-    <nav class="m-header-nav-container  ">
+  <header class="m-header">
+    <nav class="m-header-nav-container">
       <div class="logo-sections-container">
         <a href="/" id="link-logo-menu">
           <div class="logo-menu"></div>
@@ -46,25 +45,24 @@
       </div>
     </nav>
     <div class="m-header-sub-menu-dashboard sub-menu" id="dashboard-sub-menu">
-      <div class="back-white"></div>
-      <div class=" nav-sub-menu-container -center">
-        <div class="form-search-container -center">
+      <div class="nav-sub-menu-container">
+        <div class="form-search-container">
           <form class="search-container" id="search-container" action="http://www.globalforestwatch.org/search">
             <input type="text" name="query" id="search-input" placeholder="SEARCH"/>
             <button type="submit"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-search"></use></svg></button>
           </form>
-          <ul class="mobile-nav-sections">
-
-          </ul>
-          <div class="applications-container">
-            <h3>OTHER APPLICATIONS</h3>
-            <div class=" boxes-container">
-              <a href="http://www.globalforestwatch.org/" target="_blank" class="box gfw-global"></a>
-              <a href="http://climate.globalforestwatch.org/" target="_blank" class="box gfw-climate"></a>
-              <a href="http://fires.globalforestwatch.org/home/" target="_blank" class="box gfw-fires"></a>
-              <a href="http://commodities.globalforestwatch.org/" target="_blank" class="box gfw-commodities"></a>
-              <a href="http://water.globalforestwatch.org/" target="_blank" class="box gfw-water"></a>
-              <a href="https://forest-watcher.herokuapp.com/" target="_blank" class="box gfw-watcher"></a>
+          <ul class="mobile-nav-sections"></ul>
+        </div>
+        <div class="applications-container">
+          <h3>OTHER APPLICATIONS</h3>
+          <div class=" boxes-container">
+            <a href="http://www.globalforestwatch.org/" target="_blank" class="box gfw-global"></a>
+            <a href="http://climate.globalforestwatch.org/" target="_blank" class="box gfw-climate"></a>
+            <a href="http://fires.globalforestwatch.org/home/" target="_blank" class="box gfw-fires"></a>
+            <a href="http://commodities.globalforestwatch.org/" target="_blank" class="box gfw-commodities"></a>
+            <a href="http://water.globalforestwatch.org/" target="_blank" class="box gfw-water"></a>
+            <a href="https://forest-watcher.herokuapp.com/" target="_blank" class="box gfw-watcher"></a>
+            <div class="box-last">
               <a href="http://developers.globalforestwatch.org/gallery/" target="_blank" class="box -last">
                 <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-explore"></use></svg>
                 <span>explore all apps</span>
@@ -72,50 +70,50 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="m-header-more-container -center">
-        <div class="-center">
-          <h3>More in GFW</h3>
-          <ul class=" more-options-secondary-container"></ul>
-          <div class=" more-options-container">
-            <a class="more-options-item" href="http://developers.globalforestwatch.org/">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-developer"></use></svg>
-              <span>developers corners</span>
-            </a>
-            <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/howto<% } else { %>http://www.globalforestwatch.org/howto<% } %>">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-how-to"></use></svg>
-              <span>how to portal</span>
-            </a>
-            <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/small-grants-fund<% } else { %>http://www.globalforestwatch.org/small-grants-fund<% } %>">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-samll-people"></use></svg>
-              <span>small grants fund</span>
-            </a>
-            <a class="more-options-item" href="http://data.globalforestwatch.org/">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-open-data"></use></svg>
-              <span>open data portal</span>
-            </a>
-            <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/contribute-data<% } else { %>http://www.globalforestwatch.org/contribute-data<% } %>">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-contribute_icon"></use></svg>
-              <span>contribute data</span>
-            </a>
-            <a class="more-options-item" href="http://blog.globalforestwatch.org/">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-blog"></use></svg>
-              <span>blog</span>
-            </a>
-            <a class="more-options-item" href="https://groups.google.com/forum/#!forum/globalforestwatch">
-              <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-forum"></use></svg>
-              <span>discussion forum</span>
-            </a>
+        <div class="m-header-more-container -center">
+          <div class="-center">
+            <h3>More in GFW</h3>
+            <ul class=" more-options-secondary-container"></ul>
+            <div class=" more-options-container">
+              <a class="more-options-item" href="http://developers.globalforestwatch.org/">
+                <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-developer"></use></svg>
+                <span>developers corners</span>
+              </a>
+              <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/howto<% } else { %>http://www.globalforestwatch.org/howto<% } %>">
+                <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-how-to"></use></svg>
+                <span>how to portal</span>
+              </a>
+              <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/small-grants-fund<% } else { %>http://www.globalforestwatch.org/small-grants-fund<% } %>">
+                <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-samll-people"></use></svg>
+                <span>small grants fund</span>
+              </a>
+              <a class="more-options-item" href="http://data.globalforestwatch.org/">
+                <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-open-data"></use></svg>
+                <span>open data portal</span>
+              </a>
+              <a class="more-options-item" href="<% if (location.hostname === 'staging.globalforestwatch.org') {%>http://staging.globalforestwatch.org/contribute-data<% } else { %>http://www.globalforestwatch.org/contribute-data<% } %>">
+                <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-contribute_icon"></use></svg>
+                <span>contribute data</span>
+              </a>
+              <a class="more-options-item" href="http://blog.globalforestwatch.org/">
+                <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-blog"></use></svg>
+                <span>blog</span>
+              </a>
+              <a class="more-options-item" href="https://groups.google.com/forum/#!forum/globalforestwatch">
+                <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-forum"></use></svg>
+                <span>discussion forum</span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="m-sitemap-info-container">
-        <div class="-center">
-          <div class="sitemap-container">
-            <a href="http://www.globalforestwatch.org/sitemap"><h3>SITEMAP</h3></a>
+        <div class="m-sitemap-info-container">
+          <div class="-center">
+            <div class="sitemap-container">
+              <a href="http://www.globalforestwatch.org/sitemap"><h3>SITEMAP</h3></a>
+            </div>
           </div>
         </div>
-      </div>
+      </div>    
     </div>
   </header>
 </div>
