@@ -332,6 +332,14 @@ class Header {
       }
     }.bind(this));
 
+    this.$header.find('.txlive-langselector-list').removeClass('-active');
+
+    this.$header.find('.sub-menu-mobile').forEach(function findSubMenu(v) {
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom(v).removeClass('-active');
+      }
+    }.bind(this));
+
     this.$header.find('.open-menu-button').forEach(function(v){
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active');

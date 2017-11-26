@@ -1,47 +1,49 @@
 <div class="namespace-gfw-header">
   <header class="m-header">
     <nav class="m-header-nav-container">
-      <div class="logo-sections-container">
-        <a href="/" id="link-logo-menu">
-          <div class="logo-menu"></div>
-        </a>
-        <ul class="nav-sections"></ul>
-      </div>
-      <div class="options-container">
-        <ul class="nav-options">
-          <li class="-js-open-menu open-menu-button open-menu-button-language" data-submenu="#language-sub-menu">
-            <div class="triangle lang-triangle"></div>
-            <div id="transifexTranslateElement" class="m-transifex">
-            </div>
-            <div id="googleTranslate">
-            </div>
-          </li>
-          <li class="-js-open-menu open-menu-button open-menu-button-login" data-submenu="#login-sub-menu" id="my-gfw-container">
-            My gfw
-            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-mygfw"></use></svg>
-            <div id="login-sub-menu" class="m-header-sub-menu-login sub-menu">
-              <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
-              <ul>
-                <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">
-                  <li class="my-gfw-sign-in-twitter login-item -twitter ">Log in with Twitter</li>
-                </a>
-                <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">
-                  <li class="my-gfw-sign-in-facebook login-item -facebook">Log in with Facebook</li>
-                </a>
-                <a href="auth/google?applications=gfw" class="my-gfw-sign-in">
-                  <li class="my-gfw-sign-in-google login-item -google">Log in with Google</li>
-                </a>
-              </ul>
-            </div>
-          </li>
-          <li class="-js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">
-            <span class="mobile-title" data-submenu="#dashboard-sub-menu">Menu</span>
-            <span class="desktop-title -js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">More</span>
-            <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-explore"></use></svg>
-            <svg class="open-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-close"></use></svg>
-            <svg class="menu-mobile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-menu"></use></svg>
-          </li>
-        </ul>
+      <div class="nav-wrapper">
+        <div class="logo-sections-container">
+          <a href="/" id="link-logo-menu">
+            <div class="logo-menu"></div>
+          </a>
+          <ul class="nav-sections"></ul>
+        </div>
+        <div class="options-container">
+          <ul class="nav-options">
+            <li class="-js-open-menu open-menu-button open-menu-button-language" data-submenu="#language-sub-menu">
+              <div class="triangle lang-triangle"></div>
+              <div id="transifexTranslateElement" class="m-transifex">
+              </div>
+              <div id="googleTranslate">
+              </div>
+            </li>
+            <li class="-js-open-menu open-menu-button open-menu-button-login" data-submenu="#login-sub-menu" id="my-gfw-container">
+              My gfw
+              <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-mygfw"></use></svg>
+              <div id="login-sub-menu" class="m-header-sub-menu-login sub-menu">
+                <p>Log in is required so you can view, manage, and delete your subscriptions. Questions? <a href="mailto:gfw@wri.org">Contact us</a>.</p>
+                <ul>
+                  <a href="auth/twitter?applications=gfw" class="my-gfw-sign-in">
+                    <li class="my-gfw-sign-in-twitter login-item -twitter ">Log in with Twitter</li>
+                  </a>
+                  <a href="auth/facebook?applications=gfw" class="my-gfw-sign-in">
+                    <li class="my-gfw-sign-in-facebook login-item -facebook">Log in with Facebook</li>
+                  </a>
+                  <a href="auth/google?applications=gfw" class="my-gfw-sign-in">
+                    <li class="my-gfw-sign-in-google login-item -google">Log in with Google</li>
+                  </a>
+                </ul>
+              </div>
+            </li>
+            <li class="-js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">
+              <span class="mobile-title" data-submenu="#dashboard-sub-menu">Menu</span>
+              <span class="desktop-title -js-open-menu open-menu-button open-menu-button-dashboard" data-submenu="#dashboard-sub-menu">More</span>
+              <svg class="close-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-explore"></use></svg>
+              <svg class="open-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-close"></use></svg>
+              <svg class="menu-mobile-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-menu"></use></svg>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="m-header-sub-menu-dashboard sub-menu" id="dashboard-sub-menu">

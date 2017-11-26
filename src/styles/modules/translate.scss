@@ -60,10 +60,13 @@
       min-width: rem(200px);
       max-width: rem(200px);
       padding: 0;
-      border: 1px solid $gray;
       border-top: 0;
       background: $white;
       box-shadow: none;
+
+      @media (min-width: $br-mobile) {
+        border: 1px solid $gray;
+      }
 
       li {
         position: relative;
@@ -105,14 +108,14 @@
     .txlive-langselector-list {
       display: none;
       position: absolute;
-      top: calc(-100vh + 117px);
+      top: calc(-100vh + #{$menu-height} * 2);
       left: 0;
       padding: 0 rem(15px);
       transform: translate(0, 0);
       background: $white;
       box-shadow: none;
       width: calc(100vw);
-      height: calc(100vh - 117px);
+      height: calc(100vh - #{$menu-height} * 2);
 
       @media (min-width: $br-mobile) {
         padding: 0 rem(15px);
@@ -120,7 +123,7 @@
 
       &.-active {
         display: block;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;        
       }
 
       li {
