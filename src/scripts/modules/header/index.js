@@ -197,7 +197,6 @@ class Header {
     this.$body.on('click', '.-js-open-menu-mobile', this.showMenuMobile.bind(this));
     this.$header.on('click', '.open-menu-button-language', this.showLanguageMenu.bind(this));
     this.$header.on('click', '.txlive-langselector-current', this.showLanguageMenu.bind(this));
-    this.$body.append('<div class="back-close-menu"></div>');
     this.$backMenu = $gfwdom('.back-close-menu');
     this.$body.on('click', '.back-close-menu', this.hideMenus.bind(this));
     this.$body.on('click', '.back-close-menu', this.hideLanguageMenu.bind(this));
@@ -330,6 +329,14 @@ class Header {
       if ($gfwdom(v).hasClass('-active')) {
         $gfwdom(v).removeClass('-active');
         this.$backMenu.removeClass('-show');
+      }
+    }.bind(this));
+
+    this.$header.find('.txlive-langselector-list').removeClass('-active');
+
+    this.$header.find('.sub-menu-mobile').forEach(function findSubMenu(v) {
+      if ($gfwdom(v).hasClass('-active')) {
+        $gfwdom(v).removeClass('-active');
       }
     }.bind(this));
 
@@ -730,7 +737,7 @@ class Header {
 
 
   initMapFunctions() {
-    const mapStyles = '#headerGfw{top:0!important;transition:top 0.2s linear}#headerGfw .line-dashboard{top:45px!important}@media (min-width:850px){#headerGfw{top:-45px!important}}#headerGfw .m-header-sub-menu-dashboard{position:relative!important;overflow-y:scroll; padding-left:0 !important; padding-right:0 !important;}#headerGfw .txlive-langselector-list{top:41px!important}#headerGfw .m-header-sub-menu-login,#headerGfw .m-header-submenu-logged{top:46px!important}#headerGfw .nav-sections{max-height:46px!important;margin-left:128px!important}#headerGfw .nav-sections li.-selected::after{bottom:-10px!important}#headerGfw .nav-sections.-show{margin-left:40px!important}#headerGfw.-show{top:0!important}#headerGfw .m-header-nav-container{height:45px!important}#headerGfw .logo-menu{top:0!important;position:relative!important;transition:0.2s linear}@media (min-width:850px){#headerGfw .logo-menu{top:45px!important;position:fixed!important;transition:0.2s linear}}#headerGfw .logo-menu.-show{top:0!important;position:relative!important}#headerGfw .logo-sections-container{height:45px}#headerGfw .logo-sections-container .nav-sections li:after{top:26px}';
+    const mapStyles = '#headerGfw{top:0!important;transition:top 0.2s linear}#headerGfw .line-dashboard{top:45px!important}@media (min-width:850px){#headerGfw{top:-45px!important}}#headerGfw .m-header-sub-menu-dashboard{position:relative!important;overflow-y:scroll; padding-left:0 !important; padding-right:0 !important;}#headerGfw .txlive-langselector-list{top:39px!important} #headerGfw #transifexTranslateMobileElement .txlive-langselector-list{top:calc(-100vh + 58px + 45px)!important; height:calc(100vh - 58px - 45px)!important;}#headerGfw .m-header-sub-menu-login,#headerGfw .m-header-submenu-logged{top:44px!important}#headerGfw .nav-sections{max-height:44px!important;margin-left:128px!important}#headerGfw .nav-sections li.-selected::after{bottom:-10px!important}#headerGfw .nav-sections.-show{margin-left:40px!important}#headerGfw.-show{top:0!important}#headerGfw .m-header-nav-container{height:45px!important}#headerGfw .logo-menu{top:0!important;position:relative!important;transition:0.2s linear}@media (min-width:850px){#headerGfw .logo-menu{top:45px!important;position:fixed!important;transition:0.2s linear}}#headerGfw .logo-menu.-show{top:0!important;position:relative!important}#headerGfw .logo-sections-container{height:45px}#headerGfw .logo-sections-container .nav-sections li:after{top:26px}';
     $gfwdom(`<style type="text/css">${mapStyles}</style>`).appendTo('head');
     $gfwdom('body').on('mousemove', function(event) {
       if (event.pageY < 100) {
