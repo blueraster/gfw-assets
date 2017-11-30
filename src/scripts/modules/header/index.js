@@ -68,7 +68,8 @@ class Header {
     this.navOptions = this.$header.find('.nav-options');
     this.logoMenu = this.$header.find('.logo-menu');
     this.initLanguageText = this.$header.find('.init-language-tex');
-
+    this.useGoogleTranslate = this.$header.attr('data-google') || false;
+    
     this.navSections = this.$header.find('.nav-sections');
     this.navSectionLogo = this.$header.find('.logo-sections-container');
     this.navOptions = this.$header.find('.options-container');
@@ -449,7 +450,7 @@ class Header {
    * Google translate
    */
   initTranslate() {
-    if (!!window.liveSettings) {
+    if (!!window.liveSettings && !this.useGoogleTranslate) {
       this.initTransifex();
     } else {
       this.initGoogleTranslate();
