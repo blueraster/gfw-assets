@@ -16,14 +16,10 @@ $water: #4099ce;
 $commodities: #e98300;
 
 #headerGfw {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  transform: translateZ(0);
   background: $white;
   font-family: 'Fira GFW Sans', Helvetica, serif;
-  z-index: 1000;
+  height: $menu-height;
   // This fixes the ligatures issue in Chrome and Safari > 9.0
   -webkit-font-feature-settings: 'liga' 0;
   font-feature-settings: 'liga' 0;
@@ -40,6 +36,13 @@ $commodities: #e98300;
   .m-header {
     position: static;
     margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transform: translateZ(0);
+    background: $white;  
 
     .m-header-nav-container {
       border-bottom: rem(1px) solid rgba($dark, 0.2);
