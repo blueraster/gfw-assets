@@ -101,6 +101,10 @@
                 <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-blog"></use></svg>
                 <span>blog</span>
               </a>
+              <a class="more-options-item" href="http://www.globalforestwatch.org/stories">
+                <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-stories"></use></svg>
+                <span>stories</span>
+              </a>
               <a class="more-options-item" href="https://groups.google.com/forum/#!forum/globalforestwatch">
                 <svg class="svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-forum"></use></svg>
                 <span>discussion forum</span>
@@ -115,7 +119,7 @@
             </div>
           </div>
         </div>
-      </div>    
+      </div>
     </div>
   </header>
 </div>
