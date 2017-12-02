@@ -65,7 +65,7 @@
             <a href="http://water.globalforestwatch.org/" target="_blank" class="box gfw-water"></a>
             <a href="https://forest-watcher.herokuapp.com/" target="_blank" class="box gfw-watcher"></a>
             <div class="box-last">
-              <a href="http://developers.globalforestwatch.org/gallery/" target="_blank" class="box -last">
+              <a href="http://developers.globalforestwatch.org/" target="_blank" class="box -last">
                 <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-h-explore"></use></svg>
                 <span>explore all apps</span>
               </a>

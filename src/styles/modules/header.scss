@@ -17,7 +17,6 @@ $commodities: #e98300;
 
 #headerGfw {
   width: 100%;
-  background: $white;
   font-family: 'Fira GFW Sans', Helvetica, serif;
   height: $menu-height;
   // This fixes the ligatures issue in Chrome and Safari > 9.0
@@ -26,12 +25,6 @@ $commodities: #e98300;
   // This fixes the ligatures issue in Safari
   -webkit-font-variant-ligatures: no-common-ligatures;
   -webkit-font-smoothing: antialiased;
-
-  @media (min-width: $br-mobile) {
-    position: relative;
-    bottom: auto;
-    left: auto;
-  }
 
   .m-header {
     position: static;
@@ -42,7 +35,13 @@ $commodities: #e98300;
     right: 0;
     z-index: 1000;
     transform: translateZ(0);
-    background: $white;  
+    background: $white;
+
+    @media (min-width: $br-mobile) {
+      position: relative;
+      bottom: auto;
+      left: auto;
+    }
 
     .m-header-nav-container {
       border-bottom: rem(1px) solid rgba($dark, 0.2);
