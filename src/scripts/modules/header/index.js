@@ -36,6 +36,7 @@ class Header {
     if (window.liveSettings.page === 'map') {
       this.initMapFunctions();
     }
+    this.setStoriesLinkVisibility();
     return this;
   }
 
@@ -85,6 +86,7 @@ class Header {
     this.menuDashboard = this.$header.find('#dashboard-sub-menu');
     this.boxesContainer = this.$header.find('.boxes-container');
     this.currentBox = this.boxesContainer.find(`.box.${this.site}`);
+    this.storiesLink = $gfwdom('#stories-link');
 
     this.$links = this.$header.find('a');
     this.$linksSubmenu = this.$header.find('a');
@@ -758,6 +760,12 @@ class Header {
         }
       }
     });
+  }
+
+  setStoriesLinkVisibility() {
+    if (!utils.isFlagship()) {
+      this.storiesLink.addClass('-hidden');
+    }
   }
 }
 

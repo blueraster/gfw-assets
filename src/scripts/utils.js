@@ -158,7 +158,15 @@ const utils = {
   		timeout = setTimeout(later, wait);
   		if (callNow) func.apply(context, args);
   	};
-  }
+  },
+
+  isFlagship() {
+    const current = window.location.hostname;
+    if (whitelist.indexOf(current)) {
+      return true;
+    }
+    return false;
+  },
 
 };
 

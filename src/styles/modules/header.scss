@@ -789,6 +789,10 @@ $commodities: #e98300;
               font-size: rem(12px);
               text-transform: uppercase;
             }
+
+            &.-hidden {
+              display: none;
+            }
           }
         }
 
