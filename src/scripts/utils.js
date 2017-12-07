@@ -3,6 +3,7 @@
 const smallBreakPoint = 850;
 const whitelist = [
   'www.globalforestwatch.org',
+  'globalforestwatch.org',
   'localhost',
   'gfw-nav.herokuapp.com',
   'staging.globalforestwatch.org'
