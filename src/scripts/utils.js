@@ -6,7 +6,8 @@ const whitelist = [
   'globalforestwatch.org',
   'localhost',
   'gfw-nav.herokuapp.com',
-  'staging.globalforestwatch.org'
+  'staging.globalforestwatch.org',
+  'gfw-loss-categories.herokuapp.com/'
 ];
 
 const apiVersion = 'v1';
