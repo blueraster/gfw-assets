@@ -354,114 +354,114 @@
           @include sprite($citihover);
         }
       }
-    //   &.airbus {
-    //     @include sprite($airbus);
-    //     &:hover {
-    //       @include sprite($airbushover);
-    //     }
-    //   }
-    //   &.astrodigital {
-    //     @include sprite($astrodigital);
-    //     &:hover {
-    //       @include sprite($astrodigitalhover);
-    //     }
-    //   }
-    //   &.agrosatelite {
-    //     @include sprite($agrosatelite);
-    //     &:hover {
-    //       @include sprite($agrosatelitehover);
-    //     }
-    //   }
-    //   &.bei {
-    //     @include sprite($bei);
-    //     &:hover {
-    //       @include sprite($beihover);
-    //     }
-    //   }
-    //   &.bigdataclimatechallengewinner {
-    //     @include sprite($bigdataclimatechallengewinner);
-    //     &:hover {
-    //       @include sprite($bigdataclimatechallengewinnerhover);
-    //     }
-    //   }
-    //   &.blueraster {
-    //     @include sprite($blueraster);
-    //     &:hover {
-    //       @include sprite($bluerasterhover);
-    //     }
-    //   }
-    //   &.bnpb {
-    //     @include sprite($bnpb);
-    //     &:hover {
-    //       @include sprite($bnpbhover);
-    //     }
-    //   }
-    //   &.bobolinkfundation {
-    //     @include sprite($bobolinkfundation);
-    //     &:hover {
-    //       @include sprite($bobolinkfundationhover);
-    //     }
-    //   }
-    //   &.cambridge {
-    //     @include sprite($cambridge);
-    //     &:hover {
-    //       @include sprite($cambridgehover);
-    //     }
-    //   }
-    //   &.cartodb {
-    //     @include sprite($cartodb);
-    //     &:hover {
-    //       @include sprite($cartodbhover);
-    //     }
-    //   }
-    //   &.cargill {
-    //     @include sprite($cargill);
-    //     &:hover {
-    //       @include sprite($cargillhover);
-    //     }
-    //   }
-    //   &.centerforglobaldevelopment {
-    //     @include sprite($centerforglobaldevelopment);
-    //     &:hover {
-    //       @include sprite($centerforglobaldevelopmenthover);
-    //     }
-    //   }
-    //   &.cgiar {
-    //     @include sprite($cgiar);
-    //     &:hover {
-    //       @include sprite($cgiarhover);
-    //     }
-    //   }
-    //   &.ciat {
-    //     @include sprite($ciat);
-    //     &:hover {
-    //       @include sprite($ciathover);
-    //     }
-    //   }
-    //   &.conafor {
-    //     @include sprite($conafor);
-    //     &:hover {
-    //       @include sprite($conaforhover);
-    //     }
-    //   }
-    //   &.conservationinternational {
-    //     @include sprite($conservationinternational);
-    //     &:hover {
-    //       @include sprite($conservationinternationalhover);
-    //     }
-    //   }
-    //   &.clua {
-    //     @include sprite($clua);
-    //     &:hover {
-    //       @include sprite($cluahover);
-    //     }
-    //   }
-    //   &.danida {
-    //     @include sprite($danida);
-    //     &:hover {
-    //       @include sprite($danidahover);
-    //     }
-    //   }
+      &.cargill {
+        @include sprite($cargill);
+        &:hover {
+          @include sprite($cargillhover);
+        }
+      }
+      &.olam {
+        @include sprite($olam);
+        &:hover {
+          @include sprite($olamhover);
+        }
+      }
+      &.mondelez {
+        @include sprite($mondelez);
+        &:hover {
+          @include sprite($mondelezhover);
+        }
+      }
+      &.unilever {
+        @include sprite($unilever);
+        &:hover {
+          @include sprite($unileverhover);
+        }
+      }
+      &.ioi {
+        @include sprite($ioi);
+        &:hover {
+          @include sprite($ioihover);
+        }
+      }
+      &.idh {
+        @include sprite($idh);
+        &:hover {
+          @include sprite($idhhover);
+        }
+      }
+      &.rspo {
+        @include sprite($rspo);
+        &:hover {
+          @include sprite($rspohover);
+        }
+      }
+      &.daemeter {
+        @include sprite($daemeter);
+        &:hover {
+          @include sprite($daemeterhover);
+        }
+      }
+      &.proforest {
+        @include sprite($proforest);
+        &:hover {
+          @include sprite($proforesthover);
+        }
+      }
+      &.idb {
+        @include sprite($idb);
+        &:hover {
+          @include sprite($idbhover);
+        }
+      }
+      &.esri {
+        @include sprite($esri);
+        &:hover {
+          @include sprite($esrihover);
+        }
+      }
+      &.google {
+        @include sprite($google);
+        &:hover {
+          @include sprite($googlehover);
+        }
+      }
+      &.iucn {
+        @include sprite($iucn);
+        &:hover {
+          @include sprite($iucnhover);
+        }
+      }
+      &.umd {
+        @include sprite($umd);
+        &:hover {
+          @include sprite($umdhover);
+        }
+      }
+      &.natureconservancy {
+        @include sprite($natureconservancy);
+        &:hover {
+          @include sprite($natureconservancyhover);
+        }
+      }
+      &.br {
+        @include sprite($br);
+        &:hover {
+          @include sprite($brhover);
+        }
+      }
+      &.transparentworld {
+        @include sprite($transparentworld);
+        &:hover {
+          @include sprite($transparentworldhover);
+        }
+      }
+      &.rainforestalliance {
+        @include sprite($rainforestalliance);
+        &:hover {
+          @include sprite($rainforestalliancehover);
+        }
+      }
     //   &.digitalglobe {
     //     @include sprite($digitalglobe);
     //     &:hover {

@@ -7,7 +7,7 @@ import footerIconsTpl from './footer-icons.tpl';
 const sliderPause = 5000;
 let numberScroll = 1;
 if (window.innerWidth > 850) {
-  numberScroll = 4;
+  numberScroll = 5;
 }
 const sliderOptions = {
   enableMouseEvents: true,
