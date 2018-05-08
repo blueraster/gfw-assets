@@ -47,25 +47,26 @@
       <p>Partners</p>
       <div class="frame js_frame">
         <ul class="slides js_slides">
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Citi" href="#" class="citi"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Cargill" href="#" class="cargill"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Olam" href="#" class="olam"></a></li>
-          <li class="js_slide"><a target='_blank' rel="noreferrer" title="Mondelez" href='#' class="mondelez"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Unilever" href=#" class="unilever"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="IOI Group" href="#" class="ioi"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="IDH" href="#" class="idh"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="RSPO" href="#" class="rspo"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Daemeter" href="#" class="daemeter"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Proforest" href="#" class="proforest"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="IDB Invest" href="#" class="idb"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="ESRI" href="#" class="esri"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Google" href="#" class="google"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="IUCN" href="#" class="iucn"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="University of Maryland" href="#" class="umd"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="The Nature Conservancy" href="#" class="natureconservancy"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Blue Raster" href="https://www.blueraster.com/" class="br"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Transparent World" href="#" class="transparentworld"></a></li>
-          <li class="js_slide"><a target="_blank" rel="noreferrer" title="Rainforest Alliance" href="#" class="rainforestalliance"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="Citi" href="http://www.citi.com" class="citi"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="Cargill" href="https://www.cargill.com/" class="cargill"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="Olam" href="http://olamgroup.com/" class="olam"></a></li>
+          <li class="js_slide five-group"><a target='_blank' rel="noreferrer" title="Mondelez" href="https://www.mondelezinternational.com/" class="mondelez"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="Unilever" href="https://www.unilever.com/" class="unilever"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="IOI Group" href="http://europe.bungeloders.com/taking-responsibility" class="ioi"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="IDH" href="https://www.idhsustainabletrade.com/" class="idh"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="RSPO" href="https://www.rspo.org/" class="rspo"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="Daemeter" href="http://daemeter.org/" class="daemeter"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="Proforest" href="https://www.proforest.net/en" class="proforest"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="IDB Invest" href="http://www.idbinvest.org/" class="idb"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="ESRI" href="http://www.esri.com/landing-pages/fight-against-deforestation/global-forest-watch" class="esri"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="Google" href="https://earthengine.google.com/" class="google"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="IUCN" href="https://www.iucn.org/" class="iucn"></a></li>
+          <li class="js_slide five-group"><a target="_blank" rel="noreferrer" title="University of Maryland" href="https://geog.umd.edu/" class="umd"></a></li>
+          <li class="js_slide four-group"><a target="_blank" rel="noreferrer" title="The Nature Conservancy" href="https://www.nature.org/" class="natureconservancy"></a></li>
+          <li class="js_slide four-group"><a target="_blank" rel="noreferrer" title="Blue Raster" href="https://www.blueraster.com/" class="br"></a></li>
+          <li class="js_slide four-group"><a target="_blank" rel="noreferrer" title="Transparent World" href="http://www.transparentworld.ru/ru/" class="transparentworld"></a></li>
+          <li class="js_slide four-group"><a target="_blank" rel="noreferrer" title="Rainforest Alliance" href="https://www.rainforest-alliance.org/" class="rainforestalliance"></a></li>
+          <li class="js_slide hidden-item"><a></a></li>
         </ul>
       </div>
       <span class="js_prev prev"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-footer-arrow"></use></svg></span>

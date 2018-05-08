@@ -334,7 +334,17 @@
     width: 100%;
 
     @media (min-width: $br-mobile) {
-      width: 25%;
+      &.five-group {
+        width: 20%;
+      }
+
+      &.four-group {
+        width: 25%;
+      }
+
+      &.hidden-item {
+        width: 0;
+      }
     }
 
     &.active {
