@@ -19,16 +19,32 @@ const links = [
   {
     options: [
       {
-        title: 'GFW',
-        url: 'http://www.globalforestwatch.org/',
+        title: 'About GFW Pro',
+        url: '#',
       },
       {
-        title: 'Blog',
-        url: 'http://blog.globalforestwatch.org/',
+        title: 'Security',
+        url: '#',
       },
       {
-        title: 'How to portal',
-        url: 'http://www.globalforestwatch.org/howto/',
+        title: 'Sharing',
+        url: '#',
+      },
+      {
+        title: 'Terms of Service',
+        url: 'http://www.globalforestwatch.org/terms',
+      },
+      {
+        title: 'Privacy Policy',
+        url: '#',
+      },
+      {
+        title: 'Contact Us',
+        url: 'http://www.globalforestwatch.org/?show_contact=true',
+      },
+      {
+        title: 'For More Information',
+        url: '#',
       },
     ],
   },
