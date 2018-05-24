@@ -58,7 +58,7 @@ module.exports = {
         region: 'us-east-1'
       },
       s3UploadOptions: {
-        Bucket: 'gfw-assets/static'
+        Bucket: 'beta.blueraster.io/gfw-assets/static'
       }
     })
   ],
