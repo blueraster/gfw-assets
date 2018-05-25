@@ -13,7 +13,7 @@ module.exports = {
   context: path.join(__dirname, 'src'),
 
   entry: [
-    'babel-polyfill',
+    // 'babel-polyfill',
     './index.html',
     './main.js'
   ],
@@ -59,6 +59,10 @@ module.exports = {
       },
       s3UploadOptions: {
         Bucket: 'beta.blueraster.io/gfw-assets/static'
+      },
+      cloudfrontInvalidateOptions: {
+        DistributionId: process.env.CLOUDFRONT_DISTRIBUTION_ID,
+        Items: ['/gfw-assets/static/*'],
       }
     })
   ],
