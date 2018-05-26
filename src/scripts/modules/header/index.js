@@ -47,7 +47,6 @@ class Header {
    */
   cache() {
     this.$document =  $gfwdom(document);
-
     // Script
     this.$script = $gfwdom('#loader-gfw');
 
@@ -79,7 +78,7 @@ class Header {
   setParams() {
     var $parent = document.querySelector('#loader-gfw');
     this.params = {
-      current: $parent.getAttribute('data-current')
+      current: $parent ? $parent.getAttribute('data-current') : undefined
     }
   }
 
