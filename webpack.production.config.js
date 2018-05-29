@@ -15,7 +15,7 @@ module.exports = {
   context: path.join(__dirname, 'src'),
 
   entry: [
-    'babel-polyfill',
+    // 'babel-polyfill',
     './index.html',
     './main.js'
   ],
