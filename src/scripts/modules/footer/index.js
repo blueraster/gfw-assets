@@ -20,7 +20,7 @@ const links = [
     options: [
       {
         title: 'About GFW Pro',
-        url: '#',
+        url: './about',
       },
       {
         title: 'Security',
