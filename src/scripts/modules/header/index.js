@@ -226,11 +226,11 @@ class Header {
     }
   }
 
-  toggleTransifex(e) {
-    var $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
-    var $transifexList = this.$header.find('#transifexTranslateMobileElement');
+  toggleTransifex() {
+    const $btnTransifex = this.$header.find('#btnTransifexTranslateMobileElement');
+    const $transifexList = this.$header.find('#transifexTranslateMobileElement');
 
-    if($btnTransifex.hasClass('-active')) {
+    if ($btnTransifex.hasClass('-active')) {
       $btnTransifex.removeClass('-active');
       $transifexList.removeClass('-active');
     } else {

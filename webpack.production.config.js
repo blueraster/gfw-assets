@@ -60,7 +60,7 @@ module.exports = {
       },
       s3UploadOptions: {
         Bucket: 'gfw-assets/static'
-      }
+      },
     })
   ],
 

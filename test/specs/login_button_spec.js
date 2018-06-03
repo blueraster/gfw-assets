@@ -10,7 +10,7 @@ describe('Login Button', function() {
       window.ga = sinon.spy();
 
       let loginButton = new LoginButton();
-      loginButton.setupGoogleAnalytics({id: '123'});
+      loginButton.setupGoogleAnalytics({ id: '123' });
 
       expect(window.ga.calledWith('set', 'userId', '123')).to.be.true;
     });

@@ -7,7 +7,7 @@ const whitelist = [
   'localhost',
   'gfw-nav.herokuapp.com',
   'staging.globalforestwatch.org',
-  'gfw-loss-categories.herokuapp.com/'
+  'gfw-loss-categories.herokuapp.com/',
 ];
 
 const apiVersion = 'v1';
@@ -126,10 +126,10 @@ const utils = {
   },
 
   isDefaultHost() {
-    var hostname = window.location.hostname,
-        // check is the hostname is inside the whitelist
-        is_white = whitelist.indexOf(hostname) !== -1,
-        is_black;
+    const hostname = window.location.hostname;
+    // check is the hostname is inside the whitelist
+    const is_white = whitelist.indexOf(hostname) !== -1;
+    let is_black;
 
     // check is the hostname is inside the blacklist or
     // if it has 'globalforestwatch.org' in its hostname

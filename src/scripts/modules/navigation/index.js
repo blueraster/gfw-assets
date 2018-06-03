@@ -1,7 +1,6 @@
 'use strict';
 
 import $gfwdom from '../../facade';
-import utils from '../../utils';
 import navigationTpl from './navigation.tpl';
 
 import globaljson from './global.json';
