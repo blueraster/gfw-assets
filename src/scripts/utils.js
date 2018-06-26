@@ -3,6 +3,7 @@
 const smallBreakPoint = 850;
 const whitelist = [
   'www.globalforestwatch.org',
+  'pro-staging.globalforestwatch.org',
   'globalforestwatch.org',
   'localhost',
   'gfw-nav.herokuapp.com',
@@ -70,17 +71,15 @@ const utils = {
     if (window.location.port !== '') {
       currentLocation = `${currentLocation}:${window.location.port}`;
     }
-    return `http://${currentLocation}`;
+    return `https://${currentLocation}`;
   },
 
-  getAPIHost(versioned=false) {
-    let currentLocation = window.location.hostname;
-    let apiLocation = apiUrls[currentLocation] || apiUrls[defaultGfwDomain];
+  getAPIHost(versioned = false) {
+    const currentLocation = window.location.hostname;
+    const apiLocation = apiUrls[currentLocation] || apiUrls[defaultGfwDomain];
 
     if (versioned) {
       return `${apiLocation}/${apiVersion}`;
-    } else {
-      return apiLocation;
     }
 
     return apiLocation;
