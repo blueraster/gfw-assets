@@ -2,6 +2,7 @@
 
 const smallBreakPoint = 850;
 const whitelist = [
+  'pro-staging.globalforestwatch.org',
   'www.globalforestwatch.org',
   'globalforestwatch.org',
   'localhost',
@@ -70,7 +71,7 @@ const utils = {
     if (window.location.port !== '') {
       currentLocation = `${currentLocation}:${window.location.port}`;
     }
-    return `http://${currentLocation}`;
+    return `https://${currentLocation}`;
   },
 
   getAPIHost(versioned=false) {
