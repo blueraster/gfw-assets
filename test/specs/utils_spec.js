@@ -17,7 +17,7 @@ describe('Utils', function () {
     });
 
     it('getHost is a string', function () {
-      expect(utils.getHost()).to.be.a('string').to.equal('http://localhost:' + window.location.port);
+      expect(utils.getHost()).to.be.a('string').to.equal('https://localhost:' + window.location.port);
     });
 
     it('getAPIHost is a string', function () {
