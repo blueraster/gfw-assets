@@ -14,6 +14,21 @@
   .wrapper {
     padding: 0 15px;
 
+    > h3,
+    > p {
+      letter-spacing: 0.1px;
+      color: #999999;
+    }
+
+    > h3 {
+      font-size: 21px;
+      margin: 0.75rem 0;
+    }
+
+    > p {
+      font-size: 14px;
+    }
+
     @media (min-width: $br-mobile){
       padding: 0 20px;
     }
@@ -87,6 +102,7 @@
     }
 
     .m-footer-links-texts {
+      margin: auto;
       display: flex;
       flex-flow: row wrap;
 
@@ -472,342 +488,342 @@
           @include sprite($rainforestalliancehover);
         }
       }
-    //   &.digitalglobe {
-    //     @include sprite($digitalglobe);
-    //     &:hover {
-    //       @include sprite($digitalglobehover);
-    //     }
-    //   }
-    //   &.ejn {
-    //     @include sprite($ejn);
-    //     &:hover {
-    //       @include sprite($ejnhover);
-    //     }
-    //   }
-    //   &.esri {
-    //     @include sprite($esri);
-    //     &:hover {
-    //       @include sprite($esrihover);
-    //     }
-    //   }
-    //   &.ewmi {
-    //     @include sprite($ewmi);
-    //     &:hover {
-    //       @include sprite($ewmihover);
-    //     }
-    //   }
-    //   &.gef {
-    //     @include sprite($gef);
-    //     &:hover {
-    //       @include sprite($gefhover);
-    //     }
-    //   }
-    //   &.generation {
-    //     @include sprite($generation);
-    //     &:hover {
-    //       @include sprite($generationhover);
-    //     }
-    //   }
-    //   &.globalforestwatchcanada {
-    //     @include sprite($globalforestwatchcanada);
-    //     &:hover {
-    //       @include sprite($globalforestwatchcanadahover);
-    //     }
-    //   }
-    //   &.google {
-    //     @include sprite($google);
-    //     &:hover {
-    //       @include sprite($googlehover);
-    //     }
-    //   }
-    //   &.haka {
-    //     @include sprite($haka);
-    //     &:hover {
-    //       @include sprite($hakahover);
-    //     }
-    //   }
-    //   &.icf {
-    //     @include sprite($icf);
-    //     &:hover {
-    //       @include sprite($icfhover);
-    //     }
-    //   }
-    //   &.idb {
-    //     @include sprite($idb);
-    //     &:hover {
-    //       @include sprite($idbhover);
-    //     }
-    //   }
-    //   &.imazon {
-    //     @include sprite($imazon);
-    //     &:hover {
-    //       @include sprite($imazonhover);
-    //     }
-    //   }
-    //   &.inab {
-    //     @include sprite($inab);
-    //     &:hover {
-    //       @include sprite($inabhover);
-    //     }
-    //   }
-    //   &.ioi {
-    //     @include sprite($ioi);
-    //     &:hover {
-    //       @include sprite($ioihover);
-    //     }
-    //   }
-    //   &.lapig {
-    //     @include sprite($lapig);
-    //     &:hover {
-    //       @include sprite($lapighover);
-    //     }
-    //   }
-    //   &.macarthur {
-    //     @include sprite($macarthur);
-    //     &:hover {
-    //       @include sprite($macarthurhover);
-    //     }
-    //   }
-    //   &.minepat {
-    //     @include sprite($minepat);
-    //     &:hover {
-    //       @include sprite($minepathover);
-    //     }
-    //   }
-    //   &.ministiere {
-    //     @include sprite($ministiere);
-    //     &:hover {
-    //       @include sprite($ministierehover);
-    //     }
-    //   }
-    //   &.ministryofforeignaffairs {
-    //     @include sprite($ministryofforeignaffairs);
-    //     &:hover {
-    //       @include sprite($ministryofforeignaffairshover);
-    //     }
-    //   }
-    //   &.moises {
-    //     @include sprite($moises);
-    //     &:hover {
-    //       @include sprite($moiseshover);
-    //     }
-    //   }
-    //   &.mongabay {
-    //     @include sprite($mongabay);
-    //     &:hover {
-    //       @include sprite($mongabayhover);
-    //     }
-    //   }
-    //   &.moore {
-    //     @include sprite($moore);
-    //     &:hover {
-    //       @include sprite($moorehover);
-    //     }
-    //   }
-    //   &.muyissi {
-    //     @include sprite($muyissi);
-    //     &:hover {
-    //       @include sprite($muyissihover);
-    //     }
-    //   }
-    //   &.norwegianministri {
-    //     @include sprite($norwegianministri);
-    //     &:hover {
-    //       @include sprite($norwegianministrihover);
-    //     }
-    //   }
-    //   &.opendevcam {
-    //     @include sprite($opendevcam);
-    //     &:hover {
-    //       @include sprite($opendevcamhover);
-    //     }
-    //   }
-    //   &.opendevmekong {
-    //     @include sprite($opendevmekong);
-    //     &:hover {
-    //       @include sprite($opendevmekonghover);
-    //     }
-    //   }
-    //   &.orbital {
-    //     @include sprite($orbital);
-    //     &:hover {
-    //       @include sprite($orbitalhover);
-    //     }
-    //   }
-    //   &.osfac {
-    //     @include sprite($osfac);
-    //     &:hover {
-    //       @include sprite($osfachover);
-    //     }
-    //   }
-    //   &.osinfor {
-    //     @include sprite($osinfor);
-    //     &:hover {
-    //       @include sprite($osinforhover);
-    //     }
-    //   }
-    //   &.raisg {
-    //     @include sprite($raisg);
-    //     &:hover {
-    //       @include sprite($raisghover);
-    //     }
-    //   }
-    //   &.redd {
-    //     @include sprite($redd);
-    //     &:hover {
-    //       @include sprite($reddhover);
-    //     }
-    //   }
-    //   &.resolve {
-    //     @include sprite($resolve);
-    //     &:hover {
-    //       @include sprite($resolvehover);
-    //     }
-    //   }
-    //   &.rfuk {
-    //     @include sprite($rfuk);
-    //     &:hover {
-    //       @include sprite($rfukhover);
-    //     }
-    //   }
-    //   &.rm {
-    //     @include sprite($rm);
-    //     &:hover {
-    //       @include sprite($rmhover);
-    //     }
-    //   }
-    //   &.rspo {
-    //     @include sprite($rspo);
-    //     &:hover {
-    //       @include sprite($rspohover);
-    //     }
-    //   }
-    //   &.rtrs {
-    //     @include sprite($rtrs);
-    //     &:hover {
-    //       @include sprite($rtrshover);
-    //     }
-    //   }
-    //   &.scannex {
-    //     @include sprite($scannex);
-    //     &:hover {
-    //       @include sprite($scannexhover);
-    //     }
-    //   }
-    //   &.sentinelhub {
-    //     @include sprite($sentinelhub);
-    //     &:hover {
-    //       @include sprite($sentinelhubhover);
-    //     }
-    //   }
-    //   &.sida {
-    //     @include sprite($sida);
-    //     &:hover {
-    //       @include sprite($sidahover);
-    //     }
-    //   }
-    //   &.specialachievement {
-    //     @include sprite($specialachievement);
-    //     &:hover {
-    //       @include sprite($specialachievementhover);
-    //     }
-    //   }
-    //   &.thejanegoodallinstitute {
-    //     @include sprite($thejanegoodallinstitute);
-    //     &:hover {
-    //       @include sprite($thejanegoodallinstitutehover);
-    //     }
-    //   }
-    //   &.thetiliafund {
-    //     @include sprite($thetiliafund);
-    //     &:hover {
-    //       @include sprite($thetiliafundhover);
-    //     }
-    //   }
-    //   &.tipos {
-    //     @include sprite($tipos);
-    //     &:hover {
-    //       @include sprite($tiposhover);
-    //     }
-    //   }
-    //   &.ukaid {
-    //     @include sprite($ukaid);
-    //     &:hover {
-    //       @include sprite($ukaidhover);
-    //     }
-    //   }
-    //   &.unep {
-    //     @include sprite($unep);
-    //     &:hover {
-    //       @include sprite($unephover);
-    //     }
-    //   }
-    //   &.unepwcmc {
-    //     @include sprite($unepwcmc);
-    //     &:hover {
-    //       @include sprite($unepwcmchover);
-    //     }
-    //   }
-    //   &.unilever {
-    //     @include sprite($unilever);
-    //     &:hover {
-    //       @include sprite($unileverhover);
-    //     }
-    //   }
-    //   &.universityofmaryland {
-    //     @include sprite($universityofmaryland);
-    //     &:hover {
-    //       @include sprite($universityofmarylandhover);
-    //     }
-    //   }
-    //   &.urthecast {
-    //     @include sprite($urthecast);
-    //     &:hover {
-    //       @include sprite($urthecasthover);
-    //     }
-    //   }
-    //   &.usaid {
-    //     @include sprite($usaid);
-    //     &:hover {
-    //       @include sprite($usaidhover);
-    //     }
-    //   }
-    //   &.vizzuality {
-    //     @include sprite($vizzuality);
-    //     &:hover {
-    //       @include sprite($vizzualityhover);
-    //     }
-    //   }
-    //   &.whrc {
-    //     @include sprite($whrc);
-    //     &:hover {
-    //       @include sprite($whrchover);
-    //     }
-    //   }
-    //   &.wilburforce {
-    //     @include sprite($wilburforce);
-    //     &:hover {
-    //       @include sprite($wilburforcehover);
-    //     }
-    //   }
-    //   &.wri {
-    //     @include sprite($wri);
-    //     &:hover {
-    //       @include sprite($wrihover);
-    //     }
-    //   }
-    //   &.zeroextinction {
-    //     @include sprite($zeroextinction);
-    //     &:hover {
-    //       @include sprite($zeroextinctionhover);
-    //     }
-    //   }
-    //   &.zsl {
-    //     @include sprite($zsl);
-    //     &:hover {
-    //       @include sprite($zslhover);
-    //     }
-    //   }
+      //   &.digitalglobe {
+      //     @include sprite($digitalglobe);
+      //     &:hover {
+      //       @include sprite($digitalglobehover);
+      //     }
+      //   }
+      //   &.ejn {
+      //     @include sprite($ejn);
+      //     &:hover {
+      //       @include sprite($ejnhover);
+      //     }
+      //   }
+      //   &.esri {
+      //     @include sprite($esri);
+      //     &:hover {
+      //       @include sprite($esrihover);
+      //     }
+      //   }
+      //   &.ewmi {
+      //     @include sprite($ewmi);
+      //     &:hover {
+      //       @include sprite($ewmihover);
+      //     }
+      //   }
+      //   &.gef {
+      //     @include sprite($gef);
+      //     &:hover {
+      //       @include sprite($gefhover);
+      //     }
+      //   }
+      //   &.generation {
+      //     @include sprite($generation);
+      //     &:hover {
+      //       @include sprite($generationhover);
+      //     }
+      //   }
+      //   &.globalforestwatchcanada {
+      //     @include sprite($globalforestwatchcanada);
+      //     &:hover {
+      //       @include sprite($globalforestwatchcanadahover);
+      //     }
+      //   }
+      //   &.google {
+      //     @include sprite($google);
+      //     &:hover {
+      //       @include sprite($googlehover);
+      //     }
+      //   }
+      //   &.haka {
+      //     @include sprite($haka);
+      //     &:hover {
+      //       @include sprite($hakahover);
+      //     }
+      //   }
+      //   &.icf {
+      //     @include sprite($icf);
+      //     &:hover {
+      //       @include sprite($icfhover);
+      //     }
+      //   }
+      //   &.idb {
+      //     @include sprite($idb);
+      //     &:hover {
+      //       @include sprite($idbhover);
+      //     }
+      //   }
+      //   &.imazon {
+      //     @include sprite($imazon);
+      //     &:hover {
+      //       @include sprite($imazonhover);
+      //     }
+      //   }
+      //   &.inab {
+      //     @include sprite($inab);
+      //     &:hover {
+      //       @include sprite($inabhover);
+      //     }
+      //   }
+      //   &.ioi {
+      //     @include sprite($ioi);
+      //     &:hover {
+      //       @include sprite($ioihover);
+      //     }
+      //   }
+      //   &.lapig {
+      //     @include sprite($lapig);
+      //     &:hover {
+      //       @include sprite($lapighover);
+      //     }
+      //   }
+      //   &.macarthur {
+      //     @include sprite($macarthur);
+      //     &:hover {
+      //       @include sprite($macarthurhover);
+      //     }
+      //   }
+      //   &.minepat {
+      //     @include sprite($minepat);
+      //     &:hover {
+      //       @include sprite($minepathover);
+      //     }
+      //   }
+      //   &.ministiere {
+      //     @include sprite($ministiere);
+      //     &:hover {
+      //       @include sprite($ministierehover);
+      //     }
+      //   }
+      //   &.ministryofforeignaffairs {
+      //     @include sprite($ministryofforeignaffairs);
+      //     &:hover {
+      //       @include sprite($ministryofforeignaffairshover);
+      //     }
+      //   }
+      //   &.moises {
+      //     @include sprite($moises);
+      //     &:hover {
+      //       @include sprite($moiseshover);
+      //     }
+      //   }
+      //   &.mongabay {
+      //     @include sprite($mongabay);
+      //     &:hover {
+      //       @include sprite($mongabayhover);
+      //     }
+      //   }
+      //   &.moore {
+      //     @include sprite($moore);
+      //     &:hover {
+      //       @include sprite($moorehover);
+      //     }
+      //   }
+      //   &.muyissi {
+      //     @include sprite($muyissi);
+      //     &:hover {
+      //       @include sprite($muyissihover);
+      //     }
+      //   }
+      //   &.norwegianministri {
+      //     @include sprite($norwegianministri);
+      //     &:hover {
+      //       @include sprite($norwegianministrihover);
+      //     }
+      //   }
+      //   &.opendevcam {
+      //     @include sprite($opendevcam);
+      //     &:hover {
+      //       @include sprite($opendevcamhover);
+      //     }
+      //   }
+      //   &.opendevmekong {
+      //     @include sprite($opendevmekong);
+      //     &:hover {
+      //       @include sprite($opendevmekonghover);
+      //     }
+      //   }
+      //   &.orbital {
+      //     @include sprite($orbital);
+      //     &:hover {
+      //       @include sprite($orbitalhover);
+      //     }
+      //   }
+      //   &.osfac {
+      //     @include sprite($osfac);
+      //     &:hover {
+      //       @include sprite($osfachover);
+      //     }
+      //   }
+      //   &.osinfor {
+      //     @include sprite($osinfor);
+      //     &:hover {
+      //       @include sprite($osinforhover);
+      //     }
+      //   }
+      //   &.raisg {
+      //     @include sprite($raisg);
+      //     &:hover {
+      //       @include sprite($raisghover);
+      //     }
+      //   }
+      //   &.redd {
+      //     @include sprite($redd);
+      //     &:hover {
+      //       @include sprite($reddhover);
+      //     }
+      //   }
+      //   &.resolve {
+      //     @include sprite($resolve);
+      //     &:hover {
+      //       @include sprite($resolvehover);
+      //     }
+      //   }
+      //   &.rfuk {
+      //     @include sprite($rfuk);
+      //     &:hover {
+      //       @include sprite($rfukhover);
+      //     }
+      //   }
+      //   &.rm {
+      //     @include sprite($rm);
+      //     &:hover {
+      //       @include sprite($rmhover);
+      //     }
+      //   }
+      //   &.rspo {
+      //     @include sprite($rspo);
+      //     &:hover {
+      //       @include sprite($rspohover);
+      //     }
+      //   }
+      //   &.rtrs {
+      //     @include sprite($rtrs);
+      //     &:hover {
+      //       @include sprite($rtrshover);
+      //     }
+      //   }
+      //   &.scannex {
+      //     @include sprite($scannex);
+      //     &:hover {
+      //       @include sprite($scannexhover);
+      //     }
+      //   }
+      //   &.sentinelhub {
+      //     @include sprite($sentinelhub);
+      //     &:hover {
+      //       @include sprite($sentinelhubhover);
+      //     }
+      //   }
+      //   &.sida {
+      //     @include sprite($sida);
+      //     &:hover {
+      //       @include sprite($sidahover);
+      //     }
+      //   }
+      //   &.specialachievement {
+      //     @include sprite($specialachievement);
+      //     &:hover {
+      //       @include sprite($specialachievementhover);
+      //     }
+      //   }
+      //   &.thejanegoodallinstitute {
+      //     @include sprite($thejanegoodallinstitute);
+      //     &:hover {
+      //       @include sprite($thejanegoodallinstitutehover);
+      //     }
+      //   }
+      //   &.thetiliafund {
+      //     @include sprite($thetiliafund);
+      //     &:hover {
+      //       @include sprite($thetiliafundhover);
+      //     }
+      //   }
+      //   &.tipos {
+      //     @include sprite($tipos);
+      //     &:hover {
+      //       @include sprite($tiposhover);
+      //     }
+      //   }
+      //   &.ukaid {
+      //     @include sprite($ukaid);
+      //     &:hover {
+      //       @include sprite($ukaidhover);
+      //     }
+      //   }
+      //   &.unep {
+      //     @include sprite($unep);
+      //     &:hover {
+      //       @include sprite($unephover);
+      //     }
+      //   }
+      //   &.unepwcmc {
+      //     @include sprite($unepwcmc);
+      //     &:hover {
+      //       @include sprite($unepwcmchover);
+      //     }
+      //   }
+      //   &.unilever {
+      //     @include sprite($unilever);
+      //     &:hover {
+      //       @include sprite($unileverhover);
+      //     }
+      //   }
+      //   &.universityofmaryland {
+      //     @include sprite($universityofmaryland);
+      //     &:hover {
+      //       @include sprite($universityofmarylandhover);
+      //     }
+      //   }
+      //   &.urthecast {
+      //     @include sprite($urthecast);
+      //     &:hover {
+      //       @include sprite($urthecasthover);
+      //     }
+      //   }
+      //   &.usaid {
+      //     @include sprite($usaid);
+      //     &:hover {
+      //       @include sprite($usaidhover);
+      //     }
+      //   }
+      //   &.vizzuality {
+      //     @include sprite($vizzuality);
+      //     &:hover {
+      //       @include sprite($vizzualityhover);
+      //     }
+      //   }
+      //   &.whrc {
+      //     @include sprite($whrc);
+      //     &:hover {
+      //       @include sprite($whrchover);
+      //     }
+      //   }
+      //   &.wilburforce {
+      //     @include sprite($wilburforce);
+      //     &:hover {
+      //       @include sprite($wilburforcehover);
+      //     }
+      //   }
+      //   &.wri {
+      //     @include sprite($wri);
+      //     &:hover {
+      //       @include sprite($wrihover);
+      //     }
+      //   }
+      //   &.zeroextinction {
+      //     @include sprite($zeroextinction);
+      //     &:hover {
+      //       @include sprite($zeroextinctionhover);
+      //     }
+      //   }
+      //   &.zsl {
+      //     @include sprite($zsl);
+      //     &:hover {
+      //       @include sprite($zslhover);
+      //     }
+      //   }
     }
   }
 

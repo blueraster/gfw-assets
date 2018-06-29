@@ -2,40 +2,8 @@
   <a href="/?show_newsletter=true" class="m-footer-subscribe-button">STAY UPDATED</a>
 </div>
 <div class="wrapper">
-  <div class="m-footer-list">
-    <div class="m-footer-links">
-      <ul class="m-footer-links-texts">
-        <% for (var i = 0; i < links.options.length; i++) { %>
-          <li><a href="<%= links.options[i].url %>"><%= links.options[i].title %></a></li>
-        <% } %>
-      </ul>
-      <ul class="m-footer-links-social">
-        <li>
-          <a href="https://twitter.com/globalforests" target="_blank">
-            <svg class="icon icon-twitter"><use xlink:href="#gfw-header-icon-twitter"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/globalforests/" target="_blank">
-            <svg class="icon icon-facebook"><use xlink:href="#gfw-header-icon-facebook"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/globalforests/" target="_blank">
-            <svg class="icon icon-instagram"><use xlink:href="#gfw-header-icon-instagram"></use></svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="m-footer-links -links-contact-sitemap">
-      <a class="text-button" href="/sitemap">SITEMAP</a>
-      <a class="text-button m-footer-links__contact" href="/?show_contact=true">
-        CONTACT US
-        <svg class="icon icon-contact"><use xlink:href="#gfw-header-icon-contact"></use></svg>
-      </a>
-    </div>
-  </div>
-
+  <h3>Our Partners</h3>
+  <p>GFW Pro has been developed in conjunction with 60+ leading technology, data, and private sector industry partners. Please see a selection of our featured partners below. See a complete list of our partners here.</p>
   <div class="m-footer-info">
     <div class="m-footer-partner">
       <p>A partnership convened by</p>
@@ -73,8 +41,14 @@
       <span class="js_next next"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gfw-header-icon-footer-arrow"></use></svg></span>
     </div>
   </div>
-  <div class="m-footer-terms">
-    <a href="#">Terms of Service</a> ·
-    <a href="http://stats.pingdom.com/ghabapk9rihc" target="_blank">Global Forest Watch System Status</a>
+
+  <div class="m-footer-list">
+    <div class="m-footer-links">
+      <ul class="m-footer-links-texts">
+        <% for (var i = 0; i < links.options.length; i++) { %>
+          <li><a href="<%= links.options[i].url %>"><%= links.options[i].title %></a></li>
+        <% } %>
+      </ul>
+    </div>
   </div>
 </div>
