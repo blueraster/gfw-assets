@@ -1,6 +1,6 @@
 {
   "name": "gfw-assets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Providing a navigation bar and footer shared by all Global Forest Watch websites, such as GFW, GFW Fires, Commodities, etc.",
   "main": "",
   "directories": {

@@ -24,28 +24,28 @@ const links = [
       },
       {
         title: 'Security',
-        url: '#',
+        url: 'http://gfw.blog.s3.amazonaws.com/Training%20Guides/GFW%20Pro%20Landing%20Page/World_Resources_Institute_GFW_Pro_Security.pdf',
       },
-      {
-        title: 'Sharing',
-        url: '#',
-      },
+      // {
+      //   title: 'Sharing',
+      //   url: '#',
+      // },
       {
         title: 'Terms of Service',
-        url: 'http://www.globalforestwatch.org/terms',
+        url: 'http://gfw.blog.s3.amazonaws.com/Training%20Guides/GFW%20Pro%20Landing%20Page/World%20Resources%20Institute%20-%20GFW%20Pro%20-%20Terms%20of%20Service%207_2_2018.pdf',
       },
       {
         title: 'Privacy Policy',
-        url: '#',
+        url: 'http://gfw.blog.s3.amazonaws.com/Training%20Guides/GFW%20Pro%20Landing%20Page/World%20Resources%20Institute%20-%20GFW%20Pro%20-%20Privacy%20Policy%207_2_2018.pdf',
       },
       {
         title: 'Contact Us',
         url: 'http://www.globalforestwatch.org/?show_contact=true',
       },
-      {
-        title: 'For More Information',
-        url: '#',
-      },
+      // {
+      //   title: 'For More Information',
+      //   url: '#',
+      // },
     ],
   },
 ];
