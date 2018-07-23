@@ -46,7 +46,7 @@
     <div class="m-footer-links">
       <ul class="m-footer-links-texts">
         <% for (var i = 0; i < links.options.length; i++) { %>
-          <li><a href="<%= links.options[i].url %>"><%= links.options[i].title %></a></li>
+          <li><a target="_blank" href="<%= links.options[i].url %>"><%= links.options[i].title %></a></li>
         <% } %>
       </ul>
     </div>
