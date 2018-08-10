@@ -24,7 +24,7 @@ const links = [
       },
       {
         title: 'Security',
-        url: 'http://d1ps9kreypzu9a.cloudfront.net/Training%20Guides/GFW%20Pro%20Landing%20Page/World_Resources_Institute_GFW_Pro_Security.pdf',
+        url: 'https://d1ps9kreypzu9a.cloudfront.net/Training%20Guides/GFW%20Pro%20Landing%20Page/World_Resources_Institute_GFW_Pro_Security.pdf',
       },
       // {
       //   title: 'Sharing',
@@ -32,15 +32,15 @@ const links = [
       // },
       {
         title: 'Terms of Service',
-        url: 'http://d1ps9kreypzu9a.cloudfront.net/Training%20Guides/GFW%20Pro%20Landing%20Page/World%20Resources%20Institute%20-%20GFW%20Pro%20-%20Terms%20of%20Service%207_2_2018.pdf',
+        url: 'https://d1ps9kreypzu9a.cloudfront.net/Training%20Guides/GFW%20Pro%20Landing%20Page/World%20Resources%20Institute%20-%20GFW%20Pro%20-%20Terms%20of%20Service%207_2_2018.pdf',
       },
       {
         title: 'Privacy Policy',
-        url: 'http://d1ps9kreypzu9a.cloudfront.net/Training%20Guides/GFW%20Pro%20Landing%20Page/World%20Resources%20Institute%20-%20GFW%20Pro%20-%20Privacy%20Policy%207_2_2018.pdf',
+        url: 'https://d1ps9kreypzu9a.cloudfront.net/Training%20Guides/GFW%20Pro%20Landing%20Page/World%20Resources%20Institute%20-%20GFW%20Pro%20-%20Privacy%20Policy%207_2_2018.pdf',
       },
       {
         title: 'Contact Us',
-        url: 'http://www.globalforestwatch.org/?show_contact=true',
+        url: 'https://www.globalforestwatch.org/?show_contact=true',
       },
       // {
       //   title: 'For More Information',
