@@ -132,7 +132,7 @@
 
       </li> -->
       <li class="m-header-item -default shape-more">
-        <a id="btnSubmenuMore" target="_blank" data-submenu="#submenuMore" title="More in GFW" data-stopnavigation="true" class="m-header-submenu-btn" href="/more">
+        <a id="btnSubmenuMore" target="_blank" data-submenu="#submenuMore" title="More in GFW" data-stopnavigation="true" class="m-header-submenu-btn" href="https://gfwpro.globalforestwatch.org/more">
           <div class='text-more'>
             More
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-explore"></use></svg>
