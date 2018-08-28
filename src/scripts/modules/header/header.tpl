@@ -26,7 +26,7 @@
         </div>
       </li> -->
       <li class="m-header-item -default -only-desktop shape-howto">
-        <a class="link-analytics" title="How to" target="_blank" href="https://www.globalforestwatch.org/howto">
+        <a class="link-analytics" title="How to" target="_blank" href="https://d1ps9kreypzu9a.cloudfront.net/Training%20Guides/GFW%20Pro%20Tutorials/GFW_Pro_UserGuide.pdf">
           <div class="-svg">
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-h-howto"></use></svg>
           </div>
