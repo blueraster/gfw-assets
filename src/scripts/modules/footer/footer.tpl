@@ -3,7 +3,7 @@
 </div>
 <div class="wrapper">
   <h3>Our Partners</h3>
-  <p>GFW Pro has been developed in conjunction with 60+ leading technology, data, and private sector industry partners. Please see a selection of our featured partners below. See a complete list of our partners here.</p>
+  <p>GFW Pro has been developed in conjunction with 60+ leading technology, data, and private sector industry partners. Please see a selection of our featured partners below. See a complete list of our partners <a href="https://www.globalforestwatch.org/about" target="_blank">here</a>.</p>
   <div class="m-footer-info">
     <div class="m-footer-partner">
       <p>A partnership convened by</p>

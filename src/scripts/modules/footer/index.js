@@ -31,6 +31,10 @@ const links = [
       //   url: '#',
       // },
       {
+        title: 'Sharing',
+        url: 'http://d1ps9kreypzu9a.cloudfront.net/Training%20Guides/GFW%20Pro%20Landing%20Page/GFW%20Pro%20Information%20Sharing%20One%20Pager_April2019.pdf',
+      },
+      {
         title: 'Terms of Service',
         url: 'https://d1ps9kreypzu9a.cloudfront.net/Training%20Guides/GFW%20Pro%20Landing%20Page/World%20Resources%20Institute%20-%20GFW%20Pro%20-%20Terms%20of%20Service%207_2_2018.pdf',
       },
