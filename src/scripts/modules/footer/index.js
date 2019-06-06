@@ -44,7 +44,7 @@ const links = [
       },
       {
         title: 'Contact Us',
-        url: 'https://www.globalforestwatch.org/?show_contact=true',
+        url: 'https://www.globalforestwatch.org/?contactUs=true&show_contact=true',
       },
       // {
       //   title: 'For More Information',
