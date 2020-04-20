@@ -77,6 +77,7 @@ class Header {
    */
   setParams() {
     var $parent = document.querySelector('#loader-gfw');
+    document.getElementById('btnSubmenuMore').href = `${document.location.origin}/more`;
     this.params = {
       current: $parent ? $parent.getAttribute('data-current') : undefined
     }
