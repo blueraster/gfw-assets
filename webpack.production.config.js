@@ -59,7 +59,7 @@ module.exports = {
         region: 'us-east-1'
       },
       s3UploadOptions: {
-        Bucket: 'gfw-assets/static'
+        Bucket: 'gfwpro-site-assets/js'
       },
     })
   ],
