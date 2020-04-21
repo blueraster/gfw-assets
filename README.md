@@ -116,3 +116,10 @@ mounted on http://localhost:9090
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin feature/my-new-feature`
 5. Submit a pull request :D
+
+---
+
+## Uploading build files to S3 bucket
+- Bucket name: `gfwpro-site-assets/js`
+- Make sure you provide correct AWS PROFILE inside `./util/s3-sync.sh` --profile `your_aws_profile` **line 15**
+- Run `npm run postpublish`
