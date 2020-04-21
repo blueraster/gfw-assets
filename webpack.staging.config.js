@@ -3,7 +3,6 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var path = require('path');
-var S3Plugin = require('webpack-s3-plugin');
 
 // Importing dot env configuration
 require('dotenv').config({silent: true});
@@ -49,22 +48,6 @@ module.exports = {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new S3Plugin({
-      directory: 'dist',
-      exclude: /.*\.html$/,
-      s3Options: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-        region: 'us-east-1'
-      },
-      s3UploadOptions: {
-        Bucket: 'beta.blueraster.io/gfw-assets/static'
-      },
-      cloudfrontInvalidateOptions: {
-        DistributionId: process.env.CLOUDFRONT_DISTRIBUTION_ID,
-        Items: ['/gfw-assets/static/*'],
-      }
-    })
   ],
 
   sassLoader: {
