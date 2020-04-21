@@ -50,18 +50,6 @@ module.exports = {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new S3Plugin({
-      directory: 'dist',
-      exclude: /.*\.html$/,
-      s3Options: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-        region: 'us-east-1'
-      },
-      s3UploadOptions: {
-        Bucket: 'gfw-assets/static'
-      },
-    })
   ],
 
   sassLoader: {
