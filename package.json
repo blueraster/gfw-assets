@@ -52,7 +52,7 @@
     "start": "./node_modules/.bin/webpack-dev-server --hot --progress --color --host 0.0.0.0 --port 9090",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --color",
     "publish": "NODE_ENV=production ./node_modules/.bin/webpack --config ./webpack.production.config.js --progress --color",
-    "postpublish": "./util/s3-sync.sh",
+    "postpublish": "npm run nightly && ./util/s3-sync.sh",
     "nightly": "NODE_ENV=production ./node_modules/.bin/webpack --config ./webpack.staging.config.js --progress --color",
     "test": "./node_modules/.bin/karma start --single-run",
     "test-watch": "./node_modules/.bin/karma start --auto-watch"

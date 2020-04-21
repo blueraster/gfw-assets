@@ -119,7 +119,9 @@ mounted on http://localhost:9090
 
 ---
 
-## Uploading build files to S3 bucket
+## Updating build files and uploading to S3 bucket
 - Bucket name: `gfwpro-site-assets/js`
-- Make sure you provide correct AWS PROFILE inside `./util/s3-sync.sh` --profile `your_aws_profile` **line 15**
-- Run `npm run postpublish`
+- Make sure you provide correct AWS PROFILE inforamtion inside `./util/s3-sync.sh` bash file **line 15**
+- To update build files and push to S3 bucket run `npm run publish`. This will:
+    - Create `dev, latest and nightly` version of build files
+    - Push build files to S3 using AWS CLI that 
